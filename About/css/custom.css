@@ -1,0 +1,621 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{
+	margin:0; padding:0;
+}
+body{font-size:1rem;}
+.container-navbar
+{
+	width: 75%;
+	padding-right: auto;
+	padding-left: auto;
+	margin-right: auto;
+	margin-left: auto;
+}
+.container-body
+{
+	width: 75%;
+	padding-right: auto;
+	padding-left: auto;
+	margin-right: auto;
+	margin-left: auto;
+}
+.logo img{
+  width:auto;
+  margin:10px auto;
+}
+.font-lg
+{
+	font-size:large;
+}
+
+.bg-sm-light
+{
+	background-color: #f8f9fa !important;
+}
+.font-weight{font-weight:600;}
+.text-darkblue{color:#314b90;}
+/*Top Design BG*/
+.topD1
+{
+	background:url(../images/topD1.png) no-repeat;
+	-webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    background-size: 100%;
+    -o-background-size: 100%;
+	height:258px;
+}
+.social a{ 
+    border: 2px solid;
+	border-color:transparent;
+	height: 35px;
+	width: 35px;
+	display: block;
+	border-radius: 50%;
+	-webkit-transition: border-color 1s; /* Safari prior 6.1 */
+     transition: border-color 1s;
+}
+
+.social a:hover{ 
+	border: 2px solid;
+	border-color:white;
+	height: 35px;
+	width: 35px;
+	display: block;
+	border-radius: 50%;
+}
+.nav-item a {
+    color: #314b90 !important;
+}
+
+.nav-item a:hover {
+    color: #0033FF !important;
+}
+
+.curver
+{
+  background-image:url(../images/counter.png) !important;
+  background-position:bottom;
+  background-repeat:no-repeat;
+  background-size:100%;
+  height:auto;
+  padding-bottom:25%;
+}
+/*-------------Puzzle--------------------------*/
+.puzzleblue
+{
+	background:url(../images/puzzle_blue.png) no-repeat left top;
+	background-size:100%;
+	width:100%;
+	margin:10px auto;
+}
+.puzzleblue .list-left {
+    padding-top:60px;
+	padding-bottom:60px;
+}
+
+.puzzlered
+{
+	background:url(../images/puzzle-red.png) no-repeat left top;
+	background-size:100%;
+	width:100%;
+	margin:10px auto;
+}
+.puzzlered .list-left {
+    padding-top:60px;
+	padding-bottom:60px;
+}
+.list-left-item {
+    display:list-item;
+    padding: 0.40rem 0.25rem;
+    border: none;
+	background:none;
+	list-style-image:url(../images/list_icon.png);
+}
+
+.puzzleblue h1 {
+    font-size: learge;
+    color: white;
+    padding: 24% 0 0 7%;
+    font-weight: 600;
+}
+
+.puzzlered h1{
+	font-size: learge;
+    color: white;
+    padding: 45% 0 0 7%;
+    font-weight: 600;
+}
+
+.margin-top-1
+{
+	margin-top:150px;
+}
+/*---------------------------------------------------------------------------------------------------*/
+/*--------------------------------@media--------------------------------------------------------*/
+@media (min-width: 360px) {
+.container-navbar
+{
+	width: 100%;
+	padding-right: auto;
+	padding-left: auto;
+	margin-right: auto;
+	margin-left: auto;
+}
+.container-body
+{
+	width: 90%;
+	padding-right: auto;
+	padding-left: auto;
+	margin-right: auto;
+	margin-left: auto;
+}
+.bg-sm-light
+{
+	background-color: #f8f9fa !important;
+}
+.topD1
+{
+	background:none;
+	height:auto;
+	background-color:#314b90;
+}	
+.logo img{
+  width:60%;
+  margin:10px auto;
+}
+.puzzleblue
+{
+	background:url(../images/puzzle_blue.png) no-repeat left top;
+	background-size:70%;
+	width:100%;
+	margin:10px auto;
+	height:auto;
+}
+.puzzlered
+{
+	background:url(../images/puzzle-red.png) no-repeat left top;
+	background-size:70%;
+	width:100%;
+	margin:10px auto;
+	height:auto;
+}
+.puzzleblue .list-left {
+    padding-top:30px;
+	padding-bottom:0px;
+	padding-left:35px;
+}
+.puzzlered .list-left {
+    padding-top:20px;
+	padding-bottom:0px;
+	padding-left:35px;
+}
+.list-left-item {
+    display:list-item;
+    padding: 0.40rem 0.25rem;
+    border: none;
+	background:none;
+	list-style-image:url(../images/list_icon.png);
+}
+.puzzleblue h1 {
+    font-size: 25px;
+    color: white;
+    padding: 12% 2%;
+    font-weight: 600;
+}
+
+.puzzlered h1 {
+    font-size: 23px;
+    color: white;
+    padding: 27% 12%;
+    font-weight: 600;
+}
+}
+
+@media (min-width: 576px) {
+.container-navbar
+{
+	width: 100%;
+	padding-right: auto;
+	padding-left: auto;
+	margin-right: auto;
+	margin-left: auto;
+}
+.container-body
+{
+	width: 90%;
+	padding-right: auto;
+	padding-left: auto;
+	margin-right: auto;
+	margin-left: auto;
+}
+.bg-sm-light
+{
+	background-color: #f8f9fa !important;
+}
+.topD1
+{
+	background:none;
+	height:auto;
+	background-color:#314b90;
+}	
+.logo img{
+  width:60%;
+  margin:10px auto;
+}
+.puzzleblue
+{
+	background:url(../images/puzzle_blue.png) no-repeat left top;
+	background-size:40%;
+	width:100%;
+	margin:10px auto;
+}
+.puzzlered
+{
+	background:url(../images/puzzle-red.png) no-repeat left top;
+	background-size:30%;
+	width:100%;
+	margin:10px auto;
+}
+.puzzleblue .list-left {
+    padding-top:30px;
+	padding-bottom:0px;
+	padding-left:60px;
+}
+.puzzlered .list-left {
+    padding-top:20px;
+	padding-bottom:0px;
+	padding-left:60px;
+	padding-right:16%
+}
+.list-left-item {
+    display:list-item;
+    padding: 0.40rem 0.25rem;
+    border: none;
+	background:none;
+	list-style-image:url(../images/list_icon.png);
+}
+.puzzleblue h1 {
+    font-size: 18px;
+    color: white;
+    padding: 35% 0 0 10%;
+    font-weight: 600;
+}
+
+.puzzlered h1 {
+    font-size: 18px;
+    color: white;
+    padding: 55% 0 0 25%;
+    font-weight: 600;
+}
+body{font-size:1.3rem;} 
+}
+
+@media (min-width: 720px) {
+	
+body{font-size:1.3rem;} 
+.bg-sm-light
+{
+	background-color: #f8f9fa !important;
+}
+.container-navbar
+{
+	width: 100%;
+	padding-right: auto;
+	padding-left: auto;
+	margin-right: auto;
+	margin-left: auto;
+}
+.container-body
+{
+	width: 95%;
+}
+
+.topD1
+{
+	background:url(../images/topD1.png) no-repeat;
+	height:258px;
+}
+.logo img{
+  width:auto;
+  margin:10px auto;
+}
+.puzzleblue
+{
+	background:url(../images/puzzle_blue.png) no-repeat left top;
+	width:100%;
+	margin:10px auto;
+	background-size:30%
+}
+
+.puzzlered
+{
+	background:url(../images/puzzle-red.png) no-repeat left top;
+	width:100%;
+	margin:10px auto;
+	background-size:25%
+}
+
+.puzzleblue .list-left {
+    padding-top:30px;
+	padding-bottom:0px;
+	padding-left:25px;
+}
+.puzzlered .list-left {
+    padding-top:40px;
+	padding-bottom:0px;
+	padding-left:25px;
+	padding-right:16%;
+}
+.list-left-item {
+    display:list-item;
+    padding: 0.40rem 0.25rem;
+    border: none;
+	background:none;
+	list-style-image:url(../images/list_icon.png);
+}
+.puzzleblue h1 {
+    font-size: 16px;
+    color: white;
+    padding: 25% 0 0 10%;
+    font-weight: 600;
+}
+
+.puzzlered h1 {
+    font-size: 16px;
+    color: white;
+    padding: 45% 0 0 21%;
+    font-weight: 600;
+}
+
+}
+@media (min-width: 992px) {
+
+.container-navbar
+{
+	width: 75%;
+}
+
+.container-body
+{
+	width: 90%;
+}
+.font-lg {
+    font-size: 15px;
+}
+.bg-sm-light
+{
+	background-color: transparent !important;
+}
+.logo img{
+  width:auto;
+  margin:10px auto;
+}
+
+.puzzleblue
+{
+	background:url(../images/puzzle_blue.png) no-repeat left top;
+	width:100%;
+	margin:10px auto;
+	background-size:40%;
+	height: 200px;
+}
+
+.puzzlered
+{
+	background:url(../images/puzzle-red.png) no-repeat left top;
+	width:100%;
+	margin:10px auto;
+	background-size:30%;
+	height: 250px;
+}
+.puzzleblue .list-left {
+    padding-top:50px;
+	padding-bottom:0px;
+	padding-left:60px;
+}
+.puzzlered .list-left {
+    padding-top:60px;
+	padding-bottom:0px;
+	padding-left:60px;
+	padding-right:16%;
+}
+.list-left-item {
+    display:list-item;
+    padding: 0.40rem 0.25rem;
+    border: none;
+	background:none;
+	list-style-image:url(../images/list_icon.png);
+}
+.puzzleblue h1 {
+    font-size: 30px;
+    color: white;
+    padding: 35% 0 0 10%;
+    font-weight: 600;
+}
+
+.puzzlered h1 {
+    font-size: 30px;
+    color: white;
+    padding: 55% 0 0 21%;
+    font-weight: 600;
+}
+
+body{font-size:1.3rem;} 	
+}
+
+
+@media (min-width: 1200px) {
+body{font-size:1rem;}
+.container-body
+{
+	width: 90%;
+}
+.font-lg {
+    font-size: large;
+}
+.logo img{
+  width:auto;
+  margin:10px auto;
+}
+
+.puzzleblue
+{
+	background:url(../images/puzzle_blue.png) no-repeat left top;
+	width:100%;
+	margin:10px auto;
+	background-size:40%;
+	height: 230px;
+}
+
+.puzzlered
+{
+	background:url(../images/puzzle-red.png) no-repeat left top;
+	width:100%;
+	margin:10px auto;
+	background-size:35%;
+	height: 350px;
+}
+
+.puzzleblue .list-left {
+    padding-top:60px;
+	padding-bottom:60px;
+	padding-left:80px;
+}
+.puzzlered .list-left {
+    padding-top:120px;
+	padding-bottom:60px;
+	padding-left:80px;
+}
+.list-left-item {
+    display:list-item;
+    padding: 0.40rem 0.25rem;
+    border: none;
+	background:none;
+	list-style-image:url(../images/list_icon.png);
+}
+.puzzleblue h1 {
+    font-size: 35px;
+    color: white;
+    padding: 30% 0 0 9%;
+    font-weight: 600;
+}
+
+.puzzlered h1 {
+    font-size: 35px;
+    color: white;
+    padding: 62% 0 0 24%;
+    font-weight: 600;
+}
+.curver
+{
+  padding-bottom:30%;
+}
+}
+
+@media (min-width: 1600px) {
+.container-body
+{
+	width: 70%;
+}
+
+.puzzleblue
+{
+	background:url(../images/puzzle_blue.png) no-repeat left top;
+	width:100%;
+	margin:10px auto;
+	height: 230px;
+}
+.puzzlered
+{
+	background:url(../images/puzzle-red.png) no-repeat left top;
+	width:100%;
+	margin:10px auto;
+	height: 360px;
+}
+.puzzleblue .list-left {
+    padding-top:60px;
+	padding-bottom:60px;
+	padding-left:50px;
+}
+.puzzlered .list-left {
+    padding-top:120px;
+	padding-bottom:60px;
+	padding-left:50px;
+}
+.list-left-item {
+    display:list-item;
+    padding: 0.40rem 0.25rem;
+    border: none;
+	background:none;
+	list-style-image:url(../images/list_icon.png);
+}
+.puzzleblue h1 {
+    font-size: learge;
+    color: white;
+    padding: 24% 0 0 7%;
+    font-weight: 600;
+}
+
+.puzzlered h1 {
+    font-size: learge;
+    color: white;
+    padding: 55% 0 0 25%;
+    font-weight: 600;
+}
+body{font-size:1rem;}
+}
+
+@media (min-width: 1900px) {
+.container-body
+{
+	width: 70%;
+}
+
+.puzzleblue
+{
+	background:url(../images/puzzle_blue.png) no-repeat left top;
+	width:100%;
+	margin:10px auto;
+	height: 230px;
+}
+.puzzlered
+{
+	background:url(../images/puzzle-red.png) no-repeat left top;
+	width:100%;
+	margin:10px auto;
+	height: 360px;
+}
+.puzzleblue .list-left {
+    padding-top:60px;
+	padding-bottom:60px;
+	padding-left:50px;
+}
+.puzzlered .list-left {
+    padding-top:120px;
+	padding-bottom:60px;
+	padding-left:50px;
+}
+.list-left-item {
+    display:list-item;
+    padding: 0.40rem 0.25rem;
+    border: none;
+	background:none;
+	list-style-image:url(../images/list_icon.png);
+}
+.puzzleblue h1 {
+    font-size: learge;
+    color: white;
+    padding: 24% 0 0 7%;
+    font-weight: 600;
+}
+
+.puzzlered h1 {
+    font-size: learge;
+    color: white;
+    padding: 45% 0 0 25%;
+    font-weight: 600;
+}
+body{font-size:1rem;}
+}

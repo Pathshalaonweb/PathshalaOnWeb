@@ -1,0 +1,191 @@
+<?php
+include_once('config.php'); 
+class Searchteacher extends DB{
+
+	function __construct(){
+		$this->connect();
+	}
+	
+	function cityAction($fields){
+		
+		$response = array();
+		//$result = $this->conn->query($sql);
+		if(!empty($fields['state_id'])){
+		$select_query = mysqli_query($this->conn,"Select * from tbl_cities where state_id='".$fields['state_id']."'");
+		}else{
+		$select_query = mysqli_query($this->conn,"Select * from tbl_cities");
+		}
+		$rec = mysqli_fetch_array($select_query);
+		$response['Result'] = array("status"=>1);
+		$response['Result']['Data'][] = array($rec);
+		
+		return json_encode($response);
+	}
+	
+	
+	function stateAction($fields){
+		
+		
+		$response = array();
+		if(!empty($fields['state_id'])){
+		$select_query = mysqli_query($this->conn,"Select * from tbl_states where id='".$fields['state_id']."'");
+		}else{
+		$select_query = mysqli_query($this->conn,"Select * from tbl_states");
+		}
+		$rec = mysqli_fetch_array($select_query);
+		$response['Result'] = array("status"=>1);
+		$response['Result']['Data'][] = array($rec);
+		return json_encode($response);
+
+	}
+	
+	function categoryAction($fields){
+		
+		
+		$response = array();
+		if(!empty($fields['category_id'])){
+		$select_query = mysqli_query($this->conn,"Select * from wl_categories where category_id='".$fields['category_id']."'");
+		}else{
+		$select_query = mysqli_query($this->conn,"Select * from wl_categories");
+		}
+		$rec = mysqli_fetch_array($select_query);
+		$response['Result'] = array("status"=>1);
+		$response['Result']['Data'][] = array($rec);
+		return json_encode($response);
+
+	}	
+	
+	function searchteachers($fields){
+		$response = array();
+		$where="  AND `a`.`account_approved` = '1'";
+		if(!empty($fields['state'])){
+			$where .=" AND `b`.`class` = '".$fields['state']."' ";
+		}
+		if(!empty($fields['city'])){
+			
+		}
+		//echo $fields['pincode'];
+		if(!empty($fields['pincode'])){
+			 $where .=" AND `a`.`pincode` = '".$fields['pincode']."' ";
+		}
+		if(!empty($fields['classes'])){
+			$where .=" AND `b`.`class` = '".$fields['classes']."' ";
+		}
+		if(!empty($fields['subject'])){
+			
+		}
+		if(!empty($fields['category'])){
+			$where .=" AND `b`.`category` = '".$fields['state']."' ";
+		}
+		if(!empty($fields['bath_time'])){
+			
+		}
+		
+	 	$sql="SELECT DISTINCT SQL_CALC_FOUND_ROWS* FROM `wl_teacher` `a` INNER JOIN `wl_teacher_profile` `b` ON
+			`b`.`teacher_id`=`a`.`teacher_id` WHERE `a`.`status` ='1' ".$where." GROUP BY `b`.`teacher_id` ORDER BY `b`.`teacher_id` ASC";
+		$select_query = mysqli_query($this->conn,$sql);
+		mysqli_set_charset($this->conn, 'utf8');
+		$arr['Result'] = array("success"=>1,"code"=>0);
+		
+		while($rec = mysqli_fetch_array($select_query)) {
+			
+			
+			$image=NULL;
+			if(!empty($rec['picture'])){
+				$image .="https://www.pathshala.co/uploaded_files/teacher/".$rec['picture'];
+			}else{
+				$image .="https://www.pathshala.co/assets/designer/themes/default/images/logo_new.png";
+			}
+			
+			$arr['Result']['data'][] = array(   'teacher_id'	=>$rec['teacher_id'],
+												'user_name'		=>$rec['user_name'],
+												"first_name"	=>$rec['first_name'],
+												"customer_photo"=>$image,
+												"status"		=>$rec['status'],
+												"is_verified"	=>$rec['is_verified'],
+												"is_blocked"	=>$rec['is_blocked'],
+												"address"		=>$rec['address'], 
+												//"description"	=>strip_tags($rec['description']),
+												"experience_year"=>$rec['experience_year'],
+												"experience_month"=>$rec['experience_month'],
+												"youtube"		=>$rec['youtube'],
+												"image1"		=>$rec['image1'],
+												"image1"		=>$rec['image1'],
+												"image1"		=>$rec['image1'],
+												"image1"		=>$rec['image1'],
+												"pdf"			=>$rec['pdf'],
+												"pdf1"			=>$rec['pdf1'],
+												"pdf2"			=>$rec['pdf2'],
+												"current_credit"=>$rec['current_credit'],
+												"plan_expire"	=>$rec['plan_expire'],
+												"account_approved"=>$rec['account_approved'],
+												"fee"			=>$rec['fee'],
+												"pincode"		=>$rec['pincode'],
+												"Class"			=>$this->get_cat_name($rec['class']),
+												"Subject"		=>$this->get_cat_name($rec['subject']),
+												"State"     	=>$rec['state_id'],
+												"Location"    	=>$rec['location'],
+												"bath_time"     =>$rec['bath_time'],
+												"description"   =>$this->test_input($rec['description']),
+												);
+				}
+				//print_r($arr);
+		return json_encode($arr);
+		}
+	
+	
+/*	SELECT DISTINCT SQL_CALC_FOUND_ROWS* FROM `wl_teacher`
+`a` INNER JOIN `wl_teacher_profile` `b` ON
+`b`.`teacher_id`=`a`.`teacher_id` WHERE `b`.`class` =
+'171' AND `b`.`category` = '170' AND `a`.`status` = '1' AND
+`a`.`account_approved` = '1' GROUP BY `b`.`teacher_id` ORDER
+BY `b`.`teacher_id` ASC*/
+	public function get_cat_name($id){
+		$sql		  ="SELECT * FROM `wl_categories` where category_id='".$id."' AND status='1'";
+		$select_query = mysqli_query($this->conn,$sql);
+		$rec 		  = mysqli_fetch_array($select_query);
+		return $rec['category_name'];
+	}	
+
+ function itemListing(){
+		
+		$response = array();
+		$select_query = mysql_query("Select * from items order by name asc");
+		$arr['Result'] = array("success"=>1,"code"=>0);
+		while($rec = mysql_fetch_array($select_query)){
+			if($rec['item_image']==""){
+			 $image_url=0;
+			}else{
+			   $image_url = "http://kishrita.com/development/webservice/item_image/".$rec['item_image'];
+
+			}
+			
+			
+			$arr['Result']['data'][] = array('name'=>$rec['name'],'item_id'=>$rec['item_id'],"serial_number"=>$rec['box_id'],"replacement_cost"=>$rec['replacement_cost'],"description"=>$rec['description'],"category_id"=>$rec['category_id'],"location_id"=>$rec['location_id'],"box_id"=>$rec['box_id'],"item_image"=>$image_url,"project_id"=>$rec['project_id']);
+		    
+		}
+		
+		//$response['response']['success'] = 1;
+		return json_encode($arr);
+	
+	}
+	
+	
+	function test_input($data) {
+		$data = trim($data);
+		$data = stripslashes($data);
+		$data = htmlspecialchars($data);
+		$data = strip_tags($data);
+		//$data = preg_replace('/[^A-Za-z0-9 ]/', '', $data);
+		$val = array("\n","\r");
+		$data = str_replace($val, "", $data);
+  		return $data;
+	}
+ 
+ }
+
+
+
+
+
+?>

@@ -1,0 +1,184 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+class Admin_Controller extends MY_Controller
+{	
+	
+	public function __construct()
+	{
+		 parent::__construct();			
+		 $this->load->library(array('adminzone/jquery_pagination'));	
+		 $this->load->model(array('utils_model'));
+		 $this->admin_lib->is_admin_logged_in(); 
+		 $this->admin_log_data = array(
+                                                    'admin_user' => $this->session->userdata('admin_user'),
+                                                    'adm_key'    => $this->session->userdata('adm_key'),
+                                                    'admin_type' => $this->session->userdata('admin_type'),
+                                                    'admin_id' => $this->session->userdata('admin_id'),
+                                             );
+		
+
+		  $this->deletePrvg = $this->admin_log_data['admin_type'] == '1' ? TRUE : FALSE;
+
+		  $this->editPrvg = $this->admin_log_data['admin_type'] == '3' ? FALSE : TRUE;
+
+		  $this->activatePrvg = $this->admin_log_data['admin_type'] == '3' ? FALSE : TRUE;
+
+		  $this->deactivatePrvg = $this->admin_log_data['admin_type'] == '3' ? FALSE : TRUE;
+
+		  $this->orderPrvg = $this->admin_log_data['admin_type'] == '3' ? FALSE : TRUE;
+
+		  $this->featuredPrvg = $this->admin_log_data['admin_type'] == '3' ? FALSE : TRUE;
+
+		  $this->orderstatusPrvg = $this->admin_log_data['admin_type'] == '3' ? FALSE : TRUE;
+
+		  $this->newslettermailPrvg = $this->admin_log_data['admin_type'] == '3' ? FALSE : TRUE;
+		
+	}
+	
+	public function update_status($table,$auto_field='id')
+	{		
+		$current_controller    = $this->router->fetch_class();
+		$action                = $this->input->post('status_action',TRUE);	
+	    $arr_ids               = $this->input->post('arr_ids',TRUE);
+		$category_count        = $this->input->post('category_count',TRUE);
+		$product_count         = $this->input->post('product_count',TRUE);	
+		
+		if( is_array($arr_ids) )
+		{
+			$str_ids = implode(',', $arr_ids);
+			if($action=='Activate')
+			{				 
+				foreach($arr_ids as $k=>$v )
+				{
+					$data = array('status'=>'1');
+					$where = "$auto_field ='$v'";					
+					$this->utils_model->safe_update($table,$data,$where,FALSE);
+					$this->session->set_userdata(array('msg_type'=>'success'));
+					$this->session->set_flashdata('success',lang('activate') );
+				}	
+			}
+			if($action=='Deactivate')
+			{	  	//print_r($_POST); die;
+				foreach($arr_ids as $k=>$v )
+				{ 
+					/*$total_category  = ( $category_count!='' ) ?  count_category("AND parent_id='$v' AND status='1'")     : '0';
+					//print_r($current_controller); die;	 
+					if($current_controller=='department')
+					{		
+						$total_product   = count_subject("AND department_id='$v' AND status='1'");
+					}
+					else
+					{ 
+						$total_product   = ( $product_count!='' )  ?  count_products("AND category_id='$v' AND status='1'")   : '0';
+					}
+					if( $total_category>0 || $total_product > 0 )
+					{
+						$this->session->set_userdata(array('msg_type'=>'error'));
+						$this->session->set_flashdata('error',lang('child_to_deactivate'));
+					}
+					else
+					{   */
+						$data = array('status'=>'0');
+						//$where = "$auto_field ='$v'";
+						$where = "$auto_field IN ($str_ids)";						
+						$this->utils_model->safe_update($table,$data,$where,FALSE);
+						$this->session->set_userdata(array('msg_type'=>'success'));
+						$this->session->set_flashdata('success',lang('deactivate') );
+					//}
+					//echo "hi"; die;
+				}	
+			}
+			if($action=='Delete')
+			{
+				foreach($arr_ids as $k=>$v )
+				{
+					/*$total_category  = ( $category_count!='' ) ?  count_category("AND parent_id='$v' ")     : '0';
+					if($current_controller=='department')
+					{		
+						$total_product   = count_subject("AND department_id='$v' AND status='1'");
+					}
+					else
+					{
+						$total_product   = ( $product_count!='' )  ?  count_products("AND category_id='$v' ")   : '0';
+						//print_r($total_product); die;
+					}
+					if( $total_category>0 || $total_product > 0 )
+					{
+						$this->session->set_userdata(array('msg_type'=>'error'));
+						$this->session->set_flashdata('error',lang('child_to_delete'));
+					}
+					else
+					{ */ 
+						$where = array($auto_field=>$v);
+						$this->utils_model->safe_delete($table,$where,TRUE);
+						$this->session->set_userdata(array('msg_type'=>'success'));
+						$this->session->set_flashdata('success',lang('deleted') );
+							
+					//}						  
+				}	
+				
+			}			
+			if($action=='Tempdelete')
+			{	
+				$data = array('status'=>'2');
+				$where = "$auto_field IN ($str_ids)";
+				$this->utils_model->safe_update($table,$data,$where,FALSE);
+				$this->session->set_userdata(array('msg_type'=>'success'));
+				$this->session->set_flashdata('success',lang('deleted'));	
+			 }				 			
+        }
+		redirect($_SERVER['HTTP_REFERER'], '');
+	}
+	public function set_as($table,$auto_field='id',$data=array())
+	{		
+		$arr_ids               = $this->input->post('arr_ids',TRUE);
+		
+		if( is_array($arr_ids ) )
+		{
+			
+			$str_ids = implode(',', $arr_ids);
+			 
+			if( is_array($data) && !empty($data) )
+			{
+				$data = $data;
+				$where = "$auto_field IN ($str_ids)";
+				$this->utils_model->safe_update($table,$data,$where,FALSE);
+				$this->session->set_userdata(array('msg_type'=>'success'));
+				$this->session->set_flashdata('success',"Record has been updated/deleted successfully.");			
+			}	
+			
+		   redirect($_SERVER['HTTP_REFERER'], '');
+		   
+		}
+		
+	}
+	
+	
+	/*
+	
+	$tblname = name of table 
+	$fldname = order column name  of table 
+	$fld_id  =  auto increment column name of table
+			
+	*/	
+	
+    public function update_displayOrder($tblname,$fldname,$fld_id)
+	{
+		$posted_order_data=$this->input->post('ord');
+		foreach($posted_order_data as $key=>$val)
+		//while(list($key,$val)=each($posted_order_data))
+		{
+			if( $val!='' )
+			{
+				 $val = (int) $val;
+				 $data = array($fldname=>$val);
+				 $where = "$fld_id=$key";
+				 $this->utils_model->safe_update($tblname,$data,$where,TRUE);			
+			}
+				
+		}
+		$this->session->set_userdata(array('msg_type'=>'success'));
+		$this->session->set_flashdata('success',lang('order_updated'));		
+		redirect($_SERVER['HTTP_REFERER'], '');
+	}
+	
+}
