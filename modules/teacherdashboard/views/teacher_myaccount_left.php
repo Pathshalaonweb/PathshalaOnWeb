@@ -12,7 +12,9 @@
 		?>
          <ul>
           <li><a href="<?php echo base_url();?>teacherdashboard/myaccount">Search Students Online</a></li>
+
           <li><a href="<?php echo base_url();?>teacherdashboard/profile">List Yourself</a></li>
+          <li><a href="https://pie.scobotic.com/" target="_blank">Live Classes</li>
           <li><a href="<?php echo base_url();?>teacherdashboard/edit_account">Edit Account</a></li>
           <li><a href="<?php echo base_url();?>teacherdashboard/credit">Wallet/Credit History 
           <span style="color:#F00;">(<?php echo ($mem_info['current_credit']==0)?"0":$mem_info['current_credit'];?>)</span></a></li>

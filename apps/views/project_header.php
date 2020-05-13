@@ -44,12 +44,18 @@
                   <li><a href="<?php echo base_url()?>">HOME</a></li>
                   <li><a href="<?php echo base_url();?>search">Search Tutor</a></li>
                   <li><a href="<?php echo base_url();?>courses">Search Courses</a></li>
+                  <?php if($this->session->userdata('user_id') > 0 ) {} 
+                        elseif($this->session->userdata('teacher_id') > 0 ) {} else {?>
+                  <li><a href="<?php echo base_url();?>users/login">Live Classes</a></li>
+                  <?php }?>
                   <?php if($this->session->userdata('user_id') > 0 ){?>
+                  <li><a href="https://pie.scobotic.com/" target="_blank">Live Classes</a></li>
                   <li><a href="<?php echo base_url();?>members/myaccount">My Account</a></li>
                   <li><a href="<?php echo base_url();?>lms">Pathshala Lms</a></li>
                   <?php }else{?>
                   <?php if($this->session->userdata('teacher_id') > 0 ){?>
-                  <?php }else{?>
+                    <li><a href="https://pie.scobotic.com/" target="_blank">Live Classes</a></li>
+                  <?php  }else{?>
                   <li><a href="<?php echo base_url();?>users/login">Student Login</a></li>
                   <?php }?>
                   <?php }?>
@@ -75,7 +81,7 @@
               <li><a href="<?php echo base_url();?>search">Search Tutor</a></li>
               <li><a href="<?php echo base_url();?>courses">Search Courses</a></li>
               <?php if($this->session->userdata('user_id') > 0 ){?>
-              
+              <li><a href="<?php //echo base_url();?>#">Live Classes</a></li>
               <li><a href="<?php echo base_url();?>members/myaccount">My Account</a></li>
               <?php }else{?>
               <li><a href="<?php echo base_url();?>users/login">Student Login</a></li>
