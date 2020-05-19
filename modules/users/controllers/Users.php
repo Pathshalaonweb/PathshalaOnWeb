@@ -264,7 +264,8 @@ class Users extends Public_Controller
 			//$this->form_validation->set_rules('confirm_password', 'Confirm passsword', 'required|matches[password]');		 			
 			$this->form_validation->set_rules('first_name', 'Name', 'trim|required|alpha|max_length[32]|xss_clean');
 			$this->form_validation->set_rules('phone_number', 'Phone','trim|required|max_length[10]|xss_clean');	
-			$this->form_validation->set_rules('category', 'Category', 'trim|required|xss_clean');
+			$this->form_validation->set_rules('classes', 'Classes', 'required');
+			//$this->form_validation->set_rules('classes', 'Classes', 'trim|required|xss_clean')
 			//$this->form_validation->set_rules('address', 'Phone','trim|required|max_length[300]|xss_clean');
 			//$this->form_validation->set_rules('pincode', 'Pincode','trim|required|max_length[6]|xss_clean');
 			//$this->form_validation->set_rules('description', 'Description','trim|required|max_length[350]|xss_clean');
@@ -291,7 +292,7 @@ class Users extends Public_Controller
 					//'title'            => $this->input->post('title',TRUE),
 					'first_name'       	=> $this->input->post('first_name',TRUE),
 					'last_name'        	=> $this->input->post('last_name',TRUE),
-					'category'          => $this->input->post('category',TRUE),
+					'class_dropdown'    => $this->input->post('classes',TRUE),
 					'picture'			=> $uploaded_file,
 					'phone_number'    	=> $this->input->post('phone_number',TRUE),	
 					'actkey'           	=> md5($this->input->post('user_name',TRUE)),
@@ -400,14 +401,8 @@ class Users extends Public_Controller
 	public function verify()
 	{		 
 		$this->users_model->activate_account($this->uri->segment(3) );		
-	}	
-	
-	
-
-
-
-
-		
+	}
+			
 
 
 }

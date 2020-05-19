@@ -1,42 +1,46 @@
 <?php
-class Live extends Public_Controller
+class Liveclasses extends Public_Controller
 {
 	public function __construct()
 	{
 		parent::__construct(); 
-		$this->load->model(array('courses/courses_model','payment/payment_model','order/order_model'));
+		$this->load->model(array('liveclasses/liveclasses_model','payment/payment_model','order/order_model'));
 	    $this->load->library('Ajax_pagination');
 		$this->load->helper(array('payment/paytm'));
-		$this->perPage = 30;
+		$this->perPage = 10;
 	}
 	
 	public function index()
 	{	
 
  		$data = array();
-        //total rows count
-        $totalRec = count($this->courses_model->get_course_row());
+		//total rows count
+		$db1 = $this->load->database('default', TRUE);
+		$sqll = "SELECT * FROM `wl_teacher`  where liveplan=1";
+		$queryy=$db1->query($sqll);
+		$totalRec = $queryy->num_rows();
+        //$totalRec = count($this->liveclasses_model->get_course_row());
         //pagination configuration
         $config['target']      = '#postList';
-        $config['base_url']    = base_url().'live/ajaxPaginationData';
+        $config['base_url']    = base_url().'liveclasses/ajaxPaginationData';
         $config['total_rows']  = $totalRec;
         $config['per_page']    = $this->perPage;
         $config['link_func']   = 'searchFilter';
         $this->ajax_pagination->initialize($config);
         //get the posts data
-        $data['res'] = $this->courses_model->get_course_row(array('limit'=>$this->perPage));
+        $data['res'] = $this->liveclasses_model->get_course_row(array('limit'=>$this->perPage));
         $data['totalRec']=$totalRec;
         //load the view
 		$data['heading_title'] = "Advanced Search";						
-		 $this->load->view('live/view_live',$data);
+		 $this->load->view('liveclasses/view_liveclasses',$data);
 	}
 	
 	public function detail(){
 		$id=$this->uri->segment('3');
 		$param=array('courses_friendly_url'=>$id);
-		$res = $this->courses_model->get_courses(1,0,$param);
+		$res = $this->liveclasses_model->getliveclasses(1,0,$param);
 		$data['res']=$res;
-		$this->load->view('courses/view_course_detail',$data);
+		$this->load->view('liveclasses/view_course_detail',$data);
 	}
 	
 	
@@ -64,11 +68,14 @@ class Live extends Public_Controller
              $conditions['search']['category'] = $category;
         }
 		//total rows count
-        $totalRec = count($this->courses_model->get_course_row($conditions));
+		$db1 = $this->load->database('default', TRUE);
+		$sqll = "SELECT * FROM `wl_teacher`  where liveplan=1";
+		$queryy=$db1->query($sqll);
+		$totalRec = $queryy->num_rows();
 		// echo $db2->last_query();die;
         //pagination configuration
         $config['target']      = '#postList';
-        $config['base_url']    = base_url().'courses/ajaxPaginationData';
+        $config['base_url']    = base_url().'liveclasses/ajaxPaginationData';
         $config['total_rows']  = $totalRec;
         $config['per_page']    = $this->perPage;
         $config['link_func']   = 'searchFilter';
@@ -77,22 +84,38 @@ class Live extends Public_Controller
         $conditions['start'] = $offset;
         $conditions['limit'] = $this->perPage;
         //get posts data
-        $data['res'] = $this->courses_model->get_course_row($conditions);
+        $data['res'] = $this->liveclasses_model->get_course_row($conditions);
         //echo_sql();
         //load the view
-        $this->load->view('courses/view_search_courses', $data, false);
+        $this->load->view('liveclasses/view_search_liveclasses', $data, false);
 		}
 		
-		public function getcourses(){
-			$db2 = $this->load->database('database2', TRUE);
+		// public function getcourses(){
+		// 	$db2 = $this->load->database('database2', TRUE);
+		// 	$id=$_POST['category_id'];
+		// 	$sql="SELECT * FROM `tbl_courses`  where category_id='$id'  ORDER BY courses_name";
+		// 	$query=$db2->query($sql);
+		// 	if($query->num_rows()>0){
+		// 	foreach($query->result_array() as $val):
+		// 		echo "<option value='".$val['courses_id']."'>".$val['courses_name']."</option>";
+		// 	endforeach;
+		// 	}else{
+		// 		echo "<option value=''>NO recode </option>";	
+		// 	}
+		// }
+		public function getliveclasses()
+		{
+			$db2 = $this->load->database('default', TRUE);
+        	$sql="SELECT * FROM `wl_teacher`  where liveplan=1";
 			$id=$_POST['category_id'];
-			$sql="SELECT * FROM `tbl_courses`  where category_id='$id'  ORDER BY courses_name";
 			$query=$db2->query($sql);
 			if($query->num_rows()>0){
 			foreach($query->result_array() as $val):
 				echo "<option value='".$val['courses_id']."'>".$val['courses_name']."</option>";
 			endforeach;
-			}else{
+			}
+			else
+			{
 				echo "<option value=''>NO recode </option>";	
 			}
 		}
@@ -104,16 +127,16 @@ class Live extends Public_Controller
 			   'courseEnroll' => TRUE
 			);  
 			$this->session->set_userdata($newdata);	
-			redirect('courses/enroll', 'refresh');
+			redirect('liveclasses/enroll', 'refresh');
 		}
 		
 		public function enroll(){
 			 $course_id 		= $this->session->userdata('course_id');
 			 $param 			= array('status'=>'1','course_id'=>$course_id);	
-			 $res_array			=$this->courses_model->get_courses(1,0,$param);
+			 $res_array			=$this->liveclasses_model->get_courses(1,0,$param);
 			// print_r($res_array);
 			 $data['res'] 		= $res_array;
-			 $this->load->view('courses/view_course_enroll', $data, false);	
+			 $this->load->view('liveclasses/view_course_enroll', $data, false);	
 		}
 		
 		public function freepayment(){
@@ -239,7 +262,7 @@ class Live extends Public_Controller
 							'WEBSITE'			=>	"WEBSTAGING",
 							'TXN_AMOUNT' 		=> 	$ammount,
 							'mobile'			=>  $mem_info['phone_number'],
-							'return_url'	    =>  base_url() . 'courses/payment_status_paytm',
+							'return_url'	    =>  base_url() . 'liveclasses/payment_status_paytm',
 								 
 					);
 	       // error_reporting(E_ALL);
@@ -420,8 +443,6 @@ class Live extends Public_Controller
 		//Process transaction as suspicious.
 	}
  }   
-
-
 
 }
 ?>

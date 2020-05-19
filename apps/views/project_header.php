@@ -46,7 +46,7 @@
                   <li><a href="<?php echo base_url();?>courses">Search Courses</a></li>
                   <?php if($this->session->userdata('user_id') > 0 ) {} 
                         elseif($this->session->userdata('teacher_id') > 0 ) {} else {?>
-                  <li><a href="<?php echo base_url();?>users/login">Live Classes</a></li>
+                  <li><a href="<?php echo base_url();?>liveclasses">Live Classes</a></li>
                   <?php }?>
                   <?php if($this->session->userdata('user_id') > 0 ){?>
                   <li><a href="https://pie.scobotic.com/" target="_blank">Live Classes</a></li>
@@ -81,7 +81,7 @@
               <li><a href="<?php echo base_url();?>search">Search Tutor</a></li>
               <li><a href="<?php echo base_url();?>courses">Search Courses</a></li>
               <?php if($this->session->userdata('user_id') > 0 ){?>
-              <li><a href="<?php //echo base_url();?>#">Live Classes</a></li>
+              <li><a href="<?php echo base_url();?>liveclasses">Live Classes</a></li>
               <li><a href="<?php echo base_url();?>members/myaccount">My Account</a></li>
               <?php }else{?>
               <li><a href="<?php echo base_url();?>users/login">Student Login</a></li>

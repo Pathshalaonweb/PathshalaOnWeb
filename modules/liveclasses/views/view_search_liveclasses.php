@@ -1,14 +1,17 @@
 <div class="row">
                   <?php
-                if(is_array($res) && !empty($res)) {
+                // $db1 = $this->load->database('default', TRUE);
+                // $sql="SELECT * FROM `wl_teacher`  where liveplan=1";
+                // $query=$db1->query($sql);
+                if(is_array($res) && !empty($res)){
                     foreach($res as $val)
                     {
                 ?>
                   <div class="col-xl-4 col-lg-6 col-md-6 col-sm-4 listAll">
                     <div class="single-blog"><!--removed className(mb-30)-->
                       <div class="blog-img"> <a href="javascript:void(0)">
-                      <?php if(!empty($val['image'])) {?>
-                      <img src="<?php echo base_url();?>lms/uploaded_files/courses/<?php echo $val['image']?>" alt="" data-href="<?php echo base_url();?>courses/coursedetail/<?php echo $val['courses_id'];?>" data-name="<?php echo $val['courses_name']?>" class="openPopup">
+                      <?php if(!empty($val['picture'])) {?>
+                      <img src="<?php echo base_url();?>/uploaded_files/teacher/<?php echo $val['picture']?>" alt="" data-href="<?php echo base_url();?>courses/coursedetail/<?php echo $val['courses_id'];?>" data-name="<?php echo $val['courses_name']?>" class="openPopup">
                       <?php } else {?>
                       <img src="<?php echo get_image('category',$val['image'],50,50,'AR');?>" />
                       <?php }?>
@@ -18,7 +21,7 @@
                           <!--<div class="pro-title-rating-wrap">
                             <div class="product-rating"> <i class="zmdi zmdi-star"></i> <i class="zmdi zmdi-star"></i> <i class="zmdi zmdi-star"></i> <i class="zmdi zmdi-star"></i> <i class="zmdi zmdi-star"></i> </div>
                           </div>-->
-                          <h4 class="topicTitle"><a href="#">Topic:<?php echo $val['courses_name']?></a></h4>
+                          <!-- <h4 class="topicTitle"><a href="#">Topic:<?php //echo $val['courses_name']?></a></h4> -->
                           <!--<h4 class="topicTitle"><a href="#">Class:<b>11th</b></a></h4>-->
                           <?php 
 						 // $sql="SELECT * FROM `wl_teacher` where status='1' ";
@@ -37,9 +40,9 @@
                         </div>
                         <div class="blog-date">
                         <?php if($this->session->userdata('user_id') > 0 ){?> 
-                        <a href="<?php echo base_url();?>/courses/enrollDetail/<?php echo $val['courses_id']?>" class="lms_buy"><i class="fa fa-money"></i> Book Now</a>
+                        <a href="<?php echo base_url();?>/courses/enrollDetail/<?php echo $val['courses_id']?>" class="lms_buy"><i class="fa fa-money"></i> Join Now</a>
                         <?php }else{?>
-                        <a href="<?php echo base_url();?>users/login" class="lms_buy"> <i class="fa fa-money"></i> Book Now</a>
+                        <a href="<?php echo base_url();?>users/login" class="lms_buy"> <i class="fa fa-money"></i> Join Now</a>
                         <?php }?>
                         </div>
                       </div>

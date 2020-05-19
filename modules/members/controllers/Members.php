@@ -76,7 +76,8 @@ class Members extends Private_Controller{
 						'description'			 =>$this->input->post('description'),
 						//'class'			 		 =>$this->input->post('class'),
 						//'subject'			 	 =>$this->input->post('subject')
-						'profile_edit'			 => '1'
+						'profile_edit'			 => '1',
+						'class_dropdown'         => $this->input->post('classes')
 						
 				);
 				$where  = "customers_id = '".$mres['customers_id']."'"; 

@@ -6,22 +6,22 @@
         <div class="row">
           <div class="col-md-3"></div>
           <div class="col-md-3">
-            <select name="category" onChange="searchFilter()" id="category" class="form-control">
-              <option value="">Select category</option>
+            <!-- <select name="category" onChange="searchFilter()" id="category" class="form-control">
+              <option value="">Select category</option> -->
             <?php 
-	  		$db2 = $this->load->database('database2', TRUE);
-			$sql="SELECT * FROM `tbl_department`  where status='1' AND parent_id='0' ORDER BY sort_order";
-			$query=$db2->query($sql);
-			foreach($query->result_array() as $val): 
+	  		//$db2 = $this->load->database('database2', TRUE);
+			//$sql="SELECT * FROM `tbl_department`  where status='1' AND parent_id='0' ORDER BY sort_order";
+			//$query=$db2->query($sql);
+			//foreach($query->result_array() as $val): 
 	  		?>
-              <option value="<?php echo $val['category_id']?>"><?php echo $val['category_name']?></option>
-              <?php endforeach;?>
-            </select>
+              <!-- <option value="<?php //echo $val['category_id']?>"><?php //echo $val['category_name']?></option> -->
+              <?php //endforeach;?>
+            <!-- </select> -->
           </div>
           <div class="col-md-3">
-            <select id="subject" name="subject" onChange="searchFilter()" class="form-control">
+            <!-- <select id="subject" name="subject" onChange="searchFilter()" class="form-control">
               <option value="">Select Subject</option>
-            </select>
+            </select> -->
           </div>
           <div class="col-md-3"></div>
           <!--<div class="col-md-3">
@@ -42,7 +42,7 @@
         <div class="sidebar-style">
           <div class="sidebar-search mb-40">
             <div class="sidebar-title mb-40">
-              <h4 class="left_lms_heading">Popular Courses</h4>
+              <h4 class="left_lms_heading">Popular Topic of Class</h4>
             </div>
           </div>
           <div class="sidebar-category mb-40">
@@ -50,13 +50,17 @@
               <ul>
                 <?php
 				//print_r($res);
-				$db2 = $this->load->database('database2', TRUE); 
-				$sql="SELECT * FROM `tbl_department` where status='1' AND  parent_id='0'";
-				$query=$db2->query($sql);
-				foreach($query->result_array() as $val){
+				//$db2 = $this->load->database('database2', TRUE); 
+				//$sql="SELECT * FROM `tbl_department` where status='1' AND  parent_id='0'";
+				//$query=$db2->query($sql);
+				//foreach($query->result_array() as $val){
 				?>
-                <li><a href="#"><?php echo $val['category_name']?></a></li>
-                <?php }?>
+                <!-- <li><a href="#"><?php //echo $val['category_name']?></a></li> -->
+                <?php //}?>
+                <li>Mathematics for Class 10th</li>
+                <li>E.V.S. for Class 8th</li>
+                <li>Integrals for Class 12th</li>
+                <li>Trignometry for Class 10th</li>
               </ul>
             </div>
           </div>
@@ -66,23 +70,28 @@
         <div class="blog-all-wrap mr-40">
           <div class="row">
             <div class="container">
-              <h3 class="proTitle">Latest Courses</h3>
+              <h3 class="proTitle">Live Classes</h3>
             </div>
             <form method="post">
               <div class="container" id="postList">
                 <div class="row">
                   <?php
-                if(is_array($res) && !empty($res)) {
-                    foreach($res as $val)
+                  // $db1 = $this->load->database('default', TRUE);
+                  // $sql="SELECT * FROM `wl_teacher`  where liveplan=1";
+			            // $query=$db1->query($sql);
+			            if(is_array($res) && !empty($res)){
+		          	    //foreach($query->result_array() as $val):
+                //if(is_array($res) && !empty($res)) {
+                  foreach($res as $val)
                     {
                 ?>
                   <div class="col-xl-4 col-lg-6 col-md-6 col-sm-4 listAll">
                     <div class="single-blog"><!--removed className(mb-30)-->
                       <div class="blog-img"> <a href="javascript:void(0)">
-                      <?php if(!empty($val['image'])) {?><a href="<?php echo base_url();?>courses/detail/<?php echo $val['courses_friendly_url']?>">
-                      <img src="<?php echo base_url();?>lms/uploaded_files/courses/<?php echo $val['image']?>" alt="" data-href="<?php echo base_url();?>courses/coursedetail/<?php echo $val['courses_id'];?>" data-name="<?php echo $val['courses_name']?>"></a>
+                      <?php if(!empty($val['picture'])) {?><a href="<?php echo base_url();?>#">
+                      <img src="<?php echo base_url();?>/uploaded_files/teacher/<?php echo $val['picture']?>" alt="" data-href="<?php echo base_url();?>courses/coursedetail/<?php echo $val['courses_id'];?>" data-name="<?php echo $val['courses_name']?>"></a>
                       <?php } else {?>
-                      <a href="<?php echo base_url();?>courses/detail/<?php echo $val['courses_friendly_url']?>">
+                      <a href="<?php //echo base_url();?><?php //echo $val['courses_friendly_url']?>">
                       <img src="<?php echo get_image('category',$val['image'],50,50,'AR');?>"/><!--class="openPopup"--></a>
                       <?php }?>
                        </div>
@@ -91,7 +100,7 @@
                           <!--<div class="pro-title-rating-wrap">
                             <div class="product-rating"> <i class="zmdi zmdi-star"></i> <i class="zmdi zmdi-star"></i> <i class="zmdi zmdi-star"></i> <i class="zmdi zmdi-star"></i> <i class="zmdi zmdi-star"></i> </div>
                           </div>-->
-                          <h4 class="topicTitle"><a href="#">Topic:<?php echo $val['courses_name']?></a></h4>
+                          <!-- <h4 class="topicTitle"><a href="#">Topic:<?php //echo $val['courses_name']?></a></h4> -->
                          <?php 
 						 // $sql="SELECT * FROM `wl_teacher` where status='1' ";
 						 // $row=$thsi->db->query($sql)->row();
@@ -107,15 +116,15 @@
                           
                           <div class="blog-meta">
                             <ul>
-                              <li><a href="javascript:void(0)" class="lms_price"><?php if($val['price']==1){?>Free<?php }else{ ?>&#x20B9;<?php echo $val['price'];?><?php }?></a></li>
+                              <!-- <li><a href="javascript:void(0)" class="lms_price"><?php //if($val['price']==1){?>Free<?php //}else{ ?>&#x20B9;<?php //echo $val['price'];?><?php //}?></a></li> -->
                             </ul>
                           </div>
                         </div>
                         <div class="blog-date">
                         <?php if($this->session->userdata('user_id') > 0 ){?> 
-                        <a href="<?php echo base_url();?>/courses/enrollDetail/<?php echo $val['courses_id']?>" class="lms_buy"><i class="fa fa-money"></i> Buy Now</a>
+                        <a href="<?php echo base_url();?>/courses/enrollDetail/<?php echo $val['courses_id']?>" class="lms_buy"><i class="fa fa-money"></i> Join Now</a>
                         <?php }else{?>
-                        <a href="<?php echo base_url();?>users/login" class="lms_buy"> <i class="fa fa-money"></i> Buy Now</a>
+                        <a href="<?php echo base_url();?>users/login" class="lms_buy"> <i class="fa fa-money"></i> Join Now</a>
                         <?php }?>
                         </div>
                       </div>
@@ -143,7 +152,7 @@ function searchFilter(page_num) {
 	$("#wait").css("display", "block");
     $.ajax({
         type: 'POST',
-        url: '<?php echo base_url(); ?>courses/ajaxPaginationData/'+page_num,
+        url: '<?php echo base_url(); ?>liveclasses/ajaxPaginationData/'+page_num,
         data:{page:page_num,category:category},
         beforeSend: function () {
             $('.loading').show();
