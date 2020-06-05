@@ -444,6 +444,62 @@ class Teacherdashboard extends Teacher_Controller{
 			return false;
 			}
 		}	
+		public function liveclass()
+		{
+			$date = new DateTime('now');
+			$currentDate = $date->format('Y-m-d h:i:s');
+			$id = $this->session->userdata('teacher_id');
+			$dbe = $this->load->database('default', TRUE);
+			$sqs = "SELECT * FROM `wl_teacher` WHERE teacher_id='".$id."'";
+			$qus=$dbe->query($sqs);
+			$values= $qus->result_array();
+			if($values[0]['plan_expire'] < $currentDate || $values[0]['liveplan'] !="1" )
+			{
+				echo "<script>alert('Please Buy a Plan.'); window.location = '".base_url()."teacherdashboard/plan'</script>";
+			}
+			else
+			{
+			//$name = $values[0]['first_name'];
+			$ch = curl_init();  
+			$url = "LiveApi.Scobotic.com/api/Teacher/Registration?frAppId=pathshala&frAppPass=pathshala5572&emailId=".$values[0]['user_name']."&password=pathshala5572&name=".$values[0]['user_name']."&mobile=".$values[0]['phone_number']."&city=delhi&gender=".$values[0]['gender']."&subjectIds=001&batchIds=001";
+			curl_setopt($ch,CURLOPT_URL,$url);
+			curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+			$output=curl_exec($ch);
+			//echo $url;
+			curl_close($ch);
+			$jsonOutput = json_decode($output,true);
+			//print_r($output);
+			//var_dump($jsonOutput);
+			if($jsonOutput['Token']=="" && $jsonOutput['Status']=="0")
+			{
+				if($jsonOutput['Message']== "EmailId already registered")
+				{
+					//Proceed with Login API
+					$loginURL = "LiveApi.Scobotic.com/api/Teacher/Login?frAppId=pathshala&frAppPass=pathshala5572&emailId=".$values[0]['user_name'];
+					$loginCh = curl_init();
+					curl_setopt($loginCh,CURLOPT_URL,$loginURL);
+					curl_setopt($loginCh,CURLOPT_RETURNTRANSFER,true);
+					$loginOutput=curl_exec($loginCh);
+					//print_r($loginOutput);
+					curl_close($loginCh);
+					$loginArr = json_decode($loginOutput,true);
+					if($loginArr['Token'] != "")
+					{
+						redirect("https://".$loginArr['Url'], '');
+					}
+					else
+					{
+						echo "<script>alert('Error Occured! Please try Again.');</script>";
+					}
+
+				}
+			}
+			elseif($jsonOutput['Token'] != "")
+			{
+				redirect("https://".$jsonOutput['Url'], '');
+			}
+		}
+		}
 	
 	
 }

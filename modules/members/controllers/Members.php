@@ -278,6 +278,56 @@ class Members extends Private_Controller{
 		 $data['res']            =  $res_array; 	
 		 $this->load->view('members/credit/view_list_credit',$data);
 	}
+	public function liveclass()
+	{	
+		$id = $this->session->userdata('user_id');
+		$dbe = $this->load->database('default', TRUE);
+		$sqs = "SELECT * FROM `wl_customers` WHERE customers_id='".$id."'";
+		$qus=$dbe->query($sqs);
+		$values= $qus->result_array();
+		if($values[0]['class_dropdown'] == "")
+		{
+			echo "<script>alert('Please choose a course.'); window.location = '".base_url()."members/edit_account'</script>";
+		}
+		else
+		{
+		$ch = curl_init();  
+		$url = "LiveApi.Scobotic.com/api/Registration?frAppId=pathshala&frAppPass=pathshala5572&emailId=".$values[0]['user_name']."&password=pathshala5572&userName=".$values[0]['user_name']."&city=delhi&mobile=".$values[0]['phone_number']."&parentPhoneNumber=".$values[0]['phone_number']."&stateId=22&streamId=024&classId=".$values[0]['class_dropdown']."&subjectIds=321&batchIds=001";
+		curl_setopt($ch,CURLOPT_URL,$url);
+		curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+		$output=curl_exec($ch);
+		curl_close($ch);
+		$jsonOutput = json_decode($output,true);
+		if($jsonOutput['Token']=="" && $jsonOutput['Status']=="0")
+		{
+			if($jsonOutput['Message']== "EmailId already registered")
+			{
+				//Proceed with Login API
+				$loginURL = "LiveApi.Scobotic.com/api/Login?frAppId=pathshala&frAppPass=pathshala5572&emailId=".$values[0]['user_name'];
+				$loginCh = curl_init();
+				curl_setopt($loginCh,CURLOPT_URL,$loginURL);
+				curl_setopt($loginCh,CURLOPT_RETURNTRANSFER,true);
+				$loginOutput=curl_exec($loginCh);
+				//print_r($loginOutput);
+				curl_close($loginCh);
+				$loginArr = json_decode($loginOutput,true);
+				if($loginArr['Token'] != "")
+				{
+					redirect("https://".$loginArr['Url'], '');
+				}
+				else
+				{
+					echo "<script>alert('Error Occured! Please try Again.');</script>";
+				}
+
+			}
+		}
+		elseif($jsonOutput['Token'] != "")
+		{
+			redirect("https://".$jsonOutput['Url'], '');
+		}
+	}
+	}
 	
 }
 /* End of file member.php */

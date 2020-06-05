@@ -49,12 +49,24 @@
                   <li><a href="<?php echo base_url();?>liveclasses">Live Classes</a></li>
                   <?php }?>
                   <?php if($this->session->userdata('user_id') > 0 ){?>
-                  <li><a href="https://pie.scobotic.com/" target="_blank">Live Classes</a></li>
+                  <li><a href="<?php echo base_url();?>members/liveclass" target="_blank">Live Classes</a></li>
                   <li><a href="<?php echo base_url();?>members/myaccount">My Account</a></li>
                   <li><a href="<?php echo base_url();?>lms">Pathshala Lms</a></li>
                   <?php }else{?>
                   <?php if($this->session->userdata('teacher_id') > 0 ){?>
-                    <li><a href="https://pie.scobotic.com/" target="_blank">Live Classes</a></li>
+                  <?php $idd = $this->session->userdata('teacher_id');
+                      $dbe = $this->load->database('default', TRUE);
+                      $sq = "SELECT liveplan FROM `wl_teacher` WHERE teacher_id='".$idd."'";
+                      $qu=$dbe->query($sq);
+                      $value= $qu->result_array();
+                      $liveplan = $value[0]['liveplan'];
+                      if($liveplan == 1)
+                      {
+                  ?>
+                    <li><a href="<?php echo base_url(); ?>teacherdashboard/liveclass" target="_blank">Live Classes</a></li>
+                      <?php } else { ?>
+                    <li><a href="<?php echo base_url(); ?>teacherdashboard/plan">Live Classes</a></li>
+                      <?php } ?>
                   <?php  }else{?>
                   <li><a href="<?php echo base_url();?>users/login">Student Login</a></li>
                   <?php }?>

@@ -442,7 +442,77 @@ class Liveclasses extends Public_Controller
 		echo "<b>Checksum mismatched.</b>";
 		//Process transaction as suspicious.
 	}
- }   
+ }
+	 public function usercredits()
+	 {
+		if($this->uri->segment(3)=='pathshala5572')
+		{
+			if($this->uri->segment(4))
+			{
+				$email = urldecode($this->uri->segment(4));
+				//echo $email;
+				$dbe = $this->load->database('default', TRUE);
+				$sqs = "SELECT credit_point,first_name FROM `wl_customers` WHERE user_name='".$email."'";
+				$qus=$dbe->query($sqs);
+				$values= $qus->result_array();
+				if($values[0]['first_name'])
+				{
+					if($values[0]['credit_point'] =="" || $values[0]['credit_point'] == "0")
+					{
+						$response->status = "0";
+						$response->message = 'Low Credits';
+						$response->credits = false;
+						//$response->ip = $_SERVER['REMOTE_ADDR'];
+						$jsonResponse = json_encode($response);
+						echo $jsonResponse;
+
+					}
+					else
+					{
+						$sq ="UPDATE `wl_customers` SET credit_point=credit_point-1";
+						$ip=$_SERVER['REMOTE_ADDR'];
+						$sqq = "INSERT INTO `usercredits_log` (`ip`, `email`) values ('".$ip."', '".$email."')";
+						$que = $dbe->query($sq); 
+						$que = $dbe->query($sqq); 
+						$response->status = "1";
+						$response->message = 'Success';
+						$response->credits = true;
+						$jsonResponse = json_encode($response);
+						echo $jsonResponse;
+					}
+				}
+				else
+				{
+					$response->status = "0";
+					$response->message = 'Email Not found.';
+					$response->credits = false;
+					$jsonResponse = json_encode($response);
+					echo $jsonResponse;
+
+				}
+				
+			}
+			else
+			{
+				$response->status = "-1";
+				$response->message = 'Invalid URL';
+				$response->credits = false;
+				$jsonResponse = json_encode($response);
+				echo $jsonResponse;
+			}
+			
+		}
+		else
+		{
+			$response->status = "-1";
+			$response->message = 'Invalid URL';
+			$response->credits = false;
+			$jsonResponse = json_encode($response);
+			echo $jsonResponse;
+		}
+
+
+	 }   
 
 }
 ?>

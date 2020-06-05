@@ -265,6 +265,7 @@ class Payment extends Public_Controller
 						'credit_date' 	 	 	 => $this->config->item('config.date.time'),
 						'plan_expire'			 => $expireDate,
 						'payment_status' 	 	 => "Paid",
+						'liveplan'               => "1",
 					);
 		$insert=$this->db->insert('wl_teacher_plan_history',$data);
 		//echo_sql();echo "<br>";

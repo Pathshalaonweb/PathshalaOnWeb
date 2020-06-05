@@ -14,7 +14,17 @@
           <li><a href="<?php echo base_url();?>teacherdashboard/myaccount">Search Students Online</a></li>
 
           <li><a href="<?php echo base_url();?>teacherdashboard/profile">List Yourself</a></li>
-          <li><a href="https://pie.scobotic.com/" target="_blank">Live Classes</li>
+          <?php $idds = $this->session->userdata('teacher_id');
+           $dbes = $this->load->database('default', TRUE);
+           $sqs = "SELECT liveplan FROM `wl_teacher` WHERE teacher_id='".$idds."'";
+           $qus=$dbes->query($sqs);
+           $values= $qus->result_array();
+           $liveplans = $values[0]['liveplan'];
+           if($liveplans == 1){ ?>
+          <li><a href="<?php echo base_url(); ?>teacherdashboard/liveclass" target="_blank">Live Classes</li>
+           <?php } else { ?>
+            <li><a href="<?php echo base_url(); ?>teacherdashboard/plan">Live Classes</a></li>
+          <?php } ?>
           <li><a href="<?php echo base_url();?>teacherdashboard/edit_account">Edit Account</a></li>
           <li><a href="<?php echo base_url();?>teacherdashboard/credit">Wallet/Credit History 
           <span style="color:#F00;">(<?php echo ($mem_info['current_credit']==0)?"0":$mem_info['current_credit'];?>)</span></a></li>

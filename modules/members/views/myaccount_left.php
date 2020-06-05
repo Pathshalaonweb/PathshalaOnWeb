@@ -11,7 +11,7 @@
           <li><a href="<?php echo base_url();?>members/myaccount">Dashboard</a></li>
           <li><a href="<?php echo base_url();?>members/edit_account">Edit Account</a></li>
           <li><a href="<?php echo base_url();?>lms">My Lms</a></li>
-          <li><a href="https://pie.scobotic.com/" target="_blank">Live Classes</li>
+          <li><a href="<?php echo base_url();?>members/liveclass" target="_blank">Live Classes</li>
           <li><a href="javascript:void(0)"><?php if(!empty($mem_info['credit_point'])){echo "Wallet/Credit History :<strong>".$mem_info['credit_point']."</strong>";}else{echo "Wallet/Credit History :<strong>00:00</strong>";}?></a></li>
           <li><a href="<?php echo base_url();?>members/credit">Buy Subscription</a></li>
           <!--<li><a href="<?php echo base_url();?>members/edit_account">Transaction History </a></li>-->

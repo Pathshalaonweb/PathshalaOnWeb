@@ -281,6 +281,31 @@ function registerUser($fields){
 			}
 	 return json_encode($arr,JSON_UNESCAPED_SLASHES);
 	 }
+	 function usercredit($fields){
+		
+		
+		$response = array();
+		//$result = $this->conn->query($sql);
+		$select_query = mysqli_query($this->conn,"Select credit_point from wl_customers where user_name='".$fields['userName']."'");
+		$chk_user = mysqli_num_rows($select_query);
+		if($chk_user > 0){
+		$rec = mysqli_fetch_array($select_query);
+		if( $rec['credit_point'] >=1 ){
+		//$response['Result'] = array("success"=>1,"code"=>0);
+		$response = array("status"=>1);
+		$response['Result']= array(
+		  					$rec,
+						);
+		}else{
+		
+		   $response = array("status"=>0,'message'=>"Out of Credits");
+		}
+		}else{
+		$response = array("status_code"=>0,"status"=>0,'message'=>"Invalid user");
+		}
+		return json_encode($response);
+
+    }
 
 
  }

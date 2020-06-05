@@ -5,6 +5,7 @@ include("modules/teacher.class.php");
 include("modules/searchteacher.class.php");
 include("modules/searchcourse.class.php");
 include("modules/lms.class.php");
+//include("modules/usercredits.class.php");
 
 $usrObj 			= new user;
 $teacherObj 		= new teacher;
@@ -46,7 +47,9 @@ switch($action){
   case "Blog" : 
      echo $response = $usrObj->blog($_REQUEST);
   break;
-  
+  case "Usercredits" :
+   echo $response = $usrObj->usercredit($_REQUEST);
+  break;
   
 //teacher details
 	case "TeacherLogin" : 
