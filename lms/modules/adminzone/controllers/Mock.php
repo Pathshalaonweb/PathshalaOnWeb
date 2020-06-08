@@ -186,6 +186,8 @@ class Mock extends Admin_Controller
 			$this->form_validation->set_rules('exam_type','Exam Type',"trim|required");	
 			$this->form_validation->set_rules('str_total_mark','Total Marks',"trim|required");		          
 			$this->form_validation->set_rules('total_question','Total Question',"trim|required");	
+			
+			$this->form_validation->set_rules('course_id','course  Name',"trim|required");
 	          
 	 
 			if($this->form_validation->run()===TRUE)
@@ -196,6 +198,7 @@ class Mock extends Admin_Controller
 		   
 				$posted_data = array(
 									'department_id'             =>  $dept_id,
+									'course_id'					=>  $this->input->post('course_id'),
 									'mock_title'				=>	$this->input->post('mock_title',TRUE),
 									'mock_friendly_url'			=>	url_title($this->input->post('mock_name')),
 									'mock_description'			=>	$this->input->post('mock_description',TRUE),
@@ -235,7 +238,8 @@ class Mock extends Admin_Controller
 			$this->form_validation->set_rules('total_question',' Total Question',"trim|required");	
 			$this->form_validation->set_rules('exam_type','Exam Type',"trim|required");	
 			$this->form_validation->set_rules('str_total_mark','Total Marks',"trim|required");	
-			//$this->form_validation->set_rules('str_negative_mark',' Negative Marking',"trim|required");		
+			//$this->form_validation->set_rules('str_negative_mark',' Negative Marking',"trim|required");
+			$this->form_validation->set_rules('course_id','course  Name',"trim|required");		
 			if($this->form_validation->run()==TRUE)
 			{
 				$hh=$this->input->post('hh');
@@ -244,6 +248,7 @@ class Mock extends Admin_Controller
 		   
 				$posted_data = array(
 									'mock_title'				=>	$this->input->post('mock_title',TRUE),
+									'course_id'					=>  $this->input->post('course_id'),
 									'mock_friendly_url'			=>	url_title($this->input->post('mock_title')),
 									'mock_description'			=>	$this->input->post('mock_description',TRUE),
 									'exam_date'                 =>  $this->input->post('exam_date',TRUE),

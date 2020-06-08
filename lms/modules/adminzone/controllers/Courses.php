@@ -230,6 +230,7 @@ class Courses extends Admin_Controller
 							'courses_friendly_url'		=>	url_title($this->input->post('courses_name')),
 							'courses_code'				=>	$this->input->post('courses_code',TRUE),
 							'price'						=>	$this->input->post('price',TRUE),
+							'credit_price'				=>	$this->input->post('credit_price',TRUE),
 							'image'						=>	$uploaded_file,
 							'teacher_id'				=>	$this->input->post('teacher_id',TRUE),	
 							'courses_description'		=>	$this->input->post('courses_description',TRUE),
@@ -295,6 +296,7 @@ class Courses extends Admin_Controller
 									'image'						=>	$uploaded_file,
 									'teacher_id'				=>	$this->input->post('teacher_id',TRUE),
 									'price'						=>	$this->input->post('price',TRUE),
+									'credit_price'				=>	$this->input->post('credit_price',TRUE),
 									'courses_description'		=>	$this->input->post('courses_description',TRUE),
 									'str_total_time'            =>  $this->input->post('str_total_time',TRUE),
 									'courses_added_date'		=>	$this->config->item('config.date.time')						

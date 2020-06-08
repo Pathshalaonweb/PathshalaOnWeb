@@ -30,38 +30,38 @@
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Subject Image <span class="required">*</span> </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-         	<input type="file" name="courses_image" class="form-control col-md-7 col-xs-12"/>
+              <input type="file" name="courses_image" class="form-control col-md-7 col-xs-12"/>
               <br />
-             <?php
+              <?php
 			 if($res['image']!='' && file_exists(UPLOAD_DIR."/courses/".$res['image'])) { 
 			 ?>
-            <a href="#"  onclick="$('#dialog').dialog();">View</a> |
-            <input type="checkbox" name="cat_img_delete" value="Y" />
-            Delete
-            <?php	
+              <a href="#"  onclick="$('#dialog').dialog();">View</a> |
+              <input type="checkbox" name="cat_img_delete" value="Y" />
+              Delete
+              <?php	
 					}
 					?>
-            <br />
-            <br />
-            [ <?php echo $this->config->item('category.best.image.view');?> ]
-            <div id="dialog" title="Category Image" style="display:none;"> <img src="<?php echo base_url().'uploaded_files/courses/'.$res['image'];?>"  /> </div>
+              <br />
+              <br />
+              [ <?php echo $this->config->item('category.best.image.view');?> ]
+              <div id="dialog" title="Category Image" style="display:none;"> <img src="<?php echo base_url().'uploaded_files/courses/'.$res['image'];?>"  /> </div>
             </div>
           </div>
           <div class="form-group">
-          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Teacher <span class="required">*</span> </label>
-          <div class="col-md-6 col-sm-6 col-xs-12">
-          <select class="form-control" name="teacher_id"  class="form-control col-md-7 col-xs-12">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Teacher <span class="required">*</span> </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <select class="form-control" name="teacher_id"  class="form-control col-md-7 col-xs-12">
               <option value="">Select Teacher</option>
-               <?php 
+              <?php 
 			    $db2 = $this->load->database('database2', TRUE); 
 				$sql="SELECT * FROM `wl_teacher` where status='1' order BY first_name";
 				$query=$db2->query($sql);
 				foreach($query->result_array() as $val){
-			   ?>	
-                <option value="<?php echo $val['teacher_id']?>" <?php if($val['teacher_id']==$res['teacher_id']){echo"selected";}?>><?php echo $val['first_name']?> // <?php echo $val['user_name']?> // <?php echo $val['phone_number']?></option>
+			   ?>
+              <option value="<?php echo $val['teacher_id']?>" <?php if($val['teacher_id']==$res['teacher_id']){echo"selected";}?>><?php echo $val['first_name']?> // <?php echo $val['user_name']?> // <?php echo $val['phone_number']?></option>
               <?php }?>
               </select>
-          </div>    
+            </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Subject  Code <span class="required">*</span></label>
@@ -74,16 +74,24 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input type="text" name="price"  value="<?php echo set_value('price',$res['price']);?>" class="form-control col-md-7 col-xs-12">
               <br>
-              <strong>[If the course is free just write 1]</strong>
-            </div>
+              <strong>[If the course is free just write 1]</strong> </div>
           </div>
+          
           <div class="form-group">
-              <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Description:<span class="required">*</span></label>
-              <div class="col-md-6 col-sm-6 col-xs-12">
-                <textarea name="courses_description" rows="5" cols="50" class="form-control col-md-7 col-xs-12" id="description" ><?=set_value('courses_description',$res['courses_description']);?>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Credit Price<span class="required">*</span> </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="text" name="credit_price"  value="<?php echo set_value('credit_price',$res['credit_price']);?>" class="form-control col-md-7 col-xs-12">
+              <br>
+              <strong>[This is price will remove from student credit system]</strong> </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Description:<span class="required">*</span></label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <textarea name="courses_description" rows="5" cols="50" class="form-control col-md-7 col-xs-12" id="description" ><?=set_value('courses_description',$res['courses_description']);?>
 </textarea>
-                <?php echo display_ckeditor($ckeditor); ?> </div>
-            </div>
+              <?php echo display_ckeditor($ckeditor); ?> </div>
+          </div>
           <!--<div class="form-group">
 
 						<label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Description:<span class="required">*</span></label>

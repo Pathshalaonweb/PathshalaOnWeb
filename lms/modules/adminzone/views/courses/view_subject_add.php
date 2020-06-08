@@ -63,6 +63,14 @@ $pcatID = (int) $pcatID;
               <input type="text" name="price"  value="<?php echo set_value('price');?>" class="form-control col-md-7 col-xs-12"><br><strong>[If the course is free just write 1]</strong>
             </div>
           </div>
+          
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Credit Price<span class="required">*</span> </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="text" name="credit_price"  value="<?php echo set_value('credit_price');?>" class="form-control col-md-7 col-xs-12"><br><strong>[This is price will remove from student credit system]</strong>
+            </div>
+          </div>
+          
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Subject Image <span class="required">*</span> </label>
             <div class="col-md-6 col-sm-6 col-xs-12">

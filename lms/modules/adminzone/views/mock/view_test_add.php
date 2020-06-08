@@ -1,12 +1,8 @@
 <?php $this->load->view('includes/header'); ?>
 <?php 
-
 $pcatID =($this->uri->segment(4) > 0)? $this->uri->segment(4):"0";
-
 $pcatID = (int) $pcatID;
-
 ?>
-
 <div class="right_col" role="main">
   <div class="">
     <div class="title_left">
@@ -95,6 +91,29 @@ $pcatID = (int) $pcatID;
               <input type="text"name="str_total_mark"placeholder="200"  value="<?php echo set_value('str_total_mark');?>" class="form-control col-md-7 col-xs-12">
             </div>
           </div>
+          <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Name: <span class="required">*</span></label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+              <select name="course_id" class="js-example-basic-single js-states form-control">
+                <?php 
+					$sel_q ="SELECT * FROM `tbl_courses` where status='1'  ORDER BY courses_name ASC";
+					$sub_res=$this->db->query($sel_q);
+				?>
+                  <option value="">Select Course</option>
+                <?php 
+				if ($sub_res->num_rows() > 0) {
+				$result=$sub_res->result_array();
+				foreach($result as $key=>$val) {
+				?>
+                  <option value="<?php echo $val['courses_id'];?>"><?php echo $val['courses_name'];?>&nbsp; // &nbsp; <?php echo $val['courses_code']?></option>
+                  <?php
+				 }
+				}
+				?>
+                </select>
+              </div>
+            </div>
+            <div class="ln_solid"></div>
           <input type="hidden"value="add"name="add">
           <input type="submit"value="add" class="btn btn-primary"name="add">
           <?php echo form_close(); ?> </div>
@@ -102,7 +121,22 @@ $pcatID = (int) $pcatID;
     </div>
   </div>
 </div>
-
 <!-- /page content -->
-
 <?php $this->load->view('includes/footer'); ?>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script> 
+<script>
+$(".js-example-placeholder-multiple").select2({
+    placeholder: "Select a Name"
+});
+$(".js-example-basic-single").select2({
+    placeholder: "Select a Course"
+});
+ $(function() {
+    $( "#datepicker" ).datepicker({ minDate: 0});
+  });
+  $( function() {
+    $( "#datepicker1" ).datepicker();
+  } );
+</script>

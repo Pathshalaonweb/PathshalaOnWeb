@@ -22,11 +22,9 @@
           </div>
           <div class="x_content">
             <?php error_message(); ?>
-            <?php 
-
-						$att=array('class'=>'form-horizontal form-label-left','name'=>'myform');
-
-						echo form_open_multipart("adminzone/courses/subject/".$category_id."", $att);?>
+            <?php $att=array('class'=>'form-horizontal form-label-left','name'=>'myform');
+				  echo form_open_multipart("adminzone/courses/subject/".$category_id."", $att);
+			?>
             <table id="datatable-checkbox" class="table table-striped table-bordered bulk_action">
               <thead>
                 <tr>
@@ -35,28 +33,24 @@
                   <th>Image</th>
                   <th>courses code</th>
                   <th>Price</th>
+                  <th>Credit Price</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
                 <?php 
-
-								foreach($res as $catKey=>$pageVal){
-
-								$condtion_product   =  "AND subject_id='".$pageVal['courses_id']."'";
-
-								$total_products     =  count_course_lession($condtion_product);?>
+					foreach($res as $catKey=>$pageVal){
+					$condtion_product   =  "AND subject_id='".$pageVal['courses_id']."'";	
+					$total_products     =  count_course_lession($condtion_product);
+				?>
                 <tr>
                   <td><input  type="checkbox" name="arr_ids[]" value="<?php echo $pageVal['courses_id'];?>" id="check-all" class="flat"></td>
                   <td><?php echo $pageVal['courses_name'];?> <?php echo "<br>".anchor("adminzone/courses/lession/".$pageVal['courses_id'],'Lession ['. $total_products.']','class="refSection" '); ?></td>
-                  <td align="center">
-                    
-                    <img src="<?php echo get_image('courses',$pageVal['image'],50,50,'AR');?>" />
-                    
-                     </td>
+                  <td align="center"><img src="<?php echo get_image('courses',$pageVal['image'],50,50,'AR');?>" /></td>
                   <td><?php echo $pageVal['courses_code'];?></td>
                   <td><?php echo $pageVal['price'];?></td>
+                  <td><?php echo $pageVal['credit_price'];?></td>
                   <td><?php echo ($pageVal['status']==1)? "Active":"In-active";?></td>
                   <td><?php
 

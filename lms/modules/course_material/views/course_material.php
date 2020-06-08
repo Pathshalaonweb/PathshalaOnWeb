@@ -18,11 +18,11 @@ $this->session->set_userdata('course', $mem_info->lot);
 	for($i=0; $i<count($course); $i++)
 	{
 	//$sel_q ="SELECT * FROM `tbl_courses` where category_id='".$course[$i]."' AND status='1' ORDER BY courses_id ASC";
-		$sel_q ="SELECT * FROM `tbl_courses` where courses_id='".$course[$i]."' AND status='1' ORDER BY courses_id ASC";
+		$sel_q  ="SELECT * FROM `tbl_courses` where courses_id='".$course[$i]."' AND status='1' ORDER BY courses_id ASC";
 		$sub_res=$this->db->query($sel_q);
 		if($sub_res->num_rows() > 0)
 		{
-		$list_sub=$sub_res->result_array();
+			$list_sub=$sub_res->result_array();
 		}
 		else
 		{

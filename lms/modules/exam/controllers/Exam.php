@@ -32,7 +32,6 @@ class Exam extends Public_Controller
 			$sel_q ="SELECT * FROM `tbl_question` where lession_id='".$lession_id."'";
 			$fetch_que=$this->db->query($sel_q);
 			$fetch_que=$fetch_que->result_array();
-			
 			$posted_data=array(
 				               'lession_id'   =>$lession[0]['lession_id'],
 							   'userId'       =>$userId,
@@ -57,8 +56,7 @@ class Exam extends Public_Controller
 							       'question'    =>$val['question'],
 							       'ans'         =>$val['answer'],
 							       'user_ans'    =>$user_ans
-							  
-							  );
+								  );
 			$this->exam_model->safe_insert('tbl_result',$posted_data,FALSE);
 			$i++;
 			}

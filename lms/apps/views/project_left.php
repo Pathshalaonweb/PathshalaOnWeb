@@ -22,7 +22,7 @@
 			  $course_material='';
 			  $profile="";
 			  break;
-			  case 'online_exam':
+			  case 'c':
 			  $online_exam="active";
 			  $dash='';
 			  $mock_test='';
