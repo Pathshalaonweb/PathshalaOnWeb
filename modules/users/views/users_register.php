@@ -50,7 +50,6 @@
                   <?php //echo form_error('classes');?>
                   <input type="password" name="password" placeholder="Password">
                   <?php echo form_error('password');?>
-                  <input type="text" name="referral" placeholder="Referral Code (Optional)" value="">
                   <input type="checkbox" name="terms_conditions" id="terms_conditions" >
                   <label for="check"> I have read and agreed with the terms & conditions and privacy policy.</label>
                   <?php echo form_error('terms_conditions');?>

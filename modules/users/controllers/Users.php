@@ -302,7 +302,6 @@ class Users extends Public_Controller
 					'is_verified'		=> '1',									
 					'ip_address'  		=> $this->input->ip_address(),
 					'address'			=> $this->input->post('address',TRUE),
-					'referral'          => $this->input->post('referral',TRUE),
 					//'description'		=> $this->input->post('description',TRUE),
 					//'pincode'			=> $this->input->post('pincode',TRUE),
 					//'class'				=> $this->input->post('class',TRUE),
