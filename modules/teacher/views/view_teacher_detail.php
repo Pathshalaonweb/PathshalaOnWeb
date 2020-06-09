@@ -40,6 +40,7 @@
 	       	if($averagerating == ''){
 	       		$averagerating = 0;
 	       	}
+			$averagerating;
 			?>
 <?php 
 		 	//Teachin Rating
@@ -263,7 +264,8 @@
                       </span></div>
                     <?php }else{?>
                     <a onclick="location.href = '<?php echo base_url();?>users/login';">
-                    <input id="post_<?= $id ?>" value='<?= $rating ?>' class="rating-loading ratingbar" data-min="0" data-max="5" data-step="1" disabled title="Your have to login first">
+                    <input id="post_<?= $id ?>" value='<?= $averagerating ?>' class="rating-loading ratingbar pass" data-min="0" data-max="5" data-step="1"  disabled title="Your have to login first" onclick="location.href = '<?php echo base_url();?>users/login';">
+                    
                     <!-- Average Rating -->
                     <div>Average Rating: <span style="color:#F90;font-weight:bold;" id='averagerating_<?= $id ?>'>
                       <?= $averagerating  ?>
@@ -287,7 +289,7 @@
                       </span></div>
                     <?php }else{?>
                     <a onclick="location.href = '<?php echo base_url();?>users/login';">
-                    <input id="post_<?= $id ?>" value='<?= $teachingrating ?>' class="rating-loading ratingbars" data-min="0" data-max="5" data-step="1" disabled title="Your have to login first">
+                    <input id="post_<?= $id ?>" value='<?= $teachingaveragerating ?>' class="rating-loading pass ratingbars" data-min="0" data-max="5" data-step="1" disabled title="Your have to login first">
                     <!-- Average Rating -->
                     <div >Average Rating: <span style="color:#F90;font-weight:bold;" id='teachingstyle_<?= $id ?>'>
                       <?= $teachingaveragerating ?>
@@ -304,14 +306,14 @@
                   <div class="post-action">
                     <?php if($this->session->userdata('user_id') > 0 ){?>
                     <!-- Rating Bar -->
-                    <input id="post_<?= $id ?>" value='<?= $disciplinerating ?>' class="rating-loading ratingbarss" data-min="0" data-max="5" data-step="1" >
+                    <input id="post_<?= $id ?>" value='<?= $disciplineaveragerating ?>' class="rating-loading pass ratingbarss" data-min="0" data-max="5" data-step="1" >
                     <!-- Average Rating -->
                     <div >Average Rating: <span style="color:#F90;font-weight:bold;" id='discipline_<?= $id ?>'>
                       <?= $disciplineaveragerating ?>
                       </span></div>
                     <?php }else{?>
                     <a onclick="location.href = '<?php echo base_url();?>users/login';">
-                    <input id="post_<?= $id ?>" value='<?= $disciplinerating ?>' class="rating-loading ratingbarss" data-min="0" data-max="5" data-step="1" disabled title="Your have to login first">
+                    <input id="post_<?= $id ?>" value='<?= $disciplineaveragerating ?>' class="rating-loading pass ratingbarss" data-min="0" data-max="5" data-step="1" disabled title="Your have to login first">
                     <!-- Average Rating -->
                     <div >Average Rating: <span style="color:#F90;font-weight:bold;" id='discipline_<?= $id ?>'>
                       <?= $disciplineaveragerating ?>
@@ -328,14 +330,14 @@
                   <div class="post-action">
                     <?php if($this->session->userdata('user_id') > 0 ){?>
                     <!-- Rating Bar -->
-                    <input id="post_<?= $id ?>" value='<?= $studymaterialrating ?>' class="rating-loading studymaterial" data-min="0" data-max="5" data-step="1" >
+                    <input id="post_<?= $id ?>" value='<?= $studymaterialaveragerating ?>' class="rating-loading studymaterial pass " data-min="0" data-max="5" data-step="1" >
                     <!-- Average Rating -->
                     <div >Average Rating: <span style="color:#F90;font-weight:bold;" id='studymaterial_<?= $id ?>'>
                       <?= $studymaterialaveragerating ?>
                       </span></div>
                     <?php }else{?>
                     <a onclick="location.href = '<?php echo base_url();?>users/login';">
-                    <input id="post_<?= $id ?>" value='<?= $studymaterialrating ?>' class="rating-loading studymaterial" data-min="0" data-max="5" data-step="1" disabled title="Your have to login first">
+                    <input id="post_<?= $id ?>" value='<?= $studymaterialaveragerating ?>' class="rating-loading studymaterial" data-min="0" data-max="5" data-step="1" disabled title="Your have to login first">
                     <!-- Average Rating -->
                     <div >Average Rating: <span style="color:#F90;font-weight:bold;" id='studymaterial_<?= $id ?>'>
                       <?= $studymaterialaveragerating ?>
@@ -360,7 +362,7 @@
                       </span></div>
                     <?php }else{?>
                     <a onclick="location.href = '<?php echo base_url();?>users/login';">
-                    <input id="post_<?= $id ?>" value='<?= $locationsrating ?>' class="rating-loading locations" data-min="0" data-max="5" data-step="1" disabled title="Your have to login first">
+                    <input id="post_<?= $id ?>" value='<?= $locationsaveragerating ?>' class="rating-loading locations" data-min="0" data-max="5" data-step="1" disabled title="Your have to login first">
                     <!-- Average Rating -->
                     <div >Average Rating: <span style="color:#F90;font-weight:bold;" id='locations_<?= $id ?>'>
                       <?= $locationsaveragerating ?>
@@ -384,7 +386,7 @@
                       </span></div>
                     <?php }else{?>
                     <a onclick="location.href = '<?php echo base_url();?>users/login';">
-                    <input id="post_<?= $id ?>" value='<?= $infrastructurerating ?>' class="rating-loading infrastructure loginActive" data-min="0" data-max="5" data-step="1" disabled title="Your have to login first" >
+                    <input id="post_<?= $id ?>" value='<?= $infrastructureaveragerating ?>' class="rating-loading infrastructure loginActive" data-min="0" data-max="5" data-step="1" disabled title="Your have to login first" >
                     <!-- Average Rating -->
                     <div >Average Rating: <span style="color:#F90;font-weight:bold;" id='infrastructure_<?= $id ?>'>
                       <?= $infrastructureaveragerating ?>
@@ -394,6 +396,7 @@
                   </div>
                 </div>
               </div>
+              <!--<p class="Note"><strong>Note*</strong> You have to login before </p>-->
               <p>&nbsp;</p>
               <?php if(!empty($res['youtube'])){?>
               <div class="row">
@@ -494,6 +497,9 @@
     };
 </script> 
 <script type='text/javascript'>
+	$('.pass').click(function () {
+		location.href = "<?php echo base_url();?>/users/login"
+	});
 	$(document).ready(function(){
 		// Initialize
 		$('.ratingbar').rating({
