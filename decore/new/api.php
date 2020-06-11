@@ -5,7 +5,6 @@ include("modules/teacher.class.php");
 include("modules/searchteacher.class.php");
 include("modules/searchcourse.class.php");
 include("modules/lms.class.php");
-//include("modules/usercredits.class.php");
 
 $usrObj 			= new user;
 $teacherObj 		= new teacher;
@@ -44,12 +43,28 @@ switch($action){
   case "studentCreditRecord" : 
      echo $response = $usrObj->studentCreditRecord($_REQUEST);
   break; 
+  case "studentPlanBuyhistory" : 
+     echo $response = $usrObj->userPlanBuyhistory($_REQUEST);
+  break; 
+  case "studentenquiry" : 
+     echo $response = $usrObj->enquiry($_REQUEST);
+  break; 
+  case "normalenquiry" : 
+     echo $response = $usrObj->normalenquiry($_REQUEST);
+  break; 
+  case "StudentPlanBuystart" : 
+    echo $response = $usrObj->byPlanStart($_REQUEST);
+  break;
+  case "StudentbyPlanAfterpayment" : 
+    echo $response = $usrObj->byPlanAfterpayment($_REQUEST);
+  break;
+  case "getStudentCourse" :  
+    echo $response = $usrObj->getStudentCourse($_REQUEST);
+  break;
   case "Blog" : 
      echo $response = $usrObj->blog($_REQUEST);
   break;
-  case "Usercredits" :
-   echo $response = $usrObj->usercredit($_REQUEST);
-  break;
+  
   
 //teacher details
 	case "TeacherLogin" : 
@@ -67,8 +82,24 @@ switch($action){
   	case "TeacherforgotPassword" : 
      echo $response = $teacherObj->forgotPassword($_REQUEST);
 	break;
+	
 	case "editProfileTeacher" : 
-     echo $response = $teacherObj->editProfile($_REQUEST);
+     	/*
+		$data = $_REQUEST;
+        $data['img'] ='';
+		
+        $file_name =date("YmdHis").basename($_FILES['fileName']['name']);
+        $file = "../../uploaded_files/teacher/".$file_name;
+        if(move_uploaded_file($_FILES['fileName']['tmp_name'], $file)) {
+            //$data['status'] ='Ok';
+            $data['img'] =basename($_FILES['fileName']['name']);
+        } else {
+            $data['status'] ="Error";
+        }*/
+	
+	//echo $response = $teacherObj->editProfile($data,$file_name);
+	
+	echo $response = $teacherObj->editProfile($_REQUEST);
     break;
 	case "Teachernotified" : 
      echo $response = $teacherObj->teachernotified($_REQUEST);
@@ -82,9 +113,40 @@ switch($action){
 	case "TeacherEditProfile" : 
      echo $response = $teacherObj->updateProfile($_REQUEST); 
 	break;
+	case "TeacherdeletProfile" : 
+     echo $response = $teacherObj->deletProfile($_REQUEST); 
+	break;
 	case "TeacherProfileList" : 
      echo $response = $teacherObj->ProfileList($_REQUEST); 
 	break;
+	case "TeacherProfileList" : 
+     echo $response = $teacherObj->ProfileList($_REQUEST); 
+	break;
+	case "teacherCourseList" : 
+    echo $response = $teacherObj->teacherCourseList($_REQUEST);
+  	break;
+	
+	case "TeachePlanBuyhistory" : 
+    echo $response = $teacherObj->teacherPlanBuyhistory($_REQUEST);
+  	break;
+	
+	case "TeachePlanBuystart" : 
+    echo $response = $teacherObj->byPlanStart($_REQUEST);
+  	break;
+	
+	case "byPlanAfterpayment" : 
+    echo $response = $teacherObj->byPlanAfterpayment($_REQUEST);
+  	break;
+	
+	case "addNotification" : 
+    echo $response = $teacherObj->addNotification($_REQUEST);
+  	break;
+	
+
+	case "Teacherenquiry" : 
+     echo $response = $teacherObj->enquiry($_REQUEST);
+  	break;
+	 
 	
 
 
@@ -131,13 +193,8 @@ switch($action){
 	case "ExamResultlList" : 
      echo $response = $lmsObj->examResultList($_REQUEST);
   	break;
- 
-  
+	
 }
-
-
-
-
 //echo json_decode($response);
 
 

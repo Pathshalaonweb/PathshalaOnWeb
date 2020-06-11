@@ -88,11 +88,9 @@ class Lms extends DB{
 											
 											'subject_id'		=>$rec['subject_id'],
 											//'subject_id'		=>$rec['subject_id'],
-											
-											
 											//'course_name'		=>$rec['subject_id'],
 											'lession'			=>$this->test_input($rec['lession']),
-											'courses_description'=>$this->test_input($rec['courses_description']),
+											'courses_description'=>$rec['courses_description'],
 											'sort_order'		=>$rec['sort_order'],
 											'status'			=>$rec['status']
 										);
@@ -131,7 +129,10 @@ class Lms extends DB{
 		return $result;
 	}	
 
-	
+	function test($data){
+		$data = preg_replace('/<iframe.*?\/iframe>/i','', $data);
+		return $data;
+	}
 	
 	function test_input($data) {
 		//$data = htmlentities($data, null, 'utf-8');
