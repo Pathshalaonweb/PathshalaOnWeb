@@ -2,14 +2,14 @@
 class DB {
 	
 	protected $db_host = 'localhost';
-	protected $db_user = 'pathshal_path';
-	protected $db_pass = 'Brainchild@1a';
+	protected $db_user = 'root';
+	protected $db_pass = 'Pathshala@1a';
 	protected $db_name = 'pathshal_pathshala';
 	
 	
 	protected $db_hostTwo = 'localhost';
-	protected $db_userTwo = 'pathshal_newlms';
-	protected $db_passTwo = 'newlms@123';
+	protected $db_userTwo = 'root';
+	protected $db_passTwo = 'Pathshala@1a';
 	protected $db_nameTwo = 'pathshal_newlms';
 	
 	 
