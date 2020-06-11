@@ -15,11 +15,23 @@ class Searchteacher extends DB{
 		}else{
 		$select_query = mysqli_query($this->conn,"Select * from tbl_cities");
 		}
-		$rec = mysqli_fetch_array($select_query);
-		$response['Result'] = array("status"=>1);
-		$response['Result']['Data'][] = array($rec);
+		//$rec = mysqli_fetch_array($select_query);
+		mysqli_set_charset($this->conn, 'utf8');
+		$response['Result'] = array("success"=>1,"code"=>0);
+		while($rec = mysqli_fetch_array($select_query)) {
+			
+				$response['Result']['data'][] = array( 
+					'id'			=>$rec['id'],
+					'name'			=>$rec['name'],
+					'state_id'		=>$rec['state_id']
+				);
+				
+		}
 		
-		return json_encode($response);
+		//$response['Result'] = array("status"=>1);
+		//$response['Result']['Data'][] = array($rec);
+		
+	return json_encode($response);
 	}
 	
 	
@@ -28,13 +40,21 @@ class Searchteacher extends DB{
 		
 		$response = array();
 		if(!empty($fields['state_id'])){
-		$select_query = mysqli_query($this->conn,"Select * from tbl_states where id='".$fields['state_id']."'");
+		$select_query = mysqli_query($this->conn,"Select * from tbl_states where id='".$fields['state_id']."' AND country_id='101'");
 		}else{
-		$select_query = mysqli_query($this->conn,"Select * from tbl_states");
+		$select_query = mysqli_query($this->conn,"Select * from tbl_states where  country_id='101'");
 		}
-		$rec = mysqli_fetch_array($select_query);
-		$response['Result'] = array("status"=>1);
-		$response['Result']['Data'][] = array($rec);
+		mysqli_set_charset($this->conn, 'utf8');
+		$response['Result'] = array("success"=>1,"code"=>0);
+		while($rec = mysqli_fetch_array($select_query)) {
+			
+				$response['Result']['data'][] = array( 
+					'id'			=>$rec['id'],
+					'name'			=>$rec['name'],
+					'state_id'		=>$rec['state_id']
+				);
+				
+		}
 		return json_encode($response);
 
 	}
@@ -49,8 +69,20 @@ class Searchteacher extends DB{
 		$select_query = mysqli_query($this->conn,"Select * from wl_categories");
 		}
 		$rec = mysqli_fetch_array($select_query);
-		$response['Result'] = array("status"=>1);
-		$response['Result']['Data'][] = array($rec);
+		while($rec = mysqli_fetch_array($select_query)) {
+			
+				$response['Result']['data'][] = array( 
+					'category_id'			=>$rec['category_id'],
+					'category_name'			=> $this->test_input($rec['category_name']),
+					'status'				=>$rec['status'],
+					'parent_id'				=>$rec['parent_id'],
+				);
+		}
+		
+		
+		
+		//$response['Result'] = array("status"=>1);
+		//$response['Result']['Data'][] = array($rec);
 		return json_encode($response);
 
 	}	
@@ -58,31 +90,41 @@ class Searchteacher extends DB{
 	function searchteachers($fields){
 		$response = array();
 		$where="  AND `a`.`account_approved` = '1'";
-		if(!empty($fields['state'])){
-			$where .=" AND `b`.`class` = '".$fields['state']."' ";
+		if(!empty($fields['state']) && $fields['state']!="null"){
+			$where .=" AND `b`.`state_id` = '".$fields['state']."' ";
 		}
-		if(!empty($fields['city'])){
-			
+		if(!empty($fields['city']) && $fields['city']!="null"){
+			$where .=" AND `b`.`city_id` = '".$fields['city']."' ";
 		}
 		//echo $fields['pincode'];
-		if(!empty($fields['pincode'])){
+		if(!empty($fields['pincode']) && $fields['pincode']!="null"){
 			 $where .=" AND `a`.`pincode` = '".$fields['pincode']."' ";
 		}
-		if(!empty($fields['classes'])){
+		if(!empty($fields['classes']) && $fields['classes']!="null"){
 			$where .=" AND `b`.`class` = '".$fields['classes']."' ";
 		}
-		if(!empty($fields['subject'])){
-			
+		if(!empty($fields['subject']) && $fields['subject']!="null"){
+			$where .=" AND `b`.`subject` = '".$fields['subject']."' ";
 		}
-		if(!empty($fields['category'])){
-			$where .=" AND `b`.`category` = '".$fields['state']."' ";
+		if(!empty($fields['category']) && $fields['category']!="null"){
+			$where .=" AND `b`.`category` = '".$fields['category']."' ";
 		}
-		if(!empty($fields['bath_time'])){
-			
+		if(!empty($fields['bath_time']) && $fields['bath_time']!="null"){
+			$where .=" AND `b`.`bath_time` = '".$fields['bath_time']."' ";
+		}
+		if(!empty($fields['minprice'])  && $fields['minprice']!="null" && !empty($fields['maxprice'])  && $fields['maxprice']!="null" ){
+			$where .=" AND `b`.`fee` BETWEEN '".$fields['minprice']."' AND '".$fields['maxprice']."'";
+			//$where .="AND `b`.`fee` >= '".$fields['minprice']."' AND `b`.`fee` <= '".$fields['maxprice']."'";
+		}
+		if(!empty($fields['short_by']) && $fields['short_by']!="null"){
+			$orderBy =" ORDER BY  `b`.`fee`  ".$fields['short_by']." ";
+		} else {
+			$orderBy =" ORDER BY `b`.`teacher_id` ASC";
 		}
 		
+		
 	 	$sql="SELECT DISTINCT SQL_CALC_FOUND_ROWS* FROM `wl_teacher` `a` INNER JOIN `wl_teacher_profile` `b` ON
-			`b`.`teacher_id`=`a`.`teacher_id` WHERE `a`.`status` ='1' ".$where." GROUP BY `b`.`teacher_id` ORDER BY `b`.`teacher_id` ASC";
+			`b`.`teacher_id`=`a`.`teacher_id` WHERE `a`.`status` ='1' ".$where." GROUP BY `b`.`teacher_id` ".$orderBy."";
 		$select_query = mysqli_query($this->conn,$sql);
 		mysqli_set_charset($this->conn, 'utf8');
 		$arr['Result'] = array("success"=>1,"code"=>0);

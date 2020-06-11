@@ -37,7 +37,23 @@ class Searchcourse extends DB{
 		}
 		$rec = mysqli_fetch_array($select_query);
 		$response['Result'] = array("status"=>1);
-		$response['Result']['Data'][] = array($rec);
+		$response['Result']['Data'][] = array(
+						'courses_id'			=>	$rec['courses_id'],
+						'category_id'			=>	$rec['category_id'],
+						'category_name'			=>	$this->get_cat_name($rec['category_id']),
+						'lession_id'			=>	$rec['lession_id'],
+						'lession_name'			=>	$this->get_lession_name($rec['lession_id']),
+						'teacher_id'			=>	$rec['teacher_id'],
+						'teacher_name'			=>	$this->get_teacher_name($rec['teacher_id']),
+						'courses_name'			=>	$this->test_input($rec['courses_name']),
+						'courses_code'			=>	$this->test_input($rec['courses_code']),
+						'image'					=>	"https://www.pathshala.co/lms/uploaded_files/courses/".$rec['image'],
+						'price'					=>	$rec['price'],
+						'credit_price'			=>	$rec['credit_price'],
+						'courses_description'	=>	$this->test_input($rec['courses_description']),
+						'str_total_time'		=>	$rec['str_total_time'],
+						'courses_added_date'	=>	$rec['courses_added_date'],
+		);
 		return json_encode($response);
 
 	}
@@ -76,6 +92,7 @@ class Searchcourse extends DB{
 						'courses_code'			=>	$this->test_input($rec['courses_code']),
 						'image'					=>	"https://www.pathshala.co/lms/uploaded_files/courses/".$rec['image'],
 						'price'					=>	$rec['price'],
+						'credit_price'			=>	$rec['credit_price'],
 						'courses_description'	=>	$this->test_input($rec['courses_description']),
 						'str_total_time'		=>	$rec['str_total_time'],
 						'courses_added_date'	=>	$rec['courses_added_date'],

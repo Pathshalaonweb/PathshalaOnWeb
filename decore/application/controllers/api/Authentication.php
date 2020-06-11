@@ -702,56 +702,7 @@ http://49.50.67.32/smsapi/httpapi.jsp?username=SEOINDIA&password=Seo@31#&from=SE
 //__________________________sms end___________________________
 }
 
-public function usercredits_get($useremail) {
-    //a single user will be returned.
-    $con = $useremail?array('user_name' => $useremail):'';
-    $users = $this->user->getRows($con);
-    if($useremail!="")
-    {
-    // Check if the user data exists
-    if(!empty($users)){
-       // deduct the credits
-           $dbes = $this->load->database('default', TRUE);
-           $sqs = "SELECT creditpoint FROM `wl_customers` WHERE user_name='".$useremail."'";
-           $qus=$dbes->query($sqs);
-           $values= $qus->result_array();
-           $userCredits = $values[0]['creditpoint'];
-        if($userCredits>=1)
-        {
-            $updatesqs="UPDATE wl_customers SET creditpoint = creditpoint-1 WHERE user_name='".$useremail."'";
-            $qus=$dbes->query($updatesqs);
-        $this->response([
-            'status' =>  '1',
-            'message' => 'success',
-            'data'      => $users
-        ], REST_Controller::HTTP_OK);   
-        }
-        else{
-            $this->response([
-                'status' =>  '0',
-                'message' => 'Buy credits to proceed',
-                'data'      => $users
-            ], REST_Controller::HTTP_OK);   
-           }            
-    }else{
-        // Set the response and exit
-        //NOT_FOUND (404) being the HTTP response code
-        $arr=array('key'=>'22');
-        $this->response([
-            'status' =>  '0',
-            'message' => 'Email not found.',
-            'data'      => $arr
-        ], REST_Controller::HTTP_OK);
-    }
-}    else
-    {
-        $arr=array('key'=>'22');
-        $this->response([
-            'status' =>  '0',
-            'message' => 'Email cannot be empty.',
-            'data'      => $arr
-        ], REST_Controller::HTTP_OK);
-    }
-}
+
+
 
 }

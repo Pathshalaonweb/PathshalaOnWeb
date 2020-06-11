@@ -5673,3 +5673,253 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[02-May-2020 01:28:48 Asia/Kolkata] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/pathshalaadmin/public_html/decore/new/modules/teacher.class.php on line 171
+[02-May-2020 05:15:52 Asia/Kolkata] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/pathshalaadmin/public_html/decore/new/modules/teacher.class.php on line 171
+[11-May-2020 02:20:35 Asia/Kolkata] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/pathshalaadmin/public_html/decore/new/modules/user.class.php on line 318
+[11-May-2020 02:20:40 Asia/Kolkata] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/pathshalaadmin/public_html/decore/new/modules/user.class.php on line 318
+[11-May-2020 02:21:15 Asia/Kolkata] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/pathshalaadmin/public_html/decore/new/modules/user.class.php on line 318
+[11-May-2020 02:21:43 Asia/Kolkata] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/pathshalaadmin/public_html/decore/new/modules/user.class.php on line 318
+[11-May-2020 02:21:59 Asia/Kolkata] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/pathshalaadmin/public_html/decore/new/modules/user.class.php on line 318
+[11-May-2020 02:22:52 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[11-May-2020 02:32:37 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined method user::teacherPlanBuyhistory() in /home/pathshalaadmin/public_html/decore/new/api.php:99
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 99
+[11-May-2020 02:32:42 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined method user::teacherPlanBuyhistory() in /home/pathshalaadmin/public_html/decore/new/api.php:99
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 99
+[11-May-2020 02:33:05 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined method user::teacherPlanBuyhistory() in /home/pathshalaadmin/public_html/decore/new/api.php:99
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 99
+[11-May-2020 03:06:55 Asia/Kolkata] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/pathshalaadmin/public_html/decore/new/modules/teacher.class.php on line 370
+[11-May-2020 03:06:57 Asia/Kolkata] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/pathshalaadmin/public_html/decore/new/modules/teacher.class.php on line 370
+[11-May-2020 20:51:46 Asia/Kolkata] PHP Warning:  mysqli_fetch_row() expects parameter 1 to be mysqli_result, null given in /home/pathshalaadmin/public_html/decore/new/modules/teacher.class.php on line 353
+[11-May-2020 20:52:22 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'teacher' not found in /home/pathshalaadmin/public_html/decore/new/api.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 10
+[11-May-2020 20:53:02 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'teacher' not found in /home/pathshalaadmin/public_html/decore/new/api.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 10
+[11-May-2020 20:53:41 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'teacher' not found in /home/pathshalaadmin/public_html/decore/new/api.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 10
+[18-May-2020 14:36:23 Asia/Kolkata] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/pathshalaadmin/public_html/decore/new/modules/searchteacher.class.php on line 21
+[18-May-2020 14:36:27 Asia/Kolkata] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/pathshalaadmin/public_html/decore/new/modules/searchteacher.class.php on line 21
+[18-May-2020 14:36:37 Asia/Kolkata] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/pathshalaadmin/public_html/decore/new/modules/searchteacher.class.php on line 21
+[18-May-2020 14:37:18 Asia/Kolkata] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/pathshalaadmin/public_html/decore/new/modules/searchteacher.class.php on line 22
+[18-May-2020 14:37:21 Asia/Kolkata] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/pathshalaadmin/public_html/decore/new/modules/searchteacher.class.php on line 22
+[18-May-2020 14:37:23 Asia/Kolkata] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/pathshalaadmin/public_html/decore/new/modules/searchteacher.class.php on line 22
+[18-May-2020 14:37:31 Asia/Kolkata] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/pathshalaadmin/public_html/decore/new/modules/searchteacher.class.php on line 22
+[18-May-2020 14:38:15 Asia/Kolkata] PHP Warning:  mysqli_set_charset() expects parameter 1 to be mysqli, null given in /home/pathshalaadmin/public_html/decore/new/modules/searchteacher.class.php on line 19
+[18-May-2020 14:38:15 Asia/Kolkata] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/pathshalaadmin/public_html/decore/new/modules/searchteacher.class.php on line 24
+[18-May-2020 14:38:17 Asia/Kolkata] PHP Warning:  mysqli_set_charset() expects parameter 1 to be mysqli, null given in /home/pathshalaadmin/public_html/decore/new/modules/searchteacher.class.php on line 19
+[18-May-2020 14:38:17 Asia/Kolkata] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/pathshalaadmin/public_html/decore/new/modules/searchteacher.class.php on line 24
+[18-May-2020 14:38:29 Asia/Kolkata] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/pathshalaadmin/public_html/decore/new/modules/searchteacher.class.php on line 24
+[18-May-2020 14:38:31 Asia/Kolkata] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/pathshalaadmin/public_html/decore/new/modules/searchteacher.class.php on line 24
+[18-May-2020 14:41:57 Asia/Kolkata] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/pathshalaadmin/public_html/decore/new/modules/searchteacher.class.php on line 24
+[18-May-2020 19:40:15 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'teacher' not found in /home/pathshalaadmin/public_html/decore/new/api.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 10
+[18-May-2020 19:48:42 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'teacher' not found in /home/pathshalaadmin/public_html/decore/new/api.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 10
+[18-May-2020 20:18:00 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to a member function userdata() on null in /home/pathshalaadmin/public_html/decore/new/modules/teacher.class.php:457
+Stack trace:
+#0 /home/pathshalaadmin/public_html/decore/new/api.php(109): Teacher->byPlanStart(Array)
+#1 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/modules/teacher.class.php on line 457
+[18-May-2020 21:01:10 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'teacher' not found in /home/pathshalaadmin/public_html/decore/new/api.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 10
+[18-May-2020 21:11:27 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'teacher' not found in /home/pathshalaadmin/public_html/decore/new/api.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 10
+[18-May-2020 21:56:56 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Lms' not found in /home/pathshalaadmin/public_html/decore/new/api.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 13
+[18-May-2020 21:56:59 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Lms' not found in /home/pathshalaadmin/public_html/decore/new/api.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 13
+[19-May-2020 20:40:32 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[19-May-2020 20:40:36 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined method user::qry_insert() in /home/pathshalaadmin/public_html/decore/new/modules/user.class.php:405
+Stack trace:
+#0 /home/pathshalaadmin/public_html/decore/new/api.php(58): user->byPlanStart(Array)
+#1 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/modules/user.class.php on line 405
+[21-May-2020 19:55:46 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 19:55:46 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 19:58:06 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/pathshalaadmin/public_html/decore/new/modules/user.class.php on line 517
+[21-May-2020 19:58:09 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/pathshalaadmin/public_html/decore/new/modules/user.class.php on line 517
+[21-May-2020 19:58:37 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/pathshalaadmin/public_html/decore/new/modules/user.class.php on line 517
+[21-May-2020 19:58:44 Asia/Kolkata] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/pathshalaadmin/public_html/decore/new/modules/user.class.php on line 501
+[21-May-2020 20:02:15 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 20:02:21 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 20:14:13 Asia/Kolkata] PHP Warning:  array_merge(): Argument #2 is not an array in /home/pathshalaadmin/public_html/decore/new/modules/user.class.php on line 508
+[21-May-2020 20:14:13 Asia/Kolkata] PHP Warning:  array_merge(): Argument #2 is not an array in /home/pathshalaadmin/public_html/decore/new/modules/user.class.php on line 508
+[21-May-2020 20:14:13 Asia/Kolkata] PHP Warning:  array_merge(): Argument #2 is not an array in /home/pathshalaadmin/public_html/decore/new/modules/user.class.php on line 508
+[21-May-2020 20:14:13 Asia/Kolkata] PHP Warning:  array_merge(): Argument #2 is not an array in /home/pathshalaadmin/public_html/decore/new/modules/user.class.php on line 508
+[21-May-2020 20:14:13 Asia/Kolkata] PHP Warning:  array_merge(): Argument #2 is not an array in /home/pathshalaadmin/public_html/decore/new/modules/user.class.php on line 508
+[21-May-2020 20:14:13 Asia/Kolkata] PHP Warning:  array_merge(): Argument #2 is not an array in /home/pathshalaadmin/public_html/decore/new/modules/user.class.php on line 508
+[21-May-2020 20:14:13 Asia/Kolkata] PHP Warning:  array_merge(): Argument #2 is not an array in /home/pathshalaadmin/public_html/decore/new/modules/user.class.php on line 508
+[21-May-2020 20:14:13 Asia/Kolkata] PHP Warning:  array_merge(): Argument #2 is not an array in /home/pathshalaadmin/public_html/decore/new/modules/user.class.php on line 508
+[21-May-2020 20:14:13 Asia/Kolkata] PHP Warning:  array_merge(): Argument #2 is not an array in /home/pathshalaadmin/public_html/decore/new/modules/user.class.php on line 508
+[21-May-2020 20:14:13 Asia/Kolkata] PHP Warning:  array_merge(): Argument #2 is not an array in /home/pathshalaadmin/public_html/decore/new/modules/user.class.php on line 508
+[21-May-2020 20:14:13 Asia/Kolkata] PHP Warning:  array_merge(): Argument #2 is not an array in /home/pathshalaadmin/public_html/decore/new/modules/user.class.php on line 508
+[21-May-2020 20:14:50 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 20:14:56 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 20:15:00 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 20:15:09 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 20:15:15 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 20:16:08 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 20:16:12 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 20:16:37 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 20:17:17 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 20:17:47 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 20:19:39 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 20:20:49 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/pathshalaadmin/public_html/decore/new/modules/user.class.php:529) in /home/pathshalaadmin/public_html/decore/new/api.php on line 15
+[21-May-2020 20:24:35 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 20:24:36 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 20:24:36 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 20:24:53 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 20:24:55 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 20:24:56 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 20:25:03 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 20:26:23 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 20:31:03 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 20:31:25 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 20:31:38 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 20:31:39 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[21-May-2020 22:04:01 Asia/Kolkata] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/pathshalaadmin/public_html/decore/new/modules/searchteacher.class.php on line 132
+[22-May-2020 19:39:49 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'teacher' not found in /home/pathshalaadmin/public_html/decore/new/api.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 10
+[22-May-2020 19:41:43 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'teacher' not found in /home/pathshalaadmin/public_html/decore/new/api.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 10
+[22-May-2020 20:54:32 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'teacher' not found in /home/pathshalaadmin/public_html/decore/new/api.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 10
+[26-May-2020 20:49:02 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'teacher' not found in /home/pathshalaadmin/public_html/decore/new/api.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 10
+[01-Jun-2020 14:23:14 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'user' not found in /home/pathshalaadmin/public_html/decore/new/api.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/api.php on line 9
+[06-Jun-2020 19:27:43 Asia/Kolkata] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Teacher::editProfile(), 1 passed in /home/pathshalaadmin/public_html/decore/new/api.php on line 102 and exactly 2 expected in /home/pathshalaadmin/public_html/decore/new/modules/teacher.class.php:388
+Stack trace:
+#0 /home/pathshalaadmin/public_html/decore/new/api.php(102): Teacher->editProfile(Array)
+#1 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/modules/teacher.class.php on line 388
+[06-Jun-2020 19:28:10 Asia/Kolkata] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Teacher::editProfile(), 1 passed in /home/pathshalaadmin/public_html/decore/new/api.php on line 102 and exactly 2 expected in /home/pathshalaadmin/public_html/decore/new/modules/teacher.class.php:388
+Stack trace:
+#0 /home/pathshalaadmin/public_html/decore/new/api.php(102): Teacher->editProfile(Array)
+#1 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/modules/teacher.class.php on line 388
+[06-Jun-2020 19:28:13 Asia/Kolkata] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Teacher::editProfile(), 1 passed in /home/pathshalaadmin/public_html/decore/new/api.php on line 102 and exactly 2 expected in /home/pathshalaadmin/public_html/decore/new/modules/teacher.class.php:388
+Stack trace:
+#0 /home/pathshalaadmin/public_html/decore/new/api.php(102): Teacher->editProfile(Array)
+#1 {main}
+  thrown in /home/pathshalaadmin/public_html/decore/new/modules/teacher.class.php on line 388
