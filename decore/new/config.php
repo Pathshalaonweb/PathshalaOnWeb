@@ -3,13 +3,13 @@ class DB {
 	
 	protected $db_host = 'localhost';
 	protected $db_user = 'root';
-	protected $db_pass = '';
+	protected $db_pass = 'Pathshala@1a';
 	protected $db_name = 'pathshal_pathshala';
 	
 	
 	protected $db_hostTwo = 'localhost';
 	protected $db_userTwo = 'root';
-	protected $db_passTwo = '';
+	protected $db_passTwo = 'Pathshala@1a';
 	protected $db_nameTwo = 'pathshal_newlms';
 	
 	 
