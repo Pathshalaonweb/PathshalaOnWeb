@@ -263,8 +263,7 @@ class Users extends Public_Controller
 			$this->form_validation->set_rules('password', 'Password', 'trim|required|max_length[20]|valid_password');
 			//$this->form_validation->set_rules('confirm_password', 'Confirm passsword', 'required|matches[password]');		 			
 			$this->form_validation->set_rules('first_name', 'Name', 'trim|required|alpha|max_length[32]|xss_clean');
-			$this->form_validation->set_rules('phone_number', 'Phone','trim|required|max_length[10]|xss_clean');	
-			$this->form_validation->set_rules('classes', 'Classes', 'required');
+			$this->form_validation->set_rules('phone_number', 'Phone','trim|required|max_length[10]|xss_clean');
 			//$this->form_validation->set_rules('classes', 'Classes', 'trim|required|xss_clean')
 			//$this->form_validation->set_rules('address', 'Phone','trim|required|max_length[300]|xss_clean');
 			//$this->form_validation->set_rules('pincode', 'Pincode','trim|required|max_length[6]|xss_clean');
