@@ -67,7 +67,7 @@ class MY_Upload extends CI_Upload
 		
 		// $config['upload_path'] = UPLOAD_DIR.'/'.$path.'/';
 		
-		$config['upload_path'] = realpath(FCPATH.'/'.$path.'/');
+		$config['upload_path'] = realpath(FCPATH.'/uploaded_files/'.$path.'/');
 		$config['allowed_types'] = file_ext($_FILES[$filed]['name']);
 		$config['max_size']  = '0';
 		$config['max_width']  = '0';
