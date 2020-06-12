@@ -23,7 +23,7 @@
                       <label for="files">Upload photo</label>
                       <input type="file" id="files" class="" name="userimage"/>
                     </div>
-                    
+                    <?php //echo UPLOAD_DIR; ?>
                     <?php $class_dropdown = $mres['class_dropdown'];
                     //$db2 = $this->load->database('default', TRUE);
                      $sql2="SELECT * FROM `wl_categories`  WHERE `category_id` = '$class_dropdown'";
