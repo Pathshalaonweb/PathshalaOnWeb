@@ -16,7 +16,7 @@
                     <div class="login-register-form">
                   	<?php echo validation_message();?>
 					<?php echo error_message(); ?>
-          <form action="<?php echo base_url(); ?>members/edit_account" enctype="multipart/form-data" method="post" accept-charset="utf-8" onsubmit ="return validate()">
+          <form action="<?php echo base_url(); ?>members/edit_account" enctype="multipart/form-data" method="post" onsubmit ="return validate()">
                     <input type="text" name="first_name" placeholder="Name" value="<?php echo set_value('first_name',$mres['first_name']); ?>">
                     <input type="text" name="phone_number" placeholder="Phone" value="<?php echo set_value('phone_number',$mres['phone_number']); ?>">
                     <div class="file">
