@@ -43,19 +43,18 @@
                        <?php
                          $sql="SELECT * FROM `wl_categories`  where status='1' AND parent_id='0' ORDER BY sort_order";
                          $querys=$this->db->query($sql);
+                         if($row[0]['category_id'] == "")
+                         {?>
+                         <option value=""selected="selected" disabled>Please Select a Category</option>
+                         <?php }
                          foreach($querys->result_array() as $val):
-                          if($row[0]['category_id'] == "")
-                          {?>
-                            <option value=""selected="selected" disabled>Please Select a Category</option>
-                          
-                          <?php }else{
                           if($val['category_id'] == $roww[0]['category_id'])
                           {
                        ?>
                        <option value="<?php echo $val['category_id']?>" selected="selected"><?php echo $val['category_name']; ?></option>
                           <?php } else {?>
                        <option value="<?php echo $val['category_id']?>"><?php echo $val['category_name']; ?></option>
-                          <?php } }?>
+                          <?php }?>
                          <?php endforeach; ?>
                      </select>
                       <select name="classes" id="classes">
