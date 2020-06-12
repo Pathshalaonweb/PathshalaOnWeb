@@ -14,7 +14,7 @@
 				<?php echo validation_message();?> 
 				<?php echo error_message(); ?> 
         <?php //echo form_open('users/register'); ?>
-        <form action="<?php echo base_url(); ?>/users/register" method="post" accept-charset="utf-8" onsubmit="return validate()">
+        <form action="<?php echo base_url(); ?>/users/register" method="post" accept-charset="utf-8">
                   <input type="text" name="first_name" placeholder="Name" value="<?php echo set_value('first_name'); ?>">
                   <?php echo form_error('first_name');?>
                  <input type="text" name="phone_number" placeholder="Phone" value="<?php echo set_value('phone_number'); ?>">
@@ -33,20 +33,20 @@
                     </select>
                     <select name="category_course" required style="margin: 0px 0px 10px 0px">
                     </select>   -->
-                    <select name="category" id="category" required style="margin: 0px 0px 10px 0px">
-                    <option value="" selected="selected" disabled>Please Select a Category</option>
+                    <!-- <select name="category" id="category" required style="margin: 0px 0px 10px 0px">
+                    <option value="" selected="selected" disabled>Please Select a Category</option> -->
                     <?php 
-                            $sql="SELECT * FROM `wl_categories`  where status='1' AND parent_id='0' ORDER BY sort_order";
-                            $query=$this->db->query($sql);
-                            foreach($query->result_array() as $val):
+                            // $sql="SELECT * FROM `wl_categories`  where status='1' AND parent_id='0' ORDER BY sort_order";
+                            // $query=$this->db->query($sql);
+                            // foreach($query->result_array() as $val):
                             ?>
-                    <option value="<?php echo $val['category_id']?>"><?php echo $val['category_name']?></option>
-                    <?php endforeach;?>
-                  </select>
-                  <select id="classes" name="classes" required style="margin: 0px 0px 10px 0px">
+                    <!-- <option value="<?php //echo $val['category_id']?>"><?php //echo $val['category_name']?></option> -->
+                    <?php //endforeach;?>
+                  <!-- </select> -->
+                  <!-- <select id="classes" name="classes" required style="margin: 0px 0px 10px 0px">
                   <option value="" selected="selected" disabled>Please Select a Class</option>
-                </select>
-                <div class="requried" id="classeserror" style="display:none; color:red;">Please Select an Option.</div>
+                </select> -->
+                <!-- <div class="requried" id="classeserror" style="display:none; color:red;">Please Select an Option.</div> -->
                   <?php //echo form_error('classes');?>
                   <input type="password" name="password" placeholder="Password">
                   <?php echo form_error('password');?>
@@ -171,7 +171,7 @@ $(document).ready(function() {
         });
 });
 </script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(document).ready(function(){
     $('#category').on('change',function(){
     var categoryID = $(this).val();
@@ -193,5 +193,5 @@ $(document).ready(function(){
         }
     });
  });
-</script> 
+</script>  -->
 </body></html>

@@ -292,7 +292,6 @@ class Users extends Public_Controller
 					//'title'            => $this->input->post('title',TRUE),
 					'first_name'       	=> $this->input->post('first_name',TRUE),
 					'last_name'        	=> $this->input->post('last_name',TRUE),
-					'class_dropdown'    => $this->input->post('classes',TRUE),
 					'picture'			=> $uploaded_file,
 					'phone_number'    	=> $this->input->post('phone_number',TRUE),	
 					'actkey'           	=> md5($this->input->post('user_name',TRUE)),
