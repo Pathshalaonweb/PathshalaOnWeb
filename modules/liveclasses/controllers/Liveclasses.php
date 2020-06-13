@@ -483,7 +483,7 @@ class Liveclasses extends Public_Controller
 				}
 				else
 				{
-					$response->status = "0";
+					$response->status = "-1";
 					$response->message = 'Email Not found.';
 					$response->credits = false;
 					$jsonResponse = json_encode($response);
@@ -494,7 +494,7 @@ class Liveclasses extends Public_Controller
 			}
 			else
 			{
-				$response->status = "-1";
+				$response->status = "-2";
 				$response->message = 'Invalid URL';
 				$response->credits = false;
 				$jsonResponse = json_encode($response);
