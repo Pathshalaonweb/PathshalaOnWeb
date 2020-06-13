@@ -122,7 +122,7 @@
                         </div>
                         <div class="blog-date">
                         <?php if($this->session->userdata('user_id') > 0 ){?> 
-                        <a href="<?php echo base_url();?>/courses/enrollDetail/<?php echo $val['courses_id']?>" class="lms_buy"> Join Now</a>
+                        <a href="<?php echo base_url();?>/members/liveclass<?php //echo $val['courses_id']?>" class="lms_buy"> Join Now</a>
                         <?php }else{?>
                         <a href="<?php echo base_url();?>users/login" class="lms_buy"> Join Now</a>
                         <?php }?>
