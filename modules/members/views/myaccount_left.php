@@ -1,5 +1,5 @@
 <!--Left-Part-Starts-->
-<?php $mem_info=get_db_single_row('wl_customers',$fields="phone_number,login_type",$condition="WHERE 1 AND customers_id='".$this->session->userdata('user_id')."'");?>
+<?php $mem_info=get_db_single_row('wl_customers',$fields="phone_number,login_type,credit_point",$condition="WHERE 1 AND customers_id='".$this->session->userdata('user_id')."'");?>
 
 <div class="col-xl-3 col-lg-8">
   <div class="sidebar-style">

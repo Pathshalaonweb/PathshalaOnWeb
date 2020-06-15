@@ -80,6 +80,8 @@ class MY_Upload extends CI_Upload
 		if ( ! $CI->upload->do_upload($filed))
 		{
 			$error = array('error' =>$this->CI->upload->display_errors());
+			//$errorr = $this->upload->display_errors();
+			//return $error;
 		}
 		else
 		{

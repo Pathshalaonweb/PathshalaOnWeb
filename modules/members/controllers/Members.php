@@ -65,6 +65,8 @@ class Members extends Private_Controller{
 							$uploaded_file = $uploaded_data['upload_data']['file_name'];
 						    removeImage($unlink_image);	
 						}
+
+
 				}
 				$posted_user_data = array(						
 						'title'               	 =>$this->input->post('title'),

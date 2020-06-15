@@ -7,7 +7,7 @@ class Liveclasses extends Public_Controller
 		$this->load->model(array('liveclasses/liveclasses_model','payment/payment_model','order/order_model'));
 	    $this->load->library('Ajax_pagination');
 		$this->load->helper(array('payment/paytm'));
-		$this->perPage = 9;
+		$this->perPage = 30;
 	}
 	
 	public function index()
