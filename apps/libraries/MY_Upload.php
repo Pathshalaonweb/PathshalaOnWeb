@@ -65,7 +65,7 @@ class MY_Upload extends CI_Upload
 		//$CI->load->library('upload');	
 		$this->CI->load->library('upload'); 
 		
-		$config['upload_path'] = UPLOAD_DIR.'/'.$path.'/';
+		$config['upload_path'] = '/uploaded_files/'.$path.'/';
 		
 		//$config['upload_path'] = realpath('../.. /uploaded_files/'.$path.'/');
 		$config['allowed_types'] = file_ext($_FILES[$filed]['name']);
