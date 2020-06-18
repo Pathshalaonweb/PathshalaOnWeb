@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Courses_model extends MY_Model
+class Webinars_model extends MY_Model
 {
 
 	 public function get_courses($limit='10',$offset='0',$param=array())
@@ -61,7 +61,7 @@ class Courses_model extends MY_Model
            // die('test');
         }
 		$db2->where('status','1');
-		$db2->where('category_id !=', '23');
+		$db2->where('category_id', '23');
 		$db2->order_by('courses_id','asc');
 		$db2->select('SQL_CALC_FOUND_ROWS*',FALSE);
 		$db2->from('tbl_courses');

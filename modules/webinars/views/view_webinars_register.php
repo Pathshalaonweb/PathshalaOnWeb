@@ -5,7 +5,7 @@
       <div class="col-lg-7 col-md-12 ml-auto mr-auto">
         <div class="login-register-wrapper">
           <div class="login-register-tab-list nav"> <a class="active" data-toggle="tab" href="#lg2">
-            <h4> Register as Student</h4>
+            <h4> Register for the upcoming Webinars!</h4>
             </a> </div>
           <div class="tab-content">
             <div id="lg2" class="tab-pane active">
@@ -14,45 +14,29 @@
 				<?php echo validation_message();?> 
 				<?php echo error_message(); ?> 
         <?php //echo form_open('users/register'); ?>
-        <form action="<?php echo base_url(); ?>/users/register" method="post" accept-charset="utf-8">
-                  <input type="text" name="first_name" placeholder="Name" value="<?php echo set_value('first_name'); ?>">
+        <form action="<?php echo base_url(); ?>webinars/webinarRegister" method="post" accept-charset="utf-8" onsubmit="return validate()">
+                  <input type="text" name="first_name" placeholder="Name" id="name" value="<?php echo set_value('first_name'); ?>">
                   <?php echo form_error('first_name');?>
-                 <input type="text" name="phone_number" placeholder="Phone" value="<?php echo set_value('phone_number'); ?>">
+                 <input type="number" name="phone_number" placeholder="Phone" id="phone" value="<?php echo set_value('phone_number'); ?>" min="5000000000" max="9999999999" step=1>
                   <?php echo form_error('phone_number');?>
-                  <input type="text" name="user_name" placeholder="Email" value="<?php echo set_value('user_name');?>">
-                  <!-- <select name="category" required style="margin: 0px 0px 10px 0px">
-                      <option value=""selected="selected" disabled>Please Select a Category</option>
-                      <option value="30">School Tuition (5th to 12th Class)</option>
-                      <option value="170">College/University</option>
-                      <option value="31">Coaching Center</option>
-                      <option value="7">Hobbies</option>
-                      <option value="514">Professional Learning</option>
-                      <option value="407">Language</option>
-                      <option value="12">Sports</option>
-                      <option value="516">Vocational Learning</option>
-                    </select>
-                    <select name="category_course" required style="margin: 0px 0px 10px 0px">
-                    </select>   -->
-                    <!-- <select name="category" id="category" required style="margin: 0px 0px 10px 0px">
-                    <option value="" selected="selected" disabled>Please Select a Category</option> -->
-                    <?php 
-                            // $sql="SELECT * FROM `wl_categories`  where status='1' AND parent_id='0' ORDER BY sort_order";
-                            // $query=$this->db->query($sql);
-                            // foreach($query->result_array() as $val):
-                            ?>
-                    <!-- <option value="<?php //echo $val['category_id']?>"><?php //echo $val['category_name']?></option> -->
-                    <?php //endforeach;?>
-                  <!-- </select> -->
-                  <!-- <select id="classes" name="classes" required style="margin: 0px 0px 10px 0px">
-                  <option value="" selected="selected" disabled>Please Select a Class</option>
-                </select> -->
-                <!-- <div class="requried" id="classeserror" style="display:none; color:red;">Please Select an Option.</div> -->
-                  <?php //echo form_error('classes');?>
-                  <input type="password" name="password" placeholder="Password">
-                  <?php echo form_error('password');?>
-                  <input type="checkbox" name="terms_conditions" id="terms_conditions" >
-                  <label for="check"> I have read and agreed with the terms & conditions and privacy policy.</label>
-                  <?php echo form_error('terms_conditions');?>
+                  <input type="email" name="user_name" placeholder="Email" id="email" value="<?php echo set_value('user_name');?>">
+                  <input type="password" name="password" id="password" placeholder="Password(Your Webinar Password)" value="<?php echo set_value('password');?>">
+                  <br>
+                  <h4 style="font-family: 'Roboto', sans-serif; color: #1b68b5;">Upcoming Webinars</h4>
+                  <select name="webinar" id="webinarDetails" required>
+                  <option value="" selected disabled>Please Select a Webinar</option>
+                  <?php 
+                  $db2 = $this->load->database('database2', TRUE);
+                  $sql="SELECT courses_name, courses_id FROM `tbl_courses` where category_id='23'  ORDER BY courses_name";
+                  $query=$db2->query($sql);
+                  if($query->num_rows()>0){
+                  foreach($query->result_array() as $val):
+                  ?>                  
+                  <option value="<?php echo $val['courses_id']; ?>"><?php echo $val['courses_name']; ?></option>
+                  <?php  endforeach;  } ?>
+                  </select>         
+                  <div id="result" style="font-family: 'Roboto', sans-serif; color: #1b68b5;"></div>  
+                  <br>    
                   <div class="button-box">
                     <button class="default-btn" type="submit"><span>Register</span></button>
                   </div>
@@ -148,14 +132,36 @@
 <script>
   function validate()
   {
-    var x = document.getElementById("classes").value;
-    if(x=='' || x=='377' || x=='373' || x=="374" || x=='375' || x== '530' || x== '432' || x== '376' || x== '526')
+    var name = document.getElementById("name").value;
+    var password = document.getElementById("password").value;
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("phone").value;
+    // console.log(name+" "+password+" "+" "+email+" "+phone);
+    
+    if(name.trim() == "" || name.length <= 5)
     {
-      //alert('Select class ');
-      document.getElementById("classeserror").style.display = "block";
-      
+      alert('Please enter Name');
+      document.getElementById("name").focus();
       return false;
     }
+    if(password.length < 6 || password == "")
+    {
+      alert('Please enter Password');
+      document.getElementById("password").focus();
+      return false;
+    }
+    if(email == "")
+    {
+      alert('Please enter Email');
+      document.getElementById("email").focus();
+      return false;
+    }
+    if(phone.length != 10 || isNaN(phone) || phone.trim() == "")
+    {
+      alert('Please enter Valid Phone Number');
+      document.getElementById("phone").focus();
+      return false;
+    }    
   }
   </script>
 <script type="text/javascript">
@@ -171,27 +177,15 @@ $(document).ready(function() {
         });
 });
 </script>
-<!-- <script type="text/javascript">
-$(document).ready(function(){
-    $('#category').on('change',function(){
-    var categoryID = $(this).val();
-    $("#subject").val("");
-	$("#wait").css("display", "block");
-	//searchFilter();
-    if(categoryID){
-       $.ajax({
-          type:'POST',
-            url:'<?php echo base_url();?>search/getSubcat',
-              data:'category_id='+categoryID,
-               success:function(html){
-                   $('#classes').html(html);
-					$("#wait").css("display", "none");
-               }
-            }); 
-        }else{
-          $('#city').html('<option value="">Select Category</option>'); 
+<script>
+$('#webinarDetails').on('change',function(){
+  $.ajax({
+        type: 'POST',
+        url: '<?php echo base_url(); ?>webinars/webinarInfo/'+$(this).val(),
+        success: function (html) {
+            $('#result').html(html);
         }
-    });
- });
-</script>  -->
+    });  
+});
+</script>
 </body></html>
