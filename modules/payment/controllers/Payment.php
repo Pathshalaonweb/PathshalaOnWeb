@@ -20,7 +20,7 @@ class Payment extends Public_Controller
 		public function index(){
 			if ( $this->input->post()!='') {
 			if ($this->input->post('pay_method') == "paytm" ) {
-					$teacherId            = $this->session->userdata('teacher_id');
+					$teacherId        = $this->session->userdata('teacher_id');
 					$invoice_number    = "Wl_".get_auto_increment('wl_order');
 					$ammount=$this->input->post('ammount');
 					$tax_res    =  get_db_single_row($fld='wl_tax','tax_rate,tax_type',$Condwherw="WHERE tax_id='1'");
@@ -265,7 +265,6 @@ class Payment extends Public_Controller
 						'credit_date' 	 	 	 => $this->config->item('config.date.time'),
 						'plan_expire'			 => $expireDate,
 						'payment_status' 	 	 => "Paid",
-						'liveplan'               => "1",
 					);
 		$insert=$this->db->insert('wl_teacher_plan_history',$data);
 		//echo_sql();echo "<br>";

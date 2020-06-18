@@ -174,6 +174,39 @@ class Searchteacher extends DB{
 				//print_r($arr);
 		return json_encode($arr);
 		}
+		function liveteachers($fields)
+		{
+			if(!empty($fields['key']) && $fields['key']=="pathshala5572")
+			{
+				$currentDate =  date("Y-m-d");
+				$sql		  ="SELECT `teacher_id`, `user_name`, `first_name`, `address`, `description`, `experience_year`, `plan_expire`, `picture` FROM `wl_teacher` where liveplan='1' AND status='1'";
+				$select_query = mysqli_query($this->conn,$sql);
+				while($rec  = mysqli_fetch_array($select_query))
+				{
+					if($rec['plan_expire'] > $currentDate)
+					{
+						$image=NULL;
+			if(!empty($rec['picture'])){
+				$image .="https://www.pathshala.co/uploaded_files/teacher/".$rec['picture'];
+			}else{
+				$image .="https://www.pathshala.co/assets/designer/themes/default/images/logo_new.png";
+			}
+			
+			$arr['Result']['data'][] = array(   'teacher_id'	=>$rec['teacher_id'],
+												'user_name'		=>$rec['user_name'],
+												"first_name"	=>$rec['first_name'],
+												"customer_photo"=>$image,
+												"address"		=>$rec['address'], 
+												//"description"	=>strip_tags($rec['description']),
+												"experience_year"=>$rec['experience_year'],
+												"description"   =>$this->test_input($rec['description']),
+												);
+					}
+				}
+				return json_encode($arr);
+
+			}
+		}
 	
 	
 /*	SELECT DISTINCT SQL_CALC_FOUND_ROWS* FROM `wl_teacher`

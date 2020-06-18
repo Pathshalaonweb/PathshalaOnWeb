@@ -3,7 +3,16 @@
 <div class="breadcrumb-area">
   <div class="breadcrumb-top bg-img breadcrumb-overly-3 pt-100 pb-95" style="background-image:url(<?php echo theme_url();?>lms_searchbg.jpg);">
     <div class="container">
+    <div class="row">
+    <div class="col-md-5">
+    </div>
+      <div class="col-2 text-center" align="center">
+      <button class="btn btn-default" onclick="window.location.href='<?php echo base_url(); ?>webinars/register'">Register For Webinar</button>
+      </div>
+      </div>
+      <br>
       <form style="width: 100%;margin: 0 auto;" class="lms_search">
+     
         <div class="row">
           <div class="col-md-3"></div>
           <div class="col-md-3">
@@ -14,7 +23,7 @@
 			$sql="SELECT * FROM `tbl_department`  where status='1' AND parent_id='0' ORDER BY sort_order";
 			$query=$db2->query($sql);
       foreach($query->result_array() as $val): 
-        if($val['category_id'] == 23)
+        if($val['category_id'] != 23)
         { }
         else {
 	  		?>
@@ -58,7 +67,7 @@
 				$sql="SELECT * FROM `tbl_department` where status='1' AND  parent_id='0'";
 				$query=$db2->query($sql);
 				foreach($query->result_array() as $val){
-          if($val['category_id'] == 23)
+          if($val['category_id'] != 23)
           { }
           else { 
 				?>
@@ -74,7 +83,7 @@
         <div class="blog-all-wrap mr-40">
           <div class="row">
             <div class="container">
-              <h3 class="proTitle">Latest Courses</h3>
+              <h3 class="proTitle">Upcoming Webinars</h3>
             </div>
             <form method="post">
               <div class="container" id="postList">
@@ -117,11 +126,11 @@
                         
                       <?php if($this->session->userdata('user_id') > 0 ){?>
                      <ul> 
-                     <li> <a href="<?php echo base_url();?>/courses/enrollDetail/<?php echo $val['courses_id']?>" class="lms_buy"><i class="fa fa-money"></i> Buy Now</a>&nbsp;</li>
+                     <li> <a href="<?php echo base_url();?>/webinars/enrollDetail/<?php echo $val['courses_id']?>" class="lms_buy"><i class="fa fa-money"></i> Buy Now</a>&nbsp;</li>
                      
                        <?php if($val['price']!=1){?>
                        
-                     <li> <a href="<?php echo base_url();?>/courses/enrollDetailStoreCredit/<?php echo $val['courses_id']?>" class="lms_buy"><i class="fa fa-money"></i>Use credit Points</a></li>
+                     <li> <a href="<?php echo base_url();?>/webinars/enrollDetailStoreCredit/<?php echo $val['courses_id']?>" class="lms_buy"><i class="fa fa-money"></i>Use credit Points</a></li>
                       <?php }?>
                       </ul>
                       <?php }else{?>
@@ -154,7 +163,7 @@ function searchFilter(page_num) {
 	$("#wait").css("display", "block");
     $.ajax({
         type: 'POST',
-        url: '<?php echo base_url(); ?>courses/ajaxPaginationData/'+page_num,
+        url: '<?php echo base_url(); ?>webinars/ajaxPaginationData/'+page_num,
         data:{page:page_num,category:category},
         beforeSend: function () {
             $('.loading').show();
@@ -177,7 +186,7 @@ $(document).ready(function(){
     if(categoryID){
        $.ajax({
           type:'POST',
-            url:'<?php echo base_url();?>courses/getcourses',
+            url:'<?php echo base_url();?>webinars/getcourses',
               data:'category_id='+categoryID,
                success:function(html){
                    $('#subject').html(html);

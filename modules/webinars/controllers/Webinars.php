@@ -1,10 +1,10 @@
 <?php
-class Courses extends Public_Controller
+class Webinars extends Public_Controller
 {
 	public function __construct()
 	{
 		parent::__construct(); 
-		$this->load->model(array('courses/courses_model','payment/payment_model','order/order_model'));
+		$this->load->model(array('webinars/webinars_model','payment/payment_model','order/order_model'));
 	    $this->load->library('Ajax_pagination');
 		$this->load->helper(array('payment/paytm'));
 		$this->perPage = 30;
@@ -15,28 +15,28 @@ class Courses extends Public_Controller
 
  		$data = array();
         //total rows count
-        $totalRec = count($this->courses_model->get_course_row());
+        $totalRec = count($this->webinars_model->get_course_row());
         //pagination configuration
         $config['target']      = '#postList';
-        $config['base_url']    = base_url().'courses/ajaxPaginationData';
+        $config['base_url']    = base_url().'webinars/ajaxPaginationData';
         $config['total_rows']  = $totalRec;
         $config['per_page']    = $this->perPage;
         $config['link_func']   = 'searchFilter';
         $this->ajax_pagination->initialize($config);
         //get the posts data
-        $data['res'] = $this->courses_model->get_course_row(array('limit'=>$this->perPage));
+        $data['res'] = $this->webinars_model->get_course_row(array('limit'=>$this->perPage));
         $data['totalRec']=$totalRec;
         //load the view
 		$data['heading_title'] = "Advanced Search";						
-		 $this->load->view('courses/view_courses',$data);
+		 $this->load->view('webinars/view_webinars',$data);
 	}
 	
 	public function detail(){
 		$id=$this->uri->segment('3');
 		$param=array('courses_friendly_url'=>$id);
-		$res = $this->courses_model->get_courses(1,0,$param);
+		$res = $this->webinars_model->get_courses(1,0,$param);
 		$data['res']=$res;
-		$this->load->view('courses/view_course_detail',$data);
+		$this->load->view('webinars/view_course_detail',$data);
 	}
 	
 	
@@ -64,11 +64,11 @@ class Courses extends Public_Controller
              $conditions['search']['category'] = $category;
         }
 		//total rows count
-        $totalRec = count($this->courses_model->get_course_row($conditions));
+        $totalRec = count($this->webinars_model->get_course_row($conditions));
 		// echo $db2->last_query();die;
         //pagination configuration
         $config['target']      = '#postList';
-        $config['base_url']    = base_url().'courses/ajaxPaginationData';
+        $config['base_url']    = base_url().'webinars/ajaxPaginationData';
         $config['total_rows']  = $totalRec;
         $config['per_page']    = $this->perPage;
         $config['link_func']   = 'searchFilter';
@@ -77,10 +77,10 @@ class Courses extends Public_Controller
         $conditions['start'] = $offset;
         $conditions['limit'] = $this->perPage;
         //get posts data
-        $data['res'] = $this->courses_model->get_course_row($conditions);
+        $data['res'] = $this->webinars_model->get_course_row($conditions);
         //echo_sql();
         //load the view
-        $this->load->view('courses/view_search_courses', $data, false);
+        $this->load->view('webinars/view_search_courses', $data, false);
 		}
 		
 		public function getcourses(){
@@ -104,7 +104,7 @@ class Courses extends Public_Controller
 			   'courseEnroll' => TRUE
 			);  
 			$this->session->set_userdata($newdata);	
-			redirect('courses/enroll', 'refresh');
+			redirect('webinars/enroll', 'refresh');
 		}
 		
 		public function enrollDetailStoreCredit(){
@@ -114,26 +114,26 @@ class Courses extends Public_Controller
 			   'courseEnroll' => TRUE
 			);  
 			$this->session->set_userdata($newdata);	
-			redirect('courses/enrollStoreCredit', 'refresh');
+			redirect('webinars/enrollStoreCredit', 'refresh');
 		}
 		
 		public function enrollStoreCredit(){
 			$course_id 		= $this->session->userdata('course_id');
 			 $param 			= array('status'=>'1','course_id'=>$course_id);	
-			 $res_array			=$this->courses_model->get_courses(1,0,$param);
+			 $res_array			=$this->webinars_model->get_courses(1,0,$param);
 			// print_r($res_array);
 			 $data['res'] 		= $res_array;
-			 $this->load->view('courses/view_course_enroll_StoreCredit', $data, false);	
+			 $this->load->view('webinars/view_course_enroll_StoreCredit', $data, false);	
 		}
 		
 		
 		public function enroll(){
 			 $course_id 		= $this->session->userdata('course_id');
 			 $param 			= array('status'=>'1','course_id'=>$course_id);	
-			 $res_array			=$this->courses_model->get_courses(1,0,$param);
+			 $res_array			=$this->webinars_model->get_courses(1,0,$param);
 			// print_r($res_array);
 			 $data['res'] 		= $res_array;
-			 $this->load->view('courses/view_course_enroll', $data, false);	
+			 $this->load->view('webinars/view_course_enroll', $data, false);	
 		}
 		
 		public function freepayment(){
@@ -167,7 +167,7 @@ class Courses extends Public_Controller
 				$mem_info=get_db_single_row('wl_customers',$fields="*",$condition="WHERE 1 AND customers_id='".$this->session->userdata('user_id')."'");	 
 				 $userId            = $this->session->userdata('user_id');
 				 /*insert couser lot*/
-				$abc=$mem_info['lot'];
+				$abc=$mem_info['webinar_enrolled'];
 				if(!empty($abc)){
 					$course=  explode(",",$abc) ;
 				}else{
@@ -183,13 +183,13 @@ class Courses extends Public_Controller
 				array_splice($original_array,$position, 0,$inserted_value);  
 				$newLot=implode(",",$original_array);
 				$customerData=array(
-				 	"lot"=>$newLot,
+				 	"webinar_enrolled"=>$newLot,
 				 );
 				 $where = "customers_id = '$userId' ";
 				 $this->payment_model->safe_update('wl_customers',$customerData,$where,FALSE);
 				// echo_sql();die;
 				 $ordmaster = $this->order_model->get_order_master($orderId);
-				 redirect('/lms/course_material', 'refresh');
+				 redirect('/members/myaccount', 'refresh');
 				}
 			}
 		}
@@ -231,7 +231,7 @@ class Courses extends Public_Controller
 				 $newCrediitPoint=$mem_info['credit_point']-$this->input->post('ammount');
 				 
 				 /*insert couser lot*/
-				$abc=$mem_info['lot'];
+				$abc=$mem_info['webinar_enrolled'];
 				if(!empty($abc)){
 					$course=  explode(",",$abc) ;
 				}else{
@@ -247,14 +247,14 @@ class Courses extends Public_Controller
 				array_splice($original_array,$position, 0,$inserted_value);  
 				$newLot=implode(",",$original_array);
 				$customerData=array(
-				 	"lot"=>$newLot,
+				 	"webinar_enrolled"=>$newLot,
 					"credit_point"=>$newCrediitPoint
 				 );
 				 $where = "customers_id = '$userId' ";
 				 $this->payment_model->safe_update('wl_customers',$customerData,$where,FALSE);
 				// echo_sql();die;
 				 $ordmaster = $this->order_model->get_order_master($orderId);
-				 redirect('/lms/course_material', 'refresh');
+				 redirect('/members/myaccount', 'refresh');
 				}
 			}
 		}
@@ -304,6 +304,7 @@ class Courses extends Public_Controller
 							'payment_method'      => $this->input->post('payment_method'),
 							'payment_status'      => 'Unpaid',
 							'type'				  => '1',
+							'payment_mode'		  => 'online',
 							
 					);
 					$orderId = $this->order_model->safe_insert('wl_order',$data_order,FALSE);	
@@ -322,7 +323,7 @@ class Courses extends Public_Controller
 							'WEBSITE'			=>	"WEBSTAGING",
 							'TXN_AMOUNT' 		=> 	$ammount,
 							'mobile'			=>  $mem_info['phone_number'],
-							'return_url'	    =>  base_url() . 'courses/payment_status_paytm',
+							'return_url'	    =>  base_url() . 'webinars/payment_status_paytm',
 								 
 					);
 	       // error_reporting(E_ALL);
@@ -364,7 +365,7 @@ class Courses extends Public_Controller
 				 $mem_info=get_db_single_row('wl_customers',$fields="*",$condition="WHERE 1 AND customers_id='".$this->session->userdata('user_id')."'");	 
 				 $userId            = $this->session->userdata('user_id');
 				 /*insert couser lot*/
-				$abc=$mem_info['lot'];
+				$abc=$mem_info['webinar_enrolled'];
 				if(!empty($abc)){
 					$course=  explode(",",$abc) ;
 				}else{
@@ -382,7 +383,7 @@ class Courses extends Public_Controller
 				 //print_r($original_array);
 				 $newLot=implode(",",$original_array);
 				 $customerData=array(
-				 	"lot"=>$newLot,
+				 	"webinar_enrolled"=>$newLot,
 				 );
 				 $where = "customers_id = '$userId' ";
 				 $this->payment_model->safe_update('wl_customers',$customerData,$where,FALSE);
@@ -503,6 +504,88 @@ class Courses extends Public_Controller
 		//Process transaction as suspicious.
 	}
  }   
+ public function register()
+ {
+	$this->load->view('webinars/view_webinars_register');
+ }
+ public function webinarRegister()
+	 {
+		$password = $this->input->post('password',TRUE);
+		$email = $this->input->post('user_name',TRUE);
+		$name = $this->input->post('first_name',TRUE);
+		$phone = $this->input->post('phone_number',TRUE);
+		$webinar_enrolled = $this->input->post('webinar',TRUE);
+		$ch = curl_init();  
+		$url = "https://www.pathshala.co/decore/new/api.php?action=Login&userName=".$email."&pass=nullpass";
+		curl_setopt($ch,CURLOPT_URL,$url);
+		curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+		$output=curl_exec($ch);
+		curl_close($ch);
+		$jsonOutput = json_decode($output,true);
+		//var_dump($jsonOutput);
+		if($jsonOutput['message'] == "Invalid user")
+		{
+			// New User ***** Call SignUP API
+			$chh = curl_init();  
+			$nameUrl = str_replace(" ", "%20", $name);
+			$urll = "https://www.pathshala.co/decore/new/api.php?action=registerUser&email=".$email."&pass=".$password."&name=".$nameUrl."&phone=".$phone;
+			curl_setopt($chh,CURLOPT_URL,$urll);
+			curl_setopt($chh,CURLOPT_RETURNTRANSFER,true);
+			$outputt=curl_exec($chh);
+			curl_close($chh);
+			//echo $outputt;
+			$jsonSignup = json_decode($outputt, true);
+
+			//var_dump($jsonSignup); 
+			if($jsonSignup['Result']['msg'] == "Item has been added")
+			{
+				$dbe = $this->load->database('default', TRUE);
+				$ip=$_SERVER['REMOTE_ADDR'];
+				$sqq = "INSERT INTO `wl_webinar` (`emailid`, `webinar_enrolled`, `ip`, `user_type`) values ('".$email."','".$webinar_enrolled."','".$ip."', '1')";
+				$que = $dbe->query($sqq); 
+				echo "<script>alert('Registered Successfully, Proceed With Login.'); window.location = '".base_url()."users/login'</script>";
+			}
+			else
+			{
+				echo "<script>alert('Error Occured. Please Try Again'); window.location = '".base_url()."webinars'</script>";
+
+			}
+
+
+		}
+		else if($jsonOutput['message'] == "Invalid password")
+		{
+			// Old User
+			$dbe = $this->load->database('default', TRUE);
+			$ip=$_SERVER['REMOTE_ADDR'];
+			$sqq = "INSERT INTO `wl_webinar` (`emailid`, `webinar_enrolled`, `ip`) values ('".$email."','".$webinar_enrolled."','".$ip."')";
+			$que = $dbe->query($sqq); 
+			echo "<script>alert('Registered Successfully. Proceed With Login'); window.location = '".base_url()."users/login'</script>";
+
+		}
+	 }
+	 
+	 function webinarInfo($courses_id)
+	 {
+		$db2 = $this->load->database('database2', TRUE); 
+		$sql="SELECT * FROM `tbl_courses` where `courses_id` = '".$courses_id."'";
+		$query=$db2->query($sql);
+		$value= $query->result_array();
+		$dbe = $this->load->database('default', TRUE);
+		$idd = $value[0]['teacher_id'];
+		$sq = "SELECT first_name FROM `wl_teacher` WHERE teacher_id='".$idd."'";
+		$qu=$dbe->query($sq);
+		$values= $qu->result_array();
+		echo "<strong>Name:</strong> ".$value[0]['courses_name']."<br>";
+		if($value[0]['price'] == "1")
+		{
+			echo  "<strong>Price:</strong> Free<br>";
+		}
+		else{
+		echo  "<strong>Price:</strong> Rs.".$value[0]['price']."<br>";
+		}
+		echo "<strong>Teacher Name:</strong> ".$values[0]['first_name'];
+	 }
 
 
 

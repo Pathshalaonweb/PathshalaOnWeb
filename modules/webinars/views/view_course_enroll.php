@@ -19,9 +19,9 @@
       <?php 
 	  if($res['price']==1){
 	  ?>
-      <form action="<?php echo base_url();?>courses/freepayment" method="post">
+      <form action="<?php echo base_url();?>webinars/freepayment" method="post">
       <?php }else{?>
-      <form action="<?php echo base_url();?>courses/payment" method="post">
+      <form action="<?php echo base_url();?>webinars/payment" method="post">
       <?php }?>
         <div class="billing-info-wrap">
           <h3>Payment Details</h3>
@@ -70,7 +70,7 @@
         </div>
         <div class="col-lg-5">
           <div class="your-order-area">
-            <h3>Your Plan</h3>
+            <h3>Webinar Registration</h3>
             <div class="your-order-wrap gray-bg-4">
               <div class="your-order-product-info">
                 <div class="your-order-top">
@@ -95,7 +95,7 @@
 				?>
                 <table class="table">
                     <tr>
-                      <td>Course</td>
+                      <td>Webinar Name</td>
                       <td><strong><?php echo $res['courses_name']?></strong></td>
                     </tr>
                     <tr>
@@ -126,7 +126,7 @@
 				?>
                   <table class="table">
                     <tr>
-                      <td>Course</td>
+                      <td>Webinar Name</td>
                       <td><strong><?php echo $res['courses_name']?></strong></td>
                     </tr>
                     <tr>
