@@ -8,9 +8,7 @@ class user extends DB{
 	}
 	
 	function loginAction($fields){
-		
-		
-		$response = array();
+	 $response = array();
 		 if($fields['userName']=="" || $fields['pass']==""){
 			  $response = array("success"=>0,"code"=>0,"message"=>"Email ID or password can not be blank");
    	 }else{ 
@@ -520,15 +518,213 @@ function registerUser($fields){
 		}
 		//mysqli_set_charset($this->conn, 'utf8');
 	}
+	
 		
 	return json_encode($arr);	
 	}
 	
+	 
+	public function getMockExam($fields) {
+		$response = array(); 
+		if($fields['userid']=="" ) {
+			$response = array("success"=>0,"code"=>0,"message"=>"User ID can not be blank");
+   		} else {
+			$res['Result'] = array("success"=>1,"code"=>0);
+			$sql			= "SELECT * FROM `wl_customers` WHERE `customers_id`='".$fields['userid']."'";
+			$select_query 	= mysqli_query($this->conn,$sql);
+			$row 			= mysqli_fetch_array($select_query);
+			//$course			= explode(",",$row['lot']);
+			$result 		= array();
+			//print_r($row );die;
+			if(!empty($row['lot'])) {
+			$courses =  explode(",",$row['lot']);
+			$course1 =  array_filter(array_unique($courses));
+			$course2 =  implode(',',$course1);
+			$course  =  explode(",",$course2);
+			//print_r($course ); 
+			if(!empty($course)) {
+			for ($i=0; $i<count($course); $i++) {
+				$sel_q ="SELECT * FROM `tbl_mock` where course_id='".$course[$i]."'  ORDER BY mock_id ASC";
+				$selectQuery 	= mysqli_query($this->connTwo,$sel_q);
+				//$row 			= mysqli_fetch_array($select_query);
+				while($sub_res 	= mysqli_fetch_array($selectQuery)) {
+						$res['Result']['data'][] = array(   
+								'mock_id'			=>$sub_res['mock_id'],
+								'course_id'			=>$sub_res['course_id'],
+								'exam_date'			=>$sub_res['exam_date'],
+								'mock_title'		=>$this->test_input($sub_res['mock_title']),
+								'mock_description'	=>$this->test_input($sub_res['mock_description']),
+								'mode_of_exam'		=>$sub_res['mode_of_exam'],
+								'str_total_time'	=>$sub_res['str_total_time'],
+								'str_negative_mark'	=>$sub_res['str_negative_mark'],
+								'date_of_exam'		=>$sub_res['date_of_exam'],
+								'total_question'	=>$sub_res['total_question'],
+								//'exam_date'		=>$sub_res['exam_date'],
+				  );
+				  
+				}	
+				$arr=array_merge($response,$res);
+			}
+		  }//first if
+		 }//second if
+		}
+		return json_encode($arr);	
+	} 
 	  
-	  
-	  
-	  
+	public function MockSubject($fields){
+		$response = array(); 
+			if($fields['mock_id']=="" ) {
+				$response = array("success"=>0,"code"=>0,"message"=>"Mock ID can not be blank");
+			} else {
+				$res['Result'] = array("success"=>1,"code"=>0);
+				$sel_q ="SELECT * FROM `tbl_mock_subject` where mock_id='".$fields['mock_id']."' ORDER BY subject_id ASC"; 
+				$selectQuery 	= mysqli_query($this->connTwo,$sel_q);
+				while($sub_res 	= mysqli_fetch_array($selectQuery)) {
+					$response['Result']['data'][] = array(   
+								'subject_id'		=>$sub_res['subject_id'],
+								'mock_id'			=>$sub_res['mock_id'],
+								'subject_name'		=>$this->test_input($sub_res['subject_name']),
+								'status'			=>$sub_res['status'],
+								'total_mark'		=>$sub_res['total_mark'],
+								'total_que'			=>$sub_res['total_que'],
+								//'status'			=>$sub_res['status'],
+					);
+				}
+			}
+			
+		return json_encode($response,JSON_UNESCAPED_SLASHES);	
+		} 
+	 
+	 
+	 public function MockQuestion($fields){
+		$response = array(); 
+			if($fields['subject_id']=="" ) {
+				$response = array("success"=>0,"code"=>0,"message"=>"Subject ID can not be blank");
+			} else {
+				$res['Result'] = array("success"=>1,"code"=>0);
+				$sel_q ="SELECT * FROM `tbl_mock_question` where subject_id='".$fields['subject_id']."'"; 
+				$selectQuery 	= mysqli_query($this->connTwo,$sel_q);
+				while($sub_res 	= mysqli_fetch_array($selectQuery)) {
+					$response['Result']['data'][] = array(   
+								'question_id'		=>$sub_res['question_id'],
+								'department_id'		=>$sub_res['department_id'],
+								'subject_id'		=>$sub_res['subject_id'],
+								'question'			=>$this->test_input($sub_res['question']),
+								'que_img'			=>$sub_res['que_img'],
+								'option_i'			=>$this->test_input($sub_res['option_i']),
+								'option_ii'			=>$this->test_input($sub_res['option_ii']),
+								'option_iii'		=>$this->test_input($sub_res['option_iii']),
+								'option_iv'			=>$this->test_input($sub_res['option_iv']),
+								'option_v'			=>$this->test_input($sub_res['option_v']),
+								'option_vi'			=>$this->test_input($sub_res['option_vi']),
+								
+								'answer'			=>$this->test_input($sub_res['answer']),
+								
+								'status'			=>$sub_res['status'],
+					);
+				}
+			}
+			
+		return json_encode($response,JSON_UNESCAPED_SLASHES);	
+		} 
+	 
+	 
+	 
+	 
+	 
+	 public function getOnlineExam($fields) {
+		$response = array(); 
+		if($fields['userid']=="" ) {
+			$response = array("success"=>0,"code"=>0,"message"=>"User ID can not be blank");
+   		} else {
+			$res['Result'] = array("success"=>1,"code"=>0);
+			$sql			= "SELECT * FROM `wl_customers` WHERE `customers_id`='".$fields['userid']."'";
+			$select_query 	= mysqli_query($this->conn,$sql);
+			$row 			= mysqli_fetch_array($select_query);
+			//$course			= explode(",",$row['lot']);
+			$result 		= array();
+			//print_r($row );die;
+			if(!empty($row['lot'])) {
+			$courses =  explode(",",$row['lot']);
+			$course1 =  array_filter(array_unique($courses));
+			$course2 =  implode(',',$course1);
+			$course  =  explode(",",$course2);
+			//print_r($course ); 
+			if(!empty($course)) {
+			for ($i=0; $i<count($course); $i++) {
+				$sel_q ="SELECT * FROM `tbl_subject` where course_id='".$course[$i]."'  ORDER BY sort_order ASC";
+				$selectQuery 	= mysqli_query($this->connTwo,$sel_q);
+				//$row 			= mysqli_fetch_array($select_query);
+				while($sub_res 	= mysqli_fetch_array($selectQuery)) {
+						$res['Result']['data'][] = array(   
+								'subject_id'		=>$sub_res['subject_id'],
+								'course_id'			=>$sub_res['course_id'],
+								'subject_name'		=>$this->test_input($sub_res['subject_name']),
+								'status'			=>$sub_res['status'],
+					 );
+				  
+				}	
+				$arr=array_merge($response,$res);
+			}
+		  }//first if
+		 }//second if
+		}
+		return json_encode($arr);	
+	}  
 	
+	public function OnlineSubject($fields){
+		$response = array(); 
+			if($fields['subject_id']=="" ) {
+				$response = array("success"=>0,"code"=>0,"message"=>"Subject ID can not be blank");
+			} else {
+				$res['Result'] = array("success"=>1,"code"=>0);
+				$sel_q ="SELECT * FROM `tbl_lession` where subject_id='".$fields['subject_id']."' ORDER BY sort_order ASC";
+				$selectQuery 	= mysqli_query($this->connTwo,$sel_q);
+				while($sub_res 	= mysqli_fetch_array($selectQuery)) {
+					$response['Result']['data'][] = array(   
+								'lession_id'		=>$sub_res['lession_id'],
+								'subject_id'		=>$sub_res['subject_id'],
+								'lession'			=>$this->test_input($sub_res['lession']),
+								'exam_type'			=>$sub_res['exam_type'],
+								'total_question'		=>$sub_res['total_question'],
+								'str_total_mark'		=>$sub_res['str_total_mark'],
+								'courses_description'	=>$this->test_input($sub_res['courses_description']),
+								'exam_date'			=>$sub_res['exam_date'],
+								'str_total_time'	=>$sub_res['str_total_time'],
+								'sort_order'		=>$sub_res['sort_order'],
+								'status'			=>$sub_res['status'],
+					);
+				}
+			}
+			
+		return json_encode($response,JSON_UNESCAPED_SLASHES);	
+		} 
+	
+	 public function OnlineQuestion($fields){
+		$response = array(); 
+			if($fields['lession_id']=="" ) {
+				$response = array("success"=>0,"code"=>0,"message"=>"Subject ID can not be blank");
+			} else {
+				$res['Result'] = array("success"=>1,"code"=>0);
+				$sel_q ="SELECT * FROM `tbl_question` where lession_id='".$fields['lession_id']."'";
+				$selectQuery 	= mysqli_query($this->connTwo,$sel_q);
+				while($sub_res 	= mysqli_fetch_array($selectQuery)) {
+					$response['Result']['data'][] = array(   
+								'question_id'		=>$sub_res['question_id'],
+								'lession_id'		=>$sub_res['lession_id'],
+								'question'			=>$this->test_input($sub_res['question']),
+								'option_i'			=>$this->test_input($sub_res['option_i']),
+								'option_ii'			=>$this->test_input($sub_res['option_ii']),
+								'option_iii'		=>$this->test_input($sub_res['option_iii']),
+								'option_iv'			=>$this->test_input($sub_res['option_iv']),
+								'answer'			=>$this->test_input($sub_res['answer']),
+								'status'			=>$sub_res['status'],
+					);
+				}
+			}
+			
+		return json_encode($response,JSON_UNESCAPED_SLASHES);	
+		} 
 	
 	public function qry_insert($table,$data){
 			 $fields = array_keys($data );  

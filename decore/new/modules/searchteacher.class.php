@@ -174,7 +174,8 @@ class Searchteacher extends DB{
 				//print_r($arr);
 		return json_encode($arr);
 		}
-		function liveteachers($fields)
+	function liveteachers($fields)
+
 		{
 			if(!empty($fields['key']) && $fields['key']=="pathshala5572")
 			{
@@ -206,7 +207,8 @@ class Searchteacher extends DB{
 				return json_encode($arr);
 
 			}
-		}
+		}	
+
 	
 	
 /*	SELECT DISTINCT SQL_CALC_FOUND_ROWS* FROM `wl_teacher`
