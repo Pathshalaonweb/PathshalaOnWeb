@@ -61,6 +61,27 @@ switch($action){
   case "getStudentCourse" :  
     echo $response = $usrObj->getStudentCourse($_REQUEST);
   break;
+   case "getStudentMock" :  
+    echo $response = $usrObj->getMockExam($_REQUEST);
+  break;
+   case "getStudentMockSubject" :  
+    echo $response = $usrObj->MockSubject($_REQUEST);
+  break;
+  case "getStudentMockQuestion" :  
+    echo $response = $usrObj->MockQuestion($_REQUEST);
+  break;
+  
+  
+   case "getStudentOnline" :  
+    echo $response = $usrObj->getOnlineExam($_REQUEST);
+  break;
+  case "getStudentOnlineSubject" :  
+    echo $response = $usrObj->OnlineSubject($_REQUEST);
+  break;
+  case "getStudentOnlineQuestion" :  
+    echo $response = $usrObj->OnlineQuestion($_REQUEST);
+  break;
+  
   case "Blog" : 
      echo $response = $usrObj->blog($_REQUEST);
   break;
@@ -163,7 +184,9 @@ switch($action){
 	  case "Search" : 
 		 echo $response = $searchteacherObj->searchteachers($_REQUEST);
 	  break;
-
+	case "searchliveteachers":
+      echo $response = $searchteacherObj->liveteachers($_REQUEST);
+     break;
 
 //search course 
 	
