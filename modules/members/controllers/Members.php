@@ -239,7 +239,7 @@ class Members extends Private_Controller{
 	
 	public function buynow(){
 		
-		$id=trim($this->uri->segment(4));
+		$id=trim($this->uri->segment(3));
 		$newdata = array(
 			'planId'  	=> $id,
 			'plan_in' => TRUE
