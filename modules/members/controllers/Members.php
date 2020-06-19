@@ -14,11 +14,11 @@ class Members extends Private_Controller{
 
 	public function index()
 	{	
-		if ($this->mres['profile_edit']==0) {
-			redirect('members/edit_account','');
-		} else {
+		// if ($this->mres['profile_edit']==0) {
+		// 	redirect('members/edit_account','');
+		// } else {
 			redirect('members/myaccount', '');
-		}
+		// }
 	}
 
 	public function myaccount()
