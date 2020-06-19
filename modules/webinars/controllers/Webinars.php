@@ -577,14 +577,15 @@ class Webinars extends Public_Controller
 		$qu=$dbe->query($sq);
 		$values= $qu->result_array();
 		echo "<strong>Name:</strong> ".$value[0]['courses_name']."<br>";
-		if($value[0]['price'] == "1")
-		{
-			echo  "<strong>Price:</strong> Free<br>";
-		}
-		else{
-		echo  "<strong>Price:</strong> Rs.".$value[0]['price']."<br>";
-		}
-		echo "<strong>Teacher Name:</strong> ".$values[0]['first_name'];
+		// if($value[0]['price'] == "1")
+		// {
+		// 	echo  "<strong>Price:</strong> Free<br>";
+		// }
+		// else{
+		// echo  "<strong>Price:</strong> Rs.".$value[0]['price']."<br>";
+		// }
+		echo "<strong>Teacher Name:</strong> ".$values[0]['first_name']."<br>";
+		echo "<strong>Description:</strong> ".str_replace("</p>","",str_replace("<p>","",$value[0]['courses_description']));
 	 }
 
 
