@@ -24,9 +24,9 @@ class Members extends Private_Controller{
 	public function myaccount()
 	{
 		
-		if ($this->mres['profile_edit']==0) {
-			redirect('members/edit_account','');
-		}
+		// if ($this->mres['profile_edit']==0) {
+		// 	redirect('members/edit_account','');
+		// }
 	
 		$data['unq_section'] = "Myaccount";	
 		$data['title'] = "My Account";

@@ -98,7 +98,7 @@
                         <?php if(!empty($val['image'])) {?>
                         <a href="<?php echo base_url();?>courses/detail/<?php echo $val['courses_friendly_url']?>"> <img src="<?php echo base_url();?>lms/uploaded_files/courses/<?php echo $val['image']?>" alt="" data-href="<?php echo base_url();?>courses/coursedetail/<?php echo $val['courses_id'];?>" data-name="<?php echo $val['courses_name']?>"></a>
                         <?php } else {?>
-                        <a href="<?php echo base_url();?>courses/detail/<?php echo $val['courses_friendly_url']?>"> <img src="<?php echo get_image('category',$val['image'],50,50,'AR');?>"/><!--class="openPopup"--></a>
+                        <a href="<?php echo base_url();?>courses/detail/<?php echo $val['courses_friendly_url']?>"> <img src="https://pathshala.co/uploaded_files/thumb_cache/thumb_190_190_noimg1.gif"/><!--class="openPopup"--></a>
                         <?php }?>
                       </div>
                       <div class="blog-content-wrap">

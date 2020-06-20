@@ -50,7 +50,7 @@
               </thead>
               <tbody>
                 <?php 
-				 //echo"<pre>"; print_r($res);
+				// echo"<pre>"; print_r($res)."</pre>";
 				 $s=$sn;	
 				 foreach($res as $val) {
 				 	//print_r($val);		  
@@ -93,8 +93,19 @@
                   <td>
                   <?php 
 				  if($currentCredit>0){
-				  ?>
-                  <a href="<?php echo base_url();?>teacherdashboard/studentdetail/<?php echo $val['student_id'];?>/<?php echo $val['id'];?>" class="btn">Buy Contact</a>
+            $dbe = $this->load->database('default', TRUE);
+            $idd = $val['id'];
+            $sq = "SELECT `id` FROM `wl_teacher_cradit_recode` WHERE `notified_id`='".$idd."'";
+            $qu=$dbe->query($sq);
+            $numrows = $qu->num_rows();
+            //echo $numrows;
+          ?>
+                 <?php if($numrows == 0) { ?>
+                  <a class="btn btn-primary" href="<?php echo base_url();?>teacherdashboard/studentdetail/<?php echo $val['student_id'];?>/<?php echo $val['id'];?>" class="btn">Buy Contact</a>
+                 
+                 <?php } elseif($numrows == 1) { ?>
+                  <a class="btn btn-success" href="<?php echo base_url();?>teacherdashboard/studentdetail/<?php echo $val['student_id'];?>/<?php echo $val['id'];?>" class="btn">Show Contact</a>
+                 <?php } ?>
                   <?php }?>
                   </td>
                 </tr>

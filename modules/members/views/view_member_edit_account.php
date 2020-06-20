@@ -63,6 +63,7 @@
                       <div class="requried" id="classeserror" style="display:none; color:red;">Please Select an Option.</div>
                     <textarea placeholder="Address" name="address"><?php echo set_value('address',$mres['address']);?></textarea>
                     <input type="text" name="pincode" placeholder="pincode" value="<?php echo set_value('pincode',$mres['pincode']);?>">
+                    <!-- <p>Description:</p> -->
                     <textarea placeholder="Description" name="description"> <?php echo set_value('description',$mres['description']);?></textarea>
                   
                 	<div class="button-box">

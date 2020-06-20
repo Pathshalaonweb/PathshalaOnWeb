@@ -390,7 +390,7 @@ class Webinars extends Public_Controller
 				 //echo_sql();
 				 $ordmaster = $this->order_model->get_order_master( $this->session->userdata('working_order_id') );
 				 $this->teacher_plan_update($ordmaster);
-				 $plan_res    =  get_db_single_row($fld='wl_plan','*',$Condwherw="WHERE plan_id=".$ordmaster['plan_id']."");
+				 $plan_res    =  get_db_single_row($fld='wl_student_plan','*',$Condwherw="WHERE plan_id=".$ordmaster['plan_id']."");
 				 if( is_array( $ordmaster )  && !empty( $ordmaster ) ) {
 					   /***** Send Invoice mail */
 					   $content    =  get_content('wl_auto_respond_mails','17');		
