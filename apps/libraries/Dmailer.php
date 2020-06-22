@@ -14,7 +14,7 @@ class Dmailer
 		'smtp_host' => 'ssl://smtp.googlemail.com',
 		'smtp_port' => 587,
 		'smtp_user' => 'info@pathshala.co',
-		'smtp_pass' => 'Brainchild@1a',     
+		'smtp_pass' => 'Pathshala@1a',     
 		 );	
 		
 	    $this->CI->load->library('email');

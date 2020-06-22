@@ -11,8 +11,8 @@ $CI =& get_instance();
 
 
  // following files need to be included
-	// require_once(APPPATH . "/third_party/paytmlib/config_paytm.php");
-	// require_once(APPPATH . "/third_party/paytmlib/encdec_paytm.php");
+	require_once(APPPATH . "/third_party/paytmlib/config_paytm.php");
+	require_once(APPPATH . "/third_party/paytmlib/encdec_paytm.php");
 
 
 $checkSum = "";
