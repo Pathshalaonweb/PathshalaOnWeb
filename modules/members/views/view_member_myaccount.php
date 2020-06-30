@@ -16,11 +16,11 @@
 <!--<div class="event-area my-acc pt-20 pb-130"> -->
 <div class="hero-image">
   <div class="hero-text">
-    <h1 style="color: #ffffff;">Pathshala Welcome's You India's Education Market Place to Search, Manage, Advertise & Sell</h1>
+    <h1 style="color: #ffffff;">Pathshala Welcome's You</h1>
     <br><br>
-    <h3 style="color: #ffffff;">Subscription Plans</h3>
+    <h3 style="color: #ffffff;">India's Education Market Place to Search, Manage, Advertise & Sell</h3>
     <br>
-    <button class="btn btn-info" style="background: #1b68b5; color:#ffffff;" onclick="window.location.href='<?php echo base_url();?>members/credit'">Get Subscription</button>
+    <button class="btn btn-info" style="background: #1b68b5; color:#ffffff;" onclick="window.location.href='<?php echo base_url();?>members/credit'">Get Started</button>
   </div>
 </div>
 <div class="hero-image">
