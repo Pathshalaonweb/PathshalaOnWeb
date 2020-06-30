@@ -32,7 +32,7 @@
         <div class ="col-5 col-xs-12">
             <div class="row">
                 <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%202.png" style="width:54.86px; height:54.86px;">
+                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%202.png" class="picons" style="width:54.86px; height:54.86px;">
                     </div>
                 <div class="col-8 col-xs-6">
                     <h4 style="color: #ffffff;">Compare the Tutors Based on Rating.</h4>
@@ -44,7 +44,7 @@
         <div class ="col-5 col-xs-12">
             <div class="row">
                 <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/icon1.png" style="width:54.86px; height:54.86px;">
+                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/icon1.png" class="picons" style="width:54.86px; height:54.86px;">
                     </div>
                 <div class="col-8 col-xs-6">
                     <h4 style="color: #ffffff;">Search Tutors Digitally.</h4>
@@ -57,7 +57,7 @@
         <div class ="col-5 col-xs-12">
             <div class="row">
                 <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%203.png" style="width:54.86px; height:54.86px;">
+                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%203.png" class="picons" style="width:54.86px; height:54.86px;">
                     </div>
                 <div class="col-8 col-xs-6">
                     <h4 style="color: #ffffff;"> Search & Learn Through LMS.</h4>
@@ -69,7 +69,7 @@
         <div class ="col-5 col-xs-12">
             <div class="row">
                 <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%204.png" style="width:54.86px; height:54.86px;">
+                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%204.png" class="picons" style="width:54.86px; height:54.86px;">
                     </div>
                 <div class="col-8 col-xs-6">
                     <h4 style="color: #ffffff;">Get Everything at Affordable Price.</h4>
@@ -91,7 +91,7 @@
         <div class ="col-5 col-xs-12">
             <div class="row">
                 <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%2012.png" style="width:54.86px; height:54.86px;">
+                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%2012.png" class="picons" style="width:54.86px; height:54.86px;">
                     </div>
                 <div class="col-8 col-xs-6">
                     <h4 style="color: #ffffff;">Online Classes from Pan India Tutors.</h4>
@@ -103,7 +103,7 @@
         <div class ="col-5 col-xs-12">
             <div class="row">
                 <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/icon1.png" style="width:54.86px; height:54.86px;">
+                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/icon1.png" class="picons" style="width:54.86px; height:54.86px;">
                     </div>
                 <div class="col-8 col-xs-6">
                     <h4 style="color: #ffffff;">Get Access to Online Live Classes.</h4>
@@ -116,7 +116,7 @@
         <div class ="col-5 col-xs-12">
             <div class="row">
                 <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%208.png" style="width:54.86px; height:54.86px;">
+                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%208.png" class="picons" style="width:54.86px; height:54.86px;">
                     </div>
                 <div class="col-8 col-xs-6">
                     <h4 style="color: #ffffff;">Post Sessions Notes & Study Material.</h4>
@@ -128,7 +128,7 @@
         <div class ="col-5 col-xs-12">
             <div class="row">
                 <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%2011.png" style="width:54.86px; height:54.86px;">
+                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%2011.png" class="picons" style="width:54.86px; height:54.86px;">
                     </div>
                 <div class="col-8 col-xs-6">
                     <h4 style="color: #ffffff;">Get Access to Recorded Video of Live Classes.</h4>
@@ -150,7 +150,7 @@
         <div class ="col-5 col-xs-12">
             <div class="row">
                 <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%209.png" style="width:54.86px; height:54.86px;">
+                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%209.png" class="picons" style="width:54.86px; height:54.86px;">
                     </div>
                 <div class="col-8 col-xs-6">
                     <h4 style="color: #ffffff;">Get Free & Paid Study Material.</h4>
@@ -162,7 +162,7 @@
         <div class ="col-5 col-xs-12">
             <div class="row">
                 <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%208.png" style="width:54.86px; height:54.86px;">
+                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%208.png" class="picons" style="width:54.86px; height:54.86px;">
                     </div>
                 <div class="col-8 col-xs-6">
                     <h4 style="color: #ffffff;">Online Quizzes, Test Series, MCQ.</h4>
@@ -175,7 +175,7 @@
         <div class ="col-5 col-xs-12">
             <div class="row">
                 <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%203.png" style="width:54.86px; height:54.86px;">
+                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%203.png" class="picons" style="width:54.86px; height:54.86px;">
                     </div>
                 <div class="col-8 col-xs-6">
                     <h4 style="color: #ffffff;">Access to LMS to learn more.</h4>
@@ -187,7 +187,7 @@
         <div class ="col-5 col-xs-12">
             <div class="row">
                 <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%2011.png" style="width:54.86px; height:54.86px;">
+                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%2011.png" class="picons" style="width:54.86px; height:54.86px;">
                     </div>
                 <div class="col-8 col-xs-6">
                     <h4 style="color: #ffffff;">Get Youtube Videos & Recorded Lectures.</h4>
@@ -208,7 +208,7 @@
         <div class ="col-5 col-xs-12">
             <div class="row">
                 <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%209.png" style="width:54.86px; height:54.86px;">
+                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%209.png" class="picons" style="width:54.86px; height:54.86px;">
                     </div>
                 <div class="col-8 col-xs-6">
                     <h4 style="color: #ffffff;">Enhance your Knowledge through workshops.</h4>
@@ -220,7 +220,7 @@
         <div class ="col-5 col-xs-12">
             <div class="row">
                 <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%208.png" style="width:54.86px; height:54.86px;">
+                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%208.png" class="picons" style="width:54.86px; height:54.86px;">
                     </div>
                 <div class="col-8 col-xs-6">
                     <h4 style="color: #ffffff;">Attend Well Structured Webinars/Workshops.</h4>
@@ -233,7 +233,7 @@
         <div class ="col-5 col-xs-12">
             <div class="row">
                 <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%203.png" style="width:54.86px; height:54.86px;">
+                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%203.png" class="picons" style="width:54.86px; height:54.86px;">
                     </div>
                 <div class="col-8 col-xs-6">
                     <h4 style="color: #ffffff;">Get Post Session Notes in LMS.</h4>
@@ -245,7 +245,7 @@
         <div class ="col-5 col-xs-12">
             <div class="row">
                 <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%2011.png" style="width:54.86px; height:54.86px;">
+                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%2011.png" class="picons" style="width:54.86px; height:54.86px;">
                     </div>
                 <div class="col-8 col-xs-6">
                     <h4 style="color: #ffffff;"> Post Session Recording If You miss a Session.</h4>
@@ -303,8 +303,8 @@
   </div>
 </div>
 </div>
-<div class="hero-image">
-<div class="teacher-area pt-30 pb-100">
+<div class="hero-image webinarpills">
+<div class="teacher-area pt-30 pb-100 webinarpills">
   <div class="container">
     <!-- <div class="teacherSection">
       <h2>Recent <span>Teachers</span></h2>
@@ -346,7 +346,7 @@
         <br>
         <br>
     <!-- <div class="container">-->
-        <div class="wrapper"> 
+        <div class="wrapper webinarpills"> 
             <?php //$this->load->view("myaccount_left");?>
             <div class="col-10">
                 <!-- <div class="blog-all-wrap mr-40"> -->
