@@ -128,8 +128,8 @@ class Payment extends Private_Controller{
 				$this->payment_model->safe_update('wl_student_credit_record',$data,$where,FALSE);
 				//echo_sql();
 				$ordmaster = $this->members_model->get_payment_master($this->session->userdata('working_order_id'));
-				//$sql="UPDATE table_name SET column1 = value1, column2 = value2, WHERE condition;";
-				//$this->student_credit_update($ordmaster);
+				$sql="UPDATE table_name SET column1 = value1, column2 = value2, WHERE condition;";
+				$this->student_credit_update($ordmaster);
 				$totalCredit=$mem_info['credit_point']+$ordmaster['credit_amount'];	
 				$creditData=array(
 							'credit_point' => $totalCredit,
@@ -196,8 +196,8 @@ class Payment extends Private_Controller{
 				 $this->payment_model->safe_update('wl_student_credit_record',$data,$where,FALSE);
 				/// echo_sql();
 				 $ordmaster = $this->members_model->get_payment_master( $this->session->userdata('working_order_id') );
-				  //$plan_res    =  get_db_single_row($fld='wl_plan','*',$Condwherw="WHERE plan_id=".$ordmaster['plan_id']."");
-			//	 $this->sms_for_services($ordmaster);
+				  $plan_res    =  get_db_single_row($fld='wl_plan','*',$Condwherw="WHERE plan_id=".$ordmaster['plan_id']."");
+				//  $this->sms_for_services($ordmaster);
 				
 				 if( is_array( $ordmaster )  && !empty( $ordmaster ) ) {
 					  

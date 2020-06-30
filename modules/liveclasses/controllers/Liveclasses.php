@@ -16,7 +16,7 @@ class Liveclasses extends Public_Controller
  		$data = array();
 		//total rows count
 		$db1 = $this->load->database('default', TRUE);
-		$sqll = "SELECT * FROM `wl_teacher`  where liveplan=1";
+		$sqll = "SELECT * FROM `wl_teacher`  where liveplan='1' ORDER BY `plan_expire` DESC";
 		$queryy=$db1->query($sqll);
 		$totalRec = $queryy->num_rows();
         //$totalRec = count($this->liveclasses_model->get_course_row());
@@ -512,7 +512,113 @@ class Liveclasses extends Public_Controller
 		}
 
 
-	 }   
+	 }  
+	 public function register()
+	 {
+		$this->load->view('liveclasses/view_liveclasses_register');
+
+	 } 
+	 public function liveclassRegister()
+	 {
+		 $classes = $this->input->post('classes',TRUE);
+		 $class_str = implode(",",$classes);
+		//  print_r($classes);
+		$password = $this->input->post('password',TRUE);
+		$email = $this->input->post('user_name',TRUE);
+		$name = $this->input->post('first_name',TRUE);
+		$phone = $this->input->post('phone_number',TRUE);
+		$ch = curl_init();  
+		$url = "https://www.pathshala.co/decore/new/api.php?action=TeacherLogin&userName=".$email."&pass=nullpass";
+		curl_setopt($ch,CURLOPT_URL,$url);
+		curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+		$output=curl_exec($ch);
+		curl_close($ch);
+		$jsonOutput = json_decode($output,true);
+		//var_dump($jsonOutput);
+		if($jsonOutput['message'] == "Invalid user")
+		{
+			// New User ***** Call SignUP API
+			$chh = curl_init();  
+			$nameUrl = str_replace(" ", "%20", $name);
+			$urll = "https://www.pathshala.co/decore/new/api.php?action=TeacherRegistration&email=".$email."&pass=".$password."&name=".$nameUrl."&phone=".$phone;
+			curl_setopt($chh,CURLOPT_URL,$urll);
+			curl_setopt($chh,CURLOPT_RETURNTRANSFER,true);
+			$outputt=curl_exec($chh);
+			curl_close($chh);
+			//echo $outputt;
+			$jsonSignup = json_decode($outputt, true);
+
+			//var_dump($jsonSignup); 
+			if($jsonSignup['Result']['msg'] == "Item has been added")
+			{
+				$dbe = $this->load->database('default', TRUE);
+				$ip=$_SERVER['REMOTE_ADDR'];
+				for($i=0;$i<count($classes);$i++)
+				{
+				$sqq = "INSERT INTO `wl_liveclass` (`emailid`, `class_dropdown`, `ip`, `user_type`) values ('".$email."','".$classes[$i]."','".$ip."', '1')";
+				$que = $dbe->query($sqq); 
+				}
+				echo "<script>alert('Registered Successfully, Proceed With Login.'); window.location = '".base_url()."teacher/login'</script>";
+			}
+			else
+			{
+				echo "<script>alert('Error Occured. Please Try Again'); window.location = '".base_url()."liveclasses'</script>";
+
+			}
+
+
+		}
+		else if($jsonOutput['message'] == "Invalid password")
+		{
+			// Old User
+			$dbe = $this->load->database('default', TRUE);
+			$ip=$_SERVER['REMOTE_ADDR'];
+			for($i=0;$i<count($classes);$i++)
+			{
+			$sqq = "INSERT INTO `wl_liveclass` (`emailid`, `class_dropdown`, `ip`) values ('".$email."','".$classes[$i]."','".$ip."')";
+			$que = $dbe->query($sqq); 
+			}
+			echo "<script>alert('Registered Successfully. Proceed With Login'); window.location = '".base_url()."teacher/login'</script>";
+
+		}
+	 }
+	 public function getSubcat(){
+		$id=$_POST['category_id'];
+		$sql="SELECT * FROM `wl_categories`  where parent_id='$id'  ORDER BY sort_order";
+		$query=$this->db->query($sql);
+		if($query->num_rows()>0){
+		foreach($query->result_array() as $val):
+			if($val['category_id']=='377' || $val['category_id']=='373' || $val['category_id']=='374' || $val['category_id']=='375' || $val['category_id']=='530' || $val['category_id']=='432' || $val['category_id']=='376' || $val['category_id']=='526')
+			{
+
+			}
+			else
+			echo "<option value='".$val['category_id']."'>".$val['category_name']."</option>";
+		endforeach;
+		}else{
+			echo "<option value=''>NO recode </option>";	
+		}
+	}
+	public function getSecondDropDown()
+	{
+		$id=$this->uri->segment(3);
+		$sql="SELECT * FROM `wl_categories`  where parent_id='$id'  ORDER BY sort_order";
+		$query=$this->db->query($sql);
+		if($query->num_rows()>0){
+			//$arr = array();
+		foreach($query->result_array() as $val):
+			$arr['Result'][] = array(
+					"value"=>       $val['category_id'],
+					"name"=>        $val['category_name'],
+			);
+		endforeach;
+		//print_r($arr);
+		echo json_encode($arr);
+		}else{
+			echo"{ <item value=''>NO recode </item>}";	
+		}
+
+	}
 
 }
 ?>

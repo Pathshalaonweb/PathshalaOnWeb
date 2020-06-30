@@ -42,6 +42,13 @@
               <nav>
                 <ul>
                   <li><a href="<?php echo base_url()?>">HOME</a></li>
+                  <!-- <div class="dropdown">
+                  <a href="javascript:void(0)" style="color:#ffffff;">Search</a>
+                  <div class="dropdown-content">
+                  <a href="<?php echo base_url();?>search">Search Tutor</a>
+                  <a href="<?php echo base_url();?>courses">Search Courses</a>
+                  </div>
+                  </div> -->
                   <li><a href="<?php echo base_url();?>search">Search Tutor</a></li>
                   <li><a href="<?php echo base_url();?>courses">Search Courses</a></li>
                   <li><a href="<?php echo base_url();?>webinars">Webinars</a></li>
@@ -50,9 +57,39 @@
                   <li><a href="<?php echo base_url();?>liveclasses">Live Classes</a></li>
                   <?php }?>
                   <?php if($this->session->userdata('user_id') > 0 ){?>
-                  <li><a href="<?php echo base_url();?>members/liveclass" target="_blank">Live Classes</a></li>
+                  <li><a href="<?php echo base_url();?>liveclasses">Live Classes</a></li>
                   <li><a href="<?php echo base_url();?>members/myaccount">My Account</a></li>
-                  <li><a href="<?php echo base_url();?>lms">Pathshala Lms</a></li>
+                  <li>
+                    <?php 
+                    $idd = $this->session->userdata('user_id');
+                    $dbe = $this->load->database('default', TRUE);
+                    $sq = "SELECT credit_point  FROM `wl_customers` WHERE customers_id='".$idd."'";
+                    $qu=$dbe->query($sq);
+                    $value= $qu->result_array();
+                    $credit_point = $value[0]['credit_point'];
+                    ?>
+                  <div class="dropdown">
+                        <a data-toggle="dropdown"><i class="fa fa-user-circle"  style="font-size:28px;"></i></a>
+                        <div class="dropdown-menu">
+                          <p class="dropdown-item" style="font-size: 16px;">Hola, <?php echo $this->session->userdata('first_name');?></p>
+                          <?php if($credit_point =='0' || $credit_point == ''){ ?>
+                          <p class="dropdown-item" style="font-size:11px; color:red;">Credit Exhausted. Buy Now. <?php //echo $credit_point; ?></p>
+                          <?php } else{ ?>
+                          <p class="dropdown-item" style="font-size:11px;">Remaining Credits: <?php echo $credit_point; ?></p>
+                          <?php } ?>
+                          <div class="dropdown-divider"></div>
+                          <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>members/edit_account'">Edit Account</p>
+                          <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>members/liveclass'">Live Classes</p>
+                          <p class="dropdown-item" onclick="window.location.href='<?php //echo base_url(); ?>#'">Webinars/Workshops</p>
+                          <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>lms'">Learning Management System (LMS)</p>
+                          <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>members/credit'">Buy Subscription</p>
+                          <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>members/change_password'">Change Password</p>
+                          
+                          <div class="dropdown-divider"></div>
+                          <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>users/logout'">Logout</p>
+                        </div>
+                      </div>
+                  </li>
                   <?php }else{?>
                   <?php if($this->session->userdata('teacher_id') > 0 ){?>
                   <?php $idd = $this->session->userdata('teacher_id');

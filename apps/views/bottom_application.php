@@ -68,7 +68,7 @@
       <div class="row align-items-center">
         <div class="col-lg-4 col-md-12">
           <div class="copyright" style=" width: max-content;">
-                    <p> Copyright © <?php echo date('Y');?> <a href="<?php echo base_url();?>">Pathshala&nbsp;</a>(Brainchild Ventures LLP). All Right Reserved. </p>
+                    <p> Copyright © <?php echo date('Y');?> <a href="<?php echo base_url();?>">Pathshala&nbsp;</a>(Brainchild Ventures LLP). <br>All Right Reserved. </p>
           </div>
         </div>
         <div class="col-lg-8 col-md-12">
@@ -138,7 +138,7 @@
       <div class="row align-items-center">
         <div class="col-lg-4 col-md-12">
           <div class="copyright" style=" width: max-content;">
-            <p> Copyright © <?php echo date('Y');?> <a href="<?php echo base_url();?>">Pathshala &nbsp;</a>(Brainchild Ventures LLP). All Right Reserved. </p>
+            <p> Copyright © <?php echo date('Y');?> <a href="<?php echo base_url();?>">Pathshala &nbsp;</a>(Brainchild Ventures LLP).<br>All Right Reserved. </p>
           </div>
         </div>
         <div class="col-lg-8 col-md-12">

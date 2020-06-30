@@ -80,10 +80,10 @@ class Teacher extends DB{
 				$response['Result'] = array("status"=>0,"message"=>"This email id is already registered");
 			}else{
 				
-				$date 	= date('m/d/Y h:i:s a', time()); 
+				$date 	= date('Y-m-d h:i:s a', time()); 
 				$actkey	= md5($date).md5($fields['email']);
-				$date	= date('Y-m-d', strtotime($date. ' + 30 days'));
-				$sql="INSERT INTO wl_teacher (`user_name`,`password`,`first_name`,`phone_number`,`account_created_date`,`status`,`is_verified`,`current_credit`,`plan_expire`,`actkey`) VALUE ('".$fields['email']."','".$fields['pass']."','".$fields['name']."','".$fields['phone']."','".$date."','1','1','5','".$date."','".$actkey."')";
+				$date_validity	= date('Y-m-d', strtotime($date. ' + 30 days'));
+				$sql="INSERT INTO wl_teacher (`user_name`,`password`,`first_name`,`phone_number`,`account_created_date`,`status`,`is_verified`,`current_credit`,`plan_expire`,`actkey`) VALUE ('".$fields['email']."','".$fields['pass']."','".$fields['name']."','".$fields['phone']."','".$date."','1','1','5','".$date_validity."','".$actkey."')";
 				
 				$insert_qry = mysqli_query($this->conn,$sql);
 				$response['Result'] = array("success"=>1,"code"=>0,"msg"=>"Item has been added");

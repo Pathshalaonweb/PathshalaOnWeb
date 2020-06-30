@@ -2,10 +2,13 @@
 <div class="breadcrumb-area">
   <div class="breadcrumb-top bg-img breadcrumb-overly-3 pt-100 pb-95" style="background-image:url(<?php echo theme_url();?>lms_searchbg.jpg);">
     <div class="container">
-      <form style="width: 100%;margin: 0 auto;" class="lms_search">
+      <!-- <form style="width: 100%;margin: 0 auto;" class="lms_search"> -->
         <div class="row">
-          <div class="col-md-3"></div>
-          <div class="col-md-3">
+        <div class="col-md-5">
+    </div>
+          <div class="col-2 text-center" align="center">
+      <button class="btn btn-default" onclick="window.location.href='<?php echo base_url(); ?>liveclasses/register'">Willing to give Online Classes?</button>
+      </div>
             <!-- <select name="category" onChange="searchFilter()" id="category" class="form-control">
               <option value="">Select category</option> -->
             <?php 
@@ -31,7 +34,7 @@
             <input type="submit" class="btn btn-success btn-sm bold" value="search">
           </div>--> 
         </div>
-      </form>
+      <!-- </form> -->
     </div>
   </div>
 </div>
