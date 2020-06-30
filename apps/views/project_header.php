@@ -101,9 +101,9 @@
                       if($liveplan == 1)
                       {
                   ?>
-                    <li><a href="<?php echo base_url(); ?>teacherdashboard/liveclass" target="_blank">Live Classes</a></li>
+                    <li><a href="<?php echo base_url(); ?>liveclasses">Live Classes</a></li>
                       <?php } else { ?>
-                    <li><a href="<?php echo base_url(); ?>teacherdashboard/plan">Live Classes</a></li>
+                    <li><a href="<?php echo base_url(); ?>liveclasses">Live Classes</a></li>
                       <?php } ?>
                   <?php  }else{?>
                   <li><a href="<?php echo base_url();?>users/login">Student Login</a></li>
@@ -136,14 +136,14 @@
                   <li><a href="<?php echo base_url();?>liveclasses">Live Classes</a></li>
                   <?php }?>
               <?php if($this->session->userdata('user_id') > 0 ){?>
-                <li><a href="<?php echo base_url();?>members/liveclass" target="_blank">Live Classes</a></li>
+                <li><a href="<?php echo base_url();?>liveclasses">Live Classes</a></li>
               <li><a href="<?php echo base_url();?>members/myaccount">My Account</a></li>
               <?php }else{?>
               <li><a href="<?php echo base_url();?>users/login">Student Login</a></li>
               <?php }?>
               <?php if($this->session->userdata('teacher_id') > 0 ){?>
               <li><a href="<?php echo base_url();?>teacherdashboard/myaccount">My Account</a></li>
-                    <li><a href="<?php echo base_url(); ?>teacherdashboard/liveclass" target="_blank">Live Classes</a></li>
+                    <li><a href="<?php echo base_url(); ?>liveclasses">Live Classes</a></li>
               <li><a href=""> Welcome <?php echo $this->session->userdata('first_name');?></a></li>
               <?php }else{?>
               <li><a href="<?php echo base_url();?>teacher/login">Teacher Login</a></li>
