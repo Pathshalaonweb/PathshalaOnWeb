@@ -74,7 +74,9 @@ class Exam extends Public_Controller
 		$data['mock_sub_res']	=	$mock_sub_res;
 		$mock_res				=	$this->exam_model->fetch_test_by_mock_id($mock_sub_res['mock_id']);
 		$data['mock_res']		=	$mock_res;
+		
 		$condition				=	array('department_id'=>$mock_sub_res['department_id'],'subject_id'=>$mock_sub_res['subject_id']);
+		
 		$que_res				=	$this->exam_model->get_question_list($condition);
 		
 		if($this->input->post('sub'))
@@ -86,7 +88,7 @@ class Exam extends Public_Controller
 				               'subject_id'      	=>$mock_sub_res['subject_id'],
 							   'userId'       		=>$userId,
 							   't_que'        		=>$mock_res['total_question'],
-							   //'n_mark'       		=>$mock_sub_res['str_negative_mark'],
+							   //'n_mark'       	=>$mock_sub_res['str_negative_mark'],
 							   't_mark'       		=>$mock_res['str_total_mark'],
 							   'exam_date'    		=>$this->config->item('config.date.time'),
 							   'ip_address'   		=>$this->input->ip_address()

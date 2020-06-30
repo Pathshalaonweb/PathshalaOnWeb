@@ -210,47 +210,49 @@ class Lms extends DB{
 		
 		
 		
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	 function astrologerDetail($fields){
-		
-		$response = array();
-		$arr=array();
-		$select_query = mysqli_query($this->conn,"SELECT * FROM `wl_astrologer` where status='1' AND astrologer_id='".$fields['astrologer_id']."'");
-		$arr['Result'] = array("success"=>1,"code"=>0);
-		$rec = mysqli_fetch_array($select_query);
-		
-		if($rec['astrologer_image']==""){
-		 $image_url=0;
-		}else{
-		   $image_url = "https://www.astropatrika.com/uploaded_files/astrologer/".$rec['astrologer_image'];
+		public function InsertmockExam($fields){
+				
+				$posted_data=array(
+				               'department_id'		=>$fields['department_id'],	
+				               'mock_id'	  		=>$fields['mock_id'],
+				               'subject_id'      	=>$fields['subject_id'],
+							   'userId'       		=>$fields['user_id'],
+							   't_que'        		=>$fields['total_question'],
+							   't_mark'       		=>$fields['str_total_mark'],
+							   'exam_date'    		=>date('Y-m-d H:i:s'),
+							  // 'ip_address'   		=>$this->input->ip_address()
+							  );
+							  
+					$this->qry_insert('tbl_mock_exam',$posted_data);
+					
+					$posted_data=array(
+					               'exam_id'     =>$insId,
+					               'subject_id'  =>$val['subject_id'],
+							       'question'    =>$val['question'],
+							       'ans'         =>$val['answer'],
+							       'user_ans'    =>$user_ans
+							  
+							     );
+					$this->qry_insert('tbl_mock_result',$posted_data);
 		}
-		$arr['Result']['data'][] = array('astrologer_id'=>$rec['astrologer_id'],'astrologer_name'=>$rec['astrologer_name'],"astro_phone"=>$rec['astro_phone'],"astrologer_experience"=>$rec['astrologer_experience'],"astrologer_details"=>$rec['astrologer_details'],"astrologer_image"=>$image_url,'astrologer_expertise'=>$rec['astrologer_expertise']);
-		 
-		return json_encode($arr,JSON_UNESCAPED_SLASHES);
-	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public function qry_insert($table,$data){
+			 $fields = array_keys($data );  
+			 $values = array_values( $data );
+			 $sql="INSERT INTO $table(".implode(",",$fields).") VALUES ('".implode("','", $values )."')";
+			 //echo $sql;//die;
+			 $result=$this->conn->query($sql);
+			 return $result;
+
+	}	
 	
 
 }
