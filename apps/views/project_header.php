@@ -111,7 +111,43 @@
                   <?php }?>
                   <?php if($this->session->userdata('teacher_id') > 0 ){?>
                   <li><a href="<?php echo base_url();?>teacherdashboard/myaccount">My Account</a></li>
-                  <li><a href=""> Welcome <?php echo $this->session->userdata('first_name');?></a></li>
+                  <li>
+                  <?php 
+                    $idd = $this->session->userdata('teacher_id');
+                    $dbe = $this->load->database('default', TRUE);
+                    $sq = "SELECT current_credit, plan_expire  FROM `wl_teacher` WHERE teacher_id='".$idd."'";
+                    $qu=$dbe->query($sq);
+                    $value= $qu->result_array();
+                    $credit_point = $value[0]['current_credit'];
+                    $planExpire = $value[0]['plan_expire'];
+                    $date = new DateTime('now');
+                    $currentDate = $date->format('Y-m-d h:i:s');
+                    ?>
+                  <div class="dropdown">
+                        <a data-toggle="dropdown"><i class="fa fa-user-circle"  style="font-size:28px;"></i></a>
+                        <div class="dropdown-menu">
+                          <p class="dropdown-item" style="font-size: 16px;">Hola, <?php echo $this->session->userdata('first_name');?></p>
+                          <?php if($credit_point =='0' || $credit_point == '' || ($planExpire<$currentDate)){ ?>
+                          <p class="dropdown-item" style="font-size:11px; color:red;">Credit Exhausted. Buy Now. <?php //echo $credit_point; ?></p>
+                          <?php } else{ ?>
+                          <p class="dropdown-item" style="font-size:11px;">Remaining Credits: <?php echo $credit_point; ?><br>Plan Expires: <?php echo $planExpire; ?></p>
+                          <?php } ?>
+                          <div class="dropdown-divider"></div>
+                          <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>teacherdashboard/edit_account'">Edit Account</p>
+                          <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>teacherdashboard/liveclass'">Live Classes</p>
+                          <p class="dropdown-item" onclick="window.location.href='<?php //echo base_url(); ?>#'">Webinars/Workshops</p>
+                          <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>teacherdashboard/courses'">Courses</p>
+                          <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>teacherdashboard/student'">Search Student Online</p>
+                          <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>teacherdashboard/profile'">List Yourself</p>
+                          <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>teacherdashboard/plan'">Buy Subscription</p>
+                          <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>teacherdashboard/change_password'">Change Password</p>
+                          
+                          <div class="dropdown-divider"></div>
+                          <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>teacher/logout'">Logout</p>
+                        </div>
+                      </div>
+                  
+                  </li>
                   <?php }else{?>
                   <?php if($this->session->userdata('user_id') > 0 ){}else{?>
                   <li><a href="<?php echo base_url();?>teacher/login">Teacher Login</a></li>

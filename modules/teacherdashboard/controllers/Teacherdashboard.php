@@ -500,6 +500,24 @@ class Teacherdashboard extends Teacher_Controller{
 			}
 		}
 		}
+		public function student()
+		{
+			$data['unq_section'] = "Myaccount";	
+			$data['title'] = "My Account";
+			$pagesize               =  (int) $this->input->get_post('pagesize');
+			$config['limit']		 =  ( $pagesize > 0 ) ? $pagesize : $this->config->item('per_page');
+			$offset                 =  ( $this->input->get_post('per_page') > 0 ) ? $this->input->get_post('per_page') : 0;	
+			$page_segment           =  find_paging_segment();
+			$base_url               =  current_url_query_string(array('filter'=>'result'),array('per_page'));
+			$param = array('teacher_id'=>$this->mres['teacher_id']);
+			$res_array              = $this->teacherdashboard_model->teacher_notified($config['limit'],$offset,$param);
+			$data['sno']            =  ( $this->input->get_post('per_page') > 0 ) ? $this->input->get_post('per_page')+1 : 1;
+			$data['res']			 = $res_array;
+			$config['total_rows']	 = get_found_rows();			
+			$data['page_links']     = pagination_refresh($base_url,$config['total_rows'],$config['limit'],$page_segment);
+			$data['currentCredit']=$this->mres['current_credit'];		
+			$this->load->view('view_teacher_student',$data);
+		}
 	
 	
 }
