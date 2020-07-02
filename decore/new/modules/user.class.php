@@ -190,10 +190,10 @@ function registerUser($fields){
         $response = array("success"=>0,"code"=>0,"message"=>"UserId can not be blank");
     }else{
 	
-	if($fields['name']=="" || $fields['phone']=="" || $fields['address']==""){
+	if($fields['name']=="" || $fields['phone']=="" || $fields['address']=="" || $fields['classdropdown'] == ""){
 	      $response = array("status"=>0,"message"=>"Fields cannot Blank");
 	}else{	
-		$sql="UPDATE wl_customers SET first_name = '".$fields['name']."', phone_number = '".$fields['phone']."',address = '".$fields['address']."',pincode = '".$fields['pincode']."',description = '".$fields['description']."'  WHERE customers_id='".$fields['user_id']."'";
+		$sql="UPDATE wl_customers SET first_name = '".$fields['name']."', phone_number = '".$fields['phone']."',address = '".$fields['address']."',pincode = '".$fields['pincode']."',class_dropdown = '".$fields['classdropdown']."' ,description = '".$fields['description']."'  WHERE customers_id='".$fields['user_id']."'";
         $insert_qry = mysqli_query($this->conn,$sql);
         $response['Result'] = array("success"=>1,"code"=>0,"msg"=>"Updated ");
      }
