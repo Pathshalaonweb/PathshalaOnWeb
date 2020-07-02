@@ -735,6 +735,28 @@ function registerUser($fields){
 			 return $result;
 
 	}
+	function studentLiveClassDropdown($fields)
+
+		{
+			if(!empty($fields['key']) && $fields['key']=="pathshala5572" && !empty($fields['email_id']))
+			{
+				$sql		  ="SELECT `class_dropdown` FROM `wl_customers` where `user_name`='".$fields['email_id']."'";
+				$select_query = mysqli_query($this->conn,$sql);
+				$rec  = mysqli_fetch_array($select_query);
+				
+					if($rec['class_dropdown']=="")
+					{
+						$arr = array("success"=>0,"code"=>0,"message"=>"ClassDrownIsNull");
+					}
+					else
+					{
+						$arr = array("success"=>1,"code"=>1,"message"=>$rec['class_dropdown']);
+					}
+				
+				return json_encode($arr);
+
+			}
+		}	
 
  }
 ?>

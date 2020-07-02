@@ -1,5 +1,4 @@
 <?php
-
 include("config.php");
 include("modules/user.class.php");
 include("modules/teacher.class.php");
@@ -70,6 +69,9 @@ switch($action){
   break;
   case "getStudentMockQuestion" :  
     echo $response = $usrObj->MockQuestion($_REQUEST);
+  break;
+  case "studentLiveClassDropdown" :
+      echo $response =$usrObj->studentLiveClassDropdown($_REQUEST);
   break;
   
   
@@ -223,4 +225,3 @@ switch($action){
 
 
 ?>
-
