@@ -1,4 +1,3 @@
-
 <?php
 include("config.php");
 include("modules/user.class.php");
@@ -226,4 +225,3 @@ switch($action){
 
 
 ?>
-
