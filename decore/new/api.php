@@ -1,5 +1,5 @@
-
 <?php
+
 include("config.php");
 include("modules/user.class.php");
 include("modules/teacher.class.php");
