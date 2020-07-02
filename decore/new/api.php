@@ -71,6 +71,9 @@ switch($action){
   case "getStudentMockQuestion" :  
     echo $response = $usrObj->MockQuestion($_REQUEST);
   break;
+  case "studentLiveClassDropdown" :
+      echo $response =$usrObj->studentLiveClassDropdown($_REQUEST);
+  break;
   
   
    case "getStudentOnline" :  
