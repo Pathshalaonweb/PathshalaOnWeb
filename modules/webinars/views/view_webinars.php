@@ -96,14 +96,14 @@
                     <div class="single-blog">
                       <div class="blog-img"> <a href="javascript:void(0)" data-id="<?php echo $val['courses_id']?>">
                         <?php if(!empty($val['image'])) {?>
-                        <a href="<?php echo base_url();?>courses/detail/<?php echo $val['courses_friendly_url']?>"> <img src="<?php echo base_url();?>lms/uploaded_files/courses/<?php echo $val['image']?>" alt="" data-href="<?php echo base_url();?>courses/coursedetail/<?php echo $val['courses_id'];?>" data-name="<?php echo $val['courses_name']?>"></a>
+                        <a href="<?php echo base_url();?>webinars/detail/<?php echo $val['courses_friendly_url']?>"> <img src="<?php echo base_url();?>lms/uploaded_files/courses/<?php echo $val['image']?>" alt="" data-href="<?php echo base_url();?>webinars/coursedetail/<?php echo $val['courses_id'];?>" data-name="<?php echo $val['courses_name']?>"></a>
                         <?php } else {?>
-                        <a href="<?php echo base_url();?>courses/detail/<?php echo $val['courses_friendly_url']?>"> <img src="https://pathshala.co/uploaded_files/thumb_cache/thumb_190_190_noimg1.gif"/><!--class="openPopup"--></a>
+                        <a href="<?php echo base_url();?>webinars/detail/<?php echo $val['courses_friendly_url']?>"> <img src="https://pathshala.co/uploaded_files/thumb_cache/thumb_190_190_noimg1.gif"/><!--class="openPopup"--></a>
                         <?php }?>
                       </div>
                       <div class="blog-content-wrap">
                         <div class="blog-content"> 
-                        <h4 class="topicTitle"><a href="<?php echo base_url();?>courses/detail/<?php echo $val['courses_friendly_url']?>">Topic:<?php echo $val['courses_name']?></a></h4>
+                        <h4 class="topicTitle"><a href="<?php echo base_url();?>webinars/detail/<?php echo $val['courses_friendly_url']?>">Topic:<?php echo $val['courses_name']?></a></h4>
                         <?php 
 						$mem_info=get_db_single_row('wl_teacher',$fields="first_name,teacher_id,status",$condition="WHERE status='1' AND teacher_id='".$val['teacher_id']."'");
 						?>
