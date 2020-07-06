@@ -18,10 +18,10 @@ class Plan extends Teacher_Controller
 		 $page_segment           =  find_paging_segment();
 		 $base_url               =  current_url_query_string(array('filter'=>'result'),array('per_page'));
 		 $condtion               =  array();	
-		 $category_id            =  $this->uri->segment(3);
+		 $category_id            =  $this->uri->segment(6);  //updated 05072020
 		 $teacher_id=$this->session->userdata('teacher_id');	
 		 	
-		 $res_array               =  $this->plan_model->get_plan(3,$offset,$condtion);		
+		 $res_array               =  $this->plan_model->get_plan(6,$offset,$condtion);	  //updated 05072020	
 		 $config['total_rows']    =  get_found_rows();			
 		 $data['page_links']    	 = pagination_refresh($base_url,$config['total_rows'],$config['limit'],$page_segment);	 						
 		 $data['heading_title'] 	 = $page_title;
@@ -35,10 +35,10 @@ class Plan extends Teacher_Controller
 		 $page_segment           =  find_paging_segment();
 		 $base_url               =  current_url_query_string(array('filter'=>'result'),array('per_page'));
 		 $condtion               =  array();	
-		 $category_id            =  $this->uri->segment(3);
+		 $category_id            =  $this->uri->segment(6);  //updated 05072020
 		 $teacher_id=$this->session->userdata('teacher_id');	
 		 	
-		 $res_array               =  $this->plan_model->get_plan(3,$offset,$condtion);		
+		 $res_array               =  $this->plan_model->get_plan(6,$offset,$condtion);	  //updated 05072020	
 		 $config['total_rows']    =  get_found_rows();			
 		 $data['page_links']    	 = pagination_refresh($base_url,$config['total_rows'],$config['limit'],$page_segment);	 						
 		 $data['heading_title'] 	 = $page_title;
