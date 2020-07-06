@@ -15,17 +15,19 @@ class Teacherdashboard extends Teacher_Controller{
 		redirect('teacherdashboard/myaccount', '');
 	}
 
-	public function myaccount()
+	public function myaccount()      //updated 05072020
 	{
 		
 		$data['unq_section'] = "Myaccount";	
 		$data['title'] = "My Account";
-		if($this->mres['edit_setting']==0){
-			redirect('teacherdashboard/edit_account','');
-		}
-		if($this->mres['profile_edit']==0){
-			redirect('teacherdashboard/profile','');
-		}else{
+		//redirect('teacherdashboard/myaccount','');
+		//if($this->mres['edit_setting']==0){
+		//	redirect('teacherdashboard/edit_account','');
+		//}
+		//if($this->mres['profile_edit']==0){
+	//		redirect('teacherdashboard/profile','');
+	//	}
+	//	else{
 		 $pagesize               =  (int) $this->input->get_post('pagesize');
 		 $config['limit']		 =  ( $pagesize > 0 ) ? $pagesize : $this->config->item('per_page');
 		 $offset                 =  ( $this->input->get_post('per_page') > 0 ) ? $this->input->get_post('per_page') : 0;	
@@ -39,7 +41,7 @@ class Teacherdashboard extends Teacher_Controller{
 	     $data['page_links']     = pagination_refresh($base_url,$config['total_rows'],$config['limit'],$page_segment);
 		 $data['currentCredit']=$this->mres['current_credit'];		
 		 $this->load->view('view_teacher_myaccount',$data);
-		}
+	//	}
 	}
 	
 	
@@ -70,8 +72,8 @@ class Teacherdashboard extends Teacher_Controller{
 		$data['unq_section'] = "Myaccount";
 		$data['title'] = "My Account";
 		$mres = $this->teacher_model->get_teacher_row( $this->session->userdata('teacher_id') );	
-	    if ( is_array($mres) && !empty($mres)) {
-			
+	   if ( is_array($mres) && !empty($mres)) {
+						
 			$this->form_validation->set_rules('first_name', 'Name', 'trim|required|alpha|xss_clean');
 			$this->form_validation->set_rules('phone_number', 'Phone Number', 'trim|required|xss_clean');	
 			$this->form_validation->set_rules('address', 'Address', 'trim|required|xss_clean|max_length[300]');
