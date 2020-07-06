@@ -23,7 +23,7 @@ class Teacher extends Public_Controller
 	{	 
 		if ( $this->auth->is_teacher_logged_in() )
 		{
-			redirect('teacherdashboard/', '');
+			redirect('teacherdashboard/myaccount', '');   //updated 05072020 
 		} 
 		$data['heading_title'] = "Teacher login";	
 		$data['unq_section'] = "Teacher login";		
