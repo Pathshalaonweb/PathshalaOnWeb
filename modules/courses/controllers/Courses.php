@@ -86,7 +86,7 @@ class Courses extends Public_Controller
 		public function getcourses(){
 			$db2 = $this->load->database('database2', TRUE);
 			$id=$_POST['category_id'];
-			$sql="SELECT * FROM `tbl_courses`  where category_id='$id'  ORDER BY courses_name";
+			$sql="SELECT * FROM `tbl_courses`  where category_id='$id'  ORDER BY courses_id DESC";  //updated 04072020
 			$query=$db2->query($sql);
 			if($query->num_rows()>0){
 			foreach($query->result_array() as $val):
