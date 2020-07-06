@@ -16,7 +16,7 @@ class Liveclasses extends Public_Controller
  		$data = array();
 		//total rows count
 		$db1 = $this->load->database('default', TRUE);
-		$sqll = "SELECT * FROM `wl_teacher`  where liveplan='1' ORDER BY `plan_expire` DESC";
+		$sqll = "SELECT * FROM `wl_teacher`  where liveplan='1' ORDER BY plan_expire DESC";  //updated 04072020
 		$queryy=$db1->query($sqll);
 		$totalRec = $queryy->num_rows();
         //$totalRec = count($this->liveclasses_model->get_course_row());
