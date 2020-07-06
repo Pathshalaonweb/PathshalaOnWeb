@@ -32,8 +32,8 @@ class Liveclasses_model extends MY_Model
 				$db2 ->where('category_id',$params['search']['category']);
 		} 
 		 if(array_key_exists("start",$params) && array_key_exists("limit",$params)){
-          //  echo $params['limit'];
-        //    echo "<br>";
+         //  echo $params['limit'];
+		 //   echo "<br>";
          //   echo $params['start'];
         $db2->limit($params['limit'],$params['start']);
             
@@ -42,7 +42,8 @@ class Liveclasses_model extends MY_Model
            // die('test');
         }
 		$db2->where('liveplan','1');
-		$db2->order_by('teacher_id','asc');
+		// $db2->order_by('teacher_id','asc');
+		$db2->order_by('plan_expire','DESC'); //updated 04072020
 		$db2->select('SQL_CALC_FOUND_ROWS*',FALSE);
 		$db2->from('wl_teacher');
 		$query =$db2->get();
