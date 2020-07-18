@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class virtualcamp_model extends MY_Model
+class Virtualcamp_model extends MY_Model
 {
 
 	 public function get_courses($limit='10',$offset='0',$param=array())

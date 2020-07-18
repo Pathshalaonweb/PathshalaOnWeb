@@ -1,5 +1,5 @@
 <?php
-class virtualcamp extends Public_Controller
+class Virtualcamp extends Public_Controller
 {
 	public function __construct()
 	{
