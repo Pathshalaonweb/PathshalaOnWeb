@@ -14,7 +14,7 @@
 			$sql="SELECT * FROM `tbl_department`  where status='1' AND parent_id='0' ORDER BY sort_order";
 			$query=$db2->query($sql);
       foreach($query->result_array() as $val): 
-        if($val['category_id'] == 23)
+        if($val['category_id'] == 23 || $val['category_id'] == 24)
         { }
         else {
 	  		?>
@@ -58,7 +58,7 @@
 				$sql="SELECT * FROM `tbl_department` where status='1' AND  parent_id='0'";
 				$query=$db2->query($sql);
 				foreach($query->result_array() as $val){
-          if($val['category_id'] == 23)
+          if($val['category_id'] == 23 || $val['category_id'] == 24)
           { }
           else { 
 				?>

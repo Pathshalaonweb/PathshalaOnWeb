@@ -52,6 +52,7 @@
                   <li><a href="<?php echo base_url();?>search">Search Tutor</a></li>
                   <li><a href="<?php echo base_url();?>courses">Search Courses</a></li>
                   <li><a href="<?php echo base_url();?>webinars">Webinars</a></li>
+                  <li><a href="<?php echo base_url();?>virtualcamp">Virtual Camp</a></li>
                   <?php if($this->session->userdata('user_id') > 0 ) {} 
                         elseif($this->session->userdata('teacher_id') > 0 ) {} else {?>
                   <li><a href="<?php echo base_url();?>liveclasses">Live Classes</a></li>
@@ -167,6 +168,7 @@
               <li><a href="<?php echo base_url();?>search">Search Tutor</a></li>
               <li><a href="<?php echo base_url();?>courses">Search Courses</a></li>
               <li><a href="<?php echo base_url();?>webinars">Webinars</a></li>
+              <li><a href="<?php echo base_url();?>virtualcamp">Virtual Camp</a></li>
               <?php if($this->session->userdata('user_id') > 0 ) {} 
                         elseif($this->session->userdata('teacher_id') > 0 ) {} else {?>
                   <li><a href="<?php echo base_url();?>liveclasses">Live Classes</a></li>

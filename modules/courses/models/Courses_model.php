@@ -62,6 +62,7 @@ class Courses_model extends MY_Model
         }
 		$db2->where('status','1');
 		$db2->where('category_id !=', '23');
+		$db2->where('category_id !=', '24');
 		$db2->order_by('courses_id','DESC');  //updated 04072020
 		$db2->select('SQL_CALC_FOUND_ROWS*',FALSE);
 		$db2->from('tbl_courses');
