@@ -167,7 +167,7 @@ class Virtualcamp extends Public_Controller
 				$mem_info=get_db_single_row('wl_customers',$fields="*",$condition="WHERE 1 AND customers_id='".$this->session->userdata('user_id')."'");	 
 				 $userId            = $this->session->userdata('user_id');
 				 /*insert couser lot*/
-				$abc=$mem_info['webinar_enrolled'];
+				$abc=$mem_info['virtualcamp_enrolled'];
 				if(!empty($abc)){
 					$course=  explode(",",$abc) ;
 				}else{
@@ -183,7 +183,7 @@ class Virtualcamp extends Public_Controller
 				array_splice($original_array,$position, 0,$inserted_value);  
 				$newLot=implode(",",$original_array);
 				$customerData=array(
-				 	"webinar_enrolled"=>$newLot,
+				 	"virtualcamp_enrolled"=>$newLot,
 				 );
 				 $where = "customers_id = '$userId' ";
 				 $this->payment_model->safe_update('wl_customers',$customerData,$where,FALSE);
@@ -231,7 +231,7 @@ class Virtualcamp extends Public_Controller
 				 $newCrediitPoint=$mem_info['credit_point']-$this->input->post('ammount');
 				 
 				 /*insert couser lot*/
-				$abc=$mem_info['webinar_enrolled'];
+				$abc=$mem_info['virtualcamp_enrolled'];
 				if(!empty($abc)){
 					$course=  explode(",",$abc) ;
 				}else{
@@ -247,7 +247,7 @@ class Virtualcamp extends Public_Controller
 				array_splice($original_array,$position, 0,$inserted_value);  
 				$newLot=implode(",",$original_array);
 				$customerData=array(
-				 	"webinar_enrolled"=>$newLot,
+				 	"virtualcamp_enrolled"=>$newLot,
 					"credit_point"=>$newCrediitPoint
 				 );
 				 $where = "customers_id = '$userId' ";
@@ -365,7 +365,7 @@ class Virtualcamp extends Public_Controller
 				 $mem_info=get_db_single_row('wl_customers',$fields="*",$condition="WHERE 1 AND customers_id='".$this->session->userdata('user_id')."'");	 
 				 $userId            = $this->session->userdata('user_id');
 				 /*insert couser lot*/
-				$abc=$mem_info['webinar_enrolled'];
+				$abc=$mem_info['virtualcamp_enrolled'];
 				if(!empty($abc)){
 					$course=  explode(",",$abc) ;
 				}else{
@@ -383,7 +383,7 @@ class Virtualcamp extends Public_Controller
 				 //print_r($original_array);
 				 $newLot=implode(",",$original_array);
 				 $customerData=array(
-				 	"webinar_enrolled"=>$newLot,
+				 	"virtualcamp_enrolled"=>$newLot,
 				 );
 				 $where = "customers_id = '$userId' ";
 				 $this->payment_model->safe_update('wl_customers',$customerData,$where,FALSE);
@@ -508,13 +508,13 @@ class Virtualcamp extends Public_Controller
  {
 	$this->load->view('virtualcamp/view_virtualcamp_register');
  }
- public function webinarRegister()
+ public function virtualcampRegister()
 	 {
 		$password = $this->input->post('password',TRUE);
 		$email = $this->input->post('user_name',TRUE);
 		$name = $this->input->post('first_name',TRUE);
 		$phone = $this->input->post('phone_number',TRUE);
-		$webinar_enrolled = $this->input->post('webinar',TRUE);
+		$virtualcamp_enrolled = $this->input->post('virtualcamp',TRUE);
 		$ch = curl_init();  
 		$url = "https://www.pathshala.co/decore/new/api.php?action=Login&userName=".$email."&pass=nullpass";
 		curl_setopt($ch,CURLOPT_URL,$url);
@@ -523,49 +523,47 @@ class Virtualcamp extends Public_Controller
 		curl_close($ch);
 		$jsonOutput = json_decode($output,true);
 		//var_dump($jsonOutput);
-		if($jsonOutput['message'] == "Invalid user")
-		{
-			// New User ***** Call SignUP API
-			$chh = curl_init();  
-			$nameUrl = str_replace(" ", "%20", $name);
-			$urll = "https://www.pathshala.co/decore/new/api.php?action=registerUser&email=".$email."&pass=".$password."&name=".$nameUrl."&phone=".$phone;
-			curl_setopt($chh,CURLOPT_URL,$urll);
-			curl_setopt($chh,CURLOPT_RETURNTRANSFER,true);
-			$outputt=curl_exec($chh);
-			curl_close($chh);
-			//echo $outputt;
-			$jsonSignup = json_decode($outputt, true);
-
-			//var_dump($jsonSignup); 
-			if($jsonSignup['Result']['msg'] == "Item has been added")
+			if($jsonOutput['message'] == "Invalid user")
 			{
+				// New User ***** Call SignUP API
+				$chh = curl_init();  
+				$nameUrl = str_replace(" ", "%20", $name);
+				$urll = "https://www.pathshala.co/decore/new/api.php?action=registerUser&email=".$email."&pass=".$password."&name=".$nameUrl."&phone=".$phone;
+				curl_setopt($chh,CURLOPT_URL,$urll);
+				curl_setopt($chh,CURLOPT_RETURNTRANSFER,true);
+				$outputt=curl_exec($chh);
+				curl_close($chh);
+				//echo $outputt;
+				$jsonSignup = json_decode($outputt, true);
+				 // print_r($outputt);
+				//var_dump($jsonSignup); 
+					if($jsonSignup['msg'] == "Item has been added")
+					{
+						echo "<script>alert('Error Occured. Please Try Again'); window.location = '".base_url()."virtualcamp'</script>" ;
+					}
+					else
+					{
+						$dbe = $this->load->database('default', TRUE);
+						$ip=$_SERVER['REMOTE_ADDR'];
+						$sqq = "INSERT INTO `wl_virtualcamp` (`emailid`, `virtualcamp_enrolled`, `ip`, `user_type`) values ('".$email."','".$virtualcamp_enrolled."','".$ip."', '1')";
+						$que = $dbe->query($sqq); 
+						echo "<script>alert('Registered Successfully, Proceed With Login.'); window.location = '".base_url()."users/login'</script>";
+
+					}
+			}
+			else if($jsonOutput['message'] == "Invalid password")
+			{
+				// Old User
 				$dbe = $this->load->database('default', TRUE);
 				$ip=$_SERVER['REMOTE_ADDR'];
-				$sqq = "INSERT INTO `wl_webinar` (`emailid`, `webinar_enrolled`, `ip`, `user_type`) values ('".$email."','".$webinar_enrolled."','".$ip."', '1')";
+				$sqq = "INSERT INTO `wl_virtualcamp` (`emailid`, `virtualcamp_enrolled`, `ip`, `user_type`) values ('".$email."','".$virtualcamp_enrolled."','".$ip."', '0')";
 				$que = $dbe->query($sqq); 
-				echo "<script>alert('Registered Successfully, Proceed With Login.'); window.location = '".base_url()."users/login'</script>";
-			}
-			else
-			{
-				echo "<script>alert('Error Occured. Please Try Again'); window.location = '".base_url()."virtualcamp'</script>";
+				echo "<script>alert('Registered Successfully. Proceed With Login'); window.location = '".base_url()."users/login'</script>";
 
 			}
-
-
-		}
-		else if($jsonOutput['message'] == "Invalid password")
-		{
-			// Old User
-			$dbe = $this->load->database('default', TRUE);
-			$ip=$_SERVER['REMOTE_ADDR'];
-			$sqq = "INSERT INTO `wl_webinar` (`emailid`, `webinar_enrolled`, `ip`) values ('".$email."','".$webinar_enrolled."','".$ip."')";
-			$que = $dbe->query($sqq); 
-			echo "<script>alert('Registered Successfully. Proceed With Login'); window.location = '".base_url()."users/login'</script>";
-
-		}
-	 }
+	}
 	 
-	 function webinarInfo($courses_id)
+	 function virtualcampInfo($courses_id)
 	 {
 		$db2 = $this->load->database('database2', TRUE); 
 		$sql="SELECT * FROM `tbl_courses` where `courses_id` = '".$courses_id."' ";
@@ -587,7 +585,6 @@ class Virtualcamp extends Public_Controller
 		echo "<strong>Teacher Name:</strong> ".$values[0]['first_name']."<br>";
 		echo "<strong>Description:</strong> ".str_replace("</p>","",str_replace("<p>","",$value[0]['courses_description']));
 	 }
-
 
 
 }
