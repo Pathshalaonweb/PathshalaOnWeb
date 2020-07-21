@@ -537,17 +537,17 @@ class Webinars extends Public_Controller
 			$jsonSignup = json_decode($outputt, true);
 
 			//var_dump($jsonSignup); 
-			if($jsonSignup['Result']['msg'] == "Item has been added")
+			if($jsonSignup['msg'] == "Item has been added")
+			{
+				echo "<script>alert('Error Occured. Please Try Again'); window.location = '".base_url()."webinars'</script>";	
+			}
+			else
 			{
 				$dbe = $this->load->database('default', TRUE);
 				$ip=$_SERVER['REMOTE_ADDR'];
 				$sqq = "INSERT INTO `wl_webinar` (`emailid`, `webinar_enrolled`, `ip`, `user_type`) values ('".$email."','".$webinar_enrolled."','".$ip."', '1')";
 				$que = $dbe->query($sqq); 
 				echo "<script>alert('Registered Successfully, Proceed With Login.'); window.location = '".base_url()."users/login'</script>";
-			}
-			else
-			{
-				echo "<script>alert('Error Occured. Please Try Again'); window.location = '".base_url()."webinars'</script>";
 
 			}
 

@@ -5,7 +5,7 @@
       <div class="col-lg-7 col-md-12 ml-auto mr-auto">
         <div class="login-register-wrapper">
           <div class="login-register-tab-list nav"> <a class="active" data-toggle="tab" href="#lg2">
-            <h4> Register for the upcoming Webinars!</h4>
+            <h4> Register for the upcoming Webinars / Workshops!</h4>
             </a> </div>
           <div class="tab-content">
             <div id="lg2" class="tab-pane active">
@@ -27,7 +27,7 @@
                   <option value="" selected disabled>Please Select a Webinar</option>
                   <?php 
                   $db2 = $this->load->database('database2', TRUE);
-                  $sql="SELECT courses_name, courses_id FROM `tbl_courses` where category_id='23'  ORDER BY courses_name";
+                  $sql="SELECT courses_name, courses_id FROM `tbl_courses` where category_id='23' ORDER BY courses_name";
                   $query=$db2->query($sql);
                   if($query->num_rows()>0){
                   foreach($query->result_array() as $val):
