@@ -469,7 +469,7 @@ class Liveclasses extends Public_Controller
 					}
 					else
 					{
-						$sq ="UPDATE `wl_customers` SET credit_point=credit_point-1";
+						$sq ="UPDATE `wl_customers` SET credit_point=credit_point-1 WHERE user_name='".$email."'";
 						$ip=$_SERVER['REMOTE_ADDR'];
 						$sqq = "INSERT INTO `usercredits_log` (`ip`, `email`) values ('".$ip."', '".$email."')";
 						$que = $dbe->query($sq); 
