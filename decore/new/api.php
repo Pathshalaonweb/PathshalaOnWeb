@@ -169,7 +169,10 @@ switch($action){
 
 	case "Teacherenquiry" : 
      echo $response = $teacherObj->enquiry($_REQUEST);
-  	break;
+     break;
+   case "TeacherLivePlan":
+      echo $response = $teacherObj->teacherLivePlan($_REQUEST);
+   break;
 	 
 	
 
