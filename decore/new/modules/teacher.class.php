@@ -898,5 +898,6 @@ class Teacher extends DB{
 
 			}
 		
- }
+ 		}
+}
 ?>
