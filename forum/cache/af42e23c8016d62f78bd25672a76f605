@@ -1,0 +1,142 @@
+a:5:{s:8:"template";s:13575:"<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<title>{{ keyword }}</title>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/></head>
+<style rel="stylesheet" type="text/css"> a,body,div,form,h4,html,label,li,p,span,ul{margin:0;padding:0;border:0;outline:0;background:0 0;font-size:100%;vertical-align:baseline;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{line-height:1}ul{list-style:none}:focus{outline:0}footer,header,nav{display:block}body{color:#666;background-color:#fff;font-family:"Open Sans",Arial,sans-serif;font-size:14px;font-weight:500;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.7em}body.et_fixed_nav.et_boxed_layout #page-container{padding-top:80px}body.et_cover_background{background-repeat:no-repeat!important;background-attachment:fixed;background-position:top center!important;-webkit-background-size:cover!important;-moz-background-size:cover!important;background-size:cover!important}a{color:#2ea3f2;text-decoration:none}a:hover{text-decoration:none}p{padding-bottom:1em}p:last-of-type{padding-bottom:0}h4{padding-bottom:10px;color:#333;font-weight:500;line-height:1em}h4{font-size:18px}input{-webkit-appearance:none}input[type=text]{padding:2px;border:1px solid #bbb;color:#4e4e4e;background-color:#fff}input[type=text]:focus{border-color:#2d3940;color:#3e3e3e}input[type=text]{margin:0}#top-menu li{word-wrap:break-word}.footer-widget h4,.mobile_menu_bar:after,.mobile_menu_bar:before{color:#2ea3f2}#main-header{-webkit-transition:background-color .4s,color .4s,transform .4s,opacity .4s ease-in-out;-moz-transition:background-color .4s,color .4s,transform .4s,opacity .4s ease-in-out;transition:background-color .4s,color .4s,transform .4s,opacity .4s ease-in-out}.container{position:relative;width:80%;max-width:1080px;margin:auto}.et_boxed_layout #page-container{-webkit-box-shadow:0 0 10px 0 rgba(0,0,0,.2);-moz-box-shadow:0 0 10px 0 rgba(0,0,0,.2);box-shadow:0 0 10px 0 rgba(0,0,0,.2)}.et_boxed_layout #page-container,.et_boxed_layout #page-container .container,.et_fixed_nav.et_boxed_layout #page-container #main-header{width:90%;max-width:1200px;margin:auto}.container{position:relative;text-align:left}#main-header{position:relative;z-index:99999;top:0;width:100%;background-color:#fff;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.1);-moz-box-shadow:0 1px 0 rgba(0,0,0,.1);box-shadow:0 1px 0 rgba(0,0,0,.1);font-weight:500;line-height:23px}.et_fixed_nav.et_show_nav #page-container{padding-top:80px}.et_fixed_nav #main-header{position:fixed}.et_header_style_left #et-top-navigation{padding-top:33px}.et_header_style_left #et-top-navigation nav>ul>li>a{padding-bottom:33px}.et_header_style_left .logo_container{position:absolute;width:100%;height:100%}.et_header_style_left .mobile_menu_bar{padding-bottom:24px}.logo_container{-webkit-transition:all .4s ease-in-out;-moz-transition:all .4s ease-in-out;transition:all .4s ease-in-out}span.logo_helper{display:inline-block;width:0;height:100%;vertical-align:middle}#top-menu,#top-menu-nav{line-height:0}#et-top-navigation{font-weight:600}.et_fixed_nav #et-top-navigation{-webkit-transition:all .4s ease-in-out;-moz-transition:all .4s ease-in-out;transition:all .4s ease-in-out}#top-menu,nav#top-menu-nav{float:left}#top-menu li{display:inline-block;padding-right:22px;font-size:14px}#top-menu>li:last-child{padding-right:0}#top-menu a{display:block;position:relative;color:rgba(0,0,0,.6);text-decoration:none;-webkit-transition:all .4s ease-in-out;-moz-transition:all .4s ease-in-out;transition:all .4s ease-in-out}#top-menu-nav>ul>li>a:hover{opacity:.7;-webkit-transition:all .4s ease-in-out;-moz-transition:all .4s ease-in-out;transition:all .4s ease-in-out}.container.et_menu_container{z-index:99}.woocommerce-cart table.cart td.actions .coupon .input-text::input-placeholder{color:#fff}#et-top-navigation{float:right}#et_mobile_nav_menu{display:none;float:right}.mobile_menu_bar{display:block;position:relative;line-height:0}.mobile_menu_bar:before{position:relative;top:0;left:0;font-size:32px;content:"\61";cursor:pointer}.mobile_nav .select_page{display:none}#main-footer{background-color:#222}#footer-widgets{padding:6% 0 0}.footer-widget{float:left;color:#fff}.footer-widget .fwidget:last-child{margin-bottom:0!important}#footer-bottom{padding:15px 0 5px;background-color:#1f1f1f;background-color:rgba(0,0,0,.32)}#footer-info{float:left;padding-bottom:10px;color:#666;text-align:left}.widget_search .screen-reader-text{display:none}.widget_search input#s,.widget_search input#searchsubmit{height:40px!important;margin:0;padding:.7em;border:1px solid #ddd;color:#666;font-size:14px;line-height:normal!important}.widget_search #s{width:100%;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px}.widget_search #searchform{position:relative}.widget_search #searchsubmit{position:absolute;top:0;right:0;width:70px;-webkit-border-top-right-radius:3px;-moz-border-radius-topright:3px;border-top-right-radius:3px;-webkit-border-bottom-right-radius:3px;-moz-border-radius-bottomright:3px;border-bottom-right-radius:3px;background-color:#ddd}#searchsubmit{cursor:pointer}@media all and (max-width:980px){#page-container,.et_fixed_nav.et_show_nav #page-container{padding-top:80px}.footer-widget:nth-child(n){width:46.25%!important;margin:0 7.5% 7.5% 0!important}#footer-widgets .footer-widget .fwidget{margin-bottom:16.21%}#footer-widgets{padding:8% 0}#footer-widgets .footer-widget:nth-child(2n){margin-right:0!important}#footer-widgets .footer-widget:nth-last-child(-n+2){margin-bottom:0!important}#main-header{-webkit-transition:none;-moz-transition:none;transition:none}#top-menu{display:none}#et-top-navigation{margin-right:0;-webkit-transition:none;-moz-transition:none;transition:none}.et_fixed_nav #main-header{position:absolute}.et_header_style_left #et-top-navigation{display:block;padding-top:24px}.et_fixed_nav #main-header{-webkit-transition:none;-moz-transition:none;transition:none}#main-header,.container,.logo_container{-webkit-transition:none;-moz-transition:none;transition:none}#footer-info{float:none;text-align:center}#et_mobile_nav_menu{display:block}}@media all and (max-width:767px){#footer-widgets .footer-widget{width:100%!important;margin-right:0!important}#footer-widgets .footer-widget .fwidget,#footer-widgets .footer-widget:nth-child(n){margin-bottom:9.5%!important}#footer-widgets{padding:10% 0}#footer-widgets .footer-widget .fwidget:last-child{margin-bottom:0!important}#footer-widgets .footer-widget:last-child{margin-bottom:0!important}#et-top-navigation{margin-right:0}}@media all and (max-width:479px){#et-top-navigation{margin-right:0}#footer-widgets .footer-widget:nth-child(n),.footer-widget .fwidget{margin-bottom:11.5%!important}#footer-widgets{padding:12% 0}}@media print{#main-header{position:relative!important;top:auto!important;right:auto!important;bottom:auto!important;left:auto!important}#page-container{padding-top:0!important}} *{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}.clearfix:after{display:block;visibility:hidden;clear:both;height:0;font-size:0;content:" "}.et_pb_widget{word-wrap:break-word}.mobile_menu_bar:before{text-shadow:0 0;font-family:ETmodules!important;font-weight:400;font-style:normal;font-variant:normal;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1;text-transform:none;speak:none}.nav li{position:relative;line-height:1em}.nav li:hover{visibility:inherit}.mobile_menu_bar{display:block;position:relative;line-height:0}.mobile_menu_bar:before{position:relative;top:0;left:0;font-size:32px;content:"\61";cursor:pointer}.mobile_nav .select_page{display:none}.et_pb_widget{float:left;max-width:100%} @media all and (min-width:981px){.et_pb_gutters3 .footer-widget{margin:0 5.5% 5.5% 0}.et_pb_gutters3.et_pb_footer_columns2 .footer-widget{width:47.25%}.et_pb_gutters3.et_pb_footer_columns2 .footer-widget:nth-child(even){margin-right:0}.et_pb_gutters3.et_pb_footer_columns2 .footer-widget .fwidget{margin-bottom:11.64%}}.clearfix:after{display:block;visibility:hidden;clear:both;height:0;font-size:0;content:" "} body{font-size:20px}h4{color:#000}a{color:#1e73be}#main-header{background-color:#000}#top-menu a{color:#fff}#top-menu li a{font-size:15px}#main-footer .footer-widget h4{color:#c7d5e0}#footer-info,.footer-widget{font-size:14px}@media only screen and (min-width:981px){.et_header_style_left #et-top-navigation{padding:29px 0 0 0}.et_header_style_left #et-top-navigation nav>ul>li>a{padding-bottom:29px}}h4{font-size:23px}h4{font-family:'Droid Serif',Georgia,"Times New Roman",serif}body,input{font-family:'Droid Sans',Helvetica,Arial,Lucida,sans-serif}#et-top-navigation,#main-header{font-family:'Droid Sans',Helvetica,Arial,Lucida,sans-serif}..et_pb_posts a.more-link{font-size:12px!important} @font-face{font-family:'Open Sans';font-style:italic;font-weight:400;src:local('Open Sans Italic'),local('OpenSans-Italic'),url(https://fonts.gstatic.com/s/opensans/v17/mem6YaGs126MiZpBA-UFUK0Zdcg.ttf) format('truetype')}@font-face{font-family:'Open Sans';font-style:italic;font-weight:700;src:local('Open Sans Bold Italic'),local('OpenSans-BoldItalic'),url(https://fonts.gstatic.com/s/opensans/v17/memnYaGs126MiZpBA-UFUKWiUNhrIqY.ttf) format('truetype')}@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans Regular'),local('OpenSans-Regular'),url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFVZ0e.ttf) format('truetype')}@font-face{font-family:'Open Sans';font-style:normal;font-weight:700;src:local('Open Sans Bold'),local('OpenSans-Bold'),url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN7rgOUuhs.ttf) format('truetype')}@font-face{font-family:'Droid Sans';font-style:normal;font-weight:400;src:local('Droid Sans Regular'),local('DroidSans-Regular'),url(http://fonts.gstatic.com/s/droidsans/v12/SlGVmQWMvZQIdix7AFxXkHNSaA.ttf) format('truetype')}@font-face{font-family:'Droid Sans';font-style:normal;font-weight:700;src:local('Droid Sans Bold'),local('DroidSans-Bold'),url(http://fonts.gstatic.com/s/droidsans/v12/SlGWmQWMvZQIdix7AFxXmMh3eDs1Yg.ttf) format('truetype')}@font-face{font-family:'Droid Serif';font-style:italic;font-weight:400;src:local('Droid Serif Italic'),local('DroidSerif-Italic'),url(http://fonts.gstatic.com/s/droidserif/v12/tDbK2oqRg1oM3QBjjcaDkOr4nAfcGw.ttf) format('truetype')}@font-face{font-family:'Droid Serif';font-style:italic;font-weight:700;src:local('Droid Serif Bold Italic'),local('DroidSerif-BoldItalic'),url(http://fonts.gstatic.com/s/droidserif/v12/tDbX2oqRg1oM3QBjjcaDkOr4lLz5CwOnTQ.ttf) format('truetype')}@font-face{font-family:'Droid Serif';font-style:normal;font-weight:400;src:local('Droid Serif Regular'),local('DroidSerif-Regular'),url(http://fonts.gstatic.com/s/droidserif/v12/tDbI2oqRg1oM3QBjjcaDkOr9rAA.ttf) format('truetype')}@font-face{font-family:'Droid Serif';font-style:normal;font-weight:700;src:local('Droid Serif Bold'),local('DroidSerif-Bold'),url(http://fonts.gstatic.com/s/droidserif/v12/tDbV2oqRg1oM3QBjjcaDkOJGiRD7OwQ.ttf) format('truetype')}</style>
+<body class="et_pb_button_helper_class et_fixed_nav et_boxed_layout et_show_nav et_cover_background et_pb_gutter windows et_pb_gutters3 et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_pb_footer_columns2 et_header_style_left et_right_sidebar et_divi_theme et_minified_js et_minified_css">
+<div id="page-container">
+
+<header data-height-onload="58" id="main-header">
+<div class="container clearfix et_menu_container">
+<div class="logo_container">
+<span class="logo_helper"></span>
+<a href="#">
+{{ keyword }}
+</a>
+</div>
+<div data-fixed-height="40" data-height="58" id="et-top-navigation">
+<nav id="top-menu-nav">
+<ul class="nav" id="top-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-2170" id="menu-item-2170"><a href="#">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2171" id="menu-item-2171"><a href="#">About</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2180" id="menu-item-2180"><a href="#">Contacts</a></li>
+</ul> </nav>
+<div id="et_mobile_nav_menu">
+<div class="mobile_nav closed">
+<span class="select_page">Select Page</span>
+<span class="mobile_menu_bar mobile_menu_bar_toggle"></span>
+</div>
+</div> </div> 
+</div> 
+</header> 
+<div id="et-main-area">
+{{ text }}
+<footer id="main-footer">
+<div class="container">
+<div class="clearfix" id="footer-widgets">
+<div class="footer-widget"><div class="fwidget et_pb_widget widget_text" id="text-3"><h4 class="title">Related</h4> <div class="textwidget">{{ links }}</div>
+</div> </div> <div class="footer-widget"><div class="fwidget et_pb_widget widget_search" id="search-2"><h4 class="title">Search</h4><form action="#" class="searchform" id="searchform" method="get" role="search">
+<div>
+<label class="screen-reader-text" for="s">Search for:</label>
+<input id="s" name="s" type="text" value=""/>
+<input id="searchsubmit" type="submit" value="Search"/>
+</div>
+</form></div> </div>  </div> 
+</div> 
+<div id="footer-bottom">
+<div class="container clearfix">
+<p id="footer-info">2020 {{ keyword }}</div> 
+</div>
+</footer> 
+</div> 
+</div> 
+<link href="http://fonts.googleapis.com/css?family=Droid+Serif:regular,italic,700,700italic|Droid+Sans:regular,700&amp;subset=latin" id="et-builder-googlefonts-css" media="all" rel="stylesheet" type="text/css"/>
+</body>
+</html>";s:4:"text";s:3219:"<p>Chemicals are the new carbon The Chemical Footprint Project is a program of Clean Production Action to develop and advance the concept and practice of chemical footprinting with the goal of reducing the use of chemicals of high concern. 50 ideas for shrinking your carbon footprint . Individuals and corporations can take a number of steps to reduce their carbon footprints and thus contribute to global climate mitigation. </p> <p>The COVID-19 pandemic is primarily a health crisis – but one that has morphed into a burgeoning economic crisis. Eurostat's carbon footprint of the EU-27 measures how much CO 2 would have been emitted due to EU-27's demand for products, if all imported products were produced within the EU-27 using an EU-27 average production technology. Without offsetting carbon, we will not achieve the goals of the Paris Agreement on climate change. Use our calculators ... so you should offset what you can’t reduce with our award winning projects. You can get advice from the Energy Saving Trust and might even be eligible for a grant to improve the efficiency of your home. </p> <p> Services to help you reduce energy, transport emissions and costs Don't forget you can also help support carbon reduction projects in other parts of the world It is very difficult to reduce emissions to zero, so think about Offsetting the emissions you can't reduce any further or emissions you have already caused. They can purchase carbon offsets (broadly stated, an investment in a carbon-reducing activity or technology) to compensate for part or all of their carbon footprint. Reduces carbon emissions and reliance on fossil fuels Since they also demonstrably save greenhouse gas emissions, they protect the climate. Carbon footprint and environmental impacts of print products from cradle to grave Results from the LEADER project (Part 1) Hanna Pihkola, Minna Nors, Marjukka Kujanpää, Tuomas Helin, Merja Kariniemi & Tiina Pajula VTT Helena Dahlbo & Sirkka Koskela SYKE Carbon offset projects help other people in this world to enjoy better living conditions. “There are two ways we can address our carbon footprint: reducing emissions and offsetting the emissions through contributions to carbon-reduction projects,” he says, “We need to do both.” Our emissions reduction initiatives include transitioning to 100 percent renewable electricity for all offices by 2025, improving energy efficiency in our offices, and switching from air to rail travel when … This type of estimate is also known as a ‘carbon footprint’. Our calculator Or speak to our product team . By supporting these projects, you can offset the emissions that you currently cannot avoid generating. Our projects include global budgets for three dominant greenhouse gases — carbon dioxide, methane, and nitrous oxide — and complementary efforts in urban, regional, cumulative, and negative emissions. We must reinvent and renew our economy into one that is more resilient, inclusive, sustainable and zero-carbon. Many of the carbon offsetting projects also provide additional benefits such as biodiversity, education, jobs, food security, clean drinking water and heath & well-being in developing countries. </p>";s:7:"keyword";s:24:"carbon footprint project";s:5:"links";s:10071:"<a href='https://www.pathshala.co/forum/page.php?id=d7382a-winx-club---the-mystery-of-the-abyss'>Winx Club - The Mystery Of The Abyss</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-blake-ferguson-engaged'>Blake Ferguson Engaged</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-modern-country-home-magazine'>Modern Country Home Magazine</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-love-stained-meaning'>Love Stained Meaning</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-Ealing-Broadway-station'>Ealing Broadway Station</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-singapore-education-system-ranking'>Singapore Education System Ranking</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-goat-song-lyrics-sound-of-music'>Goat Song Lyrics Sound Of Music</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-smt-strange-journey-redux-womb-of-grief-fifth-sphere'>Smt Strange Journey Redux Womb Of Grief Fifth Sphere</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-How-to-pronounce-weep'>How To Pronounce Weep</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-Cisco-SPA-303'>Cisco SPA 303</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-broken-hill-lioness-1985'>Broken Hill Lioness 1985</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-kevin-rudd-autobiography'>Kevin Rudd Autobiography</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-paleo-meat-bars'>Paleo Meat Bars</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-office-pantry-room-ideas'>Office Pantry Room Ideas</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-redshift-vs-s3'>Redshift Vs S3</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-gravity-on-mars-vs-earth'>Gravity On Mars Vs Earth</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-Dublin-weather-in-June'>Dublin Weather In June</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-sheryl-swoopes-stats'>Sheryl Swoopes Stats</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-green-and-blue-bee-block'>Green And Blue Bee Block</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-overwatch-wiki-characters'>Overwatch Wiki Characters</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-new-zealand-women%27s-odd-live-score'>New Zealand Women's Odd Live Score</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-streetlight-manifesto-chords'>Streetlight Manifesto Chords</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-terra-linda-mall'>Terra Linda Mall</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-raspberry-pi-guide'>Raspberry Pi Guide</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-planet-nomads-unlock'>Planet Nomads Unlock</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-custom-dashed-line-illustrator'>Custom Dashed Line Illustrator</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-Plank-push-up'>Plank Push Up</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-euston-lost-tunnels-tour'>Euston Lost Tunnels Tour</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-phases-of-change-management'>Phases Of Change Management</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-directions-to-cabot-creamery'>Directions To Cabot Creamery</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-youtube-lebanese-news-today'>Youtube Lebanese News Today</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-darpa-launch-twitter'>Darpa Launch Twitter</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-one-tree-hill-season-9-episode-7'>One Tree Hill Season 9 Episode 7</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-urban-wholesale-sunglasses'>Urban Wholesale Sunglasses</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-mars-conjunct-south-node-synastry'>Mars Conjunct South Node Synastry</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-step-into-love-lyrics'>Step Into Love Lyrics</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-sister-in-sign-language'>Sister In Sign Language</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-willis-towers-watson-wiki'>Willis Towers Watson Wiki</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-mobile-legends-avatar-maker'>Mobile Legends Avatar Maker</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-dream-big-exercise'>Dream Big Exercise</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-1993-nrl-season'>1993 Nrl Season</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-john-nicholson-linkedin'>John Nicholson Linkedin</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-aankhon-mein-base-ho-tum-full-video-song-hd-1080p'>Aankhon Mein Base Ho Tum Full Video Song Hd 1080p</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-affordable-housing-colchester'>Affordable Housing Colchester</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-terras-miami-reservations'>Terras Miami Reservations</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-maundy-thursday-feast'>Maundy Thursday Feast</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-social-questions-for-students'>Social Questions For Students</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-spencer-dam-repair'>Spencer Dam Repair</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-tnachieves-volunteer-opportunities'>Tnachieves Volunteer Opportunities</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-strange-bird-found-in-italy'>Strange Bird Found In Italy</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-kennedy-brooks-nfl'>Kennedy Brooks Nfl</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-bookmobile-library-services'>Bookmobile Library Services</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-pixie-lott---what-do-you-take-me-for'>Pixie Lott - What Do You Take Me For</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-jurassic-world-the-game-indominus-rex'>Jurassic World The Game Indominus Rex</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-van-der-valk-2020-episodes'>Van Der Valk 2020 Episodes</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-paris-time-and-weather'>Paris Time And Weather</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-park-hotel-lunch-menu'>Park Hotel Lunch Menu</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-proud-to-be-an-atheist-quotes'>Proud To Be An Atheist Quotes</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-run-the-jewels-workout-music'>Run The Jewels Workout Music</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-planet-nomads-unlock-medium-3d-printer'>Planet Nomads Unlock Medium 3d Printer</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-the-parting-of-the-ways-transcript'>The Parting Of The Ways Transcript</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-we-lived-in-spanish'>We Lived In Spanish</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-darjeeling-weather-in-march-2020'>Darjeeling Weather In March 2020</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-toyota-ranking-in-automobile-industry'>Toyota Ranking In Automobile Industry</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-The-Carpenters-YouTube'>The Carpenters YouTube</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-ninjago-videos-in-english'>Ninjago Videos In English</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-quartz-clock-movement-manufacturers'>Quartz Clock Movement Manufacturers</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-National-Cremation-Society'>National Cremation Society</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-Radio-Gnome-Invisible'>Radio Gnome Invisible</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-everyone-of-us-is-or-are'>Everyone Of Us Is Or Are</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-crw-nevinson-prints'>Crw Nevinson Prints</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-hey-google-reddit'>Hey Google Reddit</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-one-shipping-corporation'>One Shipping Corporation</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-carlos-s%C3%A1nchez-stats'>Carlos Sánchez Stats</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-london-underground-accidents'>London Underground Accidents</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-online-escape-room-kostenlos'>Online Escape Room Kostenlos</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-pop-out-baseball'>Pop Out Baseball</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-ghana-most-beautiful-2020-registration'>Ghana Most Beautiful 2020 Registration</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-microsoft-financial-statements'>Microsoft Financial Statements</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-af-form-910-epubs'>Af Form 910 Epubs</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-source-of-the-problem-synonym'>Source Of The Problem Synonym</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-battle-of-molino-del-rey'>Battle Of Molino Del Rey</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-does-postpartum-hypertension-go-away'>Does Postpartum Hypertension Go Away</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-circular-motion-review'>Circular Motion Review</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-social-impact-of-coffee'>Social Impact Of Coffee</a>,
+";s:7:"expired";i:-1;}

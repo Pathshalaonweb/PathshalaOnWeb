@@ -24,7 +24,7 @@ class user extends DB{
 		if($rec['picture']==""){
 			 $image_url="https://www.pathshala.co/assets/designer/themes/default/images/logo_new.png";
 			}else{
-			   $image_url = "https://www.pathshala.co//uploaded_files/userfiles/images".$rec['picture'];
+			   $image_url = "https://www.pathshala.co/uploaded_files/userfiles/images".$rec['picture'];
 
 			}
 		$response['Result']['data'][] = array( 
@@ -40,6 +40,7 @@ class user extends DB{
 							"credit_point"  =>$rec['credit_point'],
 							"lot"  			=>$rec['lot'],
 							"description"		=>$rec['description'],
+							"credit_point"		=>$rec['credit_point'],
 						);
 		}else{
 		
@@ -55,33 +56,121 @@ class user extends DB{
 	
 	
 	
-function registerUser($fields){
-    if($fields['email']=="" || $fields['pass']==""){
-		
-        $response = array("success"=>0,"code"=>0,"message"=>"Email ID or password can not be blank");
+	
+	
+	function registerUser($fields){
+   
+    
+	if($fields['email']=="" || $fields['pass']=="") {
+		$response = array("success"=>0,"code"=>0,"message"=>"Email ID or password can not be blank");
     }else{
 		$sql="Select * from wl_customers where user_name='".$fields['email']."'";
         $check_user = mysqli_query($this->conn,$sql);
-        $num_rows = mysqli_num_rows($check_user);
-        if($num_rows > 0){
-            $response['Result'] = array("status"=>0,"message"=>"This email id is already registered");
+		$rec 		= mysqli_fetch_array($check_user);
+        $num_rows 	= mysqli_num_rows($check_user);
+		if($num_rows > 0){
+			$response['Result'] = array("status"=>0,"message"=>"This email id is already registered");
         }else{
-			
 			$date 	= date('m/d/Y h:i:s a', time()); 
 			$actkey	= md5($date).md5($fields['email']);
-           
-		    $sql="INSERT INTO wl_customers (`user_name`,`password`,`first_name`,`phone_number`,`status`,`is_verified`,`account_created_date`,`actkey`) VALUE ('".$fields['email']."','".$fields['pass']."','".$fields['name']."','".$fields['phone']."','1','1','".$date."','".$actkey."')";
+			//check referal
+			if($fields['referral_code']!="") {
+				
+				$referal=$this->checkreferral($fields['referral_code']);
+				if ($referal) {
+			 	$sql	= "INSERT INTO wl_customers (`user_name`,`password`,`first_name`,`phone_number`,`status`,`is_verified`,`account_created_date`,`actkey`) VALUE ('".$fields['email']."','".$fields['pass']."','".$fields['name']."','".$fields['phone']."','1','1','".$date."','".$actkey."')";//die;
+			$insert_qry = mysqli_query($this->conn,$sql);
+			$last_id 	= $this->conn->insert_id;	
+			$row		= $this->getStudent_from_referal($fields['referral_code']);
+			//add referal history $pid,$pemail,$pcode,$cid,$cemail
+		$this->addreferralPoint($row['customers_id'],$row['user_name'],$row['referral_code'],$last_id,$fields['email']);
+				
+				} else {
+					$response['Result'] = array("status"=>0,"message"=>"referral code Code not valid");
+				}
+				
+			} else {
+				
+			 $sql	= "INSERT INTO wl_customers (`user_name`,`password`,`first_name`,`phone_number`,`status`,`is_verified`,`account_created_date`,`actkey`) VALUE ('".$fields['email']."','".$fields['pass']."','".$fields['name']."','".$fields['phone']."','1','1','".$date."','".$actkey."')";
+			$insert_qry = mysqli_query($this->conn,$sql);
+			}
 			
 			
-            $insert_qry = mysqli_query($this->conn,$sql);
-            
+            $response['Result'] = array("success"=>1,"code"=>0,"msg"=>"Item has been added");
 			
-			$response['Result'] = array("success"=>1,"code"=>0,"msg"=>"Item has been added");
 			
-        }
-    }
+		}
+	 }
     return json_encode($response);
 }
+	
+	
+	function checkreferral($code){
+		
+		$sql = "SELECT * FROM `wl_customers` where  referral_code='".$code."'";
+		$check_user = mysqli_query($this->conn,$sql);
+        $num_rows 	= mysqli_num_rows($check_user);
+		if($num_rows > 0){
+			return true;
+		}else{
+			return false;
+		}
+	}	
+	
+	function addreferralPoint($pid,$pemail,$pcode,$cid,$cemail) {
+		$date 	= date('m/d/Y h:i:s a', time()); 
+		$data=array(
+			'parent_id'		=> $pid,
+			'parent_email'	=> $pemail,
+			'child_id'		=> $cid,
+			'child_email'	=> $cemail,
+			'referral_code' => $pcode,
+			'point_added'	=>'2',
+			'created_at'=>$date,
+		);
+		$insert=$this->qry_insert('customer_referral_history',$data);
+		
+		//insert in to user credit
+		if($insert){
+			$row			= $this->getStudent($pid);
+			$currentCredit  = $row['credit_point'];
+			$newCredit		= $currentCredit+2;
+			$sql="UPDATE wl_customers SET credit_point = '".$newCredit."' WHERE customers_id='".$pid."'";
+			$select_query 	= mysqli_query($this->conn,$sql);
+		}
+		/*$data2=array(
+			'student_id' => $cid
+		);
+		$insert=$this->qry_insert('wl_student_credit_record',$data2);
+		*/
+	}
+	
+	
+	function referralHistory($fields){
+		$arr=array();
+		if($fields['customers_id']==""){
+        	$arr = array("success"=>0,"code"=>0,"message"=>"Student Id can not be blank");
+    	}else{
+		 	$sql="SELECT * FROM `customer_referral_history` where parent_id='".$fields['customers_id']."'";
+			$sub_res = mysqli_query($this->conn,$sql);
+			while($rec  = mysqli_fetch_array($sub_res)){
+					
+			$childRow=$this->getStudent($rec['child_id']);
+			//print_r($childRow);die;
+			$arr['Result']['data'][] = array(
+										'parent_id'			=>$rec['parent_id'],
+										'parent_email'		=>$rec['parent_email'],
+										'child_id'			=>$rec['child_id'],
+										'child_name'		=>$childRow['first_name'],
+										'child_email'		=>$rec['child_email'],
+										'point_added'		=>$rec['point_added'],
+										'created_at'		=>$rec['created_at']
+									);
+			}
+		}
+		return json_encode($arr,JSON_UNESCAPED_SLASHES);
+	}
+	
 	
 
 	function forgotPassword($fields){
@@ -246,6 +335,91 @@ function registerUser($fields){
 
  }
  
+  public function getStudent($fields){
+	  $sql="Select * from wl_customers where customers_id='".$fields."' ";//die;
+	 $select_query = mysqli_query($this->conn,$sql);
+	 $rec = mysqli_fetch_array($select_query);
+	 return $rec;
+  }
+  
+  public function getStudent_from_referal($fields){
+	 $sql="Select * from wl_customers where referral_code='".$fields."'";
+	 $select_query = mysqli_query($this->conn,$sql);
+	 $rec = mysqli_fetch_array($select_query);
+	 return $rec;
+  }
+	 
+	
+	 function getStudentAddress($id){
+			
+				$sql		  = "SELECT * FROM `wl_customers` where customers_id='".$id."'";
+				$select_query = mysqli_query($this->conn,$sql);
+				$rec 		  = mysqli_fetch_array($select_query);
+				return 		  $rec['address'];
+				
+		}
+ /*course booking*/
+ 
+	 public function coursebooking($fields){
+		 $response=array();
+		 if ($fields['user_id']=="" || $fields['courses_id']==""){
+	      	$response = array("status"=>0,"message"=>"Fields cannot Blank");
+		 } else {
+			$incSql 	   ="SHOW TABLE STATUS LIKE 'wl_order'";
+			$incQuery  	   = mysqli_query($this->conn,$incSql);
+			$INcinfo 	   = mysqli_fetch_array($incQuery);
+			$invoice_number= "Wl_".$INcinfo['Auto_increment']; 
+			$student	   =$this->getStudent($fields['user_id']);
+			$date 		   = date('m/d/Y h:i:s ', time());
+			$data_order    = 
+				array(
+						'customers_id'        => $fields['user_id'],
+						'courses_id'          => $fields['courses_id'],
+						'invoice_number'      => $invoice_number,					
+						'first_name'          => $student['first_name'],
+						'last_name'           => $student['last_name'],
+						'phone'				  => $student['phone_number'],
+						'email'               => $student['user_name'],
+						'address'			  => $this->getStudentAddress($fields['user_id']),
+						'tax_amount'     	  => '00:00',
+						'tax_type'     		  => '00:00',
+						'discount_amount'	  => '00:00',
+						'total_amount'        => '00:00',
+						'order_received_date' => $date,
+						'payment_method'      => '',
+						'payment_status'      => 'paid',
+						'type'				  => '1',
+						'payment_mode'		  => 'free',
+					);
+				$this->qry_insert('wl_order',$data_order);
+				$orderId =  mysqli_insert_id($this->conn);
+				
+				$abc=$student['lot'];
+				if(!empty($abc)){
+					$course=  explode(",",$abc) ;
+				}else{
+					$course=array();
+				}
+				$course=  explode(",",$abc) ;
+				$original_array =$course; 
+				
+				$inserted_value = $fields['courses_id']; 
+				$position = count($original_array); 
+				//array_splice() function  
+				array_splice($original_array,$position, 0,$inserted_value);  
+				$newLot=implode(",",$original_array);
+				
+				$sql="UPDATE wl_customers SET lot = '".$newLot."'WHERE customers_id='".$fields['user_id']."'";
+			$insert_qry = mysqli_query($this->conn,$sql);
+				
+			    $response['Result'] = array("success"=>1,"code"=>0,'orderId'=>$orderId,"msg"=>"Item has been added");	
+		 }
+		return json_encode($response,JSON_UNESCAPED_SLASHES);			
+	 }
+ 
+ 
+ 
+ 
  
  
  public function studentCreditRecord($fields){
@@ -325,6 +499,9 @@ function registerUser($fields){
 		
     	return json_encode($response);
 	}
+	
+	
+	
 	
 	
 	

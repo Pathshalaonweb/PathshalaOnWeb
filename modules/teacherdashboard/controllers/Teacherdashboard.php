@@ -420,10 +420,11 @@ class Teacherdashboard extends Teacher_Controller{
 	
 	 public function viewUpdate($teacherId,$studentId,$notifiedId){
 		 
-		  $sql="SELECT * FROM `wl_teacher_cradit_recode` where student_id=".$studentId." AND  notified_id=".$notifiedId." AND teacher_id=".$teacherId."";
+		    $sql="SELECT * FROM `wl_teacher_cradit_recode` where student_id=".$studentId." AND  notified_id=".$notifiedId." AND teacher_id=".$teacherId."";
 			$row=$this->db->query($sql)->result_array();
 			if(empty($row)){
 			$currentCredit=$this->mres['current_credit'];
+			
 			if(!empty($notifiedId)){
 				$data_array=array(
 					'teacher_id' =>  $teacherId,
