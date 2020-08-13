@@ -1,3 +1,4 @@
+
 <?php
 include("config.php");
 include("modules/user.class.php");
@@ -89,6 +90,13 @@ switch($action){
      echo $response = $usrObj->blog($_REQUEST);
   break;
   
+  case "coursebooking":
+  echo  $response = $usrObj->coursebooking($_REQUEST);
+  break;
+  
+  case "referralHistory":
+  echo  $response = $usrObj->referralHistory($_REQUEST);
+  break;
   
 //teacher details
 	case "TeacherLogin" : 
@@ -106,6 +114,9 @@ switch($action){
   	case "TeacherforgotPassword" : 
      echo $response = $teacherObj->forgotPassword($_REQUEST);
 	break;
+    case "TeacherLivePlan":
+      echo $response = $teacherObj->teacherLivePlan($_REQUEST);
+   break;
 	
 	case "editProfileTeacher" : 
      	/*
@@ -126,6 +137,9 @@ switch($action){
 	echo $response = $teacherObj->editProfile($_REQUEST);
     break;
 	case "Teachernotified" : 
+     echo $response = $teacherObj->teachernotifieds($_REQUEST);
+	 break;
+	 case "TeachernotifiedAction" : 
      echo $response = $teacherObj->teachernotified($_REQUEST);
 	 break;
 	case "Teacherplan" : 
@@ -169,10 +183,7 @@ switch($action){
 
 	case "Teacherenquiry" : 
      echo $response = $teacherObj->enquiry($_REQUEST);
-     break;
-   case "TeacherLivePlan":
-      echo $response = $teacherObj->teacherLivePlan($_REQUEST);
-   break;
+  	break;
 	 
 	
 

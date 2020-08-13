@@ -62,18 +62,20 @@ class Searchcourse extends DB{
 		//print_r($_REQUEST);
 		$response = array();
 		$where="  AND `status` = '1'";
-		if(!empty($fields['courses_id'])){
+		
+		if(!empty($fields['courses_id']) && $fields['courses_id']!="null"){
 			$where .=" AND `courses_id` = '".$fields['courses_id']."' ";
 		}
-		if(!empty($fields['category_id'])){
+		if(!empty($fields['category_id']) && $fields['category_id']!="null"){
 			$where .=" AND `category_id` = '".$fields['category_id']."' ";
 		}
-		if(!empty($fields['lession_id'])){
+		if(!empty($fields['lession_id']) && $fields['lession_id']!="null"){
 			$where .=" AND `lession_id` = '".$fields['lession_id']."' ";
 		}
-		if(!empty($fields['teacher_id'])){
+		if(!empty($fields['teacher_id'])  && $fields['teacher_id']!="null"){
 			$where .=" AND `teacher_id` = '".$fields['teacher_id']."' ";
 		}
+		
 		$sql="SELECT * FROM `tbl_courses` WHERE 1 ".$where." ";
 		$select_query = mysqli_query($this->connTwo,$sql);
 		mysqli_set_charset($this->connTwo, 'utf8');
@@ -131,6 +133,8 @@ class Searchcourse extends DB{
 		$data = strip_tags($data);
   		return $data;
 	}
+	
+	
  
  }
 ?>

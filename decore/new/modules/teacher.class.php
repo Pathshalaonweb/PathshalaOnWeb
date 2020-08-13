@@ -335,53 +335,180 @@ class Teacher extends DB{
 		
 	}
 	
+	
+	 public function getnotification($fields){
+	 	 $sql="Select * from wl_teacher_cradit_recode where notified_id=".$fields." ";
+		 $select_query = mysqli_query($this->conn,$sql);
+		 $rec = mysqli_fetch_array($select_query);
+		 return $rec;
+	 }
+	 public function viewUpdate($teacherId,$studentId,$notifiedId){
+		 
+		  $sql="SELECT * FROM `wl_teacher_cradit_recode` where student_id=".$studentId." AND  notified_id=".$notifiedId." AND teacher_id=".$teacherId."";
+		  $select_query = mysqli_query($this->conn,$sql);
+		  $row = mysqli_fetch_array($select_query);
+		  
+		  $sql1="SELECT teacher_id,current_credit FROM `wl_teacher` where teacher_id=".$teacherId."";
+		  $select_query1 = mysqli_query($this->conn,$sql1);
+		  $row1 = mysqli_fetch_array($select_query1);
+		  $currentCredit=$row1['current_credit'];
+		  if(empty($row)){
+			  if(!empty($notifiedId)){
+				
+				$data_array=array(
+					'teacher_id' =>  $teacherId,
+					'student_id' =>  $studentId,
+					'notified_id'=>  $notifiedId,
+					'value'		 =>  $currentCredit-1,
+					'view'		 =>  1, 
+					'comment'	 =>  "view profile",
+					'created_at' =>  date('Y-m-d H:i:s')
+				);
+				$insert=$this->qry_insert('wl_teacher_cradit_recode',$data_array,true);
+				$current_credit=$currentCredit-1;
+				$sql2="UPDATE wl_teacher SET current_credit = '".$current_credit."'  WHERE teacher_id='".$teacherId."'";
+        		$insert_qry = mysqli_query($this->conn,$sql2);
+				return true;
+			
+			}
+			return false;
+		  }
+		 
+	
+	 }
 	public function teachernotified($fields){
+		//die('tests');
 		
-		$response = array();
-		$select_query = mysqli_query($this->conn,"Select * from wl_teacher_notified where teacher_id=".$fields['teacher_id']." ORDER BY `id` DESC");
+		 $arr=array();
+		 if ($fields['teacher_id']==""){
+	      	$arr = array("status"=>0,"message"=>"Fields cannot Blank");
+		 } else {
+			 
+		if(!empty($fields['notified_id'])) {
+		
+			$sql="Select * from wl_teacher_notified where teacher_id=".$fields['teacher_id']." AND id=".$fields['notified_id']." ORDER BY `id` DESC";	
+		
+		}else{
+		
+				$sql="Select * from wl_teacher_notified where id=".$fields['notified_id']." ORDER BY `id` DESC";	
+		
+		}
+	  	$select_query = mysqli_query($this->conn,$sql);//die;
 		$arr['Result'] = array("success"=>1,"code"=>0);
-		
 		while($rec = mysqli_fetch_array($select_query)){
 		
-		$student=$this->getStudent($rec['student_id']);	
-		
-		//print_r($student);
-		$arr['Result']['data'][]	= array(  
+		$notifiedId=$rec['id'];
+		$student=$this->getStudent($rec['student_id']);
+		if($fields['operation']=='debited') {	
+		//echo "1";
+			$view=$this->viewUpdate($rec['teacher_id'],$rec['student_id'],$notifiedId);
+		}
+		if(!empty($this->getnotification($notifiedId))) {
+			$arr['Result']['data'][]	= array(  
+						 'id'				=> $notifiedId,
 						 'student_id'		=> $rec['student_id'],
 						 'first_name'		=> $student['first_name'],
 						 'phone_number'		=> $student['phone_number'],
 						 'user_name'		=> $student['user_name'],
-						 
 						 "address"			=> $this->getStudentAddress($rec['student_id']),
 						 "image"			=> $this->getStudentImage($rec['student_id']),
-						 
 						 'status'			=> $rec['status'],
 						 "category"			=> $rec['category'],
 						 "category_name"	=> $this->get_category($rec['category']),
-						 
 						 "subjects"			=> $rec['subjects'],
 						 "subjects_name"	=> $this->get_category($rec['subjects']),
-						 
-						 "classes"			=> $rec['classes'],
+						  "classes"			=> $rec['classes'],
 						 "classes_name"		=> $this->get_category($rec['classes']),
-						 
-						 
-						 "keyword"			=> $this->test_input($rec['keyword']),
+						  "keyword"			=> $this->test_input($rec['keyword']),
 						 "created_at"		=> $rec['created_at']
-					);    
-		}
+					);
+		}else {
+			
+			$arr['Result']['data'][]	= array(  
+						 'msg'		=>"No data found",
+						
+					);
+			 }
+			
+		   }
+		   
+		 }
+		
+		return json_encode($arr,JSON_UNESCAPED_SLASHES);
+	}
+	
+	
+	
+	public function teachernotifieds($fields){
+		//die('tests');
+		
+		 $arr=array();
+		 if ($fields['teacher_id']==""){
+	      	$arr = array("status"=>0,"message"=>"Fields cannot Blank");
+		 } else {
+			$sql="Select * from wl_teacher_notified where teacher_id=".$fields['teacher_id']." ORDER BY `id` DESC";	
+			$select_query = mysqli_query($this->conn,$sql);//die;
+			$arr['Result'] = array("success"=>1,"code"=>0);
+			while($rec = mysqli_fetch_array($select_query)){
+			$notifiedId=$rec['id'];
+			$student=$this->getStudent($rec['student_id']);
+		
+		if(!empty($this->getnotification($notifiedId))) {
+			
+			$arr['Result']['data'][]	= array(  
+						 'id'				=> $notifiedId,
+						 'student_id'		=> $rec['student_id'],
+						 'first_name'		=> $student['first_name'],
+						 'phone_number'		=> $student['phone_number'],
+						 'user_name'		=> $student['user_name'],
+						 "address"			=> $this->getStudentAddress($rec['student_id']),
+						 "image"			=> $this->getStudentImage($rec['student_id']),
+						 'status'			=> $rec['status'],
+						 "category"			=> $rec['category'],
+						 "category_name"	=> $this->get_category($rec['category']),
+						 "subjects"			=> $rec['subjects'],
+						 "subjects_name"	=> $this->get_category($rec['subjects']),
+						  "classes"			=> $rec['classes'],
+						 "classes_name"		=> $this->get_category($rec['classes']),
+						  "keyword"			=> $this->test_input($rec['keyword']),
+						 "created_at"		=> $rec['created_at']
+					);
+		}else {
+			$arr['Result']['data'][]	= array(  
+						 'id'				=> $notifiedId,
+						 'student_id'		=> $rec['student_id'],
+						 'first_name'		=> $student['first_name'],
+						 'phone_number'		=> "******",
+						 'user_name'		=> "******",
+						 "address"			=> "******",
+						 "image"			=> $this->getStudentImage($rec['student_id']),
+						 'status'			=> $rec['status'],
+						 "category"			=> $rec['category'],
+						 "category_name"	=> $this->get_category($rec['category']),
+						 "subjects"			=> $rec['subjects'],
+						 "subjects_name"	=> $this->get_category($rec['subjects']),
+						  "classes"			=> $rec['classes'],
+						 "classes_name"		=> $this->get_category($rec['classes']),
+						  "keyword"			=> $this->test_input($rec['keyword']),
+						 "created_at"		=> $rec['created_at']
+					);
+	 	    }
+			
+		   }
+		   
+		 }
 		
 		return json_encode($arr,JSON_UNESCAPED_SLASHES);
 	}
 
  
- public function getStudent($fields){
-	 
-	 $sql="Select first_name,user_name,phone_number from wl_customers where customers_id=".$fields." ";
-	 $select_query = mysqli_query($this->conn,$sql);
-	 $rec = mysqli_fetch_array($select_query);
-	 return $rec;
-	 }
+		 public function getStudent($fields){
+			 
+			 $sql="Select first_name,user_name,phone_number from wl_customers where customers_id=".$fields." ";
+			 $select_query = mysqli_query($this->conn,$sql);
+			 $rec = mysqli_fetch_array($select_query);
+			 return $rec;
+		  }
  
 
  
@@ -747,7 +874,7 @@ class Teacher extends DB{
 			 return $result;
 
 	}	
-	function teacherLivePlan($fields)
+  function teacherLivePlan($fields)
 
 		{
 			if(!empty($fields['key']) && $fields['key']=="pathshala5572" && !empty($fields['email_id']))
@@ -770,8 +897,6 @@ class Teacher extends DB{
 				return json_encode($arr);
 
 			}
-		}	
-
 		
  }
 ?>

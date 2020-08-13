@@ -1,0 +1,141 @@
+a:5:{s:8:"template";s:13575:"<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<title>{{ keyword }}</title>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/></head>
+<style rel="stylesheet" type="text/css"> a,body,div,form,h4,html,label,li,p,span,ul{margin:0;padding:0;border:0;outline:0;background:0 0;font-size:100%;vertical-align:baseline;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{line-height:1}ul{list-style:none}:focus{outline:0}footer,header,nav{display:block}body{color:#666;background-color:#fff;font-family:"Open Sans",Arial,sans-serif;font-size:14px;font-weight:500;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.7em}body.et_fixed_nav.et_boxed_layout #page-container{padding-top:80px}body.et_cover_background{background-repeat:no-repeat!important;background-attachment:fixed;background-position:top center!important;-webkit-background-size:cover!important;-moz-background-size:cover!important;background-size:cover!important}a{color:#2ea3f2;text-decoration:none}a:hover{text-decoration:none}p{padding-bottom:1em}p:last-of-type{padding-bottom:0}h4{padding-bottom:10px;color:#333;font-weight:500;line-height:1em}h4{font-size:18px}input{-webkit-appearance:none}input[type=text]{padding:2px;border:1px solid #bbb;color:#4e4e4e;background-color:#fff}input[type=text]:focus{border-color:#2d3940;color:#3e3e3e}input[type=text]{margin:0}#top-menu li{word-wrap:break-word}.footer-widget h4,.mobile_menu_bar:after,.mobile_menu_bar:before{color:#2ea3f2}#main-header{-webkit-transition:background-color .4s,color .4s,transform .4s,opacity .4s ease-in-out;-moz-transition:background-color .4s,color .4s,transform .4s,opacity .4s ease-in-out;transition:background-color .4s,color .4s,transform .4s,opacity .4s ease-in-out}.container{position:relative;width:80%;max-width:1080px;margin:auto}.et_boxed_layout #page-container{-webkit-box-shadow:0 0 10px 0 rgba(0,0,0,.2);-moz-box-shadow:0 0 10px 0 rgba(0,0,0,.2);box-shadow:0 0 10px 0 rgba(0,0,0,.2)}.et_boxed_layout #page-container,.et_boxed_layout #page-container .container,.et_fixed_nav.et_boxed_layout #page-container #main-header{width:90%;max-width:1200px;margin:auto}.container{position:relative;text-align:left}#main-header{position:relative;z-index:99999;top:0;width:100%;background-color:#fff;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.1);-moz-box-shadow:0 1px 0 rgba(0,0,0,.1);box-shadow:0 1px 0 rgba(0,0,0,.1);font-weight:500;line-height:23px}.et_fixed_nav.et_show_nav #page-container{padding-top:80px}.et_fixed_nav #main-header{position:fixed}.et_header_style_left #et-top-navigation{padding-top:33px}.et_header_style_left #et-top-navigation nav>ul>li>a{padding-bottom:33px}.et_header_style_left .logo_container{position:absolute;width:100%;height:100%}.et_header_style_left .mobile_menu_bar{padding-bottom:24px}.logo_container{-webkit-transition:all .4s ease-in-out;-moz-transition:all .4s ease-in-out;transition:all .4s ease-in-out}span.logo_helper{display:inline-block;width:0;height:100%;vertical-align:middle}#top-menu,#top-menu-nav{line-height:0}#et-top-navigation{font-weight:600}.et_fixed_nav #et-top-navigation{-webkit-transition:all .4s ease-in-out;-moz-transition:all .4s ease-in-out;transition:all .4s ease-in-out}#top-menu,nav#top-menu-nav{float:left}#top-menu li{display:inline-block;padding-right:22px;font-size:14px}#top-menu>li:last-child{padding-right:0}#top-menu a{display:block;position:relative;color:rgba(0,0,0,.6);text-decoration:none;-webkit-transition:all .4s ease-in-out;-moz-transition:all .4s ease-in-out;transition:all .4s ease-in-out}#top-menu-nav>ul>li>a:hover{opacity:.7;-webkit-transition:all .4s ease-in-out;-moz-transition:all .4s ease-in-out;transition:all .4s ease-in-out}.container.et_menu_container{z-index:99}.woocommerce-cart table.cart td.actions .coupon .input-text::input-placeholder{color:#fff}#et-top-navigation{float:right}#et_mobile_nav_menu{display:none;float:right}.mobile_menu_bar{display:block;position:relative;line-height:0}.mobile_menu_bar:before{position:relative;top:0;left:0;font-size:32px;content:"\61";cursor:pointer}.mobile_nav .select_page{display:none}#main-footer{background-color:#222}#footer-widgets{padding:6% 0 0}.footer-widget{float:left;color:#fff}.footer-widget .fwidget:last-child{margin-bottom:0!important}#footer-bottom{padding:15px 0 5px;background-color:#1f1f1f;background-color:rgba(0,0,0,.32)}#footer-info{float:left;padding-bottom:10px;color:#666;text-align:left}.widget_search .screen-reader-text{display:none}.widget_search input#s,.widget_search input#searchsubmit{height:40px!important;margin:0;padding:.7em;border:1px solid #ddd;color:#666;font-size:14px;line-height:normal!important}.widget_search #s{width:100%;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px}.widget_search #searchform{position:relative}.widget_search #searchsubmit{position:absolute;top:0;right:0;width:70px;-webkit-border-top-right-radius:3px;-moz-border-radius-topright:3px;border-top-right-radius:3px;-webkit-border-bottom-right-radius:3px;-moz-border-radius-bottomright:3px;border-bottom-right-radius:3px;background-color:#ddd}#searchsubmit{cursor:pointer}@media all and (max-width:980px){#page-container,.et_fixed_nav.et_show_nav #page-container{padding-top:80px}.footer-widget:nth-child(n){width:46.25%!important;margin:0 7.5% 7.5% 0!important}#footer-widgets .footer-widget .fwidget{margin-bottom:16.21%}#footer-widgets{padding:8% 0}#footer-widgets .footer-widget:nth-child(2n){margin-right:0!important}#footer-widgets .footer-widget:nth-last-child(-n+2){margin-bottom:0!important}#main-header{-webkit-transition:none;-moz-transition:none;transition:none}#top-menu{display:none}#et-top-navigation{margin-right:0;-webkit-transition:none;-moz-transition:none;transition:none}.et_fixed_nav #main-header{position:absolute}.et_header_style_left #et-top-navigation{display:block;padding-top:24px}.et_fixed_nav #main-header{-webkit-transition:none;-moz-transition:none;transition:none}#main-header,.container,.logo_container{-webkit-transition:none;-moz-transition:none;transition:none}#footer-info{float:none;text-align:center}#et_mobile_nav_menu{display:block}}@media all and (max-width:767px){#footer-widgets .footer-widget{width:100%!important;margin-right:0!important}#footer-widgets .footer-widget .fwidget,#footer-widgets .footer-widget:nth-child(n){margin-bottom:9.5%!important}#footer-widgets{padding:10% 0}#footer-widgets .footer-widget .fwidget:last-child{margin-bottom:0!important}#footer-widgets .footer-widget:last-child{margin-bottom:0!important}#et-top-navigation{margin-right:0}}@media all and (max-width:479px){#et-top-navigation{margin-right:0}#footer-widgets .footer-widget:nth-child(n),.footer-widget .fwidget{margin-bottom:11.5%!important}#footer-widgets{padding:12% 0}}@media print{#main-header{position:relative!important;top:auto!important;right:auto!important;bottom:auto!important;left:auto!important}#page-container{padding-top:0!important}} *{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}.clearfix:after{display:block;visibility:hidden;clear:both;height:0;font-size:0;content:" "}.et_pb_widget{word-wrap:break-word}.mobile_menu_bar:before{text-shadow:0 0;font-family:ETmodules!important;font-weight:400;font-style:normal;font-variant:normal;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1;text-transform:none;speak:none}.nav li{position:relative;line-height:1em}.nav li:hover{visibility:inherit}.mobile_menu_bar{display:block;position:relative;line-height:0}.mobile_menu_bar:before{position:relative;top:0;left:0;font-size:32px;content:"\61";cursor:pointer}.mobile_nav .select_page{display:none}.et_pb_widget{float:left;max-width:100%} @media all and (min-width:981px){.et_pb_gutters3 .footer-widget{margin:0 5.5% 5.5% 0}.et_pb_gutters3.et_pb_footer_columns2 .footer-widget{width:47.25%}.et_pb_gutters3.et_pb_footer_columns2 .footer-widget:nth-child(even){margin-right:0}.et_pb_gutters3.et_pb_footer_columns2 .footer-widget .fwidget{margin-bottom:11.64%}}.clearfix:after{display:block;visibility:hidden;clear:both;height:0;font-size:0;content:" "} body{font-size:20px}h4{color:#000}a{color:#1e73be}#main-header{background-color:#000}#top-menu a{color:#fff}#top-menu li a{font-size:15px}#main-footer .footer-widget h4{color:#c7d5e0}#footer-info,.footer-widget{font-size:14px}@media only screen and (min-width:981px){.et_header_style_left #et-top-navigation{padding:29px 0 0 0}.et_header_style_left #et-top-navigation nav>ul>li>a{padding-bottom:29px}}h4{font-size:23px}h4{font-family:'Droid Serif',Georgia,"Times New Roman",serif}body,input{font-family:'Droid Sans',Helvetica,Arial,Lucida,sans-serif}#et-top-navigation,#main-header{font-family:'Droid Sans',Helvetica,Arial,Lucida,sans-serif}..et_pb_posts a.more-link{font-size:12px!important} @font-face{font-family:'Open Sans';font-style:italic;font-weight:400;src:local('Open Sans Italic'),local('OpenSans-Italic'),url(https://fonts.gstatic.com/s/opensans/v17/mem6YaGs126MiZpBA-UFUK0Zdcg.ttf) format('truetype')}@font-face{font-family:'Open Sans';font-style:italic;font-weight:700;src:local('Open Sans Bold Italic'),local('OpenSans-BoldItalic'),url(https://fonts.gstatic.com/s/opensans/v17/memnYaGs126MiZpBA-UFUKWiUNhrIqY.ttf) format('truetype')}@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans Regular'),local('OpenSans-Regular'),url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFVZ0e.ttf) format('truetype')}@font-face{font-family:'Open Sans';font-style:normal;font-weight:700;src:local('Open Sans Bold'),local('OpenSans-Bold'),url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN7rgOUuhs.ttf) format('truetype')}@font-face{font-family:'Droid Sans';font-style:normal;font-weight:400;src:local('Droid Sans Regular'),local('DroidSans-Regular'),url(http://fonts.gstatic.com/s/droidsans/v12/SlGVmQWMvZQIdix7AFxXkHNSaA.ttf) format('truetype')}@font-face{font-family:'Droid Sans';font-style:normal;font-weight:700;src:local('Droid Sans Bold'),local('DroidSans-Bold'),url(http://fonts.gstatic.com/s/droidsans/v12/SlGWmQWMvZQIdix7AFxXmMh3eDs1Yg.ttf) format('truetype')}@font-face{font-family:'Droid Serif';font-style:italic;font-weight:400;src:local('Droid Serif Italic'),local('DroidSerif-Italic'),url(http://fonts.gstatic.com/s/droidserif/v12/tDbK2oqRg1oM3QBjjcaDkOr4nAfcGw.ttf) format('truetype')}@font-face{font-family:'Droid Serif';font-style:italic;font-weight:700;src:local('Droid Serif Bold Italic'),local('DroidSerif-BoldItalic'),url(http://fonts.gstatic.com/s/droidserif/v12/tDbX2oqRg1oM3QBjjcaDkOr4lLz5CwOnTQ.ttf) format('truetype')}@font-face{font-family:'Droid Serif';font-style:normal;font-weight:400;src:local('Droid Serif Regular'),local('DroidSerif-Regular'),url(http://fonts.gstatic.com/s/droidserif/v12/tDbI2oqRg1oM3QBjjcaDkOr9rAA.ttf) format('truetype')}@font-face{font-family:'Droid Serif';font-style:normal;font-weight:700;src:local('Droid Serif Bold'),local('DroidSerif-Bold'),url(http://fonts.gstatic.com/s/droidserif/v12/tDbV2oqRg1oM3QBjjcaDkOJGiRD7OwQ.ttf) format('truetype')}</style>
+<body class="et_pb_button_helper_class et_fixed_nav et_boxed_layout et_show_nav et_cover_background et_pb_gutter windows et_pb_gutters3 et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_pb_footer_columns2 et_header_style_left et_right_sidebar et_divi_theme et_minified_js et_minified_css">
+<div id="page-container">
+
+<header data-height-onload="58" id="main-header">
+<div class="container clearfix et_menu_container">
+<div class="logo_container">
+<span class="logo_helper"></span>
+<a href="#">
+{{ keyword }}
+</a>
+</div>
+<div data-fixed-height="40" data-height="58" id="et-top-navigation">
+<nav id="top-menu-nav">
+<ul class="nav" id="top-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-2170" id="menu-item-2170"><a href="#">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2171" id="menu-item-2171"><a href="#">About</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2180" id="menu-item-2180"><a href="#">Contacts</a></li>
+</ul> </nav>
+<div id="et_mobile_nav_menu">
+<div class="mobile_nav closed">
+<span class="select_page">Select Page</span>
+<span class="mobile_menu_bar mobile_menu_bar_toggle"></span>
+</div>
+</div> </div> 
+</div> 
+</header> 
+<div id="et-main-area">
+{{ text }}
+<footer id="main-footer">
+<div class="container">
+<div class="clearfix" id="footer-widgets">
+<div class="footer-widget"><div class="fwidget et_pb_widget widget_text" id="text-3"><h4 class="title">Related</h4> <div class="textwidget">{{ links }}</div>
+</div> </div> <div class="footer-widget"><div class="fwidget et_pb_widget widget_search" id="search-2"><h4 class="title">Search</h4><form action="#" class="searchform" id="searchform" method="get" role="search">
+<div>
+<label class="screen-reader-text" for="s">Search for:</label>
+<input id="s" name="s" type="text" value=""/>
+<input id="searchsubmit" type="submit" value="Search"/>
+</div>
+</form></div> </div>  </div> 
+</div> 
+<div id="footer-bottom">
+<div class="container clearfix">
+<p id="footer-info">2020 {{ keyword }}</div> 
+</div>
+</footer> 
+</div> 
+</div> 
+<link href="http://fonts.googleapis.com/css?family=Droid+Serif:regular,italic,700,700italic|Droid+Sans:regular,700&amp;subset=latin" id="et-builder-googlefonts-css" media="all" rel="stylesheet" type="text/css"/>
+</body>
+</html>";s:4:"text";s:4348:"<p>Thank you After going through your feedback, it seems we've managed to implement the new 0.8 features quite well, with the most pressing bug fixes coming in today's 8.1 update. </p> <p>All Discussions Screenshots Artwork Broadcasts Videos Workshop News Guides Reviews Planet Nomads > General Discussions > Topic Details. All Discussions Screenshots Artwork Broadcasts Videos Workshop News Guides Reviews Planet Nomads > General Discussions > Topic Details. Now it can continue to grow further. Space Explorer. Planet Nomads is a life and death struggle. Never dug down around there for viens but never needed to. After the resource boulders were given the spiky crystalline look they have become impossible to find and I've tried a few different seed worlds to no effect. I CANT FIND XAENITE CRYSTALS IAND I NEED TO FIND THEM TO PROGRESS!!!! Your hunger, thirst and stamina levels are not just numbers on the screen. Has Xaenite been moved so that you need the autominer to find it now? Never dug down around there for viens but never needed to. When they fall to critical levels you’re going to feel that. </p> <p>Apr 9 @ 6:31pm Xaenite Crystals HELP!! Do I just need to keep on looking there? Jul 11, 2017 @ 3:10pm Xaenite?? Planet Nomads > General Discussions > Topic Details [DNA]Wolventemmer. </p> <p>595 It may be found in desert and ice biomes on the starting planet. … </p> <p>When you place a auto-miner on a Xaenite Vein it does not list any "Potential Resources". Do I just need to keep on looking there? Planet Nomads is a game that is being created and developed by Craneballs.Planet Nomads is a sci-fi sandbox game of creation and survival on procedurally generated planets. But sink a mine close to one of those nodes, you won't get anything while digging with the multitool, but an automine should come up with a 5% chance of Xaenite. Planet Nomads. </p> <p>... Wazbat say's "Oh Nomad Dave isn't affiliated with Planet Nomads or Craneballs" witch is very true all I have is the game. The author of this topic has marked a post as the answer to their question. You may suffer from negative conditions induced by weather conditions or dangerous enviroment around you. </p> <p>Xaenite, where are you? Planet Nomads. 30-05-2017, 11:22 AM #14. I found viens in the desert up north just shy of equator. Benjamin (ShadowFlightBA) View Profile View Forum Posts Private Message Planet Nomads > General Discussions > Topic Details. While I have auto-mined Xaenite in really nice quantities, I have yet to see an actual Xaenite vein in the ground. In Planet Nomads you build useful things to earn a slim chance of staying alive as you uncover the mysteries of procedurally generated alien planets.You used up all your luck surviving a crash-landing on one such planet. Is this correct or I'm not searching good enough. So what I did when I got to the area near (not at) the North Pole was to spot an area where I could see good veins of Uranium/Titanium mix. No rocks seems to have this ressource on them. 0 0 0 0 0 0 . Without stamina, you won’t be able to move. Planet Nomads. Is anyone else having the same issue? Hi everyone.  Hi, Previously Xaenite was available as a 'boulder' (like iron or silicon) in the arctic biome on several of the worlds I tried. Where do you find some xeanite ? </p> <p>Xaenite is a rare high level resource. May 6, 2019 @ 8:57am Xaenite Crystals ... Xaenite Crystals Where do I find Xaenite Crystals? Bleeding drains your health and stamina. I have found Xaenite in the arctic and in deserts and have looked for crystals while in those ares. </p> <p>Click here … Chara Dreemurr. </p> <p>I have been looking ages for this stuff.. but i can't seem to find it. </p> <p>What's next then? May 6, 2019 @ 8:57am Xaenite Crystals Where do I find Xaenite Crystals? I have found Xaenite in the arctic and in deserts and have looked for crystals while in those ares. In other words, it looks like we have finally stabilized Planet Nomads as a worthy Early Access title and cured much of its baby hiccups. Space Explorer. I plopped the auto-miners in several spots around that particular Uranium vein and soon found some Xaenite available in 5% amounts. </p> <p>Also it seems that it is the only ressource not in rocks like the others. Xaenite cab be found all over in the far south in the icy ground areas. </p>";s:7:"keyword";s:21:"planet nomads xaenite";s:5:"links";s:9776:"<a href='https://www.pathshala.co/forum/page.php?id=d7382a-omc-stock-dividend'>Omc Stock Dividend</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-steven-heller-typography'>Steven Heller Typography</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-dod-lodging-hawaii'>Dod Lodging Hawaii</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-working-capital-example'>Working Capital Example</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-amara-darboh-highlights'>Amara Darboh Highlights</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-specific-gravity-of-metals'>Specific Gravity Of Metals</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-osha-fact-sheet-global-health-emergency'>Osha Fact Sheet Global Health Emergency</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-grand-banks-aleutian-53'>Grand Banks Aleutian 53</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-Ng%C4%81i-Tahu-pronunciation'>Ngāi Tahu Pronunciation</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-beechcraft-king-air-price'>Beechcraft King Air Price</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-war-robots-titan-nodens'>War Robots Titan Nodens</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-cska-moscow-srl'>Cska Moscow Srl</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-data-valuation-techniques'>Data Valuation Techniques</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-radio-spin-instagram'>Radio Spin Instagram</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-satisfactory-mods-copy'>Satisfactory Mods Copy</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-cara-mia-addio-remix'>Cara Mia Addio Remix</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-limbo-prime-systems'>Limbo Prime Systems</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-britton-colquitt-brother'>Britton Colquitt Brother</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-temperature-in-istanbul'>Temperature In Istanbul</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-Voters-ID-card-Philippines'>Voters ID Card Philippines</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-the-gaming-beaver-toast'>The Gaming Beaver Toast</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-under-armour-all-american-game-practice'>Under Armour All-american Game Practice</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-things-to-see-between-dallas-and-el-paso'>Things To See Between Dallas And El Paso</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-ps4-home-screen'>Ps4 Home Screen</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-fra-mauro-pronunciation'>Fra Mauro Pronunciation</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-tgv-train-map'>Tgv Train Map</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-cabot-cream-cheese'>Cabot Cream Cheese</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-three-way-anova-in-r'>Three-way Anova In R</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-Scottie-Pippen-siblings'>Scottie Pippen Siblings</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-frito-lay-mission-statement'>Frito-lay Mission Statement</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-Balanced-scorecard-map'>Balanced Scorecard Map</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-mac-os-catalina-wine-mixer'>Mac Os Catalina Wine Mixer</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-fa-trophy-twitter'>Fa Trophy Twitter</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-saracens-vs-sale-sharks-live-stream'>Saracens Vs Sale Sharks Live Stream</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-sony-a5000-review'>Sony A5000 Review</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-Stuck-In-A-Moment'>Stuck In A Moment</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-mcsa%3A-sql-2016-database-administration-pdf'>Mcsa: Sql 2016 Database Administration Pdf</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-mastering-essential-math-skills%3A-problem-solving'>Mastering Essential Math Skills: Problem Solving</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-the-wrong-cheerleader-villain'>The Wrong Cheerleader Villain</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-would-acceleration-of-the-universe-occur-if-it-were-composed-entirely-of-matter'>Would Acceleration Of The Universe Occur If It Were Composed Entirely Of Matter</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-he-hung-up-on-me'>He Hung Up On Me</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-Brutal-Doom-v21'>Brutal Doom V21</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-grand-banks-for-sale-by-owner'>Grand Banks For Sale By Owner</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-find-local-influencers'>Find Local Influencers</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-how-long-does-visa-money-transfer-take'>How Long Does Visa Money Transfer Take</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-interview-skills-ppt'>Interview Skills Ppt</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-madden-19-vs-madden-20'>Madden 19 Vs Madden 20</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-fallout%3A-new-vegas-lucky-38'>Fallout: New Vegas Lucky 38</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-roland-system-700-vst'>Roland System 700 Vst</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-is-lucario-in-pokemon-let%27s-go-pikachu'>Is Lucario In Pokemon Let's Go Pikachu</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-czech-republic-economy'>Czech Republic Economy</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-arts-in-lebanon'>Arts In Lebanon</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-how-is-the-universe-flat'>How Is The Universe Flat</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-tangle-art-hand'>Tangle Art Hand</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-taurus-pt111-g2c-laser'>Taurus Pt111 G2c Laser</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-vampire-diaries-book-11'>Vampire Diaries Book 11</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-nike-air-max-270-react-weight'>Nike Air Max 270 React Weight</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-iran-weather-january'>Iran Weather January</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-blue-cheer-all-night-long'>Blue Cheer All Night Long</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-millermatic-255-vs-lincoln-260'>Millermatic 255 Vs Lincoln 260</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-what-is-a-digger-machine'>What Is A Digger Machine</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-where-to-buy-sampaguita-garland'>Where To Buy Sampaguita Garland</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-pga-superstore-palm-beach'>Pga Superstore Palm Beach</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-javascript-startswith-alternative'>Javascript Startswith Alternative</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-lil-baby---life-goes-on'>Lil Baby - Life Goes On</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-new-york-cinnamon-and-raisin-bagel-calories'>New York Cinnamon And Raisin Bagel Calories</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-hostel-for-sale-germany'>Hostel For Sale Germany</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-vanguard-bandits-rom'>Vanguard Bandits Rom</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-men%27s-rock-clothing'>Men's Rock Clothing</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-Le-Bandard-Fou'>Le Bandard Fou</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-flutter-is-hybrid-or-native'>Flutter Is Hybrid Or Native</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-axis-small-cap-fund-calculator'>Axis Small Cap Fund Calculator</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-virginian-lodge-for-sale'>Virginian Lodge For Sale</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-new-york-city-income-brackets'>New York City Income Brackets</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-tumhe-apna-banane-ka'>Tumhe Apna Banane Ka</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-in-balance-meaning'>In Balance Meaning</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-l%27oreal-colorista-pink'>L'oreal Colorista Pink</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-tainan-in-chinese'>Tainan In Chinese</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-new-age-of-the-universe'>New Age Of The Universe</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-warcraft-3-refunded'>Warcraft 3 Refunded</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-aftermath---the-way-you-are'>Aftermath - The Way You Are</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-heap-crossword-clue'>Heap Crossword Clue</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-apm-terminals-logo'>Apm Terminals Logo</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-ma-in-korean'>Ma In Korean</a>,
+";s:7:"expired";i:-1;}
