@@ -1,3 +1,4 @@
+
 <?php
 include("config.php");
 include("modules/user.class.php");
@@ -113,6 +114,9 @@ switch($action){
   	case "TeacherforgotPassword" : 
      echo $response = $teacherObj->forgotPassword($_REQUEST);
 	break;
+    case "TeacherLivePlan":
+      echo $response = $teacherObj->teacherLivePlan($_REQUEST);
+   break;
 	
 	case "editProfileTeacher" : 
      	/*

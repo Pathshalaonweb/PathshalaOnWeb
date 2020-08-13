@@ -874,6 +874,29 @@ class Teacher extends DB{
 			 return $result;
 
 	}	
+  function teacherLivePlan($fields)
+
+		{
+			if(!empty($fields['key']) && $fields['key']=="pathshala5572" && !empty($fields['email_id']))
+			{
+				$sql		  ="SELECT `liveplan`,`plan_expire` FROM `wl_teacher` where `user_name`='".$fields['email_id']."'";
+				$select_query = mysqli_query($this->conn,$sql);
+				$rec  = mysqli_fetch_array($select_query);
+				$date = new DateTime('now');
+				$currentDate = $date->format('Y-m-d h:i:s');
+				
+					if($rec['liveplan']=="0" || $rec['plan_expire']<$currentDate)
+					{
+						$arr = array("success"=>0,"code"=>0,"message"=>"Please Buy a Plan or Plan is Expired.");
+					}
+					else
+					{
+						$arr = array("success"=>1,"code"=>1,"message"=>"Success.");
+					}
+				
+				return json_encode($arr);
+
+			}
 		
  }
 ?>
