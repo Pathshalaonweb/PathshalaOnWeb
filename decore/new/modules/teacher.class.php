@@ -901,20 +901,12 @@ class Teacher extends DB{
 
 			return json_encode($arr);
 		
-<<<<<<< HEAD
  		}
-=======
-		 }
->>>>>>> 57461b91b215a1dbcb95f3941e98e2eed34f0c4b
 	function listclass($fields)
 	{
 		if(!empty($fields['teacher_id']) || !empty($fields['class_title']) || !empty($fields['class_schedule_time']) || !empty($fields['class_duration']) || !empty($fields['class']) || !empty($fields['class_date']) || !empty($fields['class_credit_amount']) || !empty($fields['category']))
 		{
-<<<<<<< HEAD
-			if(trim($fields['teacher_id'])!="" || trim($fields['class_title'])!="" || trim($fields['class_schedule_time'])!="" || trim($fields['class_duration'])!="" || trim($fields['class'])!="" || trim($fields['class_date'])!="" || trim($fields['class_credit_amount'])!="" || trim($fields['category'])!="")
-=======
 			if(trim($fields['teacher_id'])!="" && trim($fields['class_title'])!="" && trim($fields['class_schedule_time'])!="" && trim($fields['class_duration'])!="" && trim($fields['class'])!="" && trim($fields['class_date'])!="" && trim($fields['class_credit_amount'])!="" && trim($fields['category'])!="")
->>>>>>> 57461b91b215a1dbcb95f3941e98e2eed34f0c4b
 			{
 				$sql = "INSERT INTO `wl_addclass` (`teacher_id`, `class_title`, `class_schedule_time`, `class_duration`, `class`, `class_date`, `class_credit_amount`, `category`) values('".$fields['teacher_id']."', '".$fields['class_title']."', '".$fields['class_schedule_time']."', '".$fields['class_duration']."','".$fields['class']."', '".$fields['class_date']."', '".$fields['class_credit_amount']."', '".$fields['category']."')";
 				$insert_qry = mysqli_query($this->conn,$sql);
@@ -932,9 +924,5 @@ class Teacher extends DB{
 		}
 		return json_encode($arr);
 	}
-<<<<<<< HEAD
-
-=======
->>>>>>> 57461b91b215a1dbcb95f3941e98e2eed34f0c4b
 }
 ?>
