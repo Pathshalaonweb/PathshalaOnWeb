@@ -14,8 +14,6 @@
           <li><a href="<?php echo base_url();?>teacherdashboard/myaccount">Search Students Online</a></li>
 
           <li><a href="<?php echo base_url();?>teacherdashboard/profile">List Yourself</a></li>
-		  
-		  <li><a href="<?php echo base_url();?>teacherdashboard/listclass">List Your Class</a></li>
           <?php $idds = $this->session->userdata('teacher_id');
            $dbes = $this->load->database('default', TRUE);
            $sqs = "SELECT liveplan FROM `wl_teacher` WHERE teacher_id='".$idds."'";

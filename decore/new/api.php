@@ -117,7 +117,7 @@ switch($action){
     case "TeacherLivePlan":
       echo $response = $teacherObj->teacherLivePlan($_REQUEST);
    break;
-	case "ListClass":
+   case "ListClass":
       echo $response = $teacherObj->listclass($_REQUEST);
    break;
 	
