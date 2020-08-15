@@ -159,14 +159,14 @@ function validate()
 		return false;
 	}
 	const classscheduletime = document.querySelector('#class_schedule_time').value;
-	alert(classscheduletime);
+	//alert(classscheduletime);
 	if(classscheduletime.trim() == "")
 	{
-		alert('works');
+		//alert('works');
 		document.querySelector("#classScheduleTimeError").style.display = "block";
 		return false;
 	}
-	return false;
+	//return false;
 
 }
 </script>
