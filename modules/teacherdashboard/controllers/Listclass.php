@@ -1,6 +1,6 @@
 <?php
 
-class Listclass extends Public_Controller
+class Listclass extends Teacher_Controller
 {
 
 	

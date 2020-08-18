@@ -4,7 +4,7 @@ class Searchliveclasses extends Public_Controller
 	public function __construct()
 	{
 		parent::__construct(); 
-		$this->load->model(array('courses/courses_model','payment/payment_model','order/order_model'));
+		$this->load->model(array('searchliveclasses/searchliveclasses_model','payment/payment_model','order/order_model'));
 	    $this->load->library('Ajax_pagination');
 		$this->load->helper(array('payment/paytm'));
 		$this->perPage = 30;
@@ -15,10 +15,10 @@ class Searchliveclasses extends Public_Controller
 
  		$data = array();
         //total rows count
-        $totalRec = count($this->courses_model->get_course_row());
+        $totalRec = count($this->searchliveclasses_model->get_course_row());
         //pagination configuration
         $config['target']      = '#postList';
-        $config['base_url']    = base_url().'courses/ajaxPaginationData';
+        $config['base_url']    = base_url().'searchliveclasses/ajaxPaginationData';
         $config['total_rows']  = $totalRec;
         $config['per_page']    = $this->perPage;
         $config['link_func']   = 'searchFilter';

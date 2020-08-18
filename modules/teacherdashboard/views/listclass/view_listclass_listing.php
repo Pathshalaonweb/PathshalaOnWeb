@@ -38,7 +38,8 @@
               </thead>
               <tbody>
                 <?php 
-				 //echo"<pre>"; print_r($res);
+         //echo"<pre>"; print_r($res);
+         //print_r($res);
 				 $s=$sn;	
 				 foreach($res as $val) {
 				?>
@@ -49,8 +50,8 @@
                   <td><?php echo ($val['class_duration']);?></td>
                   <td><?php echo ($val['class_date']);?></td>
 				  <td><?php echo ($val['class_credit_amount']);?></td>
-                  <td><a href="<?php echo base_url();?>teacherdashboard/listclass/edit/<?php echo $val['id'];?>" class="btn">Edit</a></td>
-                  <td><a href="<?php echo base_url('teacherdashboard/listclass/delete/'.$val['id']);?>"  onclick="return confirm('Are you sure  ?')" class="btn">Delete</a></td>
+                  <!-- <td><a href="<?php echo base_url();?>teacherdashboard/listclass/edit/<?php //echo $val['id'];?>" class="btn">Edit</a></td> -->
+                  <td><a href="<?php echo base_url('teacherdashboard/listclass/delete/'.$val['Id']);?>"  onclick="return confirm('Are you sure  ?')" class="btn">Delete</a></td>
                 </tr>
                 <?php }?>
                 <tr>
