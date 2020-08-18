@@ -84,7 +84,7 @@
 					  $totalAmount=$price+$tax_amount-$discountAmount;
 					} else {
 					  $price	  =  $res['price'];
-					  $discount	  =  "00:00 ";	 
+					  $discount	  ="00:00 ";	 
 				 	  $tax_res    =  get_db_single_row($fld='wl_tax','tax_rate,tax_type',$Condwherw="WHERE tax_id='1'");
 					  $tax_amount=$tax_res['tax_rate']*$res['price']/100;
 					  $totalAmount=$price+$tax_amount;

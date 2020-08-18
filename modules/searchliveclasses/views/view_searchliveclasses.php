@@ -8,7 +8,7 @@
        <div class="container" align="center">
 		<div class="text-center" align="center">
 		<button class="btn btn-default" onclick="window.location.href='<?php echo base_url(); ?>liveclasses'">Live Class Teacher List</button>
-        <button class="btn btn-default" onclick="window.location.href='<?php echo base_url(); ?>searchliveclasses'">Search Live Classes</button>
+        <button class="btn btn-default" onclick="window.location.href='<?php //echo base_url(); ?>searchliveclasses'">Search Live Classes</button>
       </div>
 	  </div>      
           <div class="col-md-3"></div>
@@ -65,6 +65,7 @@
               <div class="container" id="postList">
                 <div class="row">
                <?php
+               //print_r($res);
                 if(is_array($res) && !empty($res)) {
                 foreach($res as $val) {
                ?>
@@ -81,11 +82,13 @@
                       <div class="blog-content-wrap">
                         <div class="blog-content"> 
 						<?php 
-						$mem_info=get_db_single_row('wl_teacher',$fields="first_name,teacher_id,status",$condition="WHERE status='1' AND teacher_id='".$val['teacher_id']."'");
+            $mem_info=get_db_single_row('wl_teacher',$fields="first_name,teacher_id,status",$condition="WHERE status='1' AND teacher_id='".$val['teacher_id']."'");
+
+            //print_r($mem_info);
 						?>
                           <h4 class="topicTitle"> <a href="<?php echo base_url();?>teacher/profile/<?php echo $val['teacher_id'];?>/<?php echo url_title($val['first_name']);?>">Teacher:<b><?php echo $mem_info['first_name']?></b></a> </h4>
                           <?php 
-						$mem_info=get_db_single_row('wl_addclass',$fields="class_title,class_schedule_time,class_date",$condition="WHERE teacher_id='".$val['teacher_id']."'");
+						$mem_info=get_db_single_row('wl_addclass',$fields="class_title,class_schedule_time,class_date",$condition="WHERE Id='".$val['Id']."'");
 						?>
 						  <h4 class="topicTitle"><a href="<?php echo base_url();?>courses/detail/<?php echo $val['class_title']?>">Class Topic:<?php echo $val['class_title']?></a></h4>
                         <h4 class="topicTitle"><a href="<?php echo base_url();?>courses/detail/<?php echo $val['class_schedule_time']?>">Class Time:<?php echo $val['class_schedule_time']?></a></h4>

@@ -1,31 +1,30 @@
 <?php $this->load->view('top_application'); ?>
-
 <div class="breadcrumb-area">
   <div class="breadcrumb-top bg-img breadcrumb-overly-3 pt-100 pb-95" style="background-image:url(<?php echo theme_url();?>lms_searchbg.jpg);">
     <div class="container">
-      <form style="width: 100%;margin: 0 auto;" class="lms_search">
+      <!-- <form style="width: 100%;margin: 0 auto;" class="lms_search"> -->
         <div class="row">
-          <div class="col-md-3"></div>
-          <div class="col-md-3">
-            <select name="category" onChange="searchFilter()" id="category" class="form-control">
-              <option value="">Select category</option>
-              <?php 
-	  		$db2 = $this->load->database('database2', TRUE);
-			$sql="SELECT * FROM `tbl_department`  where status='1' AND parent_id='0' ORDER BY sort_order";
-			$query=$db2->query($sql);
-      foreach($query->result_array() as $val): 
-        if($val['category_id'] == 23 || $val['category_id'] == 24)
-        { }
-        else {
+        <div class="col-md-5">
+    </div>
+          <div class="col-2 text-center" align="center">
+      <button class="btn btn-default" onclick="window.location.href='<?php echo base_url(); ?>liveclasses/register'">Willing to give Online Classes?</button>
+      </div>
+            <!-- <select name="category" onChange="searchFilter()" id="category" class="form-control">
+              <option value="">Select category</option> -->
+            <?php 
+	  		//$db2 = $this->load->database('database2', TRUE);
+			//$sql="SELECT * FROM `tbl_department`  where status='1' AND parent_id='0' ORDER BY sort_order";
+			//$query=$db2->query($sql);
+			//foreach($query->result_array() as $val): 
 	  		?>
-              <option value="<?php echo $val['category_id']?>"><?php echo $val['category_name']?></option>
-              <?php } endforeach;?>
-            </select>
+              <!-- <option value="<?php //echo $val['category_id']?>"><?php //echo $val['category_name']?></option> -->
+              <?php //endforeach;?>
+            <!-- </select> -->
           </div>
           <div class="col-md-3">
-            <select id="subject" name="subject" onChange="searchFilter()" class="form-control">
+            <!-- <select id="subject" name="subject" onChange="searchFilter()" class="form-control">
               <option value="">Select Subject</option>
-            </select>
+            </select> -->
           </div>
           <div class="col-md-3"></div>
           <!--<div class="col-md-3">
@@ -35,7 +34,7 @@
             <input type="submit" class="btn btn-success btn-sm bold" value="search">
           </div>--> 
         </div>
-      </form>
+      <!-- </form> -->
     </div>
   </div>
 </div>
@@ -46,7 +45,7 @@
         <div class="sidebar-style">
           <div class="sidebar-search mb-40">
             <div class="sidebar-title mb-40">
-              <h4 class="left_lms_heading">Popular Courses</h4>
+              <h4 class="left_lms_heading">Popular Topic of Class</h4>
             </div>
           </div>
           <div class="sidebar-category mb-40">
@@ -54,17 +53,17 @@
               <ul>
                 <?php
 				//print_r($res);
-				$db2 = $this->load->database('database2', TRUE); 
-				$sql="SELECT * FROM `tbl_department` where status='1' AND  parent_id='0'";
-				$query=$db2->query($sql);
-				foreach($query->result_array() as $val){
-          if($val['category_id'] == 23 || $val['category_id'] == 24)
-          { }
-          else { 
+				//$db2 = $this->load->database('database2', TRUE); 
+				//$sql="SELECT * FROM `tbl_department` where status='1' AND  parent_id='0'";
+				//$query=$db2->query($sql);
+				//foreach($query->result_array() as $val){
 				?>
-                <li><a href="#"><?php echo $val['category_name']?></a></li>
-          <?php } ?>
-                <?php  }?>
+                <!-- <li><a href="#"><?php //echo $val['category_name']?></a></li> -->
+                <?php //}?>
+                <li>Mathematics for Class 10th</li>
+                <li>E.V.S. for Class 8th</li>
+                <li>Integrals for Class 12th</li>
+                <li>Trignometry for Class 10th</li>
               </ul>
             </div>
           </div>
@@ -74,60 +73,62 @@
         <div class="blog-all-wrap mr-40">
           <div class="row">
             <div class="container">
-              <h3 class="proTitle">Latest Courses</h3>
+              <h3 class="proTitle">Live Classes</h3>
             </div>
             <form method="post">
               <div class="container" id="postList">
                 <div class="row">
-               <?php
-                if(is_array($res) && !empty($res)) {
-                foreach($res as $val) {
-               ?>
-               <div class="col-xl-4 col-lg-6 col-md-6 col-sm-4 listAll">
-                    <div class="single-blog">
-                      <div class="blog-img"> <a href="javascript:void(0)" data-id="<?php echo $val['courses_id']?>">
-                        <?php if(!empty($val['image'])) {?>
-                        <a href="<?php echo base_url();?>courses/detail/<?php echo $val['courses_friendly_url']?>"> <img src="<?php echo base_url();?>lms/uploaded_files/courses/<?php echo $val['image']?>" alt="" data-href="<?php echo base_url();?>courses/coursedetail/<?php echo $val['courses_id'];?>" data-name="<?php echo $val['courses_name']?>"></a>
-                        <?php } else {?>
-                        <a href="<?php echo base_url();?>courses/detail/<?php echo $val['courses_friendly_url']?>"> <img src="<?php echo get_image('category',$val['image'],50,50,'AR');?>"/><!--class="openPopup"--></a>
-                        <?php }?>
-                      </div>
+                  <?php
+                  // $db1 = $this->load->database('default', TRUE);
+                  // $sql="SELECT * FROM `wl_teacher`  where liveplan=1";
+			            // $query=$db1->query($sql);
+			            if(is_array($res) && !empty($res)){
+		          	    //foreach($query->result_array() as $val):
+                //if(is_array($res) && !empty($res)) {
+                  foreach($res as $val)
+                    {
+                ?>
+                  <div class="col-xl-4 col-lg-6 col-md-6 col-sm-4 listAll">
+                    <div class="single-blog"><!--removed className(mb-30)-->
+                      <div class="blog-img"> <a href="javascript:void(0)">
+                      <?php if(!empty($val['picture'])) {?><a href="<?php echo base_url();?>#">
+                      <img src="<?php echo base_url();?>/uploaded_files/teacher/<?php echo $val['picture']?>" alt="" data-href="<?php echo base_url();?>courses/coursedetail/<?php echo $val['courses_id'];?>" data-name="<?php echo $val['courses_name']?>"></a>
+                      <?php } else {?>
+                      <a href="<?php //echo base_url();?><?php //echo $val['courses_friendly_url']?>">
+                      <img src="<?php echo get_image('category',$val['image'],50,50,'AR');?>"/><!--class="openPopup"--></a>
+                      <?php }?>
+                       </div>
                       <div class="blog-content-wrap">
-                        <div class="blog-content"> 
-                        <h4 class="topicTitle"><a href="<?php echo base_url();?>courses/detail/<?php echo $val['courses_friendly_url']?>">Topic:<?php echo $val['courses_name']?></a></h4>
-                        <?php 
-						$mem_info=get_db_single_row('wl_teacher',$fields="first_name,teacher_id,status",$condition="WHERE status='1' AND teacher_id='".$val['teacher_id']."'");
-						?>
-                          <h4 class="topicTitle"> <a href="<?php echo base_url();?>teacher/profile/<?php echo $val['teacher_id'];?>/<?php echo url_title($val['first_name']);?>">Teacher:<b><?php echo $mem_info['first_name']?></b></a> </h4>
+                        <div class="blog-content">
+                          <!--<div class="pro-title-rating-wrap">
+                            <div class="product-rating"> <i class="zmdi zmdi-star"></i> <i class="zmdi zmdi-star"></i> <i class="zmdi zmdi-star"></i> <i class="zmdi zmdi-star"></i> <i class="zmdi zmdi-star"></i> </div>
+                          </div>-->
+                          <!-- <h4 class="topicTitle"><a href="#">Topic:<?php //echo $val['courses_name']?></a></h4> -->
+                         <?php 
+						 // $sql="SELECT * FROM `wl_teacher` where status='1' ";
+						 // $row=$thsi->db->query($sql)->row();
+						 
+						  $mem_info=get_db_single_row('wl_teacher',$fields="*",$condition="WHERE status='1' AND teacher_id='".$val['teacher_id']."'");
+						  //print_r($res) ;
+						  ?>
+                          <h4 class="topicTitle">
+                          <a href="<?php echo base_url();?>teacher/profile/<?php echo $val['teacher_id'];?>/<?php echo url_title($val['first_name']);?>">Teacher:<b><?php echo $mem_info['first_name']?></b></a>
+                          </h4>
                           <p></p>
+                          <!--<h4 class="topicTitle"><a href="#">Class:<b>11th</b></a></h4>-->
+                          
                           <div class="blog-meta">
                             <ul>
-                              <li><span class="lms_price"><a href="javascript:void(0)" class="lms_cpp">
-                               <?php if($val['price']==1){?>
-                                Free</a>
-                                <?php }else{ ?>
-                                <a href="javascript:void(0)" class="lms_cp">&#x20B9;<?php echo $val['price'];?></a> 
-                                <a href="javascript:void(0)" class="lms_cp">Credit Point :<?php echo $val['credit_price'];?></a>
-                                <?php }?>
-                               </span></li>
+                              <!-- <li><a href="javascript:void(0)" class="lms_price"><?php //if($val['price']==1){?>Free<?php //}else{ ?>&#x20B9;<?php //echo $val['price'];?><?php //}?></a></li> -->
                             </ul>
                           </div>
-                        </div> 
-                        <div class="blog-meta lms-meta">
-                        
-                      <?php if($this->session->userdata('user_id') > 0 ){?>
-                     <ul> 
-                     <li> <a href="<?php echo base_url();?>/courses/enrollDetail/<?php echo $val['courses_id']?>" class="lms_buy"><i class="fa fa-money"></i> Buy Now</a>&nbsp;</li>
-                     
-                       <?php if($val['price']!=1){?>
-                       
-                     <li> <a href="<?php echo base_url();?>/courses/enrollDetailStoreCredit/<?php echo $val['courses_id']?>" class="lms_buy"><i class="fa fa-money"></i>Use credit Points</a></li>
-                      <?php }?>
-                      </ul>
-                      <?php }else{?>
-                     <ul> <li>  <a href="<?php echo base_url();?>users/login" class="lms_buy"> <i class="fa fa-money"></i> Buy Now</a></li></ul>
-                      <?php }?>
-                      
+                        </div>
+                        <div class="blog-date">
+                        <?php if($this->session->userdata('user_id') > 0 ){?> 
+                        <a href="<?php echo base_url();?>/members/liveclass<?php //echo $val['courses_id']?>" class="lms_buy"> Join Now</a>
+                        <?php }else{?>
+                        <a href="<?php echo base_url();?>users/login" class="lms_buy"> Join Now</a>
+                        <?php }?>
                         </div>
                       </div>
                     </div>
@@ -154,7 +155,7 @@ function searchFilter(page_num) {
 	$("#wait").css("display", "block");
     $.ajax({
         type: 'POST',
-        url: '<?php echo base_url(); ?>courses/ajaxPaginationData/'+page_num,
+        url: '<?php echo base_url(); ?>liveclasses/ajaxPaginationData/'+page_num,
         data:{page:page_num,category:category},
         beforeSend: function () {
             $('.loading').show();
@@ -201,20 +202,23 @@ $(document).ready(function(){
  });
 </script>
 <div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog"> 
+    <div class="modal-dialog">
     
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Courses Detail</h4>
-      </div>
-      <div class="modal-body"> </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Courses Detail</h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+      
     </div>
-  </div>
 </div>
 <style>
 #wait {

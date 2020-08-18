@@ -14,8 +14,12 @@ class Searchliveclasses extends Public_Controller
 	{	
 
  		$data = array();
-        //total rows count
-        $totalRec = count($this->searchliveclasses_model->get_course_row());
+		//total rows count
+		$db1 = $this->load->database('default', TRUE);
+		$sqll = "SELECT * FROM `wl_addclass` ORDER BY Id DESC";  //updated 04072020
+		$queryy=$db1->query($sqll);
+		$totalRec = $queryy->num_rows();
+        //$totalRec = count($this->liveclasses_model->get_course_row());
         //pagination configuration
         $config['target']      = '#postList';
         $config['base_url']    = base_url().'searchliveclasses/ajaxPaginationData';
@@ -24,7 +28,7 @@ class Searchliveclasses extends Public_Controller
         $config['link_func']   = 'searchFilter';
         $this->ajax_pagination->initialize($config);
         //get the posts data
-        $data['res'] = $this->courses_model->get_course_row(array('limit'=>$this->perPage));
+        $data['res'] = $this->searchliveclasses_model->get_course_row(array('limit'=>$this->perPage));
         $data['totalRec']=$totalRec;
         //load the view
 		$data['heading_title'] = "Advanced Search";						
@@ -34,9 +38,9 @@ class Searchliveclasses extends Public_Controller
 	public function detail(){
 		$id=$this->uri->segment('3');
 		$param=array('courses_friendly_url'=>$id);
-		$res = $this->courses_model->get_courses(1,0,$param);
+		$res = $this->searchliveclasses_model->getliveclasses(1,0,$param);
 		$data['res']=$res;
-		$this->load->view('courses/view_course_detail',$data);
+		$this->load->view('liveclasses/view_course_detail',$data);
 	}
 	
 	
@@ -64,11 +68,14 @@ class Searchliveclasses extends Public_Controller
              $conditions['search']['category'] = $category;
         }
 		//total rows count
-        $totalRec = count($this->courses_model->get_course_row($conditions));
+		$db1 = $this->load->database('default', TRUE);
+		$sqll = "SELECT * FROM `wl_teacher`  where liveplan=1";
+		$queryy=$db1->query($sqll);
+		$totalRec = $queryy->num_rows();
 		// echo $db2->last_query();die;
         //pagination configuration
         $config['target']      = '#postList';
-        $config['base_url']    = base_url().'courses/ajaxPaginationData';
+        $config['base_url']    = base_url().'liveclasses/ajaxPaginationData';
         $config['total_rows']  = $totalRec;
         $config['per_page']    = $this->perPage;
         $config['link_func']   = 'searchFilter';
@@ -77,22 +84,38 @@ class Searchliveclasses extends Public_Controller
         $conditions['start'] = $offset;
         $conditions['limit'] = $this->perPage;
         //get posts data
-        $data['res'] = $this->courses_model->get_course_row($conditions);
+        $data['res'] = $this->liveclasses_model->get_course_row($conditions);
         //echo_sql();
         //load the view
-        $this->load->view('courses/view_search_courses', $data, false);
+        $this->load->view('liveclasses/view_search_liveclasses', $data, false);
 		}
 		
-		public function getcourses(){
-			$db2 = $this->load->database('database2', TRUE);
+		// public function getcourses(){
+		// 	$db2 = $this->load->database('database2', TRUE);
+		// 	$id=$_POST['category_id'];
+		// 	$sql="SELECT * FROM `tbl_courses`  where category_id='$id'  ORDER BY courses_name";
+		// 	$query=$db2->query($sql);
+		// 	if($query->num_rows()>0){
+		// 	foreach($query->result_array() as $val):
+		// 		echo "<option value='".$val['courses_id']."'>".$val['courses_name']."</option>";
+		// 	endforeach;
+		// 	}else{
+		// 		echo "<option value=''>NO recode </option>";	
+		// 	}
+		// }
+		public function getliveclasses()
+		{
+			$db2 = $this->load->database('default', TRUE);
+        	$sql="SELECT * FROM `wl_teacher`  where liveplan=1";
 			$id=$_POST['category_id'];
-			$sql="SELECT * FROM `tbl_courses`  where category_id='$id'  ORDER BY courses_id DESC";  //updated 04072020
 			$query=$db2->query($sql);
 			if($query->num_rows()>0){
 			foreach($query->result_array() as $val):
 				echo "<option value='".$val['courses_id']."'>".$val['courses_name']."</option>";
 			endforeach;
-			}else{
+			}
+			else
+			{
 				echo "<option value=''>NO recode </option>";	
 			}
 		}
@@ -104,36 +127,16 @@ class Searchliveclasses extends Public_Controller
 			   'courseEnroll' => TRUE
 			);  
 			$this->session->set_userdata($newdata);	
-			redirect('courses/enroll', 'refresh');
+			redirect('liveclasses/enroll', 'refresh');
 		}
-		
-		public function enrollDetailStoreCredit(){
-			$id=$this->uri->segment('3');
-			$newdata = array( 
-			   'course_id'    => $id, 
-			   'courseEnroll' => TRUE
-			);  
-			$this->session->set_userdata($newdata);	
-			redirect('courses/enrollStoreCredit', 'refresh');
-		}
-		
-		public function enrollStoreCredit(){
-			$course_id 		= $this->session->userdata('course_id');
-			 $param 			= array('status'=>'1','course_id'=>$course_id);	
-			 $res_array			=$this->courses_model->get_courses(1,0,$param);
-			// print_r($res_array);
-			 $data['res'] 		= $res_array;
-			 $this->load->view('courses/view_course_enroll_StoreCredit', $data, false);	
-		}
-		
 		
 		public function enroll(){
 			 $course_id 		= $this->session->userdata('course_id');
 			 $param 			= array('status'=>'1','course_id'=>$course_id);	
-			 $res_array			=$this->courses_model->get_courses(1,0,$param);
+			 $res_array			=$this->liveclasses_model->get_courses(1,0,$param);
 			// print_r($res_array);
 			 $data['res'] 		= $res_array;
-			 $this->load->view('courses/view_course_enroll', $data, false);	
+			 $this->load->view('liveclasses/view_course_enroll', $data, false);	
 		}
 		
 		public function freepayment(){
@@ -160,7 +163,6 @@ class Searchliveclasses extends Public_Controller
 							'payment_method'      => $this->input->post('payment_method'),
 							'payment_status'      => 'paid',
 							'type'				  => '1',
-							'payment_mode'		  => 'free',
 					);
 					$orderId = $this->order_model->safe_insert('wl_order',$data_order,FALSE);
 				
@@ -195,69 +197,7 @@ class Searchliveclasses extends Public_Controller
 		}
 		
 		
-		public function paymentStoreCredit(){
-			if ( $this->input->post()!='') {
-				if ($this->input->post('pay_method') == "StoreCredit" ) {
-					$userId            = $this->session->userdata('user_id');
-					$invoice_number    = "Wl_".get_auto_increment('wl_order');
-					$mem_info=get_db_single_row('wl_customers',$fields="*",$condition="WHERE 1 AND customers_id='".$this->session->userdata('user_id')."'");	
-					$data_order = 
-					   array(
-							'customers_id'        => $userId,
-							'courses_id'          => $this->input->post('courses_id'),
-							'invoice_number'      => $invoice_number,					
-							'first_name'          => $mem_info['first_name'],
-							'last_name'           => $mem_info['last_name'],
-							'phone'				  => $mem_info['phone_number'],
-							'email'               => $mem_info['user_name'],
-							'address'			  => $this->input->post('address'),
-							'tax_amount'     	  => '00:00',
-							'tax_type'     		  => '00:00',
-							'discount_amount'	  => '00:00',
-							'total_amount'        => $this->input->post('ammount'),
-							'order_received_date' => $this->config->item('config.date.time'),
-							'payment_method'      => $this->input->post('payment_method'),
-							'payment_status'      => 'paid',
-							'type'				  => '1',
-							'payment_mode'		  => 'credit',
-							
-					);
-					$orderId = $this->order_model->safe_insert('wl_order',$data_order,FALSE);
-				
-				//$mem_info=get_db_single_row('wl_customers',$fields="*",$condition="WHERE 1 AND customers_id='".$this->session->userdata('user_id')."'");	 
-				 $userId            = $this->session->userdata('user_id');
-				 
-				 $currentCredit=$mem_info['credit_point'];
-				 $newCrediitPoint=$mem_info['credit_point']-$this->input->post('ammount');
-				 
-				 /*insert couser lot*/
-				$abc=$mem_info['lot'];
-				if(!empty($abc)){
-					$course=  explode(",",$abc) ;
-				}else{
-					$course=array();
-				}
-				$course=  explode(",",$abc) ;
-				$original_array =$course; 
-				//value of new item 
-				$inserted_value = $this->session->userdata('course_id'); 
-				//value of position at which insertion is to be done
-				$position = count($original_array); 
-				//array_splice() function  
-				array_splice($original_array,$position, 0,$inserted_value);  
-				$newLot=implode(",",$original_array);
-				$customerData=array(
-				 	"lot"=>$newLot,
-					"credit_point"=>$newCrediitPoint
-				 );
-				 $where = "customers_id = '$userId' ";
-				 $this->payment_model->safe_update('wl_customers',$customerData,$where,FALSE);
-				// echo_sql();die;
-				 $ordmaster = $this->order_model->get_order_master($orderId);
-				 redirect('/lms/course_material', 'refresh');
-				}
-			}
-		}
+		
 		
 		
 		
@@ -322,7 +262,7 @@ class Searchliveclasses extends Public_Controller
 							'WEBSITE'			=>	"WEBSTAGING",
 							'TXN_AMOUNT' 		=> 	$ammount,
 							'mobile'			=>  $mem_info['phone_number'],
-							'return_url'	    =>  base_url() . 'courses/payment_status_paytm',
+							'return_url'	    =>  base_url() . 'liveclasses/payment_status_paytm',
 								 
 					);
 	       // error_reporting(E_ALL);
@@ -502,9 +442,183 @@ class Searchliveclasses extends Public_Controller
 		echo "<b>Checksum mismatched.</b>";
 		//Process transaction as suspicious.
 	}
- }   
+ }
+	 public function usercredits()
+	 {
+		if($this->uri->segment(3)=='pathshala5572')
+		{
+			if($this->uri->segment(4))
+			{
+				$email = urldecode($this->uri->segment(4));
+				//echo $email;
+				$dbe = $this->load->database('default', TRUE);
+				$sqs = "SELECT credit_point,first_name FROM `wl_customers` WHERE user_name='".$email."'";
+				$qus=$dbe->query($sqs);
+				$values= $qus->result_array();
+				if($values[0]['first_name'])
+				{
+					if($values[0]['credit_point'] =="" || $values[0]['credit_point'] == "0")
+					{
+						$response->status = "0";
+						$response->message = 'Low Credits';
+						$response->credits = false;
+						//$response->ip = $_SERVER['REMOTE_ADDR'];
+						$jsonResponse = json_encode($response);
+						echo $jsonResponse;
+
+					}
+					else
+					{
+						$sq ="UPDATE `wl_customers` SET credit_point=credit_point-1 WHERE user_name='".$email."'";
+						$ip=$_SERVER['REMOTE_ADDR'];
+						$sqq = "INSERT INTO `usercredits_log` (`ip`, `email`) values ('".$ip."', '".$email."')";
+						$que = $dbe->query($sq); 
+						$que = $dbe->query($sqq); 
+						$response->status = "1";
+						$response->message = 'Success';
+						$response->credits = true;
+						$jsonResponse = json_encode($response);
+						echo $jsonResponse;
+					}
+				}
+				else
+				{
+					$response->status = "-1";
+					$response->message = 'Email Not found.';
+					$response->credits = false;
+					$jsonResponse = json_encode($response);
+					echo $jsonResponse;
+
+				}
+				
+			}
+			else
+			{
+				$response->status = "-2";
+				$response->message = 'Invalid URL';
+				$response->credits = false;
+				$jsonResponse = json_encode($response);
+				echo $jsonResponse;
+			}
+			
+		}
+		else
+		{
+			$response->status = "-2";
+			$response->message = 'Invalid URL';
+			$response->credits = false;
+			$jsonResponse = json_encode($response);
+			echo $jsonResponse;
+		}
 
 
+	 }  
+	 public function register()
+	 {
+		$this->load->view('liveclasses/view_liveclasses_register');
+
+	 } 
+	 public function liveclassRegister()
+	 {
+		 $classes = $this->input->post('classes',TRUE);
+		 $class_str = implode(",",$classes);
+		//  print_r($classes);
+		$password = $this->input->post('password',TRUE);
+		$email = $this->input->post('user_name',TRUE);
+		$name = $this->input->post('first_name',TRUE);
+		$phone = $this->input->post('phone_number',TRUE);
+		$ch = curl_init();  
+		$url = "https://www.pathshala.co/decore/new/api.php?action=TeacherLogin&userName=".$email."&pass=nullpass";
+		curl_setopt($ch,CURLOPT_URL,$url);
+		curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+		$output=curl_exec($ch);
+		curl_close($ch);
+		$jsonOutput = json_decode($output,true);
+		//var_dump($jsonOutput);
+		if($jsonOutput['message'] == "Invalid user")
+		{
+			// New User ***** Call SignUP API
+			$chh = curl_init();  
+			$nameUrl = str_replace(" ", "%20", $name);
+			$urll = "https://www.pathshala.co/decore/new/api.php?action=TeacherRegistration&email=".$email."&pass=".$password."&name=".$nameUrl."&phone=".$phone;
+			curl_setopt($chh,CURLOPT_URL,$urll);
+			curl_setopt($chh,CURLOPT_RETURNTRANSFER,true);
+			$outputt=curl_exec($chh);
+			curl_close($chh);
+			//echo $outputt;
+			$jsonSignup = json_decode($outputt, true);
+
+			//var_dump($jsonSignup); 
+			if($jsonSignup['Result']['msg'] == "Item has been added")
+			{
+				$dbe = $this->load->database('default', TRUE);
+				$ip=$_SERVER['REMOTE_ADDR'];
+				for($i=0;$i<count($classes);$i++)
+				{
+				$sqq = "INSERT INTO `wl_liveclass` (`emailid`, `class_dropdown`, `ip`, `user_type`) values ('".$email."','".$classes[$i]."','".$ip."', '1')";
+				$que = $dbe->query($sqq); 
+				}
+				echo "<script>alert('Registered Successfully, Proceed With Login.'); window.location = '".base_url()."teacher/login'</script>";
+			}
+			else
+			{
+				echo "<script>alert('Error Occured. Please Try Again'); window.location = '".base_url()."liveclasses'</script>";
+
+			}
+
+
+		}
+		else if($jsonOutput['message'] == "Invalid password")
+		{
+			// Old User
+			$dbe = $this->load->database('default', TRUE);
+			$ip=$_SERVER['REMOTE_ADDR'];
+			for($i=0;$i<count($classes);$i++)
+			{
+			$sqq = "INSERT INTO `wl_liveclass` (`emailid`, `class_dropdown`, `ip`) values ('".$email."','".$classes[$i]."','".$ip."')";
+			$que = $dbe->query($sqq); 
+			}
+			echo "<script>alert('Registered Successfully. Proceed With Login'); window.location = '".base_url()."teacher/login'</script>";
+
+		}
+	 }
+	 public function getSubcat(){
+		$id=$_POST['category_id'];
+		$sql="SELECT * FROM `wl_categories`  where parent_id='$id'  ORDER BY sort_order";
+		$query=$this->db->query($sql);
+		if($query->num_rows()>0){
+		foreach($query->result_array() as $val):
+			if($val['category_id']=='377' || $val['category_id']=='373' || $val['category_id']=='374' || $val['category_id']=='375' || $val['category_id']=='530' || $val['category_id']=='432' || $val['category_id']=='376' || $val['category_id']=='526')
+			{
+
+			}
+			else
+			echo "<option value='".$val['category_id']."'>".$val['category_name']."</option>";
+		endforeach;
+		}else{
+			echo "<option value=''>NO recode </option>";	
+		}
+	}
+	public function getSecondDropDown()
+	{
+		$id=$this->uri->segment(3);
+		$sql="SELECT * FROM `wl_categories`  where parent_id='$id'  ORDER BY sort_order";
+		$query=$this->db->query($sql);
+		if($query->num_rows()>0){
+			//$arr = array();
+		foreach($query->result_array() as $val):
+			$arr['Result'][] = array(
+					"value"=>       $val['category_id'],
+					"name"=>        $val['category_name'],
+			);
+		endforeach;
+		//print_r($arr);
+		echo json_encode($arr);
+		}else{
+			echo"{ <item value=''>NO recode </item>}";	
+		}
+
+	}
 
 }
 ?>
