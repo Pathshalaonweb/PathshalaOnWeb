@@ -1,0 +1,157 @@
+a:5:{s:8:"template";s:13575:"<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<title>{{ keyword }}</title>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/></head>
+<style rel="stylesheet" type="text/css"> a,body,div,form,h4,html,label,li,p,span,ul{margin:0;padding:0;border:0;outline:0;background:0 0;font-size:100%;vertical-align:baseline;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{line-height:1}ul{list-style:none}:focus{outline:0}footer,header,nav{display:block}body{color:#666;background-color:#fff;font-family:"Open Sans",Arial,sans-serif;font-size:14px;font-weight:500;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.7em}body.et_fixed_nav.et_boxed_layout #page-container{padding-top:80px}body.et_cover_background{background-repeat:no-repeat!important;background-attachment:fixed;background-position:top center!important;-webkit-background-size:cover!important;-moz-background-size:cover!important;background-size:cover!important}a{color:#2ea3f2;text-decoration:none}a:hover{text-decoration:none}p{padding-bottom:1em}p:last-of-type{padding-bottom:0}h4{padding-bottom:10px;color:#333;font-weight:500;line-height:1em}h4{font-size:18px}input{-webkit-appearance:none}input[type=text]{padding:2px;border:1px solid #bbb;color:#4e4e4e;background-color:#fff}input[type=text]:focus{border-color:#2d3940;color:#3e3e3e}input[type=text]{margin:0}#top-menu li{word-wrap:break-word}.footer-widget h4,.mobile_menu_bar:after,.mobile_menu_bar:before{color:#2ea3f2}#main-header{-webkit-transition:background-color .4s,color .4s,transform .4s,opacity .4s ease-in-out;-moz-transition:background-color .4s,color .4s,transform .4s,opacity .4s ease-in-out;transition:background-color .4s,color .4s,transform .4s,opacity .4s ease-in-out}.container{position:relative;width:80%;max-width:1080px;margin:auto}.et_boxed_layout #page-container{-webkit-box-shadow:0 0 10px 0 rgba(0,0,0,.2);-moz-box-shadow:0 0 10px 0 rgba(0,0,0,.2);box-shadow:0 0 10px 0 rgba(0,0,0,.2)}.et_boxed_layout #page-container,.et_boxed_layout #page-container .container,.et_fixed_nav.et_boxed_layout #page-container #main-header{width:90%;max-width:1200px;margin:auto}.container{position:relative;text-align:left}#main-header{position:relative;z-index:99999;top:0;width:100%;background-color:#fff;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.1);-moz-box-shadow:0 1px 0 rgba(0,0,0,.1);box-shadow:0 1px 0 rgba(0,0,0,.1);font-weight:500;line-height:23px}.et_fixed_nav.et_show_nav #page-container{padding-top:80px}.et_fixed_nav #main-header{position:fixed}.et_header_style_left #et-top-navigation{padding-top:33px}.et_header_style_left #et-top-navigation nav>ul>li>a{padding-bottom:33px}.et_header_style_left .logo_container{position:absolute;width:100%;height:100%}.et_header_style_left .mobile_menu_bar{padding-bottom:24px}.logo_container{-webkit-transition:all .4s ease-in-out;-moz-transition:all .4s ease-in-out;transition:all .4s ease-in-out}span.logo_helper{display:inline-block;width:0;height:100%;vertical-align:middle}#top-menu,#top-menu-nav{line-height:0}#et-top-navigation{font-weight:600}.et_fixed_nav #et-top-navigation{-webkit-transition:all .4s ease-in-out;-moz-transition:all .4s ease-in-out;transition:all .4s ease-in-out}#top-menu,nav#top-menu-nav{float:left}#top-menu li{display:inline-block;padding-right:22px;font-size:14px}#top-menu>li:last-child{padding-right:0}#top-menu a{display:block;position:relative;color:rgba(0,0,0,.6);text-decoration:none;-webkit-transition:all .4s ease-in-out;-moz-transition:all .4s ease-in-out;transition:all .4s ease-in-out}#top-menu-nav>ul>li>a:hover{opacity:.7;-webkit-transition:all .4s ease-in-out;-moz-transition:all .4s ease-in-out;transition:all .4s ease-in-out}.container.et_menu_container{z-index:99}.woocommerce-cart table.cart td.actions .coupon .input-text::input-placeholder{color:#fff}#et-top-navigation{float:right}#et_mobile_nav_menu{display:none;float:right}.mobile_menu_bar{display:block;position:relative;line-height:0}.mobile_menu_bar:before{position:relative;top:0;left:0;font-size:32px;content:"\61";cursor:pointer}.mobile_nav .select_page{display:none}#main-footer{background-color:#222}#footer-widgets{padding:6% 0 0}.footer-widget{float:left;color:#fff}.footer-widget .fwidget:last-child{margin-bottom:0!important}#footer-bottom{padding:15px 0 5px;background-color:#1f1f1f;background-color:rgba(0,0,0,.32)}#footer-info{float:left;padding-bottom:10px;color:#666;text-align:left}.widget_search .screen-reader-text{display:none}.widget_search input#s,.widget_search input#searchsubmit{height:40px!important;margin:0;padding:.7em;border:1px solid #ddd;color:#666;font-size:14px;line-height:normal!important}.widget_search #s{width:100%;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px}.widget_search #searchform{position:relative}.widget_search #searchsubmit{position:absolute;top:0;right:0;width:70px;-webkit-border-top-right-radius:3px;-moz-border-radius-topright:3px;border-top-right-radius:3px;-webkit-border-bottom-right-radius:3px;-moz-border-radius-bottomright:3px;border-bottom-right-radius:3px;background-color:#ddd}#searchsubmit{cursor:pointer}@media all and (max-width:980px){#page-container,.et_fixed_nav.et_show_nav #page-container{padding-top:80px}.footer-widget:nth-child(n){width:46.25%!important;margin:0 7.5% 7.5% 0!important}#footer-widgets .footer-widget .fwidget{margin-bottom:16.21%}#footer-widgets{padding:8% 0}#footer-widgets .footer-widget:nth-child(2n){margin-right:0!important}#footer-widgets .footer-widget:nth-last-child(-n+2){margin-bottom:0!important}#main-header{-webkit-transition:none;-moz-transition:none;transition:none}#top-menu{display:none}#et-top-navigation{margin-right:0;-webkit-transition:none;-moz-transition:none;transition:none}.et_fixed_nav #main-header{position:absolute}.et_header_style_left #et-top-navigation{display:block;padding-top:24px}.et_fixed_nav #main-header{-webkit-transition:none;-moz-transition:none;transition:none}#main-header,.container,.logo_container{-webkit-transition:none;-moz-transition:none;transition:none}#footer-info{float:none;text-align:center}#et_mobile_nav_menu{display:block}}@media all and (max-width:767px){#footer-widgets .footer-widget{width:100%!important;margin-right:0!important}#footer-widgets .footer-widget .fwidget,#footer-widgets .footer-widget:nth-child(n){margin-bottom:9.5%!important}#footer-widgets{padding:10% 0}#footer-widgets .footer-widget .fwidget:last-child{margin-bottom:0!important}#footer-widgets .footer-widget:last-child{margin-bottom:0!important}#et-top-navigation{margin-right:0}}@media all and (max-width:479px){#et-top-navigation{margin-right:0}#footer-widgets .footer-widget:nth-child(n),.footer-widget .fwidget{margin-bottom:11.5%!important}#footer-widgets{padding:12% 0}}@media print{#main-header{position:relative!important;top:auto!important;right:auto!important;bottom:auto!important;left:auto!important}#page-container{padding-top:0!important}} *{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}.clearfix:after{display:block;visibility:hidden;clear:both;height:0;font-size:0;content:" "}.et_pb_widget{word-wrap:break-word}.mobile_menu_bar:before{text-shadow:0 0;font-family:ETmodules!important;font-weight:400;font-style:normal;font-variant:normal;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1;text-transform:none;speak:none}.nav li{position:relative;line-height:1em}.nav li:hover{visibility:inherit}.mobile_menu_bar{display:block;position:relative;line-height:0}.mobile_menu_bar:before{position:relative;top:0;left:0;font-size:32px;content:"\61";cursor:pointer}.mobile_nav .select_page{display:none}.et_pb_widget{float:left;max-width:100%} @media all and (min-width:981px){.et_pb_gutters3 .footer-widget{margin:0 5.5% 5.5% 0}.et_pb_gutters3.et_pb_footer_columns2 .footer-widget{width:47.25%}.et_pb_gutters3.et_pb_footer_columns2 .footer-widget:nth-child(even){margin-right:0}.et_pb_gutters3.et_pb_footer_columns2 .footer-widget .fwidget{margin-bottom:11.64%}}.clearfix:after{display:block;visibility:hidden;clear:both;height:0;font-size:0;content:" "} body{font-size:20px}h4{color:#000}a{color:#1e73be}#main-header{background-color:#000}#top-menu a{color:#fff}#top-menu li a{font-size:15px}#main-footer .footer-widget h4{color:#c7d5e0}#footer-info,.footer-widget{font-size:14px}@media only screen and (min-width:981px){.et_header_style_left #et-top-navigation{padding:29px 0 0 0}.et_header_style_left #et-top-navigation nav>ul>li>a{padding-bottom:29px}}h4{font-size:23px}h4{font-family:'Droid Serif',Georgia,"Times New Roman",serif}body,input{font-family:'Droid Sans',Helvetica,Arial,Lucida,sans-serif}#et-top-navigation,#main-header{font-family:'Droid Sans',Helvetica,Arial,Lucida,sans-serif}..et_pb_posts a.more-link{font-size:12px!important} @font-face{font-family:'Open Sans';font-style:italic;font-weight:400;src:local('Open Sans Italic'),local('OpenSans-Italic'),url(https://fonts.gstatic.com/s/opensans/v17/mem6YaGs126MiZpBA-UFUK0Zdcg.ttf) format('truetype')}@font-face{font-family:'Open Sans';font-style:italic;font-weight:700;src:local('Open Sans Bold Italic'),local('OpenSans-BoldItalic'),url(https://fonts.gstatic.com/s/opensans/v17/memnYaGs126MiZpBA-UFUKWiUNhrIqY.ttf) format('truetype')}@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans Regular'),local('OpenSans-Regular'),url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFVZ0e.ttf) format('truetype')}@font-face{font-family:'Open Sans';font-style:normal;font-weight:700;src:local('Open Sans Bold'),local('OpenSans-Bold'),url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN7rgOUuhs.ttf) format('truetype')}@font-face{font-family:'Droid Sans';font-style:normal;font-weight:400;src:local('Droid Sans Regular'),local('DroidSans-Regular'),url(http://fonts.gstatic.com/s/droidsans/v12/SlGVmQWMvZQIdix7AFxXkHNSaA.ttf) format('truetype')}@font-face{font-family:'Droid Sans';font-style:normal;font-weight:700;src:local('Droid Sans Bold'),local('DroidSans-Bold'),url(http://fonts.gstatic.com/s/droidsans/v12/SlGWmQWMvZQIdix7AFxXmMh3eDs1Yg.ttf) format('truetype')}@font-face{font-family:'Droid Serif';font-style:italic;font-weight:400;src:local('Droid Serif Italic'),local('DroidSerif-Italic'),url(http://fonts.gstatic.com/s/droidserif/v12/tDbK2oqRg1oM3QBjjcaDkOr4nAfcGw.ttf) format('truetype')}@font-face{font-family:'Droid Serif';font-style:italic;font-weight:700;src:local('Droid Serif Bold Italic'),local('DroidSerif-BoldItalic'),url(http://fonts.gstatic.com/s/droidserif/v12/tDbX2oqRg1oM3QBjjcaDkOr4lLz5CwOnTQ.ttf) format('truetype')}@font-face{font-family:'Droid Serif';font-style:normal;font-weight:400;src:local('Droid Serif Regular'),local('DroidSerif-Regular'),url(http://fonts.gstatic.com/s/droidserif/v12/tDbI2oqRg1oM3QBjjcaDkOr9rAA.ttf) format('truetype')}@font-face{font-family:'Droid Serif';font-style:normal;font-weight:700;src:local('Droid Serif Bold'),local('DroidSerif-Bold'),url(http://fonts.gstatic.com/s/droidserif/v12/tDbV2oqRg1oM3QBjjcaDkOJGiRD7OwQ.ttf) format('truetype')}</style>
+<body class="et_pb_button_helper_class et_fixed_nav et_boxed_layout et_show_nav et_cover_background et_pb_gutter windows et_pb_gutters3 et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_pb_footer_columns2 et_header_style_left et_right_sidebar et_divi_theme et_minified_js et_minified_css">
+<div id="page-container">
+
+<header data-height-onload="58" id="main-header">
+<div class="container clearfix et_menu_container">
+<div class="logo_container">
+<span class="logo_helper"></span>
+<a href="#">
+{{ keyword }}
+</a>
+</div>
+<div data-fixed-height="40" data-height="58" id="et-top-navigation">
+<nav id="top-menu-nav">
+<ul class="nav" id="top-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-2170" id="menu-item-2170"><a href="#">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2171" id="menu-item-2171"><a href="#">About</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2180" id="menu-item-2180"><a href="#">Contacts</a></li>
+</ul> </nav>
+<div id="et_mobile_nav_menu">
+<div class="mobile_nav closed">
+<span class="select_page">Select Page</span>
+<span class="mobile_menu_bar mobile_menu_bar_toggle"></span>
+</div>
+</div> </div> 
+</div> 
+</header> 
+<div id="et-main-area">
+{{ text }}
+<footer id="main-footer">
+<div class="container">
+<div class="clearfix" id="footer-widgets">
+<div class="footer-widget"><div class="fwidget et_pb_widget widget_text" id="text-3"><h4 class="title">Related</h4> <div class="textwidget">{{ links }}</div>
+</div> </div> <div class="footer-widget"><div class="fwidget et_pb_widget widget_search" id="search-2"><h4 class="title">Search</h4><form action="#" class="searchform" id="searchform" method="get" role="search">
+<div>
+<label class="screen-reader-text" for="s">Search for:</label>
+<input id="s" name="s" type="text" value=""/>
+<input id="searchsubmit" type="submit" value="Search"/>
+</div>
+</form></div> </div>  </div> 
+</div> 
+<div id="footer-bottom">
+<div class="container clearfix">
+<p id="footer-info">2020 {{ keyword }}</div> 
+</div>
+</footer> 
+</div> 
+</div> 
+<link href="http://fonts.googleapis.com/css?family=Droid+Serif:regular,italic,700,700italic|Droid+Sans:regular,700&amp;subset=latin" id="et-builder-googlefonts-css" media="all" rel="stylesheet" type="text/css"/>
+</body>
+</html>";s:4:"text";s:5266:"It’s worthwhile to look at the attack helicopters in the same class and category held with China and Pakistan and analyse their capabilities vis-a-vis the LCH.  HAL Light combat helicopter is a tandem seat attack helicopter which can be operated from very high altitude region of India. HAL LCH also feature most modern technologies like smart glass cockpit, anti-resonance vibration isolation system, Armour protection, crash worthy landing system, bearing less tail rotor, 20 mm turrent gun, 70 mm rocket, air to air missile, air to land missile, anti tank, helmet pointing system, and two seater attack helicopter. ... the MMW is also fitted on the Apache]. I will assume that you are asking about AH-64 Apache Vs Eurocopter EC665 Tiger, which both are attack helicopters. It has been ordered for both the Indian Air Force and the Indian Army.The type is also intended to be sold upon the export market, since 2015, HAL has been seeking other customers for the LCH. The HAL Light Combat Helicopter (LCH) is a multi-role combat helicopter designed and developed by Rotary Wing Research and Design Center (RWR&DC) and manufactured by Hindustan Aeronautics Limited (HAL). Currently in development, Hindustan Aeronautics Limited’s multirole Light Combat Helicopter (LCH) is progressing towards its planned induction with both the Indian Air Force and Indian Army. The helicopter has been derived from the HAL Dhruv as part of a cost cutting exercise and first flew in March 2010. It is reported that two prototypes have been developed to date and have been undertaking flight trials. HAL LCH is a 5.8 ton attack helicopter and it is powered by TWO ENGINES namely Shakti {shakti engine is assembled by HAL in India}, HAL Dhruv is also powered by the same engine and the performance is excellent. And under attack by the Opposition for allegedly ‘ignoring’ state-owned HAL for Rafale offsets contracts, the government may have been looking to walk down a path of least resistance — not that the OFB is an unusual partner for such a project. The light combat helicopter (LCH) was designed and built by Hindustan Aeronautical Limited (HAL). ALH Dhruv features twin engines compared to LUH which is powered by a single engine. HAL Light Combat Helicopter. * Systems/Pylons/weapons layout. It is the first attack helicopter to land in Siachen,world’s highest battlefield. ALH Dhruv and LUH perform almost similar roles but with differing levels of capabilities and endurance capacity. For example, in the tank busting role, right now, LCH can carry only 8 ATGMs and 4 AAMs versus 16 ATGMs on Apache and 4 AAMs. Upon inception, the LCH will stock the inventories of both the Indian Army air arm and the Indian Air Force. Future LCH versions may see 16 ATGMs, but will then have to go without AAMs. * The primary mission of being an attack helicopter. Basically, in anti-armour role, LCH is inferior to the Apache when it comes to weapons and sensors. Both are extremely capable aircrafts, but Apache is a “heavy attack” helicopter, while Tiger is a “light” one. And it has an inferior gun, 20mm vs 30mm. <br> <br>Pic: Top to Bottom: TD1, TD2, TD3 Pic: TD4 Pic:TD3 Pic:TD2 Pic:TD1 All of the four are not same even among themselves, how did you decide which one is ugly? <br> <br>But in most other roles, like escort, cover etc, both are largely similar, although the advantage is still with the Apache because of wing-tip stations, which allow AAM carriage. During the tests conducted in integrated test range at Chandipur, Odisha recently, the test pilots executed a flawless mission and achieved a direct hit on the aerial target, destroying it completely. 4. <br> <br> <br>The HAL LCH ("Light Combat Helicopter") is an indigenous Indian attack helicopter currently in development as of this writing. Light Combat Helicopter (LCH) is a multirole combat helicopter being developed in India by Hindustan Aeronautics Limited (HAL) for use by the Indian Air Force and the Indian Army. It is an attack helicopter derived from the existing Dhruv helicopter. Yes the individual sensors on the LCH may not be as powerful as the Apache but then having 3-4 LCHs able to leverage more tactical options and cover a wider area not to mention offer more assurances of mission success thanks to larger redundancy is a great prospect. Credits: Wikipedia Dhruv is a ALH which expands to advanced light helicopter, although a light helicopter it is in the upper envolpe of that light category. LCH design is Stealthier than Apache and Mi-28 and is superior to other modern attack chopper like Chinese ZW 19.The capability of the airframe is well understood by the fact that HAL LCH ( 5800 kg ) maximum-take off weight is more than double of its empty weight ( 2250 kg ) <br> <br>Short answer: There is nothing similar between the HAL LCH & AH-64E Apache apart from: * Crew tandem seating. It is powered by two snecma Shakthi engines (latest variant) . <br> <br>LCH has been made to climb hills and fight infantry. The LCH designed with M621 Cannon, 4x Rockets, 4X Missiles and 4x Bombs. <br> <br>BENGALURU: The Light Combat Helicopter (LCH) indigenously designed and developed by HAL has successfully carried out air to air missile firing on a moving aerial target. <br>";s:7:"keyword";s:17:"hal lch vs apache";s:5:"links";s:11886:"<a href='https://www.pathshala.co/forum/page.php?id=d7382a-frequently-visited-places-crossword-clue'>Frequently Visited Places Crossword Clue</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-crown-castle-houston'>Crown Castle Houston</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-fox-5-ny-live'>Fox 5 Ny Live</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-danny-welbeck-news'>Danny Welbeck News</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-castleford-tigers-team'>Castleford Tigers Team</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-the-block-2017-houses'>The Block 2017 Houses</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-jay-jay-okocha-wife'>Jay Jay Okocha Wife</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-groom-attire-2020'>Groom Attire 2020</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-how-to-check-playonlinux-version'>How To Check Playonlinux Version</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-benton-la-tornado-in-1999'>Benton La Tornado In 1999</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-colliers-mills-nj-history'>Colliers Mills Nj History</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-commercial-roman-chair'>Commercial Roman Chair</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-react-native-2019'>React Native 2019</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-urban-wholesale-sunglasses'>Urban Wholesale Sunglasses</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-uk-theme-parks'>Uk Theme Parks</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-printing-press-industrial-revolution'>Printing Press Industrial Revolution</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-stone-sour----socio-lyrics-meaning'>Stone Sour -- Socio Lyrics Meaning</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-holiday-world-map'>Holiday World Map</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-best-dividend-stocks-to-buy-2019'>Best Dividend Stocks To Buy 2019</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-gazini-ganados-preliminary-gown'>Gazini Ganados Preliminary Gown</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-An-Act-of-War'>An Act Of War</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-macclesfield-town-news'>Macclesfield Town News</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-ebooks-for-kids'>Ebooks For Kids</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-nigel-benn-son'>Nigel Benn Son</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-should-i-buy-skyrim-special-edition-reddit'>Should I Buy Skyrim Special Edition Reddit</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-long-island-crime-rate-map'>Long Island Crime Rate Map</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-craig-charles-height'>Craig Charles Height</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-black-wedding-theme'>Black Wedding Theme</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-melbourne-storm-board-of-directors'>Melbourne Storm Board Of Directors</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-facts-about-noaa'>Facts About Noaa</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-almost-easy-%28jam-along-version-difference%29'>Almost Easy (jam-along Version Difference)</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-sleeping-beauty-in-different-languages'>Sleeping Beauty In Different Languages</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-air-jordan-1-low-gs-red'>Air Jordan 1 Low Gs Red</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-cost-of-building-a-dry-ski-slope'>Cost Of Building A Dry Ski Slope</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-ptv-morning-show-1990'>Ptv Morning Show 1990</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-ca-d%27zan-great-expectations'>Ca D'zan Great Expectations</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-chris-coghill-line-of-duty'>Chris Coghill Line Of Duty</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-white-day-hard-mode-ps4'>White Day Hard Mode Ps4</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-pet-registration-ottawa'>Pet Registration Ottawa</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-trace-adkins-your-man'>Trace Adkins Your Man</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-ppsspp-ios-games'>Ppsspp Ios Games</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-concrete-urethane-sealer'>Concrete Urethane Sealer</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-tangled-sun-animal-crossing'>Tangled Sun Animal Crossing</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-how-are-impact-craters-formed'>How Are Impact Craters Formed</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-tianjin-explosion-before-and-after'>Tianjin Explosion Before And After</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-miller%27s-landing-restaurant-galveston'>Miller's Landing Restaurant Galveston</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-Independence-High-School'>Independence High School</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-desarrollo-gramatical-definicion'>Desarrollo Gramatical Definicion</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-Lockheed-L%E2%80%91188-Electra'>Lockheed L‑188 Electra</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-best-pathfinder-campaigns'>Best Pathfinder Campaigns</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-realistic-baby-dragon-doll'>Realistic Baby Dragon Doll</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-steve-caballero-injury'>Steve Caballero Injury</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-Half-Up-Top-Knot-Curly-Hair'>Half Up Top Knot Curly Hair</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-sql-server-certification-2016'>Sql Server Certification 2016</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-wildfang-promo-code'>Wildfang Promo Code</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-national-university-of-technology-singapore'>National University Of Technology Singapore</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-remington-870-scope-mount-reviews'>Remington 870 Scope Mount Reviews</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-norwegian-army-jumper'>Norwegian Army Jumper</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-cornelius-smith-jr-imdb'>Cornelius Smith Jr Imdb</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-%2B-18moreCozy-restaurantsLion-Rock-Tea-Rooms%2C-The-Olive-Mill%2C-and-more'>+ 18moreCozy RestaurantsLion Rock Tea Rooms, The Olive Mill, And More</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-palmolive-ultra-pure-%2B-clear-antibacterial-dish-soap'>Palmolive Ultra Pure + Clear Antibacterial Dish Soap</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-%2B-18moreCozy-restaurantsLion-Rock-Tea-Rooms%2C-The-Olive-Mill%2C-and-more'>+ 18moreCozy RestaurantsLion Rock Tea Rooms, The Olive Mill, And More</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-kickin%27-it-dummy-dancing'>Kickin' It Dummy Dancing</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-dying-light-modded-account'>Dying Light Modded Account</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-holiday-world-map'>Holiday World Map</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-we-will-fall-together-tab-toh-kay'>We Will Fall Together Tab Toh Kay</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-Kidzup-Good-Morning'>Kidzup Good Morning</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-five-nights-at-freddy%27s-minecraft-videos'>Five Nights At Freddy's Minecraft Videos</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-you-shut-up%27%27-in-italian'>You Shut Up'' In Italian</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-canada-reads-logo'>Canada Reads Logo</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-tv-signal-locator'>Tv Signal Locator</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-top-knot-with-bangs'>Top Knot With Bangs</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-milliard-portable-toddler-bumper-bed'>Milliard Portable Toddler Bumper Bed</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-dipole-radio-telescope'>Dipole Radio Telescope</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-bob-hawke-beer'>Bob Hawke Beer</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-juno-106-module-board'>Juno 106 Module Board</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-good-morning-good-morning-lyrics'>Good Morning Good Morning Lyrics</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-new-light-%28dance%29'>New Light (dance)</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-goof-off-fred-meyer'>Goof Off Fred Meyer</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-proud-to-be-an-atheist-quotes'>Proud To Be An Atheist Quotes</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-french-map-of-europe'>French Map Of Europe</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-unplug-and-yoga-union-city'>Unplug And Yoga Union City</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-is-bill-ritter-still-married'>Is Bill Ritter Still Married</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-midwest-tornado-outbreak'>Midwest Tornado Outbreak</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-stoplight-loosejaw-scientific-name'>Stoplight Loosejaw Scientific Name</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-Napheesa-collier-Instagram'>Napheesa Collier Instagram</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-jabroo-te-malangi'>Jabroo Te Malangi</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-is-warface-dead-2019'>Is Warface Dead 2019</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-bwi-time-zone'>Bwi Time Zone</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-how-long-does-visa-money-transfer-take'>How Long Does Visa Money Transfer Take</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-vodafone-ghana-short-codes'>Vodafone Ghana Short Codes</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-mike-sweeney-actor'>Mike Sweeney Actor</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-m%26p-380-shield-ez-red-dot'>M&p 380 Shield Ez Red Dot</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-orange-cash-grofers'>Orange Cash Grofers</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-things-to-do-in-thames-nz'>Things To Do In Thames Nz</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-christopher-meloni-house'>Christopher Meloni House</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-nike-blazer-sizing'>Nike Blazer Sizing</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-wanaka-alpine-lodge'>Wanaka Alpine Lodge</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-aging-gracefully-quotes'>Aging Gracefully Quotes</a>,
+<a href='https://www.pathshala.co/forum/page.php?id=d7382a-david-goggins-photos'>David Goggins Photos</a>,
+";s:7:"expired";i:-1;}
