@@ -28,19 +28,19 @@ class user extends DB{
 
 			}
 		$response['Result']['data'][] = array( 
-		  					"customers_id"  =>$rec['customers_id'],
-							"user_name"  	=>$rec['user_name'],
-							"first_name" 	=>$rec['first_name'],
-							"picture" 	 	=>$image_url,
-							"address" 		=>$rec['address'],
-							"pincode"  		=>$rec['pincode'],
-							"status"  		=>$rec['status'],
-							"is_verified"   =>$rec['is_verified'],
-							"phone_number"  =>$rec['phone_number'],
-							"credit_point"  =>$rec['credit_point'],
-							"lot"  			=>$rec['lot'],
-							"description"		=>$rec['description'],
-							"credit_point"		=>$rec['credit_point'],
+		  					"customers_id"  =>	$rec['customers_id'],
+							"user_name"  	=>	$rec['user_name'],
+							"first_name" 	=>	$rec['first_name'],
+							"picture" 	 	=>	$image_url,
+							"address" 		=>	$rec['address'],
+							"pincode"  		=>	$rec['pincode'],
+							"status"  		=>	$rec['status'],
+							"is_verified"   =>	$rec['is_verified'],
+							"phone_number"  =>	$rec['phone_number'],
+							"credit_point"  =>	$rec['credit_point'],
+							"lot"  			=>	$rec['lot'],
+							"description"	=>	$rec['description'],
+							"credit_point"	=>	$rec['credit_point'],
 						);
 		}else{
 		
@@ -60,8 +60,7 @@ class user extends DB{
 	
 	function registerUser($fields){
    
-    
-	if($fields['email']=="" || $fields['pass']=="") {
+    if($fields['email']=="" || $fields['pass']=="") {
 		$response = array("success"=>0,"code"=>0,"message"=>"Email ID or password can not be blank");
     }else{
 		$sql="Select * from wl_customers where user_name='".$fields['email']."'";
@@ -75,7 +74,6 @@ class user extends DB{
 			$actkey	= md5($date).md5($fields['email']);
 			//check referal
 			if($fields['referral_code']!="") {
-				
 				$referal=$this->checkreferral($fields['referral_code']);
 				if ($referal) {
 			 	$sql	= "INSERT INTO wl_customers (`user_name`,`password`,`first_name`,`phone_number`,`status`,`is_verified`,`account_created_date`,`actkey`) VALUE ('".$fields['email']."','".$fields['pass']."','".$fields['name']."','".$fields['phone']."','1','1','".$date."','".$actkey."')";//die;
@@ -85,9 +83,9 @@ class user extends DB{
 			//add referal history $pid,$pemail,$pcode,$cid,$cemail
 		$this->addreferralPoint($row['customers_id'],$row['user_name'],$row['referral_code'],$last_id,$fields['email']);
 				
-				} else {
+			} else {
 					$response['Result'] = array("status"=>0,"message"=>"referral code Code not valid");
-				}
+			}
 				
 			} else {
 				
@@ -95,10 +93,7 @@ class user extends DB{
 			$insert_qry = mysqli_query($this->conn,$sql);
 			}
 			
-			
-            $response['Result'] = array("success"=>1,"code"=>0,"msg"=>"Item has been added");
-			
-			
+		$response['Result'] = array("success"=>1,"code"=>0,"msg"=>"Item has been added");
 		}
 	 }
     return json_encode($response);
