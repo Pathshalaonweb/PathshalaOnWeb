@@ -21,9 +21,8 @@
                   <?php echo form_error('phone_number');?>
                   <input type="email" name="user_name" placeholder="Email" id="email" value="<?php echo set_value('user_name');?>">
                   <input type="password" name="password" id="password" placeholder="Password(Your Online Class Password)" value="<?php echo set_value('password');?>">
-                  <!-- <h4 style="font-family: 'Roboto', sans-serif; color: #1b68b5;">Live Classes</h4> -->
+                  <h4 style="font-family: 'Roboto', sans-serif; color: #1b68b5;">Competitions</h4>
                   <select id="category" name="category[]" multiple required>
-                  <option value="" selected disabled>Please Select a Competition</option>
                   <?php 
                   $dbe = $this->load->database('default', TRUE);
                   $sql="SELECT * FROM `wl_competition` WHERE user_category='2' ORDER BY id";
