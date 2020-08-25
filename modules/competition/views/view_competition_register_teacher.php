@@ -20,7 +20,7 @@
                  <input type="number" name="phone_number" placeholder="Phone" id="phone" value="<?php echo set_value('phone_number'); ?>" min="5000000000" max="9999999999" step=1>
                   <?php echo form_error('phone_number');?>
                   <input type="email" name="user_name" placeholder="Email" id="email" value="<?php echo set_value('user_name');?>">
-                  <input type="password" name="password" id="password" placeholder="Password(Your Online Class Password)" value="<?php echo set_value('password');?>">
+                  <input type="password" name="password" id="password" placeholder="Password(Set Your Online Competition Password)" value="<?php echo set_value('password');?>">
                   <h4 style="font-family: 'Roboto', sans-serif; color: #1b68b5;">Competitions</h4>
                   <select id="category" name="category[]" multiple required>
                   <?php 

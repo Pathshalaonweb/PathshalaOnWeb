@@ -41,6 +41,7 @@ class user extends DB{
 							"lot"  			=>	$rec['lot'],
 							"description"	=>	$rec['description'],
 							"credit_point"	=>	$rec['credit_point'],
+							"referral_code"	=>	$rec['referral_code'],
 						);
 		}else{
 		
@@ -54,7 +55,13 @@ class user extends DB{
 
 	}
 	
+	function generatecode(){
+ 			$incSql 	   ="SHOW TABLE STATUS LIKE 'wl_customers'";
+			$incQuery  	   = mysqli_query($this->conn,$incSql);
+			$INcinfo 	   = mysqli_fetch_array($incQuery);
+			return $invoice_number= "pco".$INcinfo['Auto_increment']; 
 	
+	}
 	
 	
 	
@@ -76,12 +83,12 @@ class user extends DB{
 			if($fields['referral_code']!="") {
 				$referal=$this->checkreferral($fields['referral_code']);
 				if ($referal) {
-			 	$sql	= "INSERT INTO wl_customers (`user_name`,`password`,`first_name`,`phone_number`,`status`,`is_verified`,`account_created_date`,`actkey`) VALUE ('".$fields['email']."','".$fields['pass']."','".$fields['name']."','".$fields['phone']."','1','1','".$date."','".$actkey."')";//die;
+				$this->generatecode();	
+			 	$sql	= "INSERT INTO wl_customers (`user_name`,`password`,`first_name`,`phone_number`,`status`,`is_verified`,`account_created_date`,`actkey`,`referral_code`) VALUE ('".$fields['email']."','".$fields['pass']."','".$fields['name']."','".$fields['phone']."','1','1','".$date."','".$actkey."','".$this->generatecode()."')";//die;
 			$insert_qry = mysqli_query($this->conn,$sql);
 			$last_id 	= $this->conn->insert_id;	
 			$row		= $this->getStudent_from_referal($fields['referral_code']);
-			//add referal history $pid,$pemail,$pcode,$cid,$cemail
-		$this->addreferralPoint($row['customers_id'],$row['user_name'],$row['referral_code'],$last_id,$fields['email']);
+			$this->addreferralPoint($row['customers_id'],$row['user_name'],$row['referral_code'],$last_id,$fields['email']);
 				
 			} else {
 					$response['Result'] = array("status"=>0,"message"=>"referral code Code not valid");
@@ -89,7 +96,7 @@ class user extends DB{
 				
 			} else {
 				
-			 $sql	= "INSERT INTO wl_customers (`user_name`,`password`,`first_name`,`phone_number`,`status`,`is_verified`,`account_created_date`,`actkey`) VALUE ('".$fields['email']."','".$fields['pass']."','".$fields['name']."','".$fields['phone']."','1','1','".$date."','".$actkey."')";
+			 $sql	= "INSERT INTO wl_customers (`user_name`,`password`,`first_name`,`phone_number`,`status`,`is_verified`,`account_created_date`,`actkey`,`referral_code`) VALUE ('".$fields['email']."','".$fields['pass']."','".$fields['name']."','".$fields['phone']."','1','1','".$date."','".$actkey."','".$this->generatecode()."')";
 			$insert_qry = mysqli_query($this->conn,$sql);
 			}
 			
