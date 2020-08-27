@@ -42,23 +42,31 @@
               <nav>
                 <ul>
                   <li><a href="<?php echo base_url()?>">HOME</a></li>
-                  <!-- <div class="dropdown">
-                  <a href="javascript:void(0)" style="color:#ffffff;">Search</a>
-                  <div class="dropdown-content">
+                  <div class="dropdown">
+                  <li>
+                  <a href="#" style="color:#ffffff;">SEARCH</a>
+                  </li>
+                  <div class="dropdown-content" style="z-index:10;">
                   <a href="<?php echo base_url();?>search">Search Tutor</a>
                   <a href="<?php echo base_url();?>courses">Search Courses</a>
                   </div>
-                  </div> -->
-                  <li><a href="<?php echo base_url();?>search">Search Tutor</a></li>
-                  <li><a href="<?php echo base_url();?>courses">Search Courses</a></li>
-                  <li><a href="<?php echo base_url();?>webinars">Webinars</a></li>
-                  <li><a href="<?php echo base_url();?>virtualcamp">Virtual Camp</a></li>
+                  </div>
+                  <div class="dropdown">
+                  <li>
+                  <a href="#" style="color:#ffffff;">PATHSHALA LIVE</a>
+                  </li>
+                  <div class="dropdown-content" style="z-index:10;">
+                  <a href="<?php echo base_url();?>webinars">Webinars</a>
+                  <a href="<?php echo base_url();?>virtualcamp">Virtual Camp</a>
+                  <a href="<?php echo base_url();?>liveclasses">Live Classes</a>
+                  </div>
+                  </div>
                   <?php if($this->session->userdata('user_id') > 0 ) {} 
                         elseif($this->session->userdata('teacher_id') > 0 ) {} else {?>
-                  <li><a href="<?php echo base_url();?>liveclasses">Live Classes</a></li>
+                  <!-- <li><a href="<?php //echo base_url();?>liveclasses">Live Classes</a></li> -->
                   <?php }?>
                   <?php if($this->session->userdata('user_id') > 0 ){?>
-                  <li><a href="<?php echo base_url();?>liveclasses">Live Classes</a></li>
+                  <!-- <li><a href="<?php //echo base_url();?>liveclasses">Live Classes</a></li> -->
                   <li><a href="<?php echo base_url();?>members/myaccount">My Account</a></li>
                   <li>
                     <?php 
@@ -102,12 +110,17 @@
                       if($liveplan == 1)
                       {
                   ?>
-                    <li><a href="<?php echo base_url(); ?>liveclasses">Live Classes</a></li>
+                    <!-- <li><a href="<?php //echo base_url(); ?>liveclasses">Live Classes</a></li> -->
                       <?php } else { ?>
-                    <li><a href="<?php echo base_url(); ?>liveclasses">Live Classes</a></li>
+                    <!-- <li><a href="<?php //echo base_url(); ?>liveclasses">Live Classes</a></li> -->
                       <?php } ?>
                   <?php  }else{?>
-                  <li><a href="<?php echo base_url();?>users/login">Student Login</a></li>
+                  <div class="dropdown">
+                  <li>
+                  <a href="#" style="color:#ffffff;">LOGIN</a>
+                  </li>
+                  <div class="dropdown-content" style="z-index:10;">
+                  <a href="<?php echo base_url();?>users/login">Student Login</a>
                   <?php }?>
                   <?php }?>
                   <?php if($this->session->userdata('teacher_id') > 0 ){?>
@@ -151,7 +164,9 @@
                   </li>
                   <?php }else{?>
                   <?php if($this->session->userdata('user_id') > 0 ){}else{?>
-                  <li><a href="<?php echo base_url();?>teacher/login">Teacher Login</a></li>
+                  <a href="<?php echo base_url();?>teacher/login">Teacher Login</a>
+                  </div>
+                  </div>
                   <?php }?>
                   <?php }?>
                 </ul>

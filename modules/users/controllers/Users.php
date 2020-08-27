@@ -55,7 +55,8 @@ class Users extends Public_Controller
 						$last_name   = $res['last_name'];	
 						$username    = $res['user_name'];	
 						$password    = $res['password'];
-						$password = $this->safe_encrypt->decode($password);					
+						//print_r($password);
+						//$password = $this->safe_encrypt->decode($password);					
 						/* Send  mail to user */
 						
 						$content    =  get_content('wl_auto_respond_mails','2');		
@@ -99,8 +100,8 @@ class Users extends Public_Controller
 						 
 		}
 		
-		$data['heading_title'] = "Forgot Password";			
-		$this->load->view('users_forgot_password',$data);		
+		 $data['heading_title'] = "Forgot Password";			
+		 $this->load->view('users_forgot_password',$data);		
 	}
 	
 	public function fbLogin(){
