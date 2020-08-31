@@ -11,10 +11,10 @@ class Dmailer
 		$this->CI =& get_instance();		
 		$config = array(
 		'protocol' => 'smtp',
-		'smtp_host' => 'ssl://smtp.googlemail.com',
+		'smtp_host' => 'email-smtp.us-east-1.amazonaws.com',
 		'smtp_port' => 587,
-		'smtp_user' => 'info@pathshala.co',
-		'smtp_pass' => 'Pathshala@1a',     
+		'smtp_user' => 'AKIA4X2JTRS5MLC572NV',
+		'smtp_pass' => 'BOT+lOCDlv+X3KFuBetzniF1jIIxqnPzPoKkAwNmEC7k',     
 		 );	
 		
 	    $this->CI->load->library('email');

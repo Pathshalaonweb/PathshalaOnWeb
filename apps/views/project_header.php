@@ -61,6 +61,16 @@
                   <a href="<?php echo base_url();?>liveclasses">Live Classes</a>
                   </div>
                   </div>
+                  <div class="dropdown">
+                  <li>
+                  <a href="#" style="color:#ffffff;">ONLINE COMPETITION</a>
+                  </li>
+                  <div class="dropdown-content" style="z-index:10;">
+                  <a href="<?php echo base_url();?>competition/register/parent">Parent's Competition</a>
+                  <a href="<?php echo base_url();?>competition/register/student">Student's Competition</a>
+                  <a href="<?php echo base_url();?>competition/register/teacher">Teacher's Competition</a>
+                  </div>
+                  </div>
                   <?php if($this->session->userdata('user_id') > 0 ) {} 
                         elseif($this->session->userdata('teacher_id') > 0 ) {} else {?>
                   <!-- <li><a href="<?php //echo base_url();?>liveclasses">Live Classes</a></li> -->

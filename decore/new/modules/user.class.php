@@ -182,41 +182,53 @@ class user extends DB{
 	  $rec = mysqli_fetch_array($check_user);
 	  // multiple recipients
 	  $to  = $fields['email']; // note the comma
-		
+		$name = $rec['first_name'];
 		// subject
 		$subject = 'Forgot Password';
 		$rand = $rec['password'];
 		//$update_user = mysql_query("update users set password='".$rand."' where email='".$fields['email']."'");
 		
 		// message
-		$message = '
-		
-		<p>Here is the password!</p>
-		<table>
-		
-		<tr>
-		<td>Password : </td> <td>'.$rand.'</td>
-		</tr>
-		</table>
-		
-		';
 		
 		// To send HTML mail, the Content-type header must be set
-		$headers  = 'MIME-Version: 1.0' . "\r\n";
-		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-		
-		// Additional headers
-		$headers .= 'From: Info' . "\r\n";
+		require 'lib/PHPMailerAutoload.php';
+		$mail = new PHPMailer;
+		$mail->isSMTP();
+		$mail->SMTPDebug = 0;
+
+		$mail->Debugoutput = 'html';
+
+		$mail->Host = 'email-smtp.us-east-1.amazonaws.com';
+		$mail->Port = 587;
+		$mail->SMTPSecure = 'tls';
+		$mail->SMTPAuth = true;
+		$mail->SMTPKeepAlive =true;
+		//$mail->SMTPDebug = SMTP::DEBUG_SERVER;
+		$mail->Username = "AKIA4X2JTRS5MLC572NV"; //from address
+		$mail->Password = "BOT+lOCDlv+X3KFuBetzniF1jIIxqnPzPoKkAwNmEC7k"; //app-specific password
+		$mail->setFrom('info@pathshala.co', 'Pathshala'); //change the email here to your email
+		$mail->addReplyTo('pathshalaonweb@gmail.com', 'Pathshala'); //change the email to your email
+		$mail->isHTML(true);
+		$mail->addAddress($to, $name); //to-address
+		$mail->Subject = $subject;
+			$mail->Body    = "Hi $name,<br> <br>
+			We have received password reset request.<br>
+			Here is your password $rand<br><br>
+			
+			Best<br>
+			Team Pathshala";
+
+		if (!$mail->send()) {
+			$response = array("status"=>1,"Message"=>"Email Not Sent");
+		} else {
+			$response = array("status"=>1,"Message"=>"Email Sent");
+		}
+		$mail->ClearAllRecipients();
+		$mail->ClearAttachments();
 		
 		// Mail it
-		$ismail = mail($to, $subject, $message, $headers);
-	   	
-	   	if($ismail){
-	   		$response = array("status"=>1,"Message"=>"Email Sent");
-
-	   	}else{
-	        $response = array("status"=>1,"Message"=>"Email Not Sent");
-	        }
+		// $ismail = mail($to, $subject, $message, $headers);
+	   	//print_r($ismail);
 	   
 	   
 	   }else{
