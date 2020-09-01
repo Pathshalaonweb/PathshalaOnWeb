@@ -248,6 +248,10 @@ class user extends DB{
 
 	   }
 	}
+	else if(!isset($fields['teacher']))
+	{
+		$response = array("status"=>-1,"Message"=>"Flag is required");
+	}
 	else
 	   {
 		$response = array("status"=>-1,"Message"=>"Invalid request");
