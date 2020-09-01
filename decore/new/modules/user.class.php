@@ -190,6 +190,8 @@ class user extends DB{
 	  // multiple recipients
 	  $to  = $fields['email']; // note the comma
 		$name = $rec['first_name'];
+		// subject
+		$subject = 'Forgot Password';
 		$rand = $rec['password'];
 		//$update_user = mysql_query("update users set password='".$rand."' where email='".$fields['email']."'");
 		
