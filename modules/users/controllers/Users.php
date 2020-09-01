@@ -44,17 +44,23 @@ class Users extends Public_Controller
 			
 			if ($this->form_validation->run() == TRUE)
 			{
+				//$emaill = urlencode($email);
 
 				$ch = curl_init();  
-				$url = "https://pathshala.co/decore/new/api.php?action=forgotPassword&email=".$email;
-				//echo $url;
+				$url =  base_url()."decore/new/api.php?action=forgotPassword&email=".$email."";
+				echo $url;
 				curl_setopt($ch,CURLOPT_URL,$url);
 				curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
 				$output=curl_exec($ch);
+				if($errno = curl_errno($ch)) {
+					$error_message = curl_strerror($errno);
+					echo "cURL error ({$errno}):\n {$error_message}";
+				}
 				//print_r($output);
+				//curl_error($ch);
 				curl_close($ch);
 				//$jsonOutput = json_decode($output,true);
-				var_dump($jsonOutput);
+				//var_dump($jsonOutput);
 					if($jsonOutput['Message'] == "Email Sent")
 					{
 						$this->session->set_userdata(array('msg_type'=>'success'));
