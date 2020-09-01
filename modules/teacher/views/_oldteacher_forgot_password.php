@@ -12,7 +12,7 @@
 
 <body class="p10">
 
-<?php echo form_open('teacher/forgotten_password/');?>
+<?php echo form_open('users/forgotten_password/');?>
 <div class="p10 bg-white  shadow bdr2 radius-3">
 <h1>Forgot Password</h1>
 
