@@ -176,7 +176,7 @@ class user extends DB{
 	
 
 	function forgotPassword($fields){
-		if($fields['teacher'] != "" && $fields['email'] != "")
+		if(isset($fields['teacher']) && isset($fields['email']))
 		{
 
 		
