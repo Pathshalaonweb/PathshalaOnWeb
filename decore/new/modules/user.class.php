@@ -176,15 +176,20 @@ class user extends DB{
 	
 
 	function forgotPassword($fields){
-	  $check_user = mysqli_query($this->conn,"Select * from wl_customers where user_name='".$fields['email']."'");
+		if($fields['teacher'] == '0')
+		{
+			$check_user = mysqli_query($this->conn,"Select * from wl_customers where user_name='".$fields['email']."'");
+		}
+		else if($fields['teacher'] == '1')
+		{
+			$check_user = mysqli_query($this->conn,"Select * from wl_teacher where user_name='".$fields['email']."'");
+		}
       $num_rows = mysqli_num_rows($check_user);
 	  if($num_rows > 0){
 	  $rec = mysqli_fetch_array($check_user);
 	  // multiple recipients
 	  $to  = $fields['email']; // note the comma
 		$name = $rec['first_name'];
-		// subject
-		$subject = 'Forgot Password';
 		$rand = $rec['password'];
 		//$update_user = mysql_query("update users set password='".$rand."' where email='".$fields['email']."'");
 		

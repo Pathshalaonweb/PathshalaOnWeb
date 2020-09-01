@@ -47,7 +47,7 @@ class Users extends Public_Controller
 				//$emaill = urlencode($email);
 
 				$ch = curl_init();  
-				$url =  base_url()."decore/new/api.php?action=forgotPassword&email=".$email."";
+				$url =  base_url()."decore/new/api.php?action=forgotPassword&email=".$email."&teacher=0";
 				//echo $url;
 				curl_setopt($ch,CURLOPT_URL,$url);
 				curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
