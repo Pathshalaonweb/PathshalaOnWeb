@@ -176,6 +176,10 @@ class user extends DB{
 	
 
 	function forgotPassword($fields){
+		if($fields['teacher'] != "" || $fields['email'] != "")
+		{
+
+		
 		if($fields['teacher'] == '0')
 		{
 			$check_user = mysqli_query($this->conn,"Select * from wl_customers where user_name='".$fields['email']."'");
@@ -184,6 +188,7 @@ class user extends DB{
 		{
 			$check_user = mysqli_query($this->conn,"Select * from wl_teacher where user_name='".$fields['email']."'");
 		}
+		
       $num_rows = mysqli_num_rows($check_user);
 	  if($num_rows > 0){
 	  $rec = mysqli_fetch_array($check_user);
@@ -242,10 +247,10 @@ class user extends DB{
 	   	        $response = array("status"=>0,"Message"=>"Email Id Not Registred");
 
 	   }
-	   else if(!isset($fields['teacher']))
+	}
+	else if(!isset($fields['teacher']))
 	   {
 		$response = array("status"=>-1,"Message"=>"Flag cannot be empty");
-
 	   }
 		    return json_encode($response);
 
