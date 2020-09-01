@@ -60,7 +60,7 @@ class Users extends Public_Controller
 				//curl_error($ch);
 				curl_close($ch);
 				//$jsonOutput = json_decode($output,true);
-				//var_dump($jsonOutput);
+				var_dump($jsonOutput);
 					if($jsonOutput['Message'] == "Email Sent")
 					{
 						// $this->session->set_userdata(array('msg_type'=>'success'));
