@@ -241,7 +241,12 @@ class user extends DB{
 	   }else{
 	   	        $response = array("status"=>0,"Message"=>"Email Id Not Registred");
 
-	   } 
+	   }
+	   else if(!isset($fields['teacher']))
+	   {
+		$response = array("status"=>-1,"Message"=>"Flag cannot be empty");
+
+	   }
 		    return json_encode($response);
 
 	}
