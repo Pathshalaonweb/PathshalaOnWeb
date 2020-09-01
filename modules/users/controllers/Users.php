@@ -48,14 +48,14 @@ class Users extends Public_Controller
 
 				$ch = curl_init();  
 				$url =  base_url()."decore/new/api.php?action=forgotPassword&email=".$email."";
-				echo $url;
+				//echo $url;
 				curl_setopt($ch,CURLOPT_URL,$url);
 				curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
 				$output=curl_exec($ch);
-				if($errno = curl_errno($ch)) {
-					$error_message = curl_strerror($errno);
-					echo "cURL error ({$errno}):\n {$error_message}";
-				}
+				// if($errno = curl_errno($ch)) {
+				// 	$error_message = curl_strerror($errno);
+				// 	echo "cURL error ({$errno}):\n {$error_message}";
+				// }
 				//print_r($output);
 				//curl_error($ch);
 				curl_close($ch);
@@ -63,16 +63,17 @@ class Users extends Public_Controller
 				//var_dump($jsonOutput);
 					if($jsonOutput['Message'] == "Email Sent")
 					{
-						$this->session->set_userdata(array('msg_type'=>'success'));
-						$this->session->set_flashdata('success',$this->config->item('forgot_password_success'));
-						redirect('users/forgotten_password', '');	
+						// $this->session->set_userdata(array('msg_type'=>'success'));
+						// $this->session->set_flashdata('success',$this->config->item('forgot_password_success'));
+						echo "<script>alert('Email Sent'); window.location = '".base_url()."users/forgotten_password'</script>" ;	
 					}
 					else if($jsonOutput['Message'] == "Email Id Not Registred")
 					{
 						// echo "Error.";
-						$this->session->set_userdata(array('msg_type'=>'error'));
-						$this->session->set_flashdata('error',$this->config->item('email_not_exist'));
-						redirect('users/forgotten_password', '');
+						// $this->session->set_userdata(array('msg_type'=>'error'));
+						// $this->session->set_flashdata('error',$this->config->item('email_not_exist'));
+						// redirect('users/forgotten_password', '');
+						echo "<script>alert('Email Not Registered!'); window.location = '".base_url()."users/register'</script>" ;	
 					}
 					
 				}else				
