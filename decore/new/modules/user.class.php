@@ -248,9 +248,9 @@ class user extends DB{
 
 	   }
 	}
-	else if(!isset($fields['teacher']))
+	else
 	   {
-		$response = array("status"=>-1,"Message"=>"Flag cannot be empty");
+		$response = array("status"=>-1,"Message"=>"Invalid request");
 	   }
 		    return json_encode($response);
 
