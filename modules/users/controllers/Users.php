@@ -44,61 +44,40 @@ class Users extends Public_Controller
 			
 			if ($this->form_validation->run() == TRUE)
 			{
-				
-				$condtion = array('field'=>"user_name,password,first_name,last_name",'condition'=>"user_name ='$email' AND status ='1' ");
-				$res = $this->users_model->find('wl_customers',$condtion);
-				
-				if( is_array($res) && !empty($res))
-				{
-					
-						$first_name  = $res['first_name'];
-						$last_name   = $res['last_name'];	
-						$username    = $res['user_name'];	
-						$password    = $res['password'];
-						//print_r($password);
-						//$password = $this->safe_encrypt->decode($password);					
-						/* Send  mail to user */
-						
-						$content    =  get_content('wl_auto_respond_mails','2');		
-						$subject    =  $content->email_subject;						
-						$body       =  $content->email_content;	
-											
-						$verify_url = "<a href=".base_url()."users/register>Click here </a>";				
-												
-						$name = $first_name;
-											
-						$body			=	str_replace('{mem_name}',$name,$body);
-						$body			=	str_replace('{username}',$username,$body);
-						$body			=	str_replace('{password}',$password,$body);
-						$body			=	str_replace('{admin_email}',$this->admin_info->admin_email,$body);
-						$body			=	str_replace('{site_name}',$this->config->item('site_name'),$body);
-						$body			=	str_replace('{url}',base_url(),$body);
-						$body			=	str_replace('{link}',$verify_url,$body);
-						
-						$mail_conf =  array(
-						'subject'=>$subject,
-						'to_email'=>$username,
-						'from_email'=>$this->admin_info->admin_email,
-						'from_name'=> $this->config->item('site_name'),
-						'body_part'=>$body
-						);	
-							
-					$this->dmailer->mail_notify($mail_conf);
-					$this->session->set_userdata(array('msg_type'=>'success'));
-					$this->session->set_flashdata('success',$this->config->item('forgot_password_success'));	
-					redirect('users/forgotten_password', '');						
+
+				$ch = curl_init();  
+				$url = "https://pathshala.co/decore/new/api.php?action=forgotPassword&email=".$email;
+				//echo $url;
+				curl_setopt($ch,CURLOPT_URL,$url);
+				curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+				$output=curl_exec($ch);
+				//print_r($output);
+				curl_close($ch);
+				//$jsonOutput = json_decode($output,true);
+				var_dump($jsonOutput);
+					if($jsonOutput['Message'] == "Email Sent")
+					{
+						$this->session->set_userdata(array('msg_type'=>'success'));
+						$this->session->set_flashdata('success',$this->config->item('forgot_password_success'));
+						redirect('users/forgotten_password', '');	
+					}
+					else if($jsonOutput['Message'] == "Email Id Not Registred")
+					{
+						// echo "Error.";
+						$this->session->set_userdata(array('msg_type'=>'error'));
+						$this->session->set_flashdata('error',$this->config->item('email_not_exist'));
+						redirect('users/forgotten_password', '');
+					}
 					
 				}else				
-				{					
+				{	
 					$this->session->set_userdata(array('msg_type'=>'error'));
-			        $this->session->set_flashdata('error',$this->config->item('email_not_exist'));
-			        redirect('users/forgotten_password', '');
+						$this->session->set_flashdata('error',$this->config->item('email_required'));
+						redirect('users/forgotten_password', '');				
 					
 				}
 				
-			}			
-						 
-		}
+			}
 		
 		 $data['heading_title'] = "Forgot Password";			
 		 $this->load->view('users_forgot_password',$data);		
