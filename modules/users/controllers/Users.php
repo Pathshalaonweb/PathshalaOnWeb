@@ -63,17 +63,17 @@ class Users extends Public_Controller
 				//var_dump($jsonOutput);
 					if($jsonOutput['Message'] == "Email Sent")
 					{
-						// $this->session->set_userdata(array('msg_type'=>'success'));
-						// $this->session->set_flashdata('success',$this->config->item('forgot_password_success'));
-						echo "<script>alert('Email Sent'); window.location = '".base_url()."users/forgotten_password'</script>" ;	
+						$this->session->set_userdata(array('msg_type'=>'success'));
+						$this->session->set_flashdata('success',$this->config->item('forgot_password_success'));
+						//echo "<script>alert('Email Sent'); window.location = '".base_url()."users/forgotten_password'</script>" ;	
 					}
 					else if($jsonOutput['Message'] == "Email Id Not Registred")
 					{
 						// echo "Error.";
-						// $this->session->set_userdata(array('msg_type'=>'error'));
-						// $this->session->set_flashdata('error',$this->config->item('email_not_exist'));
-						// redirect('users/forgotten_password', '');
-						echo "<script>alert('Email Not Registered!'); window.location = '".base_url()."users/register'</script>" ;	
+						$this->session->set_userdata(array('msg_type'=>'error'));
+						$this->session->set_flashdata('error',$this->config->item('email_not_exist'));
+						redirect('users/forgotten_password', '');
+						//echo "<script>alert('Email Not Registered!'); window.location = '".base_url()."users/register'</script>" ;	
 					}
 					
 				}else				
