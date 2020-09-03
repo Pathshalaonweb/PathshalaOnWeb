@@ -304,7 +304,7 @@ class user extends DB{
 		// Mail it
 		// $ismail = mail($to, $subject, $message, $headers);
 		   //print_r($ismail);
-		   return $response;
+		   return json_encode($response);
 	}
 	
 	
