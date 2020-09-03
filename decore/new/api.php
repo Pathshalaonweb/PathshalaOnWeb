@@ -35,6 +35,9 @@ switch($action){
   case "forgotPassword" : 
      echo $response = $usrObj->forgotPassword($_REQUEST);
   break; 	 
+  case "fPass" :
+      echo $response = $usrObj->fpass($_REQUEST);
+  break;
   case "editProfile" : 
      echo $response = $usrObj->editProfile($_REQUEST);
   break;

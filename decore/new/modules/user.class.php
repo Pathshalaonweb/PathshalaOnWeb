@@ -255,7 +255,57 @@ class user extends DB{
 		    return json_encode($response);
 
 	}
-	
+	function fpass($fields)
+	{
+		$check_user = mysqli_query($this->conn,"Select * from wl_customers where user_name='".$fields['email']."'");
+		$num_rows = mysqli_num_rows($check_user);
+	    if($num_rows > 0){
+		$rec = mysqli_fetch_array($check_user);
+		$to  = $fields['email']; // note the comma
+		$name = $rec['first_name'];
+		// subject
+		$subject = 'Forgot Password';
+		$rand = $rec['password'];
+		require 'lib/PHPMailerAutoload.php';
+		$mail = new PHPMailer;
+		$mail->isSMTP();
+		$mail->SMTPDebug = 0;
+
+		$mail->Debugoutput = 'html';
+
+		$mail->Host = 'email-smtp.us-east-1.amazonaws.com';
+		$mail->Port = 587;
+		$mail->SMTPSecure = 'tls';
+		$mail->SMTPAuth = true;
+		$mail->SMTPKeepAlive =true;
+		//$mail->SMTPDebug = SMTP::DEBUG_SERVER;
+		$mail->Username = "AKIA4X2JTRS5MLC572NV"; //from address
+		$mail->Password = "BOT+lOCDlv+X3KFuBetzniF1jIIxqnPzPoKkAwNmEC7k"; //app-specific password
+		$mail->setFrom('info@pathshala.co', 'Pathshala'); //change the email here to your email
+		$mail->addReplyTo('pathshalaonweb@gmail.com', 'Pathshala'); //change the email to your email
+		$mail->isHTML(true);
+		$mail->addAddress($to, $name); //to-address
+		$mail->Subject = $subject;
+			$mail->Body    = "Hi $name,<br> <br>
+			We have received password reset request.<br>
+			Here is your password $rand<br><br>
+			
+			Best<br>
+			Team Pathshala";
+
+		if (!$mail->send()) {
+			$response = array("status"=>1,"Message"=>"Email Not Sent");
+		} else {
+			$response = array("status"=>1,"Message"=>"Email Sent");
+		}
+		$mail->ClearAllRecipients();
+		$mail->ClearAttachments();
+		}
+		// Mail it
+		// $ismail = mail($to, $subject, $message, $headers);
+		   //print_r($ismail);
+		   return $response;
+	}
 	
 	
 	function userDetail($fields){
