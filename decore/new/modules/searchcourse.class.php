@@ -61,7 +61,7 @@ class Searchcourse extends DB{
 	function searchcourse($fields){
 		//print_r($_REQUEST);
 		$response = array();
-		$where="  AND `status` = '1'";
+		$where="AND `status` = '1'";
 		
 		if(!empty($fields['courses_id']) && $fields['courses_id']!="null"){
 			$where .=" AND `courses_id` = '".$fields['courses_id']."' ";
@@ -76,7 +76,8 @@ class Searchcourse extends DB{
 			$where .=" AND `teacher_id` = '".$fields['teacher_id']."' ";
 		}
 		
-		$sql="SELECT * FROM `tbl_courses` WHERE 1 ".$where." ";
+		$sql="SELECT * FROM `tbl_courses` WHERE `category_id` != '23' AND `category_id` != '24' ".$where."";
+		echo $sql;
 		$select_query = mysqli_query($this->connTwo,$sql);
 		mysqli_set_charset($this->connTwo, 'utf8');
 		$arr['Result'] = array("success"=>1,"code"=>0);

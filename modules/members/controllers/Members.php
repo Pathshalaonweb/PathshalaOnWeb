@@ -293,8 +293,12 @@ class Members extends Private_Controller{
 		}
 		else
 		{
+			$sqls = "SELECT batch_id FROM `wl_batchid` WHERE category='".$values[0]['class_dropdown']."'";
+			$quer=$dbe->query($sqls);
+			$v= $quer->result_array();
 		$ch = curl_init();  
-		$url = "LiveApi.Scobotic.com/api/Registration?frAppId=pathshala&frAppPass=pathshala5572&emailId=".$values[0]['user_name']."&password=pathshala5572&userName=".$values[0]['user_name']."&city=delhi&mobile=".$values[0]['phone_number']."&parentPhoneNumber=".$values[0]['phone_number']."&stateId=22&streamId=024&classId=".$values[0]['class_dropdown']."&subjectIds=321&batchIds=001";
+		$url = "LiveApi.Scobotic.com/api/Registration?frAppId=pathshala&frAppPass=pathshala5572&emailId=".$values[0]['user_name']."&password=pathshala5572&userName=".$values[0]['user_name']."&city=delhi&mobile=7895187971&parentPhoneNumber=7895187971&stateId=22&streamId=024&classId=1&subjectIds=1&batchIds=".$v[0]['batch_id'];
+		//echo $url;
 		curl_setopt($ch,CURLOPT_URL,$url);
 		curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
 		$output=curl_exec($ch);
@@ -328,7 +332,7 @@ class Members extends Private_Controller{
 		{
 			redirect("https://".$jsonOutput['Url'], '');
 		}
-	}
+	 }
 	}
 	
 }
