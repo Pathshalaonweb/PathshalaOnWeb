@@ -77,7 +77,7 @@ class Searchcourse extends DB{
 		}
 		
 		$sql="SELECT * FROM `tbl_courses` WHERE `category_id` != '23' AND `category_id` != '24' ".$where."";
-		echo $sql;
+		//echo $sql;
 		$select_query = mysqli_query($this->connTwo,$sql);
 		mysqli_set_charset($this->connTwo, 'utf8');
 		$arr['Result'] = array("success"=>1,"code"=>0);
