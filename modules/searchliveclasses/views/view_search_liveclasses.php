@@ -13,6 +13,7 @@
                        <?php if(!empty($mem_info['picture'])) {?><a href="<?php echo base_url();?>teacher/profile/<?php echo $val['teacher_id'];?>/<?php echo url_title($val['first_name']);?>">
                       <img src="<?php echo base_url();?>/uploaded_files/teacher/<?php echo $mem_info['picture']?>" alt="" "></a>
                       <?php } else {?>
+                        <img src="<?php echo base_url();?>/uploaded_files/thumb_cache/thumb_190_190_noimg1.gif" alt="" ">
 					  <a href="<?php echo base_url();?>teacher/profile/<?php echo $val['teacher_id'];?>/<?php echo url_title($val['first_name']);?>"><!--class="openPopup"--></a>
                         <?php }?>
                       </div>
