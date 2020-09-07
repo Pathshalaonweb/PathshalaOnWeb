@@ -7,7 +7,7 @@ class Searchliveclasses extends Public_Controller
 		$this->load->model(array('searchliveclasses/searchliveclasses_model','payment/payment_model','order/order_model'));
 	    $this->load->library('Ajax_pagination');
 		$this->load->helper(array('payment/paytm'));
-		$this->perPage = 30;
+		$this->perPage = 9;
 	}
 	
 	public function index()
@@ -69,13 +69,13 @@ class Searchliveclasses extends Public_Controller
         }
 		//total rows count
 		$db1 = $this->load->database('default', TRUE);
-		$sqll = "SELECT * FROM `wl_teacher`  where liveplan=1";
+		$sqll = "SELECT * FROM `wl_addclass`";
 		$queryy=$db1->query($sqll);
 		$totalRec = $queryy->num_rows();
 		// echo $db2->last_query();die;
         //pagination configuration
         $config['target']      = '#postList';
-        $config['base_url']    = base_url().'liveclasses/ajaxPaginationData';
+        $config['base_url']    = base_url().'searchliveclasses/ajaxPaginationData';
         $config['total_rows']  = $totalRec;
         $config['per_page']    = $this->perPage;
         $config['link_func']   = 'searchFilter';
@@ -84,10 +84,10 @@ class Searchliveclasses extends Public_Controller
         $conditions['start'] = $offset;
         $conditions['limit'] = $this->perPage;
         //get posts data
-        $data['res'] = $this->liveclasses_model->get_course_row($conditions);
+        $data['res'] = $this->searchliveclasses_model->get_course_row($conditions);
         //echo_sql();
         //load the view
-        $this->load->view('liveclasses/view_search_liveclasses', $data, false);
+        $this->load->view('searchliveclasses/view_search_liveclasses', $data, false);
 		}
 		
 		// public function getcourses(){
