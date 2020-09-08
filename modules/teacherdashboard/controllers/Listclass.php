@@ -150,7 +150,7 @@ class Listclass extends Teacher_Controller
 			{
 				//echo $_POST['category'];
 				$teacher_id = $this->session->userdata('teacher_id');
-				$class_title = $this->input->post('class_title',TRUE);
+				$class_title = trim($this->input->post('class_title',TRUE));
 				$class_schedule_time = $this->input->post('class_schedule_time',TRUE);
 				$class_duration = $this->input->post('class_duration',TRUE);
 				$class = $this->input->post('class',TRUE);
@@ -161,17 +161,19 @@ class Listclass extends Teacher_Controller
 
 				//             URL TO BE CHANGED AFTER COMMITTING THE CHANGES !!!
 
-				$url = "https://www.pathshala.co/decore/new/api.php?action=ListClass&teacher_id=".$teacher_id."&class_title=".$class_title."&class_schedule_time=".$class_schedule_time."&class_duration=".$class_duration."&class=".$class."&class_date=".$class_date."&class_credit_amount=".$class_credit_amount."&category=".$category;
+				$url = base_url()."decore/new/api.php?action=ListClass&teacher_id=".$teacher_id."&class_title=".$class_title."&class_schedule_time=".$class_schedule_time."&class_duration=".$class_duration."&class=".$class."&class_date=".$class_date."&class_credit_amount=".$class_credit_amount."&category=".$category;
 				curl_setopt($ch,CURLOPT_URL,$url);
 				curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+				//echo $url;
 				$output=curl_exec($ch);
 				//print_r($output);
-				//echo $url;
+				echo $url;
 				//echo $url;
 				curl_close($ch);
 				$jsonOutput = json_decode($output,true);
-				//print_r($jsonOutput);
-				if($jsonOutput['message']=="true" && $jsonOutput['success']=="1")
+				// print_r($jsonOutput);
+				// var_dump($jsonOutput);
+				if($jsonOutput['message']=="Success" && $jsonOutput['success']=="1")
 				{
 					// api response is success.
 					echo "<script>alert('Class Added Successfully.');window.location = '".base_url()."teacherdashboard/listclass';</script>";
@@ -179,7 +181,7 @@ class Listclass extends Teacher_Controller
 				}
 				else
 				{
-
+					echo "<script>alert('Error! please try again');window.location = '".base_url()."teacherdashboard/listclass';</script>";
 				}
 			}
 			else

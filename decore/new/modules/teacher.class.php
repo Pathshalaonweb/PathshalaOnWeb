@@ -901,21 +901,125 @@ class Teacher extends DB{
 
 			return json_encode($arr);
 		
- 		}
+		 }
+		function getScoboticToken($id)
+	{
+			if(isset($id))
+			{
+			//$id = $this->session->userdata('teacher_id');
+			$sqs = "SELECT * FROM `wl_teacher` WHERE teacher_id='".$id."'";
+			$select_query = mysqli_query($this->conn,$sqs);
+			$values  = mysqli_fetch_array($select_query);
+			//return $values;
+			//$values= $qus->result_array();
+			//$name = $values[0]['first_name'];
+			$ch = curl_init();  
+			$url = "LiveApi.Scobotic.com/api/Teacher/Registration?frAppId=pathshala&frAppPass=pathshala5572&emailId=".$values['user_name']."&password=pathshala5572&name=".$values['user_name']."&mobile=".$values['phone_number']."&city=delhi&gender=".$values['gender']."&subjectIds=001&batchIds=001";
+			curl_setopt($ch,CURLOPT_URL,$url);
+			curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+			$output=curl_exec($ch);
+			//echo $url;
+			curl_close($ch);
+			$jsonOutput = json_decode($output,true);
+			//print_r($output);
+			//var_dump($jsonOutput);
+			if($jsonOutput['Token']=="" && $jsonOutput['Status']=="0")
+			{
+				if($jsonOutput['Message']== "EmailId already registered")
+				{
+					//Proceed with Login API
+					$loginURL = "LiveApi.Scobotic.com/api/Teacher/Login?frAppId=pathshala&frAppPass=pathshala5572&emailId=".$values['user_name'];
+					$loginCh = curl_init();
+					curl_setopt($loginCh,CURLOPT_URL,$loginURL);
+					curl_setopt($loginCh,CURLOPT_RETURNTRANSFER,true);
+					$loginOutput=curl_exec($loginCh);
+					//print_r($loginOutput);
+					curl_close($loginCh);
+					$loginArr = json_decode($loginOutput,true);
+					if($loginArr['Token'] != "")
+					{
+						return $loginArr['Token'];
+					}
+					// else
+					// {
+					// 	echo "<script>alert('Error Occured! Please try Again.');</script>";
+					// }
+
+				}
+			}
+			elseif($jsonOutput['Token'] != "")
+			{
+				return $jsonOutput['Token'];
+			}
+		}
+	}
 	function listclass($fields)
 	{
 		if(!empty($fields['teacher_id']) || !empty($fields['class_title']) || !empty($fields['class_schedule_time']) || !empty($fields['class_duration']) || !empty($fields['class']) || !empty($fields['class_date']) || !empty($fields['class_credit_amount']) || !empty($fields['category']))
 		{
 			if(trim($fields['teacher_id'])!="" && trim($fields['class_title'])!="" && trim($fields['class_schedule_time'])!="" && trim($fields['class_duration'])!="" && trim($fields['class'])!="" && trim($fields['class_date'])!="" && trim($fields['class_credit_amount'])!="" && trim($fields['category'])!="")
 			{
-				$sql = "INSERT INTO `wl_addclass` (`teacher_id`, `class_title`, `class_schedule_time`, `class_duration`, `class`, `class_date`, `class_credit_amount`, `category`) values('".$fields['teacher_id']."', '".$fields['class_title']."', '".$fields['class_schedule_time']."', '".$fields['class_duration']."','".$fields['class']."', '".$fields['class_date']."', '".$fields['class_credit_amount']."', '".$fields['category']."')";
+				// Create Login token from Scobotic API
+				$token = Teacher::getScoboticToken($fields['teacher_id']);
+				// Refractor the date according to the API needs
+				$d=date("m/d/Y",strtotime($fields['class_date']));
+				// Refractor the date to get the Frequency
+				$day = date("D",strtotime($fields['class_date']));
+				switch ($day) {
+					case 'Sun':
+						$freq = 1;
+						break;
+					case 'Mon':
+						$freq = 2;
+						break;
+					case 'Tue':
+						$freq = 3;
+						break;
+					case 'Wed':
+						$freq = 4;
+						break;
+					case 'Thu':
+						$freq = 5;
+						break;
+					case 'Fri':
+						$freq = 6;
+						break;
+					case 'Sat':
+						$freq = 7;
+						break;    
+				}
+				// Fetching corresponding Scobotic Batch ID
+				$batch_sql = "SELECT batch_id FROM `wl_batchid` WHERE category='".$fields['class']."'";
+				$batch_query = mysqli_query($this->conn,$batch_sql);
+				$batch_arr  = mysqli_fetch_array($batch_query);
+				$batch_id = $batch_arr['batch_id'];
+				$ch = curl_init();
+				// Call the Add Class API
+				$url = "https://LiveApi.Scobotic.com/api/Event/Create?frAppId=pathshala&frAppPass=pathshala5572&eventName=".$fields['class_title']."&eventStartDate=".$d."&eventEndDate=".$d."&eventScheduleTime=".$fields['class_schedule_time']."&eventDuration=".$fields['class_duration']."&SubjectIds=0&batchIds=".$batch_id."&frequencies=".$freq."&token=".$token;
+				curl_setopt($ch,CURLOPT_URL,$url);
+				curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+				$output=curl_exec($ch);
+				curl_close($ch);
+				$jsonOutput = json_decode($output,true);
+				if($jsonOutput["Message"] == "Success" && $jsonOutput['Status'] == "1")
+				{
+					$eventId = $jsonOutput['EventId'];
+				// Insert the data in our DB as well
+				$sql = "INSERT INTO `wl_addclass` (`teacher_id`, `class_title`, `class_schedule_time`, `class_duration`, `class`, `class_date`, `class_credit_amount`, `category`, `event_id`) values('".$fields['teacher_id']."', '".$fields['class_title']."', '".$fields['class_schedule_time']."', '".$fields['class_duration']."','".$fields['class']."', '".$fields['class_date']."', '".$fields['class_credit_amount']."', '".$fields['category']."', '".$eventId."')";
 				$insert_qry = mysqli_query($this->conn,$sql);
-				$arr = array("success"=>1,"code"=>1,"message"=>$insert_qry);
+				
+
+				$arr = array("success"=>1,"code"=>1,"message"=>"Success");
+				}
+				else
+				{
+					$arr = array("success"=>-1,"code"=>0,"message"=>"Batch-ID MisMAtch");
+				}
 
 			}
 			else
 			{
-				$arr = array("success"=>-1,"code"=>0,"message"=>"Fields cannot be empty");
+				$arr = array("success"=>0,"code"=>0,"message"=>"Fields cannot be empty");
 			}
 		}
 		else
@@ -924,5 +1028,6 @@ class Teacher extends DB{
 		}
 		return json_encode($arr);
 	}
+	
 }
 ?>

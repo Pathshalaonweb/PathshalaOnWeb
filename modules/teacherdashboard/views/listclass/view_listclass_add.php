@@ -45,9 +45,10 @@
 	<div class='time' > Class Duration(Mins):   
 		<select style="width:190px;" name="class_duration" id="class_duration">
 		<option value="">Select Class Duration</option>
-		<option value="30-Mins">30 Mins</option>
-		<option value="45-Mins">45 Mins</option>
-		<option value="90-Mins">90 Mins</option>
+		<option value="30">30 Mins</option>
+		<option value="45">45 Mins</option>
+		<option value="60">60 Mins</option>
+		<option value="90">90 Mins</option>
 		</select>
 	</div>		
 	<br>
@@ -77,7 +78,7 @@
 <br>
 <br>
 
-<div class='time' > Select Your Per Class Fees (1 Credit = Rs75/class):
+<div class='time' > Select Your Per Class Fees (1 Credit = Rs75):
 		<select style="width:250px;" name="class_credit_amount" id="class_credit_amount">
 			<option value="">Select Class Credit Amount</option>
 			<option value="0">0 Credit - For Demo Class</option>
