@@ -989,7 +989,7 @@ class Teacher extends DB{
 						break;    
 				}
 				// Fetching corresponding Scobotic Batch ID
-				$batch_sql = "SELECT batch_id FROM `wl_batchid` WHERE category='".$fields['class']."'";
+				$batch_sql = "SELECT batch_id FROM `wl_batchid` WHERE `category`='".$fields['class']."'";
 				$batch_query = mysqli_query($this->conn,$batch_sql);
 				$batch_arr  = mysqli_fetch_array($batch_query);
 				$batch_id = $batch_arr['batch_id'];

@@ -160,35 +160,35 @@ class Listclass extends Teacher_Controller
 				
 				//             URL TO BE CHANGED AFTER COMMITTING THE CHANGES !!!
 				
-				$url = "https://www.pathshala.co/decore/new/api.php?action=ListClass&teacher_id=".$teacher_id."&class_title=".$class_title."&class_schedule_time=".$class_schedule_time."&class_duration=".$class_duration."&class=".$class."&class_date=".$class_date."&class_credit_amount=".$class_credit_amount."&category=".$category."";
+				$url = base_url()."/decore/new/api.php?action=ListClass&teacher_id=".$teacher_id."&class_title=".$class_title."&class_schedule_time=".$class_schedule_time."&class_duration=".$class_duration."&class=".$class."&class_date=".$class_date."&class_credit_amount=".$class_credit_amount."&category=".$category."";
 				$ch = curl_init($url);  
 				//curl_setopt($ch,CURLOPT_URL,$url);
 				curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
 				$output=curl_exec($ch);
-				if(curl_errno($ch)){
-					throw new Exception(curl_error($ch));
-				}
-				echo $url;
-				print_r($output);
-				var_dump($output);
+				// if(curl_errno($ch)){
+				// 	throw new Exception(curl_error($ch));
+				// }
+				// echo $url;
+				// print_r($output);
+				// var_dump($output);
 				curl_close($ch);
 				$jsonOutput = json_decode($output,true);
-				print_r($jsonOutput);
-				 var_dump($jsonOutput);
-			// 	if($jsonOutput['message']=="Success" && $jsonOutput['success']=="1")
-			// 	{
-			// 		// api response is success.
-			// 		echo "<script>alert('Class Added Successfully.');window.location = '".base_url()."teacherdashboard/listclass';</script>";
+				//print_r($jsonOutput);
+				 //var_dump($jsonOutput);
+				if($jsonOutput['message']=="Success" && $jsonOutput['success']=="1")
+				{
+					// api response is success.
+					echo "<script>alert('Class Added Successfully.');window.location = '".base_url()."teacherdashboard/listclass';</script>";
 
-			// 	}
-			// 	else
-			// 	{
-			// 		echo "<script>alert('Error! please try again');window.location = '".base_url()."teacherdashboard/listclass';</script>";
-			// 	}
-			// }
-			// else
-			// {
-			// 	redirect("teacherdashboard/listclass/add",'');
+				}
+				else
+				{
+					echo "<script>alert('Error! please try again');window.location = '".base_url()."teacherdashboard/listclass';</script>";
+				}
+			}
+			else
+			{
+				redirect("teacherdashboard/listclass/add",'');
 			}
 		}
 		
