@@ -995,7 +995,7 @@ class Teacher extends DB{
 				$batch_id = $batch_arr['batch_id'];
 				$ch = curl_init();
 				// Call the Add Class API
-				$url = "https://LiveApi.Scobotic.com/api/Event/Create?frAppId=pathshala&frAppPass=pathshala5572&eventName=".$fields['class_title']."&eventStartDate=".$d."&eventEndDate=".$d."&eventScheduleTime=".$fields['class_schedule_time']."&eventDuration=".$fields['class_duration']."&SubjectIds=0&batchIds=".$batch_id."&frequencies=".$freq."&token=".$token;
+				$url = "https://LiveApi.Scobotic.com/api/Event/Create?frAppId=pathshala&frAppPass=pathshala5572&eventName=".$fields['class_title']."&eventStartDate=".$d."&eventEndDate=".$d."&eventScheduleTime=".$fields['class_schedule_time']."&eventDuration=".$fields['class_duration']."&SubjectIds=5209&batchIds=".$batch_id."&frequencies=".$freq."&token=".$token;
 				curl_setopt($ch,CURLOPT_URL,$url);
 				curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
 				$output=curl_exec($ch);
