@@ -447,17 +447,29 @@ class Liveclasses extends Public_Controller
 	 {
 		if($this->uri->segment(3)=='pathshala5572')
 		{
-			if($this->uri->segment(4))
+			if($this->uri->segment(4) && $this->uri->segment(5))
 			{
+				$eventId = $this->uri->segment(5);
 				$email = urldecode($this->uri->segment(4));
 				//echo $email;
+
+				// Getting User Details
 				$dbe = $this->load->database('default', TRUE);
 				$sqs = "SELECT credit_point,first_name FROM `wl_customers` WHERE user_name='".$email."'";
 				$qus=$dbe->query($sqs);
 				$values= $qus->result_array();
+
+				//Getting Credits of the requested Class
+				$event_sql = "SELECT class_credit_amount FROM `wl_addclass` WHERE event_id='".$eventId."'";
+				$event_query=$dbe->query($event_sql);
+				if($event_query->num_rows()>0)
+				{
+				$event_values= $event_query->result_array();
+				$classcredits = $event_values[0]['class_credit_amount'];
 				if($values[0]['first_name'])
 				{
-					if($values[0]['credit_point'] =="" || $values[0]['credit_point'] == "0")
+					$credits = $values[0]['credit_point'] - $classcredits;
+					if($credits =="" || $credits < 0)
 					{
 						$response->status = "0";
 						$response->message = 'Low Credits';
@@ -469,7 +481,7 @@ class Liveclasses extends Public_Controller
 					}
 					else
 					{
-						$sq ="UPDATE `wl_customers` SET credit_point=credit_point-1 WHERE user_name='".$email."'";
+						$sq ="UPDATE `wl_customers` SET credit_point=credit_point-'".$classcredits."' WHERE user_name='".$email."'";
 						$ip=$_SERVER['REMOTE_ADDR'];
 						$sqq = "INSERT INTO `usercredits_log` (`ip`, `email`) values ('".$ip."', '".$email."')";
 						$que = $dbe->query($sq); 
@@ -490,7 +502,15 @@ class Liveclasses extends Public_Controller
 					echo $jsonResponse;
 
 				}
-				
+			}
+			else
+			{
+				$response->status = "-1";
+				$response->message = 'Event Not Found';
+				$response->credits = false;
+				$jsonResponse = json_encode($response);
+				echo $jsonResponse;
+			}
 			}
 			else
 			{
