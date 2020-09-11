@@ -168,27 +168,27 @@ class Listclass extends Teacher_Controller
 				// if(curl_errno($ch)){
 				// 	throw new Exception(curl_error($ch));
 				// }
-				 echo $url."<br>";
+				// echo $url."<br>";
 				// print_r($output);
 				// var_dump($output);
 				curl_close($ch);
 				$jsonOutput = json_decode($output,true);
-				print_r($jsonOutput);
+				//print_r($jsonOutput);
 				 //var_dump($jsonOutput);
-			// 	if($jsonOutput['message']=="Success" && $jsonOutput['success']=="1")
-			// 	{
-			// 		// api response is success.
-			// 		echo "<script>alert('Class Added Successfully.');window.location = '".base_url()."teacherdashboard/listclass';</script>";
+				if($jsonOutput['message']=="Success" && $jsonOutput['success']=="1")
+				{
+					// api response is success.
+					echo "<script>alert('Class Added Successfully.');window.location = '".base_url()."teacherdashboard/listclass';</script>";
 
-			// 	}
-			// 	else
-			// 	{
-			// 		echo "<script>alert('Error! please try again');window.location = '".base_url()."teacherdashboard/listclass';</script>";
-			// 	}
-			// }
-			// else
-			// {
-			// 	redirect("teacherdashboard/listclass/add",'');
+				}
+				else
+				{
+					echo "<script>alert('Error! please try again');window.location = '".base_url()."teacherdashboard/listclass';</script>";
+				}
+			}
+			else
+			{
+				redirect("teacherdashboard/listclass/add",'');
 			}
 		}
 		

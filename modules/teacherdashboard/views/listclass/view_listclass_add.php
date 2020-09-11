@@ -21,9 +21,9 @@
 					<form action="<?php echo base_url(); ?>teacherdashboard/listclass/addlistclass" enctype="multipart/form-data" method="post" onsubmit="return validate()" accept-charset="utf-8">
  <!-- <form action="/action_page.php"> -->
  
-  Class Title: <input type="text" id="class_title" name="class_titles" value="">
+  Class Title: <input type="text" id="class_title" name="class_title" value="">
   <br>
-  <input type="text" id="class_name" name="class_title" style="background-color:#e6e6e6;" disabled>
+  <!-- <input type="text" id="class_name" name="class_title" style="background-color:#e6e6e6;" disabled> -->
   <p class="required" id="classTitleError" style="display: none;">Class Title is required</p>
   <br>
   
@@ -157,8 +157,8 @@ $(document).ready(function(){
   var valuef = $("#class_title").val();
   valuef.trim();
   var abc = valuef.trim().replace(' ', '-');
-  console.log(abc);
-    $("#class_name").val(abc);
+  //console.log(abc);
+    $("#class_title").val(abc);
   });
 });
 </script>
