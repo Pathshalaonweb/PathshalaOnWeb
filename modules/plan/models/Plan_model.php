@@ -24,6 +24,7 @@ class Plan_model extends MY_Model
 		$this->db->order_by('sort_order');
 		$this->db->order_by('plan_id',"DESC");
 		$this->db->limit($limit,$offset);
+		$this->db->where("status",'1');
 		$this->db->select('SQL_CALC_FOUND_ROWS*',FALSE);
 		$this->db->from('wl_plan');
 		$q=$this->db->get();
