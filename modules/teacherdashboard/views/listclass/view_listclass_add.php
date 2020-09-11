@@ -21,8 +21,9 @@
 					<form action="<?php echo base_url(); ?>teacherdashboard/listclass/addlistclass" enctype="multipart/form-data" method="post" onsubmit="return validate()" accept-charset="utf-8">
  <!-- <form action="/action_page.php"> -->
  
-  Class Title: <input type="text" id="class_title" name="class_title" value="">
+  Class Title: <input type="text" id="class_title" name="class_titles" value="">
   <br>
+  <input type="text" id="class_name" name="class_title" style="background-color:#e6e6e6;" disabled>
   <p class="required" id="classTitleError" style="display: none;">Class Title is required</p>
   <br>
   
@@ -43,8 +44,8 @@
 
 
 	<div class='time' > Class Duration(Mins):   
-		<select style="width:190px;" name="class_duration" id="class_duration">
-		<option value="">Select Class Duration</option>
+		<select style="width:190px;" name="class_duration" id="class_duration" required>
+		<option value="" selected disabled>Select Class Duration</option>
 		<option value="30">30 Mins</option>
 		<option value="45">45 Mins</option>
 		<option value="60">60 Mins</option>
@@ -57,8 +58,8 @@
 
 <div class="row">
    </a> </div>                		
-	<select name="category" onChange="getSubcat(this.value);" id="category">
-	<option value="">Select category</option>
+	<select name="category" onChange="getSubcat(this.value);" id="category" required>
+	<option value="" selected disabled>Select category</option>
 		<?php 
 		$sql="SELECT * FROM `wl_categories` where status='1' AND parent_id='0' ORDER BY sort_order";
 		$query=$this->db->query($sql);
@@ -71,16 +72,16 @@
 	<select name="class" id="sub-list" onChange="getSubcatNext(this.value);">
 		<option value="">Select Category first</option>
 	</select>
-           
+	<p class="required" id="sub-list-error" style="display: none;">Please Select a sub category.</p>   
 <br>
 
-<p> Class Date : <input type="date" id="class_date" name="class_date" style="width: 160px";> 
+<p> Class Date : <input type="date" id="class_date" min="<?php echo date("Y-m-d") ?>" name="class_date" style="width: 160px"; required> 
 <br>
 <br>
 
 <div class='time' > Select Your Per Class Fees (1 Credit = Rs75):
-		<select style="width:250px;" name="class_credit_amount" id="class_credit_amount">
-			<option value="">Select Class Credit Amount</option>
+		<select style="width:250px;" name="class_credit_amount" id="class_credit_amount" required>
+			<option value="" selected disabled>Select Class Credit Amount</option>
 			<option value="0">0 Credit - For Demo Class</option>
 			<option value="1">1 Credit</option>
 			<option value="2">2 Credit</option>
@@ -151,15 +152,26 @@ function getSubcatNext(val) {
 }
 </script>
 <script>
+$(document).ready(function(){
+  $("#class_title").change(function(){
+  var valuef = $("#class_title").val();
+  valuef.trim();
+  var abc = valuef.trim().replace(' ', '-');
+  console.log(abc);
+    $("#class_name").val(abc);
+  });
+});
+</script>
+<script>
 function validate()
 {
-	const classtitle = document.querySelector('#class_title').value;
+	var classtitle = document.querySelector('#class_title').value;
 	if(classtitle.trim() == "")
 	{
 		document.querySelector("#classTitleError").style.display = "block";
 		return false;
 	}
-	const classscheduletime = document.querySelector('#class_schedule_time').value;
+	var classscheduletime = document.querySelector('#class_schedule_time').value;
 	//alert(classscheduletime);
 	if(classscheduletime.trim() == "")
 	{
@@ -167,6 +179,14 @@ function validate()
 		document.querySelector("#classScheduleTimeError").style.display = "block";
 		return false;
 	}
+	var x = document.getElementById("sub-list").value;
+    if(x=='' || x=='377' || x=='373' || x=="374" || x=='375' || x== '530' || x== '432' || x== '376' || x== '526')
+    {
+      //alert('Select class ');
+      document.getElementById("sub-list-error").style.display = "block";
+      
+      return false;
+    }
 	//return false;
 
 }
