@@ -60,7 +60,7 @@
 	<select name="category" onChange="getSubcat(this.value);" id="category">
 	<option value="">Select category</option>
 		<?php 
-		$sql="SELECT * FROM `wl_categories`  where status='1' AND parent_id='0' ORDER BY sort_order";
+		$sql="SELECT * FROM `wl_categories` where status='1' AND parent_id='0' ORDER BY sort_order";
 		$query=$this->db->query($sql);
 		foreach($query->result_array() as $val):
 		?>

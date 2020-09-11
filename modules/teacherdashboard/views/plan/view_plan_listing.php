@@ -15,18 +15,19 @@
     </div>
   </div>
 </div>
-<div class="event-area my-acc pt-20 pb-130">
+<!-- <div class="event-area my-acc pt-20 pb-130">
   <div class="container">
     <div class="row">
-      <?php $this->load->view("teacher_myaccount_left");?>
-      <div class="col-xl-9 col-lg-4">
+      <?php //$this->load->view("teacher_myaccount_left");?> -->
+      <div class="col-12">
+      <!-- <h1 style="color:#1b68b5;text-align: center;">Buy Subscription</h1><br><br> -->
         <div class="row" style="margin-bottom:20px;">
          <?php 
 	     if( is_array($res) && !empty($res) ) {
 		 foreach($res as $catKey=>$pageVal)
 		 { 							
 		 ?>
-          <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4"> 
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3"> 
             
             <!-- PRICE ITEM -->
             <div class="panel price panel-blue">

@@ -297,11 +297,11 @@ function textColor($i)
     <a class="btn btn-primary" href="<?php echo base_url();?>teacherdashboard/liveclass" target="_blank" style="background: #1b68b5; color:#ffffff; padding:10px 25px;">Webinars</a>
   </div>
 </div>
-  <div class="wrapper">
-         <h1 style="color:#ffffff;text-align: center;">Buy Subscription</h1>
-<h3 style="color:#ffffff;text-align: center;">Enroll Now and Explore the Education Market Place</h3>
-<br><br>
-  <div class="row">
+  <div class="container">
+         <h1 style="color:#1b68b5;text-align: center;">Buy Subscription</h1>
+<h3 style="color:#1b68b5;text-align: center;">Enroll Now and Explore the Education Market Place</h3>
+<br>
+  <div class="row" style="margin-bottom:20px;">
          <?php
          $dbe = $this->load->database('default', TRUE);
          $sq_plan = "SELECT * FROM `wl_plan` WHERE `status`='1' ORDER BY `sort_order`";
@@ -313,7 +313,7 @@ function textColor($i)
 		 { 		
       					
 		 ?>
-          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4"> 
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3"> 
             
             <!-- PRICE ITEM -->
             <div class="panel price panel-blue">
@@ -341,6 +341,7 @@ function textColor($i)
           <?php  $i++; }?>
           <?php }?>
      
+    </div>
     </div>
 <!-- </div> -->
 <!-- </div> -->
