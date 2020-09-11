@@ -156,7 +156,7 @@ $(document).ready(function(){
   $("#class_title").change(function(){
   var valuef = $("#class_title").val();
   valuef.trim();
-  var abc = valuef.trim().replace(' ', '-');
+  var abc = valuef.trim().replaceAll(' ', '-');
   //console.log(abc);
     $("#class_title").val(abc);
   });
