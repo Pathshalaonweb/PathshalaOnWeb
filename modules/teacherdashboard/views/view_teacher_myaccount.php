@@ -304,7 +304,7 @@ function textColor($i)
   <div class="row">
          <?php
          $dbe = $this->load->database('default', TRUE);
-         $sq_plan = "SELECT * FROM `wl_plan` ORDER BY `sort_order`";
+         $sq_plan = "SELECT * FROM `wl_plan` WHERE `status`='1' ORDER BY `sort_order`";
          $qu_plan=$dbe->query($sq_plan);
          $value_plan= $qu_plan->result_array(); 
 	     if(1) {
