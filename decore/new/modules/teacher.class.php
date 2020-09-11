@@ -1009,7 +1009,7 @@ class Teacher extends DB{
 				$insert_qry = mysqli_query($this->conn,$sql);
 				
 
-				$arr = array("success"=>1,"code"=>1,"message"=>"Success","url"->$url);
+				$arr = array("success"=>1,"code"=>1,"message"=>"Success");
 				}
 				else
 				{
