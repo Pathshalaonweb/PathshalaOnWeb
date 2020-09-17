@@ -208,6 +208,54 @@ class Searchteacher extends DB{
 
 			}
 		}	
+		function searchliveclasses($fields)
+
+		{
+			if(!empty($fields['key']) && $fields['key']=="pathshala5572")
+			{
+				// $currentDate =  date("Y-m-d");
+				$sql = "SELECT * FROM wl_addclass";
+
+				$select_query = mysqli_query($this->conn,$sql);
+				while($rec  = mysqli_fetch_array($select_query))
+				{
+					$sql1		  ="SELECT `teacher_id`, `user_name`, `first_name`, `address`, `description`, `experience_year`, `plan_expire`, `picture` FROM `wl_teacher` WHERE teacher_id = '".$rec['teacher_id']."'";
+					$select_query1 = mysqli_query($this->conn,$sql1);
+					$recc  = mysqli_fetch_array($select_query1);
+					if(true)
+					{
+						$image=NULL;
+			if(!empty($rec['picture'])){
+				$image .="https://www.pathshala.co/uploaded_files/teacher/".$recc['picture'];
+			}else{
+				$image .="https://www.pathshala.co/assets/designer/themes/default/images/logo_new.png";
+			}
+			
+			$arr['Result']['data'][] = array(
+												'id'  => $rec["Id"],
+											   'teacher_id'	=>$recc['teacher_id'],
+												'user_name'		=>$recc['user_name'],
+												"first_name"	=>$recc['first_name'],
+												"customer_photo"=>$image,
+												"address"		=>$recc['address'], 
+												//"description"	=>strip_tags($rec['description']),
+												"experience_year"=>$recc['experience_year'],
+												"description"   =>$this->test_input($recc['description']),
+												"event_id"   => $rec['event_id'],
+												"class_title" => $rec['class_title'],
+												"class_schedule_time" => $rec['class_schedule_time'],
+												"class_duration" => $rec['class_duration'],
+												"class_date" => $rec['class_date'],
+												"class_credit_amount" => $rec['class_credit_amount'] 
+												
+
+												);
+					}
+				}
+				return json_encode($arr);
+
+			}
+		}	
 
 	
 	

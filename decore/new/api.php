@@ -210,6 +210,9 @@ switch($action){
 	case "searchliveteachers":
       echo $response = $searchteacherObj->liveteachers($_REQUEST);
      break;
+   case "searchliveclasses":
+      echo $response = $searchteacherObj->searchliveclasses($_REQUEST);
+   break;
 
 //search course 
 	
