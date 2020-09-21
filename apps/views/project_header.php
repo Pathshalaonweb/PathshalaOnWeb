@@ -47,8 +47,9 @@
                   <a href="#" style="color:#ffffff;">SEARCH</a>
                   </li>
                   <div class="dropdown-content" style="z-index:10;">
-                  <a href="<?php echo base_url();?>search">Search Tutor</a>
-                  <a href="<?php echo base_url();?>courses">Search Courses</a>
+                  <a href="<?php echo base_url();?>search">Tutor</a>
+                  <a href="<?php echo base_url();?>courses">Courses</a>
+                  <a href="<?php echo base_url();?>liveclasses">Live Tutor</a>
                   </div>
                   </div>
                   <div class="dropdown">
@@ -56,9 +57,9 @@
                   <a href="#" style="color:#ffffff;">PATHSHALA LIVE</a>
                   </li>
                   <div class="dropdown-content" style="z-index:10;">
+                  <a href="<?php echo base_url();?>searchliveclasses">Master Classes</a>
                   <a href="<?php echo base_url();?>webinars">Webinars</a>
                   <a href="<?php echo base_url();?>virtualcamp">Virtual Camp</a>
-                  <a href="<?php echo base_url();?>liveclasses">Live Classes</a>
                   </div>
                   </div>
                   <div class="dropdown">
