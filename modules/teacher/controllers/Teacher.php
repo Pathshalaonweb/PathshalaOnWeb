@@ -224,7 +224,7 @@ class Teacher extends Public_Controller
 					'ip_address'  		=> $this->input->ip_address(),
 					'message'			=> $this->input->post('message',TRUE),
 					'current_credit'	=> '5',
-					'plan_expire'		=>  date('Y-m-d', strtotime($date. ' + 30 days')),
+					'plan_expire'		=>  date('Y-m-d', strtotime($date. ' + 10 days')),
 				);
 				$this->teacher_model->safe_insert('wl_teacher',$register_array,FALSE);
 				$first_name  = $this->input->post('first_name',TRUE);	

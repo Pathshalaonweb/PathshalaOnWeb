@@ -78,9 +78,29 @@
 <p> Class Date : <input type="date" id="class_date" min="<?php echo date("Y-m-d") ?>" name="class_date" style="width: 160px"; required> 
 <br>
 <br>
-
+<?php
+		 $dbe = $this->load->database('default', TRUE);
+		 $sqs = "SELECT plan_expire FROM `wl_teacher` WHERE teacher_id='".$this->session->userdata('teacher_id')."'";
+		 $qus=$dbe->query($sqs);
+		 $values= $qus->result_array();
+		 //echo $values[0]['plan_expire'];
+		 $plan_expire = $values[0]['plan_expire'];
+		 $date = new DateTime('now');
+		$currentDate = $date->format('Y-m-d');
+		$flag = false;
+		if($currentDate < $plan_expire)
+		{
+			$flag = true;
+		}
+		//echo $flag."<br>".$currentDate."<br>".$plan_expire;
+		 ?>
+		 <?php 
+		 if($flag === true)
+		 {
+		 ?>
 <div class='time' > Select Your Per Class Fees (1 Credit = Rs75):
 		<select style="width:250px;" name="class_credit_amount" id="class_credit_amount" required>
+		
 			<option value="" selected disabled>Select Class Credit Amount</option>
 			<option value="0">0 Credit - For Demo Class</option>
 			<option value="1">1 Credit</option>
@@ -94,7 +114,27 @@
 			<option value="9">9 Credit</option>
 			<option value="10">10 Credit</option>
 		</select>
-	</div>		
+	</div>
+		 <?php }
+		 else{ ?>
+		 <div class='time' > Select Your Per Class Fees (1 Credit = Rs75):
+		<select style="width:250px;" name="class_credit_amount" id="class_credit_amount" required>
+		
+			<option value="" selected disabled>Select Class Credit Amount</option>
+			<option value="0">0 Credit - For Demo Class</option>
+			<option value="1" disabled>1 Credit</option>
+			<option value="2" disabled>2 Credit</option>
+			<option value="3" disabled>3 Credit</option>
+			<option value="4" disabled>4 Credit</option>
+			<option value="5" disabled>5 Credit</option>
+			<option value="6" disabled>6 Credit</option>	
+			<option value="7" disabled>7 Credit</option>
+			<option value="8" disabled>8 Credit</option>
+			<option value="9" disabled>9 Credit</option>
+			<option value="10" disabled>10 Credit</option>
+		</select>
+	</div>
+		 <?php } ?>		
 	
 	<br>
 	
