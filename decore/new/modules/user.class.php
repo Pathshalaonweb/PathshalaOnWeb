@@ -1015,6 +1015,59 @@ class user extends DB{
 
 			}
 		}	
+	function usercreditslogs($fields)
+	{
+		if(!empty($fields['email_id']) && !empty($fields['key']))
+		{
+			if($fields['key'] == '0adbf2be-ff5e-11ea-adc1-0242ac120002')
+			{
+				$sql="SELECT * FROM `usercredits_log` where `email`='".$fields['email_id']."'";
+				$select_query = mysqli_query($this->conn,$sql);
+				$i =0;
+				while($rec  = mysqli_fetch_array($select_query))
+				{
+					//$rec['event_id'];
+					if($rec['event_id']!="")
+					{
+						$i++;
+						$sql2 ="SELECT `class_title`, `class_credit_amount`, `teacher_id` FROM `wl_addclass` where `event_id`='".$rec['event_id']."'";
+						$select_query2 = mysqli_query($this->conn,$sql2);
+						$rec2  = mysqli_fetch_array($select_query2);
+						// Fetch Corresponding teacher Name
+						$sql3 ="SELECT `first_name` FROM `wl_teacher` where `teacher_id`='".$rec2['teacher_id']."'";
+						$select_query3 = mysqli_query($this->conn,$sql3);
+						$rec3  = mysqli_fetch_array($select_query3);
+						$arr['Data'] = array("success"=>1,"code"=>1, "message"=>"success");
+						$arr['Result']['data'][] = array(
+							'id' => $rec['id'],
+							'class_title' => $rec2['class_title'],
+							'credits_used' => $rec2['class_credit_amount'],
+							'teacher_name' => $rec3['first_name'],
+							'time' => $rec['time'],
+						);					
+
+					}
+					// else
+					// {
+					// 	$arr = array("success"=>1,"code"=>0,"message"=>"No Data");	
+					// }
+				}
+			}
+			else
+			{
+				$arr = array("success"=>-1,"code"=>-1,"message"=>"Incorrect Key");
+			}
+		}
+		else
+		{
+			$arr = array("success"=>-1,"code"=>0,"message"=>"Invalid Request.");
+		}
+		if($i==0)
+		{
+			$arr = array("success"=>1,"code"=>0,"message"=>"No Data");
+		}
+		return json_encode($arr);
+	}
 
  }
 ?>

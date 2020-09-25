@@ -1028,6 +1028,152 @@ class Teacher extends DB{
 		}
 		return json_encode($arr);
 	}
+	function teachercreditshistory($fields)
+	{
+		if(!empty($fields['teacher_id']) && !empty($fields['key']))
+		{
+			if($fields['key'] == '0adbf2be-ff5e-11ea-adc1-0242ac120002')
+			{
+				$sql="SELECT * FROM `wl_teacher_cradit_recode` where `teacher_id`='".$fields['teacher_id']."'";
+				$select_query = mysqli_query($this->conn,$sql);
+				$i =0;
+				while($rec  = mysqli_fetch_array($select_query))
+				{
+					//$rec['event_id'];
+					if($rec['id'])
+					{
+						$i++;
+						$arr['Data'] = array("success"=>1,"code"=>1, "message"=>"success");
+						$arr['Result']['data'][] = array(
+							'id' => $rec['id'],
+							'credits_used' => "1",
+							'time' => $rec['created_at'],
+						);					
+
+					}
+					// else
+					// {
+					// 	$arr = array("success"=>1,"code"=>0,"message"=>"No Data");	
+					// }
+				}
+			}
+			else
+			{
+				$arr = array("success"=>-1,"code"=>-1,"message"=>"Incorrect Key");
+			}
+		}
+		else
+		{
+			$arr = array("success"=>-1,"code"=>0,"message"=>"Invalid Request.");
+		}
+		if($i==0)
+		{
+			$arr = array("success"=>1,"code"=>0,"message"=>"No Data");
+		}
+		return json_encode($arr);
+	}
+
+
+	function orderhistory($fields)
+	{
+		if(!empty($fields['id']) && !empty($fields['key']) && $fields['teacher'])
+		{
+			if($fields['key'] == '0adbf2be-ff5e-11ea-adc1-0242ac120002')
+			{
+				if($fields['teacher'] == '1')
+				{
+					$sql="SELECT * FROM `wl_order` where `teacher_id`='".$fields['id']."'";
+					$select_query = mysqli_query($this->conn,$sql);
+					//$i =0;
+					while($rec  = mysqli_fetch_array($select_query))
+					{
+						//$rec['event_id'];
+						if($rec['order_id'])
+						{
+							//$i++;
+							$sql2="SELECT `price` FROM `wl_plan` where `plan_id`='".$rec['plan_id']."'";
+							$select_query2 = mysqli_query($this->conn,$sql2);
+							$rec2  = mysqli_fetch_array($select_query2);
+							$arr['Data'] = array("success"=>1,"code"=>1, "message"=>"success");
+							$arr['Result']['data'][] = array(
+								'order_id' => $rec['order_id'],
+								'amount' => $rec2['price'],
+								'order_status' => $rec['order_status'],
+								'time' => $rec['order_received_date'],
+							);					
+
+						}
+					}
+				}
+				else if($fields['teacher'] == '-1')
+				{
+					$sql="SELECT * FROM `wl_order` where `customers_id`='".$fields['id']."'";
+					$select_query = mysqli_query($this->conn,$sql);
+					//$i =0;
+					while($rec  = mysqli_fetch_array($select_query))
+					{
+						//$rec['event_id'];
+						if($rec['order_id']!=0)
+						{
+							//$i++;
+							$sql2="SELECT `price` FROM `wl_studentplan` where `plan_id`='".$rec['plan_id']."'";
+							$select_query2 = mysqli_query($this->conn,$sql2);
+							$rec2  = mysqli_fetch_array($select_query2);
+							$arr['Data'] = array("success"=>1,"code"=>1, "message"=>"success");
+							$arr['Result']['data'][] = array(
+								'order_id' => $rec['order_id'],
+								'amount' => $rec2['price'],
+								'type' => 'plan',
+								'order_status' => $rec['order_status'],
+								'time' => $rec['order_received_date'],
+							);					
+
+						}
+						if($rec['courses_id']!=0)
+						{
+							$sql3="SELECT `price` FROM `tbl_courses` where `courses_id`='".$rec['courses_id']."'";
+							$select_query3 = mysqli_query($this->connTwo,$sql3);
+							$rec3  = mysqli_fetch_array($select_query3);
+							$arr['Data_course'] = array("success"=>1,"code"=>1, "message"=>"success");
+							if($rec3['price'] == '1')
+							{
+								$price = 'Free';
+							}
+							else
+							{
+								$price = $rec3['price'];
+							}
+							$arr['Result']['data'][] = array(
+								'order_id' => $rec['order_id'],
+								'amount' => $price,
+								'type' => 'course',
+								'order_status' => $rec['order_status'],
+								'time' => $rec['order_received_date'],
+							);					
+						}
+					}
+				}
+				else
+				{
+					$arr = array("success"=>-1,"code"=>0,"message"=>"Invalid Request");
+
+				}
+			}
+			else
+			{
+				$arr = array("success"=>-1,"code"=>-1,"message"=>"Incorrect Key");
+			}
+		}
+		else
+		{
+			$arr = array("success"=>-1,"code"=>0,"message"=>"Invalid Request.");
+		}
+		// if($i==0)
+		// {
+		// 	$arr = array("success"=>1,"code"=>0,"message"=>"No Data");
+		// }
+		return json_encode($arr);
+	}
 	
 }
 ?>

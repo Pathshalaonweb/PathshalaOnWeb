@@ -100,6 +100,9 @@ switch($action){
   case "referralHistory":
   echo  $response = $usrObj->referralHistory($_REQUEST);
   break;
+  case "userCreditLogs":
+   echo $response = $usrObj->usercreditslogs($_REQUEST);
+  break;
   
 //teacher details
 	case "TeacherLogin" : 
@@ -189,7 +192,13 @@ switch($action){
 
 	case "Teacherenquiry" : 
      echo $response = $teacherObj->enquiry($_REQUEST);
-  	break;
+     break;
+   case "TeacherCreditHistory":
+      echo $response = $teacherObj->teachercreditshistory($_REQUEST);
+   break;
+   case "OrderHistory":
+      echo $response = $teacherObj->orderhistory($_REQUEST);
+   break;
 	 
 	
 
