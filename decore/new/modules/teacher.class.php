@@ -1042,11 +1042,15 @@ class Teacher extends DB{
 					//$rec['event_id'];
 					if($rec['id'])
 					{
+						$sql2="SELECT `first_name` FROM `wl_customers` where `customers_id`='".$rec['student_id']."'";
+						$select_query2 = mysqli_query($this->conn,$sql2);
+						$rec2  = mysqli_fetch_array($select_query2);
 						$i++;
 						$arr['Data'] = array("success"=>1,"code"=>1, "message"=>"success");
 						$arr['Result']['data'][] = array(
 							'id' => $rec['id'],
 							'credits_used' => "1",
+							'student_name' => strtoupper($rec2['first_name']),
 							'time' => $rec['created_at'],
 						);					
 
@@ -1088,17 +1092,21 @@ class Teacher extends DB{
 					while($rec  = mysqli_fetch_array($select_query))
 					{
 						//$rec['event_id'];
-						if($rec['order_id'])
+						if($rec['order_id'] && $rec['payment_status'] == 'Paid')
 						{
+							$amount = str_replace('.0000','',$rec['total_amount']);
+							// $final_amount = $amount[0];
+							// var_dump($amount);
 							//$i++;
-							$sql2="SELECT `price` FROM `wl_plan` where `plan_id`='".$rec['plan_id']."'";
+							$sql2="SELECT `name` FROM `wl_plan` where `plan_id`='".$rec['plan_id']."'";
 							$select_query2 = mysqli_query($this->conn,$sql2);
 							$rec2  = mysqli_fetch_array($select_query2);
 							$arr['Data'] = array("success"=>1,"code"=>1, "message"=>"success");
 							$arr['Result']['data'][] = array(
 								'order_id' => $rec['order_id'],
-								'amount' => $rec2['price'],
-								'order_status' => $rec['order_status'],
+								'plan_name' => $rec2['name'],
+								'amount' => $amount,
+								'order_status' => $rec['payment_status'],
 								'time' => $rec['order_received_date'],
 							);					
 
