@@ -1167,7 +1167,7 @@ class Teacher extends DB{
 								'order_id' => $rec['order_id'],
 								'amount' => $price,
 								'type' => 'course',
-								'payment_mode' => $rec['payment_mpde'],
+								'payment_mode' => $rec['payment_mode'],
 								'course_name' => $rec3['courses_name'],
 								'order_status' => $rec['payment_status'],
 								'time' => $rec['order_received_date'],
