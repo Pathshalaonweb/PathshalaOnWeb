@@ -1038,11 +1038,12 @@ class user extends DB{
 						$select_query3 = mysqli_query($this->conn,$sql3);
 						$rec3  = mysqli_fetch_array($select_query3);
 						//$arr['Data'] = array("success"=>1,"code"=>1, "message"=>"success");
+						$name = $rec3['first_name']."-".$rec2['class_title'];
 						$arr['Result']['data'][] = array(
 							'id' => $rec['id'],
 							'class_title' => $rec2['class_title'],
-							'credits_used' => $rec2['class_credit_amount'],
-							'teacher_name' => $rec3['first_name'],
+							'credits' => $rec2['class_credit_amount'],
+							'name' => $name,
 							'time' => $rec['time'],
 						);					
 
@@ -1087,7 +1088,11 @@ class user extends DB{
 				//echo $url;
 				curl_close($ch);
 				$arr = json_decode($output,true);
-				//var_dump($output);
+				var_dump($arr);
+				foreach ($arr['Result']['data'] as $key => $value) {
+					foreach
+					echo $value;
+				}
 			}
 			else
 			{
