@@ -1040,8 +1040,7 @@ class user extends DB{
 						//$arr['Data'] = array("success"=>1,"code"=>1, "message"=>"success");
 						$name = $rec3['first_name']."-".$rec2['class_title'];
 						$arr['Result']['data'][] = array(
-							'id' => $rec['id'],
-							'class_title' => $rec2['class_title'],
+							'id' => "ORDER-".$rec['id'],
 							'credits' => $rec2['class_credit_amount'],
 							'name' => $name,
 							'time' => $rec['time'],

@@ -1165,12 +1165,10 @@ class Teacher extends DB{
 							}
 							$oid = "COURSE-".$rec['order_id'];
 							$arr['Result']['data'][] = array(
-								'order_id' => $oid,
+								'id' => $oid,
 								'credits' => $price,
 								'type' => 'course',
-								'payment_mode' => $rec['payment_mode'],
 								'name' => $rec3['courses_name'],
-								'order_status' => $rec['payment_status'],
 								'time' => $rec['order_received_date'],
 							);					
 						}
