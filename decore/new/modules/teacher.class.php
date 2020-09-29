@@ -1131,25 +1131,27 @@ class Teacher extends DB{
 					while($rec  = mysqli_fetch_array($select_query))
 					{
 						//$rec['event_id'];
-						if($rec['order_id']!=0)
+						if($rec['plan_id']!=0 && $rec['payment_status'] == 'Paid')
 						{
+							$amount = str_replace('.0000','',$rec['total_amount']);
 							//$i++;
-							$sql2="SELECT `price` FROM `wl_studentplan` where `plan_id`='".$rec['plan_id']."'";
+							$sql2="SELECT `name` FROM `wl_studentplan` where `plan_id`='".$rec['plan_id']."'";
 							$select_query2 = mysqli_query($this->conn,$sql2);
 							$rec2  = mysqli_fetch_array($select_query2);
 							$arr['Data'] = array("success"=>1,"code"=>1, "message"=>"success");
 							$arr['Result']['data'][] = array(
 								'order_id' => $rec['order_id'],
-								'amount' => $rec2['price'],
+								'amount' => $amount,
 								'type' => 'plan',
-								'order_status' => $rec['order_status'],
+								'plan_name' => $rec2['name'],
+								'order_status' => $rec['payment_status'],
 								'time' => $rec['order_received_date'],
 							);					
 
 						}
-						if($rec['courses_id']!=0)
+						if($rec['courses_id']!=0 && $rec['payment_status'] == 'Paid')
 						{
-							$sql3="SELECT `price` FROM `tbl_courses` where `courses_id`='".$rec['courses_id']."'";
+							$sql3="SELECT `price`,`courses_name` FROM `tbl_courses` where `courses_id`='".$rec['courses_id']."'";
 							$select_query3 = mysqli_query($this->connTwo,$sql3);
 							$rec3  = mysqli_fetch_array($select_query3);
 							$arr['Data_course'] = array("success"=>1,"code"=>1, "message"=>"success");
@@ -1165,7 +1167,8 @@ class Teacher extends DB{
 								'order_id' => $rec['order_id'],
 								'amount' => $price,
 								'type' => 'course',
-								'order_status' => $rec['order_status'],
+								'course_name' => $rec3['courses_name'],
+								'order_status' => $rec['payment_status'],
 								'time' => $rec['order_received_date'],
 							);					
 						}
