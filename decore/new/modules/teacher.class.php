@@ -1091,6 +1091,8 @@ class Teacher extends DB{
 					//$i =0;
 					while($rec  = mysqli_fetch_array($select_query))
 					{
+						if(mysqli_num_rows($select_query)>0)
+						{
 						//$rec['event_id'];
 						if($rec['order_id'] && $rec['payment_status'] == 'Paid')
 						{
@@ -1108,8 +1110,13 @@ class Teacher extends DB{
 								'amount' => $amount,
 								'order_status' => $rec['payment_status'],
 								'time' => $rec['order_received_date'],
-							);					
+							);	
+						}				
 
+						}
+						else
+						{
+							$arr = array("success"=>1,"code"=>0,"message"=>"No Data");
 						}
 					}
 				}
