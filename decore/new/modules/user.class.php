@@ -1037,7 +1037,7 @@ class user extends DB{
 						$sql3 ="SELECT `first_name` FROM `wl_teacher` where `teacher_id`='".$rec2['teacher_id']."'";
 						$select_query3 = mysqli_query($this->conn,$sql3);
 						$rec3  = mysqli_fetch_array($select_query3);
-						$arr['Data'] = array("success"=>1,"code"=>1, "message"=>"success");
+						//$arr['Data'] = array("success"=>1,"code"=>1, "message"=>"success");
 						$arr['Result']['data'][] = array(
 							'id' => $rec['id'],
 							'class_title' => $rec2['class_title'],
@@ -1067,6 +1067,39 @@ class user extends DB{
 			$arr = array("success"=>1,"code"=>0,"message"=>"No Data");
 		}
 		return json_encode($arr);
+	}
+	function creditHistory($fields)
+	{
+		if(!empty($fields['email_id']) && !empty($fields['key']))
+		{
+			if($fields['key'] == '0adbf2be-ff5e-11ea-adc1-0242ac120002')
+			{
+				$sql="SELECT `customers_id` FROM `wl_customers` where `user_name`='".$fields['email_id']."'";
+				$select_query = mysqli_query($this->conn,$sql);
+				$rec  = mysqli_fetch_array($select_query);
+				$user_id = $rec['customers_id'];
+				$ch = curl_init();  
+				// URL TO be changed ***********************
+				$url = "https://www.pathshala.co/decore/new/api.php?action=OrderHistory&id=".$user_id."&key=".$fields['key']."&teacher=-1";
+				curl_setopt($ch,CURLOPT_URL,$url);
+				curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+				$output=curl_exec($ch);
+				//echo $url;
+				curl_close($ch);
+				$arr = json_decode($output,true);
+				//var_dump($output);
+			}
+			else
+			{
+				$arr = array("success"=>-1,"code"=>-1,"message"=>"Incorrect Key");
+			}
+		}
+		else
+		{
+			$arr = array("success"=>-1,"code"=>0,"message"=>"Invalid Request.");
+		}
+		return json_encode($arr);
+
 	}
 
  }

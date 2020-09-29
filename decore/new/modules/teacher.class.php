@@ -1154,7 +1154,7 @@ class Teacher extends DB{
 							$sql3="SELECT `price`,`courses_name` FROM `tbl_courses` where `courses_id`='".$rec['courses_id']."'";
 							$select_query3 = mysqli_query($this->connTwo,$sql3);
 							$rec3  = mysqli_fetch_array($select_query3);
-							$arr['Data_course'] = array("success"=>1,"code"=>1, "message"=>"success");
+							//$arr['Data_course'] = array("success"=>1,"code"=>1, "message"=>"success");
 							if($rec3['price'] == '1')
 							{
 								$price = 'Free';
