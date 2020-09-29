@@ -1089,10 +1089,12 @@ class Teacher extends DB{
 					$sql="SELECT * FROM `wl_order` where `teacher_id`='".$fields['id']."'";
 					$select_query = mysqli_query($this->conn,$sql);
 					//$i =0;
+					if(mysqli_num_rows($select_query)>0)
+					{
 					while($rec  = mysqli_fetch_array($select_query))
 					{
-						if(mysqli_num_rows($select_query)>0)
-						{
+						//echo mysqli_num_rows($select_query);
+						
 						//$rec['event_id'];
 						if($rec['order_id'] && $rec['payment_status'] == 'Paid')
 						{
@@ -1114,11 +1116,12 @@ class Teacher extends DB{
 						}				
 
 						}
+					}
 						else
 						{
 							$arr = array("success"=>1,"code"=>0,"message"=>"No Data");
 						}
-					}
+					
 				}
 				else if($fields['teacher'] == '-1')
 				{
