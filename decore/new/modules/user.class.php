@@ -1164,7 +1164,7 @@ class user extends DB{
 							//$arr['Data'] = array("success"=>1,"code"=>1, "message"=>"success");
 							$name = $rq3['first_name']."-".$rq2['class_title'];
 							$arr['Result']['data'][] = array(
-								'id' => "ORDER-".$rq1['id'],
+								'id' => "CLASS-".$rq1['id'],
 								'credits' => $rq2['class_credit_amount'],
 								'name' => $name,
 								'time' => $rq1['time'],
