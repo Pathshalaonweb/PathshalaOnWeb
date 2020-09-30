@@ -1068,30 +1068,111 @@ class user extends DB{
 		}
 		return json_encode($arr);
 	}
-	function creditHistory($fields)
+	// function creditHistory($fields)
+	// {
+	// 	if(!empty($fields['email_id']) && !empty($fields['key']))
+	// 	{
+	// 		if($fields['key'] == '0adbf2be-ff5e-11ea-adc1-0242ac120002')
+	// 		{
+	// 			$sql="SELECT `customers_id` FROM `wl_customers` where `user_name`='".$fields['email_id']."'";
+	// 			$select_query = mysqli_query($this->conn,$sql);
+	// 			$rec  = mysqli_fetch_array($select_query);
+	// 			$user_id = $rec['customers_id'];
+	// 			$ch = curl_init();  
+	// 			// URL TO be changed ***********************
+	// 			$url = "https://www.pathshala.co/decore/new/api.php?action=OrderHistory&id=".$user_id."&key=".$fields['key']."&teacher=-1";
+	// 			curl_setopt($ch,CURLOPT_URL,$url);
+	// 			curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+	// 			$output=curl_exec($ch);
+	// 			//echo $url;
+	// 			curl_close($ch);
+	// 			$arr = json_decode($output,true);
+	// 			var_dump($arr);
+	// 			foreach ($arr['Result']['data'] as $key => $value) {
+	// 				// foreach
+	// 				echo $value;
+	// 			}
+	// 		}
+	// 		else
+	// 		{
+	// 			$arr = array("success"=>-1,"code"=>-1,"message"=>"Incorrect Key");
+	// 		}
+	// 	}
+	// 	else
+	// 	{
+	// 		$arr = array("success"=>-1,"code"=>0,"message"=>"Invalid Request.");
+	// 	}
+	// 	return json_encode($arr);
+
+	// }
+	function Studentorderhistory($fields)
 	{
-		if(!empty($fields['email_id']) && !empty($fields['key']))
+		if(!empty($fields['id']) && !empty($fields['key']))
 		{
 			if($fields['key'] == '0adbf2be-ff5e-11ea-adc1-0242ac120002')
 			{
-				$sql="SELECT `customers_id` FROM `wl_customers` where `user_name`='".$fields['email_id']."'";
-				$select_query = mysqli_query($this->conn,$sql);
-				$rec  = mysqli_fetch_array($select_query);
-				$user_id = $rec['customers_id'];
-				$ch = curl_init();  
-				// URL TO be changed ***********************
-				$url = "https://www.pathshala.co/decore/new/api.php?action=OrderHistory&id=".$user_id."&key=".$fields['key']."&teacher=-1";
-				curl_setopt($ch,CURLOPT_URL,$url);
-				curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
-				$output=curl_exec($ch);
-				//echo $url;
-				curl_close($ch);
-				$arr = json_decode($output,true);
-				var_dump($arr);
-				foreach ($arr['Result']['data'] as $key => $value) {
-					foreach
-					echo $value;
+					$sql="SELECT * FROM `wl_order` where `customers_id`='".$fields['id']."'";
+					$select_query = mysqli_query($this->conn,$sql);
+					//$i =0;
+					while($rec  = mysqli_fetch_array($select_query))
+					{
+						//$rec['event_id'];
+						if($rec['courses_id']!=0 && $rec['payment_status'] == 'Paid' && $rec['payment_mode']== 'credit')
+						{
+							$sql3="SELECT `price`,`courses_name` FROM `tbl_courses` where `courses_id`='".$rec['courses_id']."'";
+							$select_query3 = mysqli_query($this->connTwo,$sql3);
+							$rec3  = mysqli_fetch_array($select_query3);
+							$arr['Data'] = array("success"=>1,"code"=>1, "message"=>"success");
+							if($rec3['price'] == '1')
+							{
+								$price = 'Free';
+							}
+							else
+							{
+								$price = $rec3['price'];
+							}
+							$oid = "COURSE-".$rec['order_id'];
+							$arr['Result']['data'][] = array(
+								'id' => $oid,
+								'credits' => $price,
+								'name' => $rec3['courses_name'],
+								'time' => $rec['order_received_date'],
+							);					
+						}
+					}
+					$sq = "SELECT `user_name` FROM `wl_customers` WHERE customers_id ='".$fields['id']."'";
+					$sq_query = mysqli_query($this->conn,$sq);
+					$rq  = mysqli_fetch_array($sq_query);
+					$email_id = $rq['user_name'];
+
+					$sq1="SELECT * FROM `usercredits_log` where `email`='".$email_id."'";
+					$sq1_query = mysqli_query($this->conn,$sq1);
+					$i =0;
+					while($rq1  = mysqli_fetch_array($sq1_query))
+					{
+					//$rec['event_id'];
+						if($rq1['event_id']!="")
+						{
+							$i++;
+							$sq2 ="SELECT `class_title`, `class_credit_amount`, `teacher_id` FROM `wl_addclass` where `event_id`='".$rec['event_id']."'";
+							$sq2_query = mysqli_query($this->conn,$sq2);
+							$rq2  = mysqli_fetch_array($sq2_query);
+							// Fetch Corresponding teacher Name
+							$sq3 ="SELECT `first_name` FROM `wl_teacher` where `teacher_id`='".$rq2['teacher_id']."'";
+							$sq3_query = mysqli_query($this->conn,$sq3);
+							$rq3  = mysqli_fetch_array($sq3_query);
+							//$arr['Data'] = array("success"=>1,"code"=>1, "message"=>"success");
+							$name = $rq3['first_name']."-".$rq2['class_title'];
+							$arr['Result']['data'][] = array(
+								'id' => "ORDER-".$rq1['id'],
+								'credits' => $rq2['class_credit_amount'],
+								'name' => $name,
+								'time' => $rq1['time'],
+							);					
+
+					}
 				}
+					
 			}
 			else
 			{
@@ -1102,8 +1183,11 @@ class user extends DB{
 		{
 			$arr = array("success"=>-1,"code"=>0,"message"=>"Invalid Request.");
 		}
+		// if($i==0)
+		// {
+		// 	$arr = array("success"=>1,"code"=>0,"message"=>"No Data");
+		// }
 		return json_encode($arr);
-
 	}
 
  }

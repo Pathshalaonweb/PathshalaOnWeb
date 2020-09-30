@@ -106,6 +106,12 @@ switch($action){
   case "UserCreditHistory":
    echo $response = $usrObj->creditHistory($_REQUEST);
   break;
+  case "Studentorderhistory":
+   echo $response = $usrObj->Studentorderhistory($_REQUEST);
+  break;
+
+
+
 //teacher details
 	case "TeacherLogin" : 
      echo $response = $teacherObj->loginAction($_REQUEST);
