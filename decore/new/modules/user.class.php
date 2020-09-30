@@ -1154,7 +1154,7 @@ class user extends DB{
 						if($rq1['event_id']!="")
 						{
 							$i++;
-							$sq2 ="SELECT `class_title`, `class_credit_amount`, `teacher_id` FROM `wl_addclass` where `event_id`='".$rec['event_id']."'";
+							$sq2 ="SELECT `class_title`, `class_credit_amount`, `teacher_id` FROM `wl_addclass` where `event_id`='".$rq1['event_id']."'";
 							$sq2_query = mysqli_query($this->conn,$sq2);
 							$rq2  = mysqli_fetch_array($sq2_query);
 							// Fetch Corresponding teacher Name
