@@ -515,14 +515,71 @@ class Acadex extends Public_Controller
 	 }  
 	 public function register()
 	 {
-		$this->load->view('liveclasses/view_liveclasses_register');
-
-	 } 
-	 public function liveclassRegister()
+		$this->load->view('acadex/view_acadex_register');
+	 }
+	 public function speakeregister()
 	 {
-		 $classes = $this->input->post('classes',TRUE);
-		 $class_str = implode(",",$classes);
-		//  print_r($classes);
+		$this->load->view('acadex/view_acadex_register_teacher');
+	 }
+	 public function acadexRegister()
+	 {
+		$password = $this->input->post('password',TRUE);
+		$email = $this->input->post('user_name',TRUE);
+		$name = $this->input->post('first_name',TRUE);
+		$phone = $this->input->post('phone_number',TRUE);
+		$acadex_id = $this->input->post('acadex',TRUE);
+		$ch = curl_init();  
+		$url = "https://www.pathshala.co/decore/new/api.php?action=Login&userName=".$email."&pass=nullpass";
+		curl_setopt($ch,CURLOPT_URL,$url);
+		curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+		$output=curl_exec($ch);
+		curl_close($ch);
+		$jsonOutput = json_decode($output,true);
+		//var_dump($jsonOutput);
+		if($jsonOutput['message'] == "Invalid user")
+		{
+			// New User ***** Call SignUP API
+			$chh = curl_init();  
+			$nameUrl = str_replace(" ", "%20", $name);
+			$urll = "https://www.pathshala.co/decore/new/api.php?action=registerUser&email=".$email."&pass=".$password."&name=".$nameUrl."&phone=".$phone;
+			curl_setopt($chh,CURLOPT_URL,$urll);
+			curl_setopt($chh,CURLOPT_RETURNTRANSFER,true);
+			$outputt=curl_exec($chh);
+			curl_close($chh);
+			//echo $outputt;
+			$jsonSignup = json_decode($outputt, true);
+
+			//var_dump($jsonSignup); 
+			if($jsonSignup['msg'] == "Item has been added")
+			{
+				echo "<script>alert('Error Occured. Please Try Again'); window.location = '".base_url()."acadex'</script>";	
+			}
+			else
+			{
+				$dbe = $this->load->database('default', TRUE);
+				$ip=$_SERVER['REMOTE_ADDR'];
+				$sqq = "INSERT INTO `wl_acadex_Teacher` (`emailid`, `acadex_id`, `ip`, `user_type`) values ('".$email."','".$acadex_id."','".$ip."', '1')";
+				$que = $dbe->query($sqq); 
+				echo "<script>alert('Registered Successfully, Proceed With Login.'); window.location = '".base_url()."users/login'</script>";
+
+			}
+
+
+		}
+		else if($jsonOutput['message'] == "Invalid password")
+		{
+			// Old User
+			$dbe = $this->load->database('default', TRUE);
+			$ip=$_SERVER['REMOTE_ADDR'];
+			$sqq = "INSERT INTO `wl_acadex_Teacher` (`emailid`, `acadex_id`, `ip`) values ('".$email."','".$acadex_id."','".$ip."')";
+			$que = $dbe->query($sqq); 
+			echo "<script>alert('Registered Successfully. Proceed With Login'); window.location = '".base_url()."users/login'</script>";
+
+		}
+	 }
+	 //TeacherRegistration
+	 public function acadexRegisterTeacher()
+	 {
 		$password = $this->input->post('password',TRUE);
 		$email = $this->input->post('user_name',TRUE);
 		$name = $this->input->post('first_name',TRUE);
@@ -549,20 +606,17 @@ class Acadex extends Public_Controller
 			$jsonSignup = json_decode($outputt, true);
 
 			//var_dump($jsonSignup); 
-			if($jsonSignup['Result']['msg'] == "Item has been added")
+			if($jsonSignup['msg'] == "Item has been added")
 			{
-				$dbe = $this->load->database('default', TRUE);
-				$ip=$_SERVER['REMOTE_ADDR'];
-				for($i=0;$i<count($classes);$i++)
-				{
-				$sqq = "INSERT INTO `wl_liveclass` (`emailid`, `class_dropdown`, `ip`, `user_type`) values ('".$email."','".$classes[$i]."','".$ip."', '1')";
-				$que = $dbe->query($sqq); 
-				}
-				echo "<script>alert('Registered Successfully, Proceed With Login.'); window.location = '".base_url()."teacher/login'</script>";
+				echo "<script>alert('Error Occured. Please Try Again'); window.location = '".base_url()."acadex'</script>";	
 			}
 			else
 			{
-				echo "<script>alert('Error Occured. Please Try Again'); window.location = '".base_url()."liveclasses'</script>";
+				$dbe = $this->load->database('default', TRUE);
+				$ip=$_SERVER['REMOTE_ADDR'];
+				$sqq = "INSERT INTO `wl_acadex_Teacher` (`emailid`, `ip`, `user_type`) values ('".$email."','".$ip."', '1')";
+				$que = $dbe->query($sqq); 
+				echo "<script>alert('Registered Successfully, Proceed With Login.'); window.location = '".base_url()."teacher/login'</script>";
 
 			}
 
@@ -573,11 +627,8 @@ class Acadex extends Public_Controller
 			// Old User
 			$dbe = $this->load->database('default', TRUE);
 			$ip=$_SERVER['REMOTE_ADDR'];
-			for($i=0;$i<count($classes);$i++)
-			{
-			$sqq = "INSERT INTO `wl_liveclass` (`emailid`, `class_dropdown`, `ip`) values ('".$email."','".$classes[$i]."','".$ip."')";
+			$sqq = "INSERT INTO `wl_acadex_Teacher` (`emailid`, `ip`) values ('".$email."','".$ip."')";
 			$que = $dbe->query($sqq); 
-			}
 			echo "<script>alert('Registered Successfully. Proceed With Login'); window.location = '".base_url()."teacher/login'</script>";
 
 		}
