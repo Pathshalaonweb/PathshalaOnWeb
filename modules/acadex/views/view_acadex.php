@@ -67,7 +67,7 @@
   <div class="row">
                 <?php
                 // LOOP through other posts
-                $sqs1 = "SELECT * FROM `wl_acadex` WHERE `featured`='0' AND `status`='1' AND upcoming='1' ORDER BY `time`";
+                $sqs1 = "SELECT * FROM `wl_acadex` WHERE `featured`='0' AND `status`='1' AND upcoming='1' ORDER BY `id`";
                 $qus1=$dbe->query($sqs1);
                 //$query->result_array() as $val
                 foreach($qus1->result_array() as $val)
@@ -90,7 +90,7 @@
   <div class="row">
                 <?php
                 // LOOP through other posts
-                $sqs1 = "SELECT * FROM `wl_acadex` WHERE `featured`='0' AND `status`='1' AND upcoming='0' ORDER BY `time`";
+                $sqs1 = "SELECT * FROM `wl_acadex` WHERE `featured`='0' AND `status`='1' AND upcoming='0' ORDER BY `id`";
                 $qus1=$dbe->query($sqs1);
                 //$query->result_array() as $val
                 foreach($qus1->result_array() as $val)
