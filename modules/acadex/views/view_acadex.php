@@ -7,8 +7,10 @@
           <div class="col-md-3"></div>
        <div class="container" align="center">
 		<div class="text-center" align="center">
-		<button class="btn btn-default" onclick="window.location.href='<?php //echo base_url(); ?>liveclasses'">Register as Trainee</button>
-        <button class="btn btn-default" onclick="window.location.href='<?php //echo base_url(); ?>searchliveclasses'">Register as Speaker</button>
+    <button class="btn btn-default" onclick="window.location.href='<?php //echo base_url(); 
+    ?>'">Register as Trainee</button>
+        <button class="btn btn-default" onclick="window.location.href='<?php //echo base_url(); 
+        ?>'">Register as Speaker</button>
       </div>
 	  </div>      
           <div class="col-md-3"></div>
