@@ -1143,7 +1143,7 @@ class Teacher extends DB{
 								'order_id' => $rec['order_id'],
 								'amount' => $amount,
 								'type' => 'plan',
-								'name' => $rec2['name'],
+								'course_name' => $rec2['name'],
 								'order_status' => $rec['payment_status'],
 								'time' => $rec['order_received_date'],
 							);					
@@ -1169,7 +1169,7 @@ class Teacher extends DB{
 								'amount' => $price,
 								'type' => 'course',
 								'order_status' => 'Paid',
-								'name' => $rec3['courses_name'],
+								'course_name' => $rec3['courses_name'],
 								'time' => $rec['order_received_date'],
 							);					
 						}
