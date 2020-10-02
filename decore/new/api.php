@@ -112,6 +112,13 @@ switch($action){
   case "StudentacadexRegister":
    echo $response = $usrObj->acadexRegister($_REQUEST);
   break;
+  case "acadexDetails":
+   echo $response = $usrObj->acadexDetails($_REQUEST);
+  break;
+//   acadexDropdownDetails
+case "acadexDropdownDetails":
+   echo $response = $usrObj->acadexDropdownDetails($_REQUEST);
+  break;
 
 
 

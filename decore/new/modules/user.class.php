@@ -1251,6 +1251,65 @@ class user extends DB{
 	 }
 	 return json_encode($arr);
 	}
+	public function acadexDetails($fields)
+	{
+		if(isset($fields['upcoming']))
+		{
+			$sqs1 = "SELECT * FROM `wl_acadex` WHERE `status`='1' AND upcoming='".$fields['upcoming']."' ORDER BY `id`";
+			$sq_query = mysqli_query($this->conn,$sqs1);
+			$arr['Data'] = array("success"=>1,"code"=>1, "message"=>"success");
+			while($rq  = mysqli_fetch_array($sq_query))
+			{
+				$arr['Result']['data'][] = array(
+					'id' => $rq['id'],
+					'name' => $rq['name'],
+					'iframe-url' => $rq['iframe-url'],
+					'featured' => $rq['featured'],
+				);
+			}
+
+		}
+		// else
+		// {
+		// 	$arr = array("success"=>-1,"code"=>-1,"message"=>"Invalid Request.");
+		// }
+		if(isset($fields['featured']))
+		{
+			$sqs1 = "SELECT * FROM `wl_acadex` WHERE `status`='1' AND featured='".$fields['featured']."' ORDER BY `id`";
+			$sq_query = mysqli_query($this->conn,$sqs1);
+			$arr['Data'] = array("success"=>1,"code"=>1, "message"=>"success");
+			while($rq  = mysqli_fetch_array($sq_query))
+			{
+				$arr['Result']['data'][] = array(
+					'id' => $rq['id'],
+					'name' => $rq['name'],
+					'iframe-url' => $rq['iframe-url'],
+					'featured' => $rq['featured'],
+				);
+			}
+
+		}
+		// else
+		// {
+		// 	$arr = array("success"=>-1,"code"=>-1,"message"=>"Invalid Request.");
+		// }
+
+		return json_encode($arr);
+	}
+	public function acadexDropdownDetails()
+	{
+			$sqs1 = "SELECT * FROM `wl_acadex` WHERE `status`='1' ORDER BY `id`";
+			$sq_query = mysqli_query($this->conn,$sqs1);
+			$arr['Data'] = array("success"=>1,"code"=>1, "message"=>"success");
+			while($rq  = mysqli_fetch_array($sq_query))
+			{
+				$arr['Result']['data'][] = array(
+					'id' => $rq['id'],
+					'name' => $rq['name'],
+				);
+			}
+			return json_encode($arr);
+		}
 
  }
 ?>
