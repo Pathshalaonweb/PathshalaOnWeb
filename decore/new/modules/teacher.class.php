@@ -1149,7 +1149,7 @@ class Teacher extends DB{
 							);					
 
 						}
-						if($rec['courses_id']!=0 && $rec['payment_status'] == 'Paid' && $rec['payment_mode'] != 'credit')
+						if($rec['courses_id']!=0 && $rec['payment_status'] == 'Paid' && $rec['payment_mode'] != 'credit' && $rec['payment_mode'] != 'free')
 						{
 							$sql3="SELECT `price`,`courses_name` FROM `tbl_courses` where `courses_id`='".$rec['courses_id']."'";
 							$select_query3 = mysqli_query($this->connTwo,$sql3);
@@ -1165,9 +1165,10 @@ class Teacher extends DB{
 							}
 							$oid = "COURSE-".$rec['order_id'];
 							$arr['Result']['data'][] = array(
-								'id' => $oid,
-								'credits' => $price,
+								'order_id' => $oid,
+								'amount' => $price,
 								'type' => 'course',
+								'order_status' => 'paid',
 								'name' => $rec3['courses_name'],
 								'time' => $rec['order_received_date'],
 							);					
