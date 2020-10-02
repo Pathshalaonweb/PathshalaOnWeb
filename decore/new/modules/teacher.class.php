@@ -736,7 +736,7 @@ class Teacher extends DB{
 			$tax_res 	    = mysqli_fetch_array($select_query11);
 			
 			$tax_amount		=$tax_res['tax_rate']*$plan_info['price']/100;
-			$totalAmount	=$price+$tax_amount;
+			$totalAmount	=$plan_info['price']+$tax_amount;
 			
 			$data_order   = 
 					   array(
