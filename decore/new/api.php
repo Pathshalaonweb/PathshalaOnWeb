@@ -109,6 +109,9 @@ switch($action){
   case "Studentorderhistory":
    echo $response = $usrObj->Studentorderhistory($_REQUEST);
   break;
+  case "StudentacadexRegister":
+   echo $response = $usrObj->acadexRegister($_REQUEST);
+  break;
 
 
 
@@ -206,6 +209,9 @@ switch($action){
    break;
    case "OrderHistory":
       echo $response = $teacherObj->orderhistory($_REQUEST);
+   break;
+   case "acadexRegisterTeacher":
+      echo $response = $teacherObj->acadexRegisterTeacher($_REQUEST);
    break;
 	 
 	

@@ -558,7 +558,7 @@ class Acadex extends Public_Controller
 			{
 				$dbe = $this->load->database('default', TRUE);
 				$ip=$_SERVER['REMOTE_ADDR'];
-				$sqq = "INSERT INTO `wl_acadex_Teacher` (`emailid`, `acadex_id`, `ip`, `user_type`) values ('".$email."','".$acadex_id."','".$ip."', '1')";
+				$sqq = "INSERT INTO `wl_acadex_register` (`emailid`, `acadex_id`, `ip`, `user_type`) values ('".$email."','".$acadex_id."','".$ip."', '1')";
 				$que = $dbe->query($sqq); 
 				echo "<script>alert('Registered Successfully, Proceed With Login.'); window.location = '".base_url()."users/login'</script>";
 
@@ -571,7 +571,7 @@ class Acadex extends Public_Controller
 			// Old User
 			$dbe = $this->load->database('default', TRUE);
 			$ip=$_SERVER['REMOTE_ADDR'];
-			$sqq = "INSERT INTO `wl_acadex_Teacher` (`emailid`, `acadex_id`, `ip`) values ('".$email."','".$acadex_id."','".$ip."')";
+			$sqq = "INSERT INTO `wl_acadex_register` (`emailid`, `acadex_id`, `ip`) values ('".$email."','".$acadex_id."','".$ip."')";
 			$que = $dbe->query($sqq); 
 			echo "<script>alert('Registered Successfully. Proceed With Login'); window.location = '".base_url()."users/login'</script>";
 
