@@ -31,22 +31,23 @@
       <div class="col-xl-12 col-lg-12 lms_right">
         <div class="blog-all-wrap mr-40">
           <div class="row">
-            <div class="container">
+            <div class="container" id="featuredContainer">
               <h3 class="proTitle" style="text-align:center;">Featured</h3><br>
             </div>
             <form method="post">
               <div class="container" id="postList">
                 <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                <p style="font-size:22px; color:#28407A;" align="center">
+                <p style="font-size:22px; color:#28407A;" align="center" id="featuredPara">
                 <?php 
                 // INSERT Featured post here
                 $dbe = $this->load->database('default', TRUE);
                 $sqs = "SELECT * FROM `wl_acadex` WHERE `featured`='1' AND `status`='1'";
                 $qus=$dbe->query($sqs);
                 $values= $qus->result_array();
+                $vals = str_replace('<iframe ',"<iframe id='featuredVideo' ",$values[0]['iframe-url']);
                 echo $values[0]['name'];
-                echo $values[0]['iframe-url'];
+                echo $vals;
                 ?>
                 </p>
                 </div>
@@ -170,6 +171,19 @@ $(document).ready(function(){
 });	
 	
  });
+</script>
+<script>
+            //var elmnt = document.getElementById("featuredContainer");
+            var width = $('#featuredContainer').width();
+            var txt = $('#featuredContainer').width()+'px';
+            console.log(txt);
+            //alert(txt);
+            var featured = document.getElementById("featuredVideo");
+            featured.style.width = txt;
+            var height = width/1.77;
+            height = height+'px';
+            featured.style.height = height;
+
 </script>
 <div class="modal fade" id="myModal" role="dialog">
   <div class="modal-dialog"> 
