@@ -80,13 +80,13 @@ class user extends DB{
 			$date 	= date('m/d/Y h:i:s a', time()); 
 			$actkey	= md5($date).md5($fields['email']);
 			//check referal
-			if($fields['referral_code']!="") {
+			if(isset($fields['referral_code'])) {
 				$referal=$this->checkreferral($fields['referral_code']);
 				if ($referal != 'False') {
-				$this->generatecode();	
-			 	$sql	= "INSERT INTO wl_customers (`user_name`,`password`,`first_name`,`phone_number`,`status`,`is_verified`,`account_created_date`,`actkey`,`referral_code`, `credit_point`) VALUE ('".$fields['email']."','".$fields['pass']."','".$fields['name']."','".$fields['phone']."','1','1','".$date."','".$actkey."','".$this->generatecode()."', '2')";//die;
-			$insert_qry = mysqli_query($this->conn,$sql);
-			$last_id 	= $this->conn->insert_id;	//New User
+							$this->generatecode();	
+							$sql	= "INSERT INTO wl_customers (`user_name`,`password`,`first_name`,`phone_number`,`status`,`is_verified`,`account_created_date`,`actkey`,`referral_code`, `credit_point`) VALUE ('".$fields['email']."','".$fields['pass']."','".$fields['name']."','".$fields['phone']."','1','1','".$date."','".$actkey."','".$this->generatecode()."', '2')";//die;
+							$insert_qry = mysqli_query($this->conn,$sql);
+							$last_id 	= $this->conn->insert_id;	//New User
 			if($referal == 'Student')
 			{
 				$row		= $this->getStudent_from_referal($fields['referral_code']);  //Referrer
@@ -96,18 +96,20 @@ class user extends DB{
 				$row		= $this->getTeacher_from_referal($fields['referral_code']);  //Referrer
 				$this->addreferralPoint($row['teacher_id'],$row['user_name'],$row['referral_code'],'1',$last_id,$fields['email']);
 			}
-				
-			} else {
-					$response['Result'] = array("status"=>0,"message"=>"referral code Code not valid");
+			$response['Result'] = array("success"=>1,"code"=>0,"msg"=>"Item has been added");
+			} 
+			else{
+				$response['Result'] = array("success"=>0,"code"=>1,"msg"=>"Referral Code Invalid");
 			}
 				
 			} else {
 				
 			 $sql	= "INSERT INTO wl_customers (`user_name`,`password`,`first_name`,`phone_number`,`status`,`is_verified`,`account_created_date`,`actkey`,`referral_code`) VALUE ('".$fields['email']."','".$fields['pass']."','".$fields['name']."','".$fields['phone']."','1','1','".$date."','".$actkey."','".$this->generatecode()."')";
 			$insert_qry = mysqli_query($this->conn,$sql);
+			$response['Result'] = array("success"=>1,"code"=>0,"msg"=>"Item has been added");
 			}
 			
-		$response['Result'] = array("success"=>1,"code"=>0,"msg"=>"Item has been added");
+		
 		}
 	 }
     return json_encode($response);

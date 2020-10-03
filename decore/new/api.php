@@ -100,9 +100,9 @@ switch($action){
   case "referralHistory":
   echo  $response = $usrObj->referralHistory($_REQUEST);
   break;
-  case "testr":
-   echo $response = $usrObj->testr($_REQUEST);
-  break;
+//   case "testr":
+//    echo $response = $usrObj->testr($_REQUEST);
+//   break;
   case "userCreditLogs":
    echo $response = $usrObj->usercreditslogs($_REQUEST);
   break;
