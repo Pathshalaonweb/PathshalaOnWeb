@@ -62,27 +62,27 @@
                 ?>
                 <br><br>
                 <!-- <div class="container"> -->
-                <div class="row">
+                <!-- <div class="row"> -->
                  <!-- <div class="col-1"></div> -->
                  <!-- <p style="font-size:22px; color:#28407A;" align="center"> -->
                  <?php
                 //  echo '<strong>'.$values3[0]['sessions']."</strong> Sessions Conducted By <strong>".$values3[0]['speakers']."</strong> Speakers";
                 //  echo "<br><br>";
                 //  echo "Total Reach: <strong>".$values3[0]['reach']."</strong>&nbsp;&nbsp;&nbsp; Total Views: <strong>".$values3[0]['views']."</strong>";
-                echo "<div class='col-lg-3 col-md-6 col-xs-6'>";
-                echo "<div class='count-content'><h2 style='color:#28407A;'>".$values3[0]['reach']."+</h2><h4>Reach</h4></div>";
-                echo "</div>";
-                echo "<div class='col-lg-3 col-md-6 col-xs-6'>";
-                echo "<div class='count-content'><h2 style='color:#28407A;'>".$values3[0]['speakers']."+</h2><h4>Speakers</h4></div>";
-                echo "</div>";
-                echo "<div class='col-lg-3 col-md-6 col-xs-6'>";
-                echo "<div class='count-content'><h2 style='color:#28407A;'>".$values3[0]['sessions']."+</h2><h4>Sessions</h4></div>";
-                echo "</div>";
-                echo "<div class='col-lg-3 col-md-6 col-xs-6>'";
-                echo "<div class='count-content'><h2 style='color:#28407A;'>".$values3[0]['views']."+</h2><h4>Views</h4></div>";
-                echo "</div>";
+                // echo "<div class='col-lg-3 col-md-6 col-xs-6'>";
+                // echo "<div class='count-content'><h2 style='color:#28407A;'>".$values3[0]['reach']."+</h2><h4>Reach</h4></div>";
+                // echo "</div>";
+                // echo "<div class='col-lg-3 col-md-6 col-xs-6'>";
+                // echo "<div class='count-content'><h2 style='color:#28407A;'>".$values3[0]['speakers']."+</h2><h4>Speakers</h4></div>";
+                // echo "</div>";
+                // echo "<div class='col-lg-3 col-md-6 col-xs-6'>";
+                // echo "<div class='count-content'><h2 style='color:#28407A;'>".$values3[0]['sessions']."+</h2><h4>Sessions</h4></div>";
+                // echo "</div>";
+                // echo "<div class='col-lg-3 col-md-6 col-xs-6>'";
+                // echo "<div class='count-content'><h2 style='color:#28407A;'>".$values3[0]['views']."+</h2><h4>Views</h4></div>";
+                // echo "</div>";
                  ?>
-                 </div>
+                 <!-- </div> -->
                  <!-- </div> -->
                  <!-- </p> -->
             <br><br>
