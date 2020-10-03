@@ -59,7 +59,7 @@ class user extends DB{
  			$incSql 	   ="SHOW TABLE STATUS LIKE 'wl_customers'";
 			$incQuery  	   = mysqli_query($this->conn,$incSql);
 			$INcinfo 	   = mysqli_fetch_array($incQuery);
-			return $invoice_number= "pco".$INcinfo['Auto_increment']; 
+			return $invoice_number= "PATH".$INcinfo['Auto_increment']."S"; 
 	
 	}
 	
@@ -82,13 +82,20 @@ class user extends DB{
 			//check referal
 			if($fields['referral_code']!="") {
 				$referal=$this->checkreferral($fields['referral_code']);
-				if ($referal) {
+				if ($referal != 'False') {
 				$this->generatecode();	
-			 	$sql	= "INSERT INTO wl_customers (`user_name`,`password`,`first_name`,`phone_number`,`status`,`is_verified`,`account_created_date`,`actkey`,`referral_code`) VALUE ('".$fields['email']."','".$fields['pass']."','".$fields['name']."','".$fields['phone']."','1','1','".$date."','".$actkey."','".$this->generatecode()."')";//die;
+			 	$sql	= "INSERT INTO wl_customers (`user_name`,`password`,`first_name`,`phone_number`,`status`,`is_verified`,`account_created_date`,`actkey`,`referral_code`, `credit_point`) VALUE ('".$fields['email']."','".$fields['pass']."','".$fields['name']."','".$fields['phone']."','1','1','".$date."','".$actkey."','".$this->generatecode()."', '2')";//die;
 			$insert_qry = mysqli_query($this->conn,$sql);
-			$last_id 	= $this->conn->insert_id;	
-			$row		= $this->getStudent_from_referal($fields['referral_code']);
-			$this->addreferralPoint($row['customers_id'],$row['user_name'],$row['referral_code'],$last_id,$fields['email']);
+			$last_id 	= $this->conn->insert_id;	//New User
+			if($referal == 'Student')
+			{
+				$row		= $this->getStudent_from_referal($fields['referral_code']);  //Referrer
+				$this->addreferralPoint($row['customers_id'],$row['user_name'],$row['referral_code'],'0',$last_id,$fields['email']);
+			}
+			else if($referal == 'Teacher'){
+				$row		= $this->getTeacher_from_referal($fields['referral_code']);  //Referrer
+				$this->addreferralPoint($row['teacher_id'],$row['user_name'],$row['referral_code'],'1',$last_id,$fields['email']);
+			}
 				
 			} else {
 					$response['Result'] = array("status"=>0,"message"=>"referral code Code not valid");
@@ -105,27 +112,47 @@ class user extends DB{
 	 }
     return json_encode($response);
 }
-	
+	function testr($fields)
+	{
+		
+		echo $this->checkreferral($fields['code']);
+
+	}
 	
 	function checkreferral($code){
+		$arr = 'False';
 		
-		$sql = "SELECT * FROM `wl_customers` where  referral_code='".$code."'";
-		$check_user = mysqli_query($this->conn,$sql);
-        $num_rows 	= mysqli_num_rows($check_user);
-		if($num_rows > 0){
-			return true;
-		}else{
-			return false;
-		}
+			$sql = "SELECT `user_name` FROM `wl_customers` where referral_code='".$code."'";
+			$check_user = mysqli_query($this->conn,$sql);
+			$num_rows 	= mysqli_num_rows($check_user);
+			if($num_rows > 0){
+				$arr = 'Student';
+			}else{
+				$sql2 = "SELECT `user_name` FROM `wl_teacher` where referral_code='".$code."'";
+				$check_user2 = mysqli_query($this->conn,$sql2);
+				$num_rows2 	= mysqli_num_rows($check_user2);
+				if($num_rows2 > 0)
+				{
+					$arr = 'Teacher';
+				}
+				// else{
+				// 	return false;
+				// }
+			}
+			return $arr;
+
 	}	
 	
-	function addreferralPoint($pid,$pemail,$pcode,$cid,$cemail) {
+	function addreferralPoint($pid,$pemail,$pcode,$parent_type,$cid,$cemail) {
 		$date 	= date('m/d/Y h:i:s a', time()); 
+		$chile_type = '0';  //Student
 		$data=array(
 			'parent_id'		=> $pid,
 			'parent_email'	=> $pemail,
+			'parent_type'   => $parent_type,
 			'child_id'		=> $cid,
 			'child_email'	=> $cemail,
+			'child_type'    => $chile_type,
 			'referral_code' => $pcode,
 			'point_added'	=>'2',
 			'created_at'=>$date,
@@ -134,11 +161,24 @@ class user extends DB{
 		
 		//insert in to user credit
 		if($insert){
-			$row			= $this->getStudent($pid);
-			$currentCredit  = $row['credit_point'];
-			$newCredit		= $currentCredit+2;
-			$sql="UPDATE wl_customers SET credit_point = '".$newCredit."' WHERE customers_id='".$pid."'";
-			$select_query 	= mysqli_query($this->conn,$sql);
+			if($parent_type == '0')
+			{
+				$row			= $this->getStudent($pid);
+				$currentCredit  = $row['credit_point'];
+				$newCredit		= $currentCredit+2;
+				$sql="UPDATE wl_customers SET credit_point = '".$newCredit."' WHERE customers_id='".$pid."'";
+				$select_query 	= mysqli_query($this->conn,$sql);
+			}
+			else
+			{
+				$row			= $this->getTeacher($pid);
+				$currentCredit  = $row['current_credit'];
+				$newCredit		= $currentCredit+2;
+				$sql="UPDATE wl_teacher SET current_credit = '".$newCredit."' WHERE teacher_id='".$pid."'";
+				$select_query 	= mysqli_query($this->conn,$sql);				
+
+			}
+
 		}
 		/*$data2=array(
 			'student_id' => $cid
@@ -422,13 +462,24 @@ class user extends DB{
 	 $rec = mysqli_fetch_array($select_query);
 	 return $rec;
   }
-  
+  public function getTeacher($fields){
+	$sql="Select * from wl_teacher where teacher_id='".$fields."' ";//die;
+   $select_query = mysqli_query($this->conn,$sql);
+   $rec = mysqli_fetch_array($select_query);
+   return $rec;
+}  
   public function getStudent_from_referal($fields){
 	 $sql="Select * from wl_customers where referral_code='".$fields."'";
 	 $select_query = mysqli_query($this->conn,$sql);
 	 $rec = mysqli_fetch_array($select_query);
 	 return $rec;
   }
+  public function getTeacher_from_referal($fields){
+	$sql="Select * from wl_teacher where referral_code='".$fields."'";
+	$select_query = mysqli_query($this->conn,$sql);
+	$rec = mysqli_fetch_array($select_query);
+	return $rec;
+ }
 	 
 	
 	 function getStudentAddress($id){

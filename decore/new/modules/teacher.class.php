@@ -16,37 +16,36 @@ class Teacher extends DB{
 		$data = str_replace($val, "", $data);
   		return $data;
 	}
-	
 	function loginAction($fields){
 		
 		$response = array();
-		 if($fields['userName']=="" || $fields['pass']==""){
-			  $response = array("success"=>0,"code"=>0,"message"=>"Email ID or password can not be blank");
-   	 	}else{ 
-		$select_query = mysqli_query($this->conn,"Select * from wl_teacher where user_name='".$fields['userName']."'");
-		$chk_user = mysqli_num_rows($select_query);
-		if($chk_user > 0){
-		$rec = mysqli_fetch_array($select_query);
-		if( $rec['password'] == $fields['pass'] ){
-		$response['Result'] = array("success"=>1,"code"=>0);
-		//$response = array("status"=>1);
-		if($rec['picture']==""){
-			
-			$image_url="https://www.pathshala.co/assets/designer/themes/default/images/logo_new.png";
-			}else{
-			   $image_url = "https://www.pathshala.co//uploaded_files/teacher/".$rec['picture'];
-
-			}
-		$response['Result']['data'][] = array( 
-		  					"teacher_id"  	=>$rec['teacher_id'],
-							"user_name"  		=>$rec['user_name'],
-							"first_name" 		=>$rec['first_name'],
-							"picture" 	 		=>$image_url,
-							"address" 			=>$rec['address'],
-							"pincode"  			=>$rec['pincode'],
-							"status"  			=>$rec['status'],
-							"is_verified"   	=>$rec['is_verified'],
-							"phone_number"  	=>$rec['phone_number'],
+		if($fields['userName']=="" || $fields['pass']==""){
+			$response = array("success"=>0,"code"=>0,"message"=>"Email ID or password can not be blank");
+		}else{ 
+			$select_query = mysqli_query($this->conn,"Select * from wl_teacher where user_name='".$fields['userName']."'");
+			$chk_user = mysqli_num_rows($select_query);
+			if($chk_user > 0){
+				$rec = mysqli_fetch_array($select_query);
+				if( $rec['password'] == $fields['pass'] ){
+					$response['Result'] = array("success"=>1,"code"=>0);
+					//$response = array("status"=>1);
+					if($rec['picture']==""){
+						
+						$image_url="https://www.pathshala.co/assets/designer/themes/default/images/logo_new.png";
+					}else{
+						$image_url = "https://www.pathshala.co//uploaded_files/teacher/".$rec['picture'];
+						
+					}
+					$response['Result']['data'][] = array( 
+						"teacher_id"  	=>$rec['teacher_id'],
+						"user_name"  		=>$rec['user_name'],
+						"first_name" 		=>$rec['first_name'],
+						"picture" 	 		=>$image_url,
+						"address" 			=>$rec['address'],
+						"pincode"  			=>$rec['pincode'],
+						"status"  			=>$rec['status'],
+						"is_verified"   	=>$rec['is_verified'],
+						"phone_number"  	=>$rec['phone_number'],
 							"mobile_number"  	=>$rec['mobile_number'],
 							"current_credit"  	=>$rec['current_credit'],
 							"youtube"		  	=>$rec['youtube'],
@@ -55,30 +54,42 @@ class Teacher extends DB{
 							"description"		=>$rec['description'],
 							
 						);
-		}else{
-			$response = array("status"=>0,'message'=>"Invalid password");
-		}
-		}else{
-			$response = array("status_code"=>0,"status"=>0,'message'=>"Invalid user");
-		}
-		}
-		return json_encode($response);
+					}else{
+						$response = array("status"=>0,'message'=>"Invalid password");
+					}
+				}else{
+					$response = array("status_code"=>0,"status"=>0,'message'=>"Invalid user");
+				}
+			}
+			return json_encode($response);
 
-	}
-	
-	
-	
-	function registerUser($fields){
+		}
 		
-		if($fields['email']=="" || $fields['pass']==""){
-			$response = array("success"=>0,"code"=>0,"message"=>"Email ID or password can not be blank");
-		}else{
-			$sql="Select * from wl_teacher where user_name='".$fields['email']."'";
+		function generatecode(){
+			$incSql 	   ="SHOW TABLE STATUS LIKE 'wl_teacher'";
+		   $incQuery  	   = mysqli_query($this->conn,$incSql);
+		   $INcinfo 	   = mysqli_fetch_array($incQuery);
+		   return $invoice_number= "PATH".$INcinfo['Auto_increment']."T"; 
+	
+	}
+		
+		
+		function registerUser($fields){
+			
+			if($fields['email']=="" || $fields['pass']==""){
+				$response = array("success"=>0,"code"=>0,"message"=>"Email ID or password can not be blank");
+			}else{
+				$sql="Select * from wl_teacher where user_name='".$fields['email']."'";
 			$check_user = mysqli_query($this->conn,$sql);
 			$num_rows = mysqli_num_rows($check_user);
 			if($num_rows > 0){
 				$response['Result'] = array("status"=>0,"message"=>"This email id is already registered");
 			}else{
+				if(isset($fields['referral_code']))
+				{
+					// Code to be done here.
+
+				}
 				
 				$date 	= date('Y-m-d h:i:s a', time()); 
 				$actkey	= md5($date).md5($fields['email']);
@@ -91,6 +102,60 @@ class Teacher extends DB{
 		}
 		return json_encode($response);
 	}
+
+	//*****************Referral *****************************
+	function checkreferral($code){
+		
+		$sql = "SELECT * FROM `wl_customers` where  referral_code='".$code."'";
+		$check_user = mysqli_query($this->conn,$sql);
+		$num_rows 	= mysqli_num_rows($check_user);
+		if($num_rows > 0){
+			return true;
+		}else{
+			$sql2 = "SELECT * FROM `wl_teacher` where  referral_code='".$code."'";
+			$check_user2 = mysqli_query($this->conn,$sql2);
+			$num_rows2 	= mysqli_num_rows($check_user2);
+			if($num_rows2 > 0)
+			{
+				return true;
+			}
+			// else{
+			// 	return false;
+			// }
+			return false;
+		}
+
+}	
+
+function addreferralPoint($pid,$pemail,$pcode,$cid,$cemail) {
+	$date 	= date('m/d/Y h:i:s a', time()); 
+	$data=array(
+		'parent_id'		=> $pid,
+		'parent_email'	=> $pemail,
+		'child_id'		=> $cid,
+		'child_email'	=> $cemail,
+		'referral_code' => $pcode,
+		'point_added'	=>'2',
+		'created_at'=>$date,
+	);
+	$insert=$this->qry_insert('customer_referral_history',$data);
+	
+	//insert in to user credit
+	if($insert){
+		$row			= $this->getStudent($pid);
+		$currentCredit  = $row['credit_point'];
+		$newCredit		= $currentCredit+2;
+		$sql="UPDATE wl_customers SET credit_point = '".$newCredit."' WHERE customers_id='".$pid."'";
+		$select_query 	= mysqli_query($this->conn,$sql);
+	}
+	/*$data2=array(
+		'student_id' => $cid
+	);
+	$insert=$this->qry_insert('wl_student_credit_record',$data2);
+	*/
+}
+
+
 	
 
 	function forgotPassword($fields){
