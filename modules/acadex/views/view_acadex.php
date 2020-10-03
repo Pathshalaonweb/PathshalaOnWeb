@@ -53,6 +53,21 @@
                 </div>
               </div>
             </form>
+            <?php 
+                // INSERT Featured post here
+                $dbe = $this->load->database('default', TRUE);
+                $sqs3 = "SELECT * FROM `wl_counter`";
+                $qus3=$dbe->query($sqs3);
+                $values3= $qus3->result_array();
+                ?>
+                <br><br>
+                 <p style="font-size:22px; color:#28407A;" align="center">
+                 <?php
+                 echo '<strong>'.$values3[0]['sessions']."</strong> Sessions Conducted By <strong>".$values3[0]['speakers']."</strong> Speakers";
+                 echo "<br><br>";
+                 echo "Total Reach: <strong>".$values3[0]['reach']."</strong>&nbsp;&nbsp;&nbsp; Total Views: <strong>".$values3[0]['views']."</strong>";
+                 ?>
+                 </p>
             <br><br>
                 <ul class="nav nav-pills center-pills" id="myTab" role="tablist">
   <li class="nav-item">
