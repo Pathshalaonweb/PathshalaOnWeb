@@ -1308,7 +1308,7 @@ class user extends DB{
 	{
 		if(isset($fields['upcoming']))
 		{
-			$sqs1 = "SELECT * FROM `wl_acadex` WHERE `status`='1' AND `featured`!='1' AND upcoming='".$fields['upcoming']."' ORDER BY `id`";
+			$sqs1 = "SELECT * FROM `wl_acadex` WHERE `status`='1' AND `featured`='0' AND upcoming='".$fields['upcoming']."' ORDER BY `id`";
 			$sq_query = mysqli_query($this->conn,$sqs1);
 			$arr['Data'] = array("success"=>1,"code"=>1, "message"=>"success");
 			while($rq  = mysqli_fetch_array($sq_query))
