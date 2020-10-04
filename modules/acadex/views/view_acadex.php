@@ -55,10 +55,10 @@
             </form>
             <?php 
                 // INSERT Featured post here
-                $dbe = $this->load->database('default', TRUE);
-                $sqs3 = "SELECT * FROM `wl_counter`";
-                $qus3=$dbe->query($sqs3);
-                $values3= $qus3->result_array();
+                // $dbe = $this->load->database('default', TRUE);
+                // $sqs3 = "SELECT * FROM `wl_counter`";
+                // $qus3=$dbe->query($sqs3);
+                // $values3= $qus3->result_array();
                 ?>
                 <br><br>
                 <!-- <div class="container">
