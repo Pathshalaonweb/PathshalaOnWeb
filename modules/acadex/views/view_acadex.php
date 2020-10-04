@@ -61,8 +61,8 @@
                 $values3= $qus3->result_array();
                 ?>
                 <br><br>
-                <!-- <div class="container"> -->
-                <!-- <div class="row"> -->
+                <!-- <div class="container">
+                <div class="row"> -->
                  <!-- <div class="col-1"></div> -->
                  <!-- <p style="font-size:22px; color:#28407A;" align="center"> -->
                  <?php
@@ -82,10 +82,10 @@
                 // echo "<div class='count-content'><h2 style='color:#28407A;'>".$values3[0]['views']."+</h2><h4>Views</h4></div>";
                 // echo "</div>";
                  ?>
-                 <!-- </div> -->
-                 <!-- </div> -->
+                 <!-- </div>
+                 </div> -->
                  <!-- </p> -->
-            <br><br>
+            <!-- <br><br> -->
                 <ul class="nav nav-pills center-pills" id="myTab" role="tablist">
   <li class="nav-item">
     <a style="font-size:17px;" class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Upcoming</a>
