@@ -1316,7 +1316,7 @@ class user extends DB{
 				$arr['Result']['data'][] = array(
 					'id' => $rq['id'],
 					'name' => $rq['name'],
-					'iframe-url' => $rq['iframe-url'],
+					'iframe-url' => $rq['app-url'],
 					'featured' => $rq['featured'],
 				);
 			}
@@ -1336,7 +1336,7 @@ class user extends DB{
 				$arr['Result']['data'][] = array(
 					'id' => $rq['id'],
 					'name' => $rq['name'],
-					'iframe-url' => $rq['iframe-url'],
+					'iframe-url' => $rq['app-url'],
 					'featured' => $rq['featured'],
 				);
 			}
