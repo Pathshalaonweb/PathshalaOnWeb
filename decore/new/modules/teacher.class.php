@@ -111,7 +111,7 @@ class Teacher extends DB{
 					}
 					else
 					{
-						$response['Result'] = array("success"=>0,"code"=>1,"msg"=>"Referral Code Invalid");
+						$response['Result'] = array("success"=>0,"code"=>1,"message"=>"Referral Code Invalid");
 					}
 
 				}
