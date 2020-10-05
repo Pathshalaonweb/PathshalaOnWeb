@@ -99,7 +99,7 @@ class user extends DB{
 			$response['Result'] = array("success"=>1,"code"=>0,"msg"=>"Item has been added");
 			} 
 			else{
-				$response['Result'] = array("success"=>0,"code"=>1,"msg"=>"Referral Code Invalid");
+				$response['Result'] = array("success"=>0,"code"=>1,"message"=>"Referral Code Invalid");
 			}
 				
 			} else {
