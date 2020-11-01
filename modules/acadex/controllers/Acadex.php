@@ -528,6 +528,10 @@ class Acadex extends Public_Controller
 		$name = $this->input->post('first_name',TRUE);
 		$phone = $this->input->post('phone_number',TRUE);
 		$acadex_id = $this->input->post('acadex',TRUE);
+		if($acadex_id == "")
+		{
+		   echo "<script>alert('Please Select a Category from Dropdown'); window.location = '".base_url()."acadex/register'</script>";
+		}
 		$acadex_str = implode(",",$acadex_id);
 		$ch = curl_init();  
 		$url = "https://www.pathshala.co/decore/new/api.php?action=Login&userName=".$email."&pass=nullpass";
@@ -559,9 +563,9 @@ class Acadex extends Public_Controller
 			{
 				$dbe = $this->load->database('default', TRUE);
 				$ip=$_SERVER['REMOTE_ADDR'];
-				for($i=0;$i<count($acadex_str);$i++)
+				for($i=0;$i<count($acadex_id);$i++)
 				{
-					$sqq = "INSERT INTO `wl_acadex_register` (`emailid`, `acadex_id`, `ip`, `user_type`) values ('".$email."','".$acadex_str[$i]."','".$ip."', '1')";
+					$sqq = "INSERT INTO `wl_acadex_register` (`emailid`, `acadex_id`, `ip`, `user_type`) values ('".$email."','".$acadex_id[$i]."','".$ip."', '1')";
 					$que = $dbe->query($sqq); 
 				}
 				// $sqq = "INSERT INTO `wl_acadex_register` (`emailid`, `acadex_id`, `ip`, `user_type`) values ('".$email."','".$acadex_id."','".$ip."', '1')";
@@ -577,9 +581,9 @@ class Acadex extends Public_Controller
 			// Old User
 			$dbe = $this->load->database('default', TRUE);
 			$ip=$_SERVER['REMOTE_ADDR'];
-			for($i=0;$i<count($acadex_str);$i++)
+			for($i=0;$i<count($acadex_id);$i++)
 				{
-					$sqq = "INSERT INTO `wl_acadex_register` (`emailid`, `acadex_id`, `ip`) values ('".$email."','".$acadex_str[$i]."','".$ip."')";
+					$sqq = "INSERT INTO `wl_acadex_register` (`emailid`, `acadex_id`, `ip`) values ('".$email."','".$acadex_id[$i]."','".$ip."')";
 					$que = $dbe->query($sqq); 
 				}
 			// $sqq = "INSERT INTO `wl_acadex_register` (`emailid`, `acadex_id`, `ip`) values ('".$email."','".$acadex_id."','".$ip."')";
