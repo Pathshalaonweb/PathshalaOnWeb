@@ -24,7 +24,7 @@
                   <br>
                   <h4 style="font-family: 'Roboto', sans-serif; color: #1b68b5;">Upcoming Sessions</h4>
                   <select name="acadex[]" id="acadexDetails" multiple required>
-                  <option value="" selected disabled>Please Select a Session</option>
+                  <!-- <option value="" selected disabled>Please Select a Session</option> -->
                   <?php 
                   $db2 = $this->load->database('default', TRUE);
                   $sql="SELECT `name`, `id` FROM `wl_acadex` where `status`='1' AND `upcoming`='1' ORDER BY `time`";
