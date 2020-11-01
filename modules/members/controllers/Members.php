@@ -334,6 +334,10 @@ class Members extends Private_Controller{
 		}
 	 }
 	}
+	public function credithistory()
+	{
+		$this->load->view('members/view_member_credit_history','');
+	}
 	
 }
 /* End of file member.php */
