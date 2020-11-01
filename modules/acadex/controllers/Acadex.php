@@ -528,6 +528,7 @@ class Acadex extends Public_Controller
 		$name = $this->input->post('first_name',TRUE);
 		$phone = $this->input->post('phone_number',TRUE);
 		$acadex_id = $this->input->post('acadex',TRUE);
+		$acadex_str = implode(",",$acadex_id);
 		$ch = curl_init();  
 		$url = "https://www.pathshala.co/decore/new/api.php?action=Login&userName=".$email."&pass=nullpass";
 		curl_setopt($ch,CURLOPT_URL,$url);
@@ -558,8 +559,13 @@ class Acadex extends Public_Controller
 			{
 				$dbe = $this->load->database('default', TRUE);
 				$ip=$_SERVER['REMOTE_ADDR'];
-				$sqq = "INSERT INTO `wl_acadex_register` (`emailid`, `acadex_id`, `ip`, `user_type`) values ('".$email."','".$acadex_id."','".$ip."', '1')";
-				$que = $dbe->query($sqq); 
+				for($i=0;$i<count($acadex_str);$i++)
+				{
+					$sqq = "INSERT INTO `wl_acadex_register` (`emailid`, `acadex_id`, `ip`, `user_type`) values ('".$email."','".$acadex_str[$i]."','".$ip."', '1')";
+					$que = $dbe->query($sqq); 
+				}
+				// $sqq = "INSERT INTO `wl_acadex_register` (`emailid`, `acadex_id`, `ip`, `user_type`) values ('".$email."','".$acadex_id."','".$ip."', '1')";
+				// $que = $dbe->query($sqq); 
 				echo "<script>alert('Registered Successfully, Proceed With Login.'); window.location = '".base_url()."users/login'</script>";
 
 			}
@@ -571,8 +577,13 @@ class Acadex extends Public_Controller
 			// Old User
 			$dbe = $this->load->database('default', TRUE);
 			$ip=$_SERVER['REMOTE_ADDR'];
-			$sqq = "INSERT INTO `wl_acadex_register` (`emailid`, `acadex_id`, `ip`) values ('".$email."','".$acadex_id."','".$ip."')";
-			$que = $dbe->query($sqq); 
+			for($i=0;$i<count($acadex_str);$i++)
+				{
+					$sqq = "INSERT INTO `wl_acadex_register` (`emailid`, `acadex_id`, `ip`) values ('".$email."','".$acadex_str[$i]."','".$ip."')";
+					$que = $dbe->query($sqq); 
+				}
+			// $sqq = "INSERT INTO `wl_acadex_register` (`emailid`, `acadex_id`, `ip`) values ('".$email."','".$acadex_id."','".$ip."')";
+			// $que = $dbe->query($sqq); 
 			echo "<script>alert('Registered Successfully. Proceed With Login'); window.location = '".base_url()."users/login'</script>";
 
 		}
