@@ -23,11 +23,11 @@
                   <input type="password" name="password" id="password" placeholder="Password" value="<?php echo set_value('password');?>">
                   <br>
                   <h4 style="font-family: 'Roboto', sans-serif; color: #1b68b5;">Upcoming Sessions</h4>
-                  <select name="acadex" id="acadexDetails" required>
+                  <select name="acadex[]" id="acadexDetails" multiple required>
                   <option value="" selected disabled>Please Select a Session</option>
                   <?php 
                   $db2 = $this->load->database('default', TRUE);
-                  $sql="SELECT `name`, `id` FROM `wl_acadex` where `status`='1' ORDER BY `time`";
+                  $sql="SELECT `name`, `id` FROM `wl_acadex` where `status`='1' AND `upcoming`='1' ORDER BY `time`";
                   $query=$db2->query($sql);
                   if($query->num_rows()>0){
                   foreach($query->result_array() as $val):
@@ -129,6 +129,8 @@
 <!-- Plugins JS --> 
 <script src="<?php echo base_url(); ?>/assets/designer/themes/default/js/plugins.js"></script> 
 <script src="<?php echo base_url(); ?>/assets/designer/themes/default/js/main.js"></script>
+<script type="text/javascript" src="https://pathshala007.s3.ap-south-1.amazonaws.com/bootstrap-multiselect.js"></script>
+<link rel="stylesheet" href="https://pathshala007.s3.ap-south-1.amazonaws.com/bootstrap-multiselect.css" type="text/css"/>
 <script>
   function validate()
   {
@@ -188,4 +190,15 @@ $('#acadexDetails').on('change',function(){
     });  
 });
 </script> -->
+<script>
+var width = document.getElementById("name").offsetWidth+'px';
+$('#acadexDetails').multiselect(
+                      {
+                        includeSelectAllOption: true,
+                        maxHeight: 400,
+                        buttonWidth: width,
+                        dropDown: true,
+                        inheritClass: true
+                      });
+</script>
 </body></html>
