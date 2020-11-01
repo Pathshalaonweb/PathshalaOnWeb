@@ -27,8 +27,8 @@
                   <option value="" selected disabled>Please Select a Session</option>
                   <?php 
                   $db2 = $this->load->database('default', TRUE);
-                  $sql="SELECT `name`, `id` FROM `wl_acadex` where `status`='1' ORDER BY `time`";
-                  $query=$db2->query($sql);
+                  $sql="SELECT `name`, `id` FROM `wl_acadex` where `status`='1' AND `upcoming`='1' ORDER BY `time`";
+                 $query=$db2->query($sql);
                   if($query->num_rows()>0){
                   foreach($query->result_array() as $val):
                   ?>                  
