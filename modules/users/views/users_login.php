@@ -41,7 +41,7 @@
                     <div class="login-toggle-btn">
                       <input type="checkbox"  name="remember" id="remember" value="Y"<?php if(get_cookie('userName')!=""){ ?> checked="checked" <?php } ?> >
                       <label>Remember me</label>
-                     <a href="<?php echo base_url();?>users/forgotten_password"> Forgot Password</a><a style="" href="<?php echo base_url();?>users/register"> Student Register/ </a></div>
+                     <a href="<?php echo base_url();?>users/forgotten_password"> Forgot Password</a><a style="" href="<?php echo base_url();?>affiliate/register/student"> Student Register/ </a></div>
                     <input type="hidden" name="action" value="Add">
                     <input type="hidden" name="ref" value="<?php echo $ref;?>" />
                     <button class="default-btn" type="submit"><span>Login</span></button> 

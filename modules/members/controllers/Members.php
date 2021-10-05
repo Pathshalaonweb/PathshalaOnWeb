@@ -76,6 +76,8 @@ class Members extends Private_Controller{
 						'address'				 =>$this->input->post('address'),
 						'pincode'				 =>$this->input->post('pincode'),
 						'description'			 =>$this->input->post('description'),
+						'state_id'			 	 =>$this->input->post('state_id'),
+						'city_id'			 		 =>$this->input->post('city'),
 						//'class'			 		 =>$this->input->post('class'),
 						//'subject'			 	 =>$this->input->post('subject')
 						'profile_edit'			 => '1',

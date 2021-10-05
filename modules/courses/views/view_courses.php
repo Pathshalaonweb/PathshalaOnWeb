@@ -1,13 +1,37 @@
-<?php $this->load->view('top_application'); ?>
+<?php 
+						$mem_info=get_db_single_row('wl_teacher',$fields="first_name,description,is_verified,current_credit,profile_edit,plan_expire,email_verify,teacher_id",$condition="WHERE 1 AND teacher_id='".$val[teacher_id]."'");
+						
+						?>
+						
+						<?php $con=mysqli_connect("localhost", "root","Pathshala@1a", "pathshal_newlms");?>
 
-<div class="breadcrumb-area">
-  <div class="breadcrumb-top bg-img breadcrumb-overly-3 pt-100 pb-95" style="background-image:url(<?php echo theme_url();?>lms_searchbg.jpg);">
-    <div class="container">
-      <form style="width: 100%;margin: 0 auto;" class="lms_search">
-        <div class="row">
-          <div class="col-md-3"></div>
-          <div class="col-md-3">
-            <select name="category" onChange="searchFilter()" id="category" class="form-control">
+<!-- Trial Code -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  
+</head>
+
+<body>
+<header><?php $this->load->view('top_application');?></header>
+
+	<div class="container-fluid" >
+	<div class="row">
+		<div class="d-flex flex-column col-12 col-lg-6 column_m1 ">
+			<h1 class="heading">Find the Best Course & Become Master</h1>
+			<p class="aboutp">School K-12 Subjects | NCERT Solutions | Competitve Coaching | College Courses</p>
+			<div class="d-flex flex-row">
+				<select name="category" onChange="searchFilter()" id="category" class="form-control form-control-new">
               <option value="">Select category</option>
               <?php 
 	  		$db2 = $this->load->database('database2', TRUE);
@@ -21,132 +45,276 @@
               <option value="<?php echo $val['category_id']?>"><?php echo $val['category_name']?></option>
               <?php } endforeach;?>
             </select>
-          </div>
-          <div class="col-md-3">
-            <select id="subject" name="subject" onChange="searchFilter()" class="form-control">
+     
+            <select id="subject" name="subject" onChange="searchFilter()" class="form-control form-control-new">
               <option value="">Select Subject</option>
             </select>
-          </div>
-          <div class="col-md-3"></div>
-          <!--<div class="col-md-3">
-            <input type="text" name="" placeholder="Experience" style="background:#ffffff">
-          </div>--> 
-          <!--<div class="col-md-3">
-            <input type="submit" class="btn btn-success btn-sm bold" value="search">
-          </div>--> 
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-<div class="event-area my-acc pt-20 pb-130">
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-3 col-lg-8 left_lms">
-        <div class="sidebar-style">
-          <div class="sidebar-search mb-40">
-            <div class="sidebar-title mb-40">
-              <h4 class="left_lms_heading">Popular Courses</h4>
-            </div>
-          </div>
-          <div class="sidebar-category mb-40">
-            <div class="category-list">
-              <ul>
-                <?php
-				//print_r($res);
-				$db2 = $this->load->database('database2', TRUE); 
-				$sql="SELECT * FROM `tbl_department` where status='1' AND  parent_id='0'";
-				$query=$db2->query($sql);
-				foreach($query->result_array() as $val){
-          if($val['category_id'] == 23 || $val['category_id'] == 24)
-          { }
-          else { 
-				?>
-                <li><a href="#"><?php echo $val['category_name']?></a></li>
-          <?php } ?>
-                <?php  }?>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-9 col-lg-8 lms_right">
-        <div class="blog-all-wrap mr-40">
-          <div class="row">
-            <div class="container">
-              <h3 class="proTitle">Latest Courses</h3>
-            </div>
-            <form method="post">
-              <div class="container" id="postList">
-                <div class="row">
-               <?php
+			
+		</div>	
+	</div>
+	<div class="columnImage col-12 col-lg-6">
+		<img class="main_img" src="<?php echo base_url();?>uploaded_files/userfiles/images/10516.jpg" alt="courses">	
+	</div>
+	</div>
+	<?php $con=mysqli_connect("localhost", "root","Pathshala@1a", "pathshal_newlms");
+			$sql2="SELECT count(courses_id) FROM `tbl_courses`" ;
+			$result2=mysqli_query($con,$sql2);
+			$row2=mysqli_fetch_row($result2);
+			$str2 = implode($row2); 
+				
+			$sql4="SELECT count(distinct teacher_id) FROM `tbl_courses` " ;
+			$result4=mysqli_query($con,$sql4);
+			$row4=mysqli_fetch_row($result4);
+			$str4 = implode($row4); 
+			 ?>
+	<div class="d-flex flex-row mb-2 m-lg-3">
+	<div class="d-flex flex-column m-1">
+	<h1 class="subheading">The India's largest Selection of Pathshala courses</h1>
+	<p class="subabout">Choose from <?php echo $str2?>+ online courses with new additions published every month.<br>Courses uploaded by <?php echo $str4?>+ teachers available on Pathshala</p>
+	</div>
+	<input class="ml-auto searchCourses" placeholder="&#x1F50E;&#xFE0E; Search Courses"></input>
+	</div>
+	<?php $conn=mysqli_connect("localhost", "root","Pathshala@1a", "pathshal_pathshala");
+			$sql1="SELECT count(customers_id) FROM `wl_customers`" ;
+			$result1=mysqli_query($conn,$sql1);
+			$row1=mysqli_fetch_row($result1);
+			$str1 = implode($row1); 
+			?>
+			
+		<?php
+			$sql3="SELECT count(customers_id) FROM `wl_order` WHERE customers_id<>0 & payment_status='paid'" ;
+			$result3=mysqli_query($conn,$sql3);
+			$row3=mysqli_fetch_row($result3);
+			$str3 = implode($row3); 
+			 ?>
+	<div class="d-flex flex-column column2 shadow mb-4 pb-3">
+		<div class="d-flex flex-column m-1 m-lg-3">
+		<div class="d-flex flex-row">`
+		<div style="width:90vw;">
+		<h1 class="subheading2">Expand your career opportunities with Pathshala Learning</h1>
+		</div>
+		<div class="ml-auto courseButtonCon mr-2" style="width:15vw;">
+		<button class="btn btn-outline-primary courseButton">Explore Courses</button>
+		</div>
+		</div>
+		<p class="subabout2"><?php echo $str1?>+ learners have already enrolled with <?php echo $str3?>+ courses. Whether you are in academic field, arts, dance or any extra-curricular courses. <br>We offer variety of courses to widen your area of interest, knowledge & skills you can learn from Pathshala courses.</p>
+		
+		 
+		
+		<div class="d-flex flex-row courseMain mb-3">
+		<?php
+			
+			$scccat=$val['category_id'];
+			$scc="SELECT * FROM `tbl_courses` where `category_id`='$scccat' ORDER BY courses_id desc limit 10";
+			$query=mysqli_query($con,$scc);
+      foreach($query as $sccr){
+	  		?>
+		
+		<div class="d-flex flex-column coursePage shadow p-2 m-2">
+		<?php if(!empty($sccr['image'])) {?>
+		<a href="<?php echo base_url();?>courses/detail/<?php echo $sccr['courses_friendly_url']?>"><img class="courseThumbnail mb-2 ml-1" src="<?php echo base_url();?>lms/uploaded_files/courses/<?php echo $sccr['image']?>" alt="img"/></a>
+		<?php } else {?>
+                    <a href="<?php echo base_url();?>courses/detail/<?php echo $sccr['courses_friendly_url']?>">   <img class="courseThumbnail mb-2 ml-1" src="https://pathshala.co/uploaded_files/thumb_cache/thumb_190_190_noimg1.gif"/><!--class="openPopup"--></a>
+                        <?php }?>
+		<div style="height:50px;">
+		<h4 class="courseHeading"><a href="<?php echo base_url();?>courses/detail/<?php echo $sccr['courses_friendly_url']?>"><?php echo $sccr['courses_name']?></a></h4>
+		</div>
+		<div style="height:25px;">
+		<p class="courseInstructor"><a href="<?php echo base_url();?>teacher/profile/<?php echo $mem_info['teacher_id'];?>/<?php echo url_title($mem_info['first_name']);?>" target="_blank"><?php echo $mem_info['first_name']?></a></p>
+		</div>
+		<!--<div style="height:35px;">
+		<p class="starRating"><span class="starCount">4.6 <span >
+		  <//?php for ($x = 1; $x <= 5; $x++) {?>
+                <i class="fa fa-star <//?php if($x > $rating){echo "-o";}?> starcolor"></i>
+              <//?php }?> 
+                </span></span> (42998)</p>
+	    </div>-->
+		  <div class="mb-2" style="height:40px;">
+				<p class="fees"><span class="rupeeIcon"></span><?php if($sccr['price']==1){?>&#x20B9; Free</p> 
+							   <?php }else{ ?>
+							   <div class="d-flex flex-row pb-2">
+                                <p class="pricedetail1 mr-auto ml-1">&#x20B9; <?php echo $sccr['price'];?></p> 
+                                <p class="pricedetail1 ml-auto mr-3">Credit Point :<?php echo $sccr['credit_price'];?></p></div>
+                                <?php }?>
+					</div>
+			
+
+				 <div style="height:30px;">
+		<div class="d-flex flex-row">
+			
+			
+			<?php if($this->session->userdata('user_id') > 0 ){?>
+                     <a href="<?php echo base_url();?>/courses/enrollDetail/<?php echo $sccr['courses_id']?>" ><button class="btn btn-outline-info buyButton">Pay Now</button></a>
+                     
+                       <?php if($sccr['price']!=1){?>
+                       
+                     <a href="<?php echo base_url();?>/courses/enrollDetailStoreCredit/<?php echo $sccr['courses_id']?>" ><button class="btn btn-outline-info buyButton">Use credit Points</button></a>
+                      <?php }?>
+                     
+                      <?php }else{?>
+                     <a href="<?php echo base_url();?>users/login" ><button class="btn btn-outline-info buyButton">Login Now</button></a>
+					 
+                      <?php }?>    
+			
+        </div>	
+		</div>
+	
+		</div>
+		<?php } ?>
+		</div>
+		
+	
+	</div>
+	</div>
+	<div class="d-none d-lg-inline">
+	<hr class="hrline">
+	<div class="d-flex flex-row">
+	<div class="d-flex flex-row col-4">
+	<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-play-fill icons mt-auto mb-auto" viewBox="0 0 16 16">
+  <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+</svg>
+	<p class="playText ml-3 mt-auto mb-auto">Over <?php echo $str2?> courses on career, personal skills and many more.</p>
+	</div>
+	<div class="d-flex flex-row col-4">
+	<p class="infinityicon mt-auto mb-auto" >&#8734;</p>
+	<p class="playText ml-3 mt-auto mb-auto">Learn at your own pace, with lifetime access on mobile and desktop</p>
+	</div>
+	<div class="d-flex flex-row col-4">
+	<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-star-fill icons mt-auto mb-auto" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+	<p class="playText ml-3 mt-auto mb-auto">Choose from top teachers instruction's across the country</p>
+	</div>
+	</div>
+	<hr class="hrline">
+	</div>
+	
+	<div class="d-lg-none">
+	<div class="d-flex flex-column">
+	<hr class="hrline">
+	<div class="d-flex flex-row col-12">
+	<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-play-fill icons mt-auto mb-auto" viewBox="0 0 16 16">
+  <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+</svg>
+	<p class="playText ml-3 mt-auto mb-auto">Over 155,000 video courses on career and personal skills</p>
+	</div>
+	<hr class="hrline">
+	<div class="d-flex flex-row col-12">
+	<p class="infinityicon mt-auto mb-auto" width="40" height="40" >&#8734;</p>
+	<p class="playText ml-3 mt-auto mb-auto">Learn at your own pace, with lifetime access on mobile and desktop</p>
+	</div>
+	<hr class="hrline">
+	<div class="d-flex flex-row col-12">
+	<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-star-fill icons mt-auto mb-auto" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+	<p class="playText ml-3 mt-auto mb-auto">Choose from top industry instructions across the world</p>
+	</div>
+	</div>
+	<hr class="hrline">
+	</div>
+	
+	<h1 class="subheading m-4">Similar Courses</h1>
+
+	
+		<form method="post">
+  <div class=" bg-light" id="postList">
+
+
+<div class="row ml-auto mr-auto" data-aos="zoom-in" data-aos-delay="100">
+   <?php
                 if(is_array($res) && !empty($res)) {
                 foreach($res as $val) {
-               ?>
-               <div class="col-xl-4 col-lg-6 col-md-6 col-sm-4 listAll">
-                    <div class="single-blog">
-                      <div class="blog-img"> <a href="javascript:void(0)" data-id="<?php echo $val['courses_id']?>">
-                        <?php if(!empty($val['image'])) {?>
-                        <a href="<?php echo base_url();?>courses/detail/<?php echo $val['courses_friendly_url']?>"> <img src="<?php echo base_url();?>lms/uploaded_files/courses/<?php echo $val['image']?>" alt="" data-href="<?php echo base_url();?>courses/coursedetail/<?php echo $val['courses_id'];?>" data-name="<?php echo $val['courses_name']?>"></a>
-                        <?php } else {?>
-                        <a href="<?php echo base_url();?>courses/detail/<?php echo $val['courses_friendly_url']?>"> <img src="<?php echo get_image('category',$val['image'],50,50,'AR');?>"/><!--class="openPopup"--></a>
+               ?> 
+		  
+	   
+       <div class="col-xl-4 col-lg-6 col-md-6 col-sm-4 listAll">
+         <div class="d-flex flex-column coursePage2 shadow p-2 m-1">
+		 <?php if(!empty($val['image'])) {?>
+		<img class="courseThumbnail2 mb-2 ml-1" src="<?php echo base_url();?>lms/uploaded_files/courses/<?php echo $val['image']?>" alt="img"/>
+		<?php } else {?>
+                        <a href="<?php echo base_url();?>courses/detail/<?php echo $val['courses_friendly_url']?>"> <img class="courseThumbnail2 mb-2 ml-1" src="https://pathshala.co/uploaded_files/thumb_cache/thumb_190_190_noimg1.gif"/><!--class="openPopup"--></a>
                         <?php }?>
-                      </div>
-                      <div class="blog-content-wrap">
-                        <div class="blog-content"> 
-                        <h4 class="topicTitle"><a href="<?php echo base_url();?>courses/detail/<?php echo $val['courses_friendly_url']?>">Topic:<?php echo $val['courses_name']?></a></h4>
-                        <?php 
-						$mem_info=get_db_single_row('wl_teacher',$fields="first_name,teacher_id,status",$condition="WHERE status='1' AND teacher_id='".$val['teacher_id']."'");
-						?>
-                          <h4 class="topicTitle"> <a href="<?php echo base_url();?>teacher/profile/<?php echo $val['teacher_id'];?>/<?php echo url_title($val['first_name']);?>">Teacher:<b><?php echo $mem_info['first_name']?></b></a> </h4>
-                          <p></p>
-                          <div class="blog-meta">
-                            <ul>
-                              <li><span class="lms_price"><a href="javascript:void(0)" class="lms_cpp">
-                               <?php if($val['price']==1){?>
-                                Free</a>
-                                <?php }else{ ?>
-                                <a href="javascript:void(0)" class="lms_cp">&#x20B9;<?php echo $val['price'];?></a> 
-                                <a href="javascript:void(0)" class="lms_cp">Credit Point :<?php echo $val['credit_price'];?></a>
+		<div style="height:60px;">
+		<h4 class="courseHeading2 ml-1"><a href="<?php echo base_url();?>courses/detail/<?php echo $val['courses_friendly_url']?>"><?php echo $val['courses_name']?></a></h4>
+		</div>
+		<div style="height:30px;">
+		<p class="courseInstructor2 ml-1"><a href="<?php echo base_url();?>teacher/profile/<?php echo $mem_info['teacher_id'];?>/<?php echo url_title($mem_info['first_name']);?>" target="_blank"><?php echo $mem_info['first_name']?></a></p>
+		</div>
+	  <!-- <div style="height:40px;">
+		<p class="starRating2 ml-1"><span class="starCount2">4.6 <span >
+		  <//?php for ($x = 1; $x <= 5; $x++) {?>
+                <i class="fa fa-star <//?php if($x > $rating){echo "-o";}?> starcolor"></i>
+              <//?php }?> 
+                </span></span> (42998)</p>
+		</div>-->
+			   <div class="mb-2" style="height:40px;">
+				<p class="fees"><span class="rupeeIcon"></span><?php if($val['price']==1){?>&#x20B9; Free</p> 
+							   <?php }else{ ?>
+							   <div class="d-flex flex-row pb-2">
+                                <p class="pricedetail1 mr-auto ml-1">&#x20B9; <?php echo $val['price'];?></p> 
+                                <p class="pricedetail1 ml-auto mr-3">Credit Point : <?php echo $val['credit_price'];?></p></div>
                                 <?php }?>
-                               </span></li>
-                            </ul>
-                          </div>
-                        </div> 
-                        <div class="blog-meta lms-meta">
-                        
-                      <?php if($this->session->userdata('user_id') > 0 ){?>
-                     <ul> 
-                     <li> <a href="<?php echo base_url();?>/courses/enrollDetail/<?php echo $val['courses_id']?>" class="lms_buy"><i class="fa fa-money"></i> Buy Now</a>&nbsp;</li>
+					</div>
+		<div class="d-flex flex-row ml-1" style="height:40px;">
+			<?php if($this->session->userdata('user_id') > 0 ){?>
+                     <a href="<?php echo base_url();?>/courses/enrollDetail/<?php echo $val['courses_id']?>" ><button class="btn btn-outline-info buyButton">Pay Now</button></a>
                      
                        <?php if($val['price']!=1){?>
                        
-                     <li> <a href="<?php echo base_url();?>/courses/enrollDetailStoreCredit/<?php echo $val['courses_id']?>" class="lms_buy"><i class="fa fa-money"></i>Use credit Points</a></li>
-                      <?php }?>
-                      </ul>
-                      <?php }else{?>
-                     <ul> <li>  <a href="<?php echo base_url();?>users/login" class="lms_buy"> <i class="fa fa-money"></i> Buy Now</a></li></ul>
+                     <a href="<?php echo base_url();?>/courses/enrollDetailStoreCredit/<?php echo $val['courses_id']?>" ><button class="btn btn-outline-info buyButton">Use credit Points </button></a>
                       <?php }?>
                       
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <?php } }?>
-                  <?php echo $this->ajax_pagination->create_links(); ?> </div>
-              </div>
-            </form>
-          </div>
+                      <?php }else{?>
+                     <a href="<?php echo base_url();?>users/login" ><button class="btn btn-outline-info buyButton">Login Now</button></a>
+                      <?php }?>    
+			
+        </div>	
+		</div>
+		
         </div>
-      </div>
-    </div>
-  </div>
-</div>
+            
+	 <?php } }?>
+	<hr>
+	
+	<div class="createLinks">
+    <?php echo $this->ajax_pagination->create_links(); ?> 
+	</div>
+	
+	</div>
+	
+	</div>
+
+
+</form>
+
+	<div class="row justify-content-center teacherImageContainer mt-2 mb-2">
+		<img class="teacherImage m-3" src="<?php echo base_url(); ?>/uploaded_files/userfiles/images/Sahilwadhwa.jpg"/>
+		
+		<div class="d-flex flex-column text-center justify-content-center ml-2 ml-lg-4" >
+			<h2 class="becomeIns">Become an Instructor</h2>
+			<p class="insText">. Best Teachers from around the country <br>. Teach millions of students on Pathshala. </p>
+			<a href="<?php echo base_url(); ?>account/welcome/teacher"><button class="btn btn-danger ml-auto mr-auto buyButton mb-2">Start Teaching Today</button></a>
+		
+		</div>
+	</div>
+	</div>
+	
+
+</body>
+
+</html>
+<!-- trial code end here -->
 <?php $this->load->view('bottom_application'); ?>
 <div id="wait" style="display:none;"><br>
   Loading..</div>
 <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel ="stylesheet">
 <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script> 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+    </script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
 <script>
 function searchFilter(page_num) {
     page_num = page_num?page_num:0;
@@ -217,6 +385,14 @@ $(document).ready(function(){
   </div>
 </div>
 <style>
+header{
+	height: 100px;
+}
+
+.container-fluid{
+	margin-top:30px;
+}
+
 #wait {
     background: url("<?php echo base_url();?>assets/demo_wait.gif") no-repeat scroll center center #FFF;
     position: absolute;
@@ -340,6 +516,294 @@ div.pagination span.disabled {
 @media (min-width: 1200px) {
 .listAll {
 	max-width: 32.33%;
+}
+}
+</style>
+<style>
+.heading{
+	color:red;
+	font-weight:bold;
+	font-size:35px;
+	font-family:"Georgia";
+}
+.aboutp{
+	color:black;
+	font-weight:bold;
+	font-size:15px;
+	font-family:"Georgia";
+}
+.form-control-new{
+	border-radius:20px;
+	border:1px solid black;
+	background-color:green;
+	color:white;
+	width:180px;
+	margin-right:20px;
+	margin-top:20px;
+	padding:7px;
+}
+.column_m1{
+	height:50vh;
+	width:50vw;
+	padding:140px;
+}
+.main_img{
+	width:580px;
+	height:450px;
+}
+.columnImage{
+	padding-top:10px;
+}
+.searchCourses{
+	border:1px solid black;
+	border-radius:30px;
+	background-color:white;
+	width:250px;
+	height:50px;
+}
+.subheading{
+	font-weight:bold;
+	font-family:"Georgia";
+	font-size:30px;
+}
+.subabout{
+	font-weight:bold;
+	font-family:"Georgia";
+	color:grey;
+}
+.subheading2{
+	font-weight:bold;
+	font-family:"Georgia";
+	font-size:30px;
+	color:red;
+}
+.subabout2{
+	font-weight:bold;
+	font-family:"Georgia";
+	color:grey;
+	font-size:16px;
+}
+.column2{
+	border-radius:10px;
+}
+.courseButton{
+	padding:12px;
+	border-radius:30px;
+	font-weight:bold;
+	font-family:"Georgia";	
+}
+.icons{
+	color:green;
+}
+.infinityicon{
+	color:green;
+	font-weight:bold;
+	font-size:60px;
+}
+.rupeeIcon{
+	color:black;
+	background-color:white;
+}
+.playText{
+	font-weight:bold;
+	font-family:"Georgia";
+	font-size:18px;
+}
+.coursePage{
+	width:290px;
+	height:300px;
+}
+.coursePage2{
+	width:380px;
+	height:430px;
+}
+.courseThumbnail{
+	width:265px;
+	height:110px;
+}
+.courseThumbnail2{
+	width:360px;
+	height:180px;
+}
+.courseHeading{
+	font-size:13px;
+	color:black;
+	font-weight:bold;
+	font-family:"Georgia";
+	margin-bottom:0px;
+}
+.courseHeading2{
+	font-size:18px;
+	color:black;
+	font-weight:bold;
+	font-family:"Georgia";
+	margin-bottom:5px;
+}
+.courseInstructor{
+	font-size:13px;
+	color:black;
+	font-family:"Georgia";
+	margin-bottom:0px;
+}
+.pricedetail1{
+	font-size:18px;
+	color:black;
+	font-family:"Georgia";
+}
+.courseInstructor2{
+	font-size:18px;
+	color:black;
+	font-family:"Georgia";
+	margin-bottom:4px;
+}
+.starRating{
+	font-family:"Georgia";
+	margin-bottom:10px;
+}
+.starRating2{
+	font-family:"Georgia";
+	margin-bottom:15px;
+}
+.starCount{
+	color:red;
+}
+.buyButton{
+	border-radius:10px;
+	padding-left:20px;
+	padding-right:20px;
+	padding-top:2px;
+	padding-bottom:2px;
+}
+.fees{
+	color:red;
+	font-family:"Georgia";
+	font-size:20px;
+	font-weight:bold;
+}
+.starcolor{
+	color:yellow;
+}
+.hrline{
+	color:grey;
+	width:100%;
+}
+.courseMain{
+	overflow-x:scroll;
+	width:cover;
+}
+.teacherImage{
+	width:20vw;
+	height:40vh;	
+	border-radius:5px;
+	
+}
+.teacherImageContainer{
+	background-image:linear-gradient(to right,#A9A9A9,white);
+	width:cover;
+}
+.becomeIns{
+	font-family:"Georgia";
+	font-weight:bold;
+	color:black;
+}
+.insText{
+	font-family:"Georgia";
+	font-weight:bold;
+	font-size:16px; 
+}
+
+@media (max-width: 700px) {
+.teacherImage{
+	width:35vw;
+	height:35vh;	
+	border-radius:5px;
+	
+}
+.becomeIns{
+	font-family:"Georgia";
+	font-weight:bold;
+	color:black;
+	font-size:20px;
+}
+.column_m1{
+	height:50vh;
+	width:100vw;
+	padding:40px;
+}
+.main_img{
+	display:none;
+}
+.heading{
+	color:red;
+	font-weight:bold;
+	font-size:30px;
+	font-family:"Georgia";
+}
+.searchCourses{
+	border:1px solid black;
+	border-radius:30px;
+	background-color:white;
+	width:120px;
+	display:none;
+}
+.subheading{
+	font-weight:bold;
+	font-family:"Georgia";
+	font-size:17px;
+	margin:0px;
+}
+.subabout{
+	font-weight:bold;
+	font-family:"Georgia";
+	color:grey;
+	font-size:14px;
+}
+.subheading2{
+	font-weight:bold;
+	font-family:"Georgia";
+	font-size:20px;
+	color:red;
+}
+.subabout2{
+	font-weight:bold;
+	font-family:"Georgia";
+	color:grey;
+	font-size:15px;
+}
+.courseButton{
+	padding:10px;
+	border-radius:30px;
+	font-weight:bold;
+	font-family:"Georgia";	
+	display:none;
+}
+.courseButtonCon{
+	display:none;
+
+}
+.coursePage2{
+	width:300px;
+	height:430px;
+}
+.courseThumbnail2{
+	width:280px;
+	height:180px;
+}
+.createLinks{
+	overflow:hidden;
+	padding-left:0px;
+	margin-left:0px;
+}
+.form-control-new{
+	border-radius:20px;
+	border:1px solid black;
+	background-color:green;
+	color:white;
+	width:140px;
+	font-size:13px;
+	margin-right:10px;
+	margin-top:10px;
+	padding:7px;
 }
 }
 </style>

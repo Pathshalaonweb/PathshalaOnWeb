@@ -1301,7 +1301,7 @@ class Teacher extends DB{
 							$arr['Result']['data'][] = array(
 								'order_id' => $rec['order_id'],
 								'amount' => $amount,
-								'type' => 'plan',
+								'type' => 'Plan',
 								'course_name' => $rec2['name'],
 								'order_status' => $rec['payment_status'],
 								'time' => $rec['order_received_date'],
@@ -1326,7 +1326,7 @@ class Teacher extends DB{
 							$arr['Result']['data'][] = array(
 								'order_id' => $rec['order_id'],
 								'amount' => $price,
-								'type' => 'course',
+								'type' => 'Course',
 								'order_status' => 'Paid',
 								'course_name' => $rec3['courses_name'],
 								'time' => $rec['order_received_date'],

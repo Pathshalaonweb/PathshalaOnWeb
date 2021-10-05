@@ -228,7 +228,7 @@ class Users extends Public_Controller
 		//echo $this->session->flashdata('success');
 		
 		//die;
-		redirect('users/login', '');
+		redirect('account/welcome/student', '');
 		}	 
 
 	public function thanks()

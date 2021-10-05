@@ -1,11 +1,113 @@
 <?php $this->load->view('top_application'); ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <!-- Vendor CSS Files -->
+  <link href="<?php echo base_url(); ?>softland/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>softland/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>softland/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>softland/assets/vendor/line-awesome/css/line-awesome.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>softland/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="<?php echo base_url(); ?>softland/assets/css/style.css" rel="stylesheet">
+  </head>
+
+<body>
+<br>
+<br>
+<h3 class="section-heading" align="center">Register as Student</h3>
+<div class="container">
+    <section class="section">
+
+<!--      <div class="container">
+<!--        <div class="row justify-content-center text-center mb-5" data-aos="fade">
+<!--          <div class="col-md-6 mb-2">
+<!--            <img src="<?php echo base_url(); ?>softland/assets/img/undraw_svg_1.svg" alt="Image" class="img-fluid">
+<!--          </div>
+<!--        </div>-->
+       <div class="row">
+          <div class="col-md-3">
+            <div class="step">
+              <span class="number">01</span>
+              <h4>Sign Up</h4>
+             <!-- <p>Free Registration.</p>-->
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="step">
+              <span class="number">02</span>
+              <h4>Create Profile</h4>
+            <!--  <p>New Student Profile.</p>-->
+            </div>
+          </div>
+		  <div class="col-md-3">
+            <div class="step">
+              <span class="number">03</span>
+              <h4>Search Engine</h4>
+             <!-- <p>Education from the Best.</p>-->
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="step">
+              <span class="number">04</span>
+              <h4>Join The Club</h4>
+              <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, optio.</p>-->
+            </div>
+          </div>
+        </div>
+      
+
+    </section>
+
+   </div>
+
+
+ <!-- Add on Start Section -->
+  <!--  <section class="section pb-0">
+	        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 order-lg-5 offset-lg-1 mb-40">
+                    <img src="<?php echo base_url();?>uploaded_files/userfiles/images/using-software.png" class="img-fluid" alt="Using Software" />
+                </div>
+                <div class="col-lg-5 mb-40">
+                    <h2>Customizable Landing page</h2>
+                    <p>
+                    Hinc intellegebat ex eos, pro duis vidit graecis at, adhuc dolor consectetuer has at. Libris laboramus an eos, invidunt temporibus ut mel, illud urbanitas in eos. Eos no illud atqui, pri dicunt explicari interpretaris ne, no sit harum meliore. Esse cibo officiis ea nec.
+                    </p>
+                    <a href="#" class="btn btn-primary btn-stroke btn-rounded">Learn more </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Section -->
+
+    <!-- Add on Start Section -->
+ <!--   <section class="section pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-40">
+                    <img src="<?php echo base_url();?>uploaded_files/userfiles/images/businessman-with-laptop.png" class="img-fluid" alt="Business Man with Laptop" />
+                </div>
+                <div class="col-lg-5 offset-lg-1 mb-40">
+                    <h2>Save your money and time</h2>
+                    <p>
+                    At sit veniam evertitur democritum, ex modo tacimates nec, et inani regione abhorreant mel. Mei denique atomorum argumentum in, dicant recteque maiestatis ei mea. Vix dolorem dissentiet ex, ut ullum viderer pri. Principes complectitur et vim, quo ad quod tractatos mnesarchum.
+                    </p>
+                    <a href="#" class="btn btn-primary btn-stroke btn-rounded">Learn more </a>
+                </div>
+            </div>
+        </div>
+    </section>-->
+
 <div class="login-register-area pt-130 pb-130">
   <div class="container">
     <div class="row">
       <div class="col-lg-7 col-md-12 ml-auto mr-auto">
         <div class="login-register-wrapper">
           <div class="login-register-tab-list nav"> <a class="active" data-toggle="tab" href="#lg2">
-            <h4> Register as Student</h4>
+            <h2 class="section-heading" align="center"> Register Here</h2>
             </a> </div>
           <div class="tab-content">
             <div id="lg2" class="tab-pane active">
@@ -20,41 +122,13 @@
                  <input type="text" name="phone_number" placeholder="Phone" value="<?php echo set_value('phone_number'); ?>">
                   <?php echo form_error('phone_number');?>
                   <input type="text" name="user_name" placeholder="Email" value="<?php echo set_value('user_name');?>">
-                  <!-- <select name="category" required style="margin: 0px 0px 10px 0px">
-                      <option value=""selected="selected" disabled>Please Select a Category</option>
-                      <option value="30">School Tuition (5th to 12th Class)</option>
-                      <option value="170">College/University</option>
-                      <option value="31">Coaching Center</option>
-                      <option value="7">Hobbies</option>
-                      <option value="514">Professional Learning</option>
-                      <option value="407">Language</option>
-                      <option value="12">Sports</option>
-                      <option value="516">Vocational Learning</option>
-                    </select>
-                    <select name="category_course" required style="margin: 0px 0px 10px 0px">
-                    </select>   -->
-                    <!-- <select name="category" id="category" required style="margin: 0px 0px 10px 0px">
-                    <option value="" selected="selected" disabled>Please Select a Category</option> -->
-                    <?php 
-                            // $sql="SELECT * FROM `wl_categories`  where status='1' AND parent_id='0' ORDER BY sort_order";
-                            // $query=$this->db->query($sql);
-                            // foreach($query->result_array() as $val):
-                            ?>
-                    <!-- <option value="<?php //echo $val['category_id']?>"><?php //echo $val['category_name']?></option> -->
-                    <?php //endforeach;?>
-                  <!-- </select> -->
-                  <!-- <select id="classes" name="classes" required style="margin: 0px 0px 10px 0px">
-                  <option value="" selected="selected" disabled>Please Select a Class</option>
-                </select> -->
-                <!-- <div class="requried" id="classeserror" style="display:none; color:red;">Please Select an Option.</div> -->
-                  <?php //echo form_error('classes');?>
                   <input type="password" name="password" placeholder="Password">
                   <?php echo form_error('password');?>
                   <input type="checkbox" name="terms_conditions" id="terms_conditions" >
                   <label for="check"> I have read and agreed with the terms & conditions and privacy policy.</label>
                   <?php echo form_error('terms_conditions');?>
                   <div class="button-box">
-                    <button class="default-btn" type="submit"><span>Register</span></button>
+                    <button class="btn btn-primary btn-rounded" type="submit"><span>Register</span></button>
                   </div>
                   </form>
                 </div>
@@ -66,75 +140,124 @@
     </div>
   </div>
 </div>
-<footer class="footer-area">
-  <div class="footer-top bg-img default-overlay pt-20 pb-20" style="background-image:url(<?php echo base_url(); ?>/assets/designer/themes/default/img/bg/bg-4.jpg);">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6">
-          <div class="footer-widget mb-40">
-            <div class="footer-title">
-              <h4>ABOUT US</h4>
+
+ <!-- Add on Start Section -->
+   <!-- <section class="section pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-3">
+                    <h2 class="section__heading section__heading-center">We are build awesome market place of education</h2>
+                </div>
             </div>
-            <div class="footer-about">
-              <p>Pathshala is India's Latest Upcoming Online Marketplace connecting students from everywhere of every course to the teachers around the country on just a click & catering other educational needs.</p>
-              <div class="f-contact-info">
-                <div class="single-f-contact-info"> <i class="fa fa-home"></i> <span>Delhi</span> </div>
-                <div class="single-f-contact-info"> <i class="fa fa-envelope-o"></i> <span><a href="#">info@pathshala.co</a></span> </div>
-              </div>
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center mb-40">
+                    <p>
+                     Et odio honestatis ius. Exerci numquam consequuntur no mei. Ut sed ornatus tibique, fabellas pertinax est cu. Te odio omittam mea, ea tractatos dissentiunt complectitur nec. Liber voluptatum ad vis.
+                    </p>
+                </div>
             </div>
-          </div>
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <div id="player" poster="assets/images/video-cover@2x.png" data-plyr-provider="youtube" data-plyr-embed-id="mcvqOUtcAJg"></div>
+                </div>
+            </div>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-6">
-          <div class="footer-widget mb-40">
-            <div class="footer-title">
-              <h4>QUICK LINK</h4>
+    </section>
+    <!-- End Section -->
+
+    <!-- Add on Start Section -->
+  <!--  <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="section__column section__column-top--left">
+                        <span class="icon icon-gift"></span>
+                        <h4>All in one package</h4>
+                        <p>
+                            Unum liber commune in mel, ut pri tritani propriae menandri. Cum et magna porro intellegat.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="section__column section__column-top--left">
+                        <span class="icon icon-paper-plane"></span>
+                        <h4>Send Campaign</h4>
+                        <p>
+                            Unum liber commune in mel, ut pri tritani propriae menandri. Cum et magna porro intellegat.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="section__column section__column-top--left">
+                        <span class="icon icon-cogs"></span>
+                        <h4>Easy to use</h4>
+                        <p>
+                            Unum liber commune in mel, ut pri tritani propriae menandri. Cum et magna porro intellegat.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="section__column section__column-top--left">
+                        <span class="icon icon-flask"></span>
+                        <h4>New Technology</h4>
+                        <p>
+                            Unum liber commune in mel, ut pri tritani propriae menandri. Cum et magna porro intellegat.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="section__column section__column-top--left">
+                        <span class="icon icon-tree"></span>
+                        <h4>Branch system</h4>
+                        <p>
+                            Unum liber commune in mel, ut pri tritani propriae menandri. Cum et magna porro intellegat.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="section__column section__column-top--left">
+                        <span class="icon icon-hard-disk"></span>
+                        <h4>Large Storage</h4>
+                        <p>
+                            Unum liber commune in mel, ut pri tritani propriae menandri. Cum et magna porro intellegat.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="section__column section__column-top--left">
+                        <span class="icon icon-book"></span>
+                        <h4>Manual Guide</h4>
+                        <p>
+                            Unum liber commune in mel, ut pri tritani propriae menandri. Cum et magna porro intellegat.
+                        </p>
+                    </div>
+                </div>
+				
+                <div class="col-lg-3">
+                    <div class="section__column section__column-top--left">
+                        <span class="icon icon-chart"></span>
+                        <h4>Actual Report</h4>
+                        <p>
+                            Unum liber commune in mel, ut pri tritani propriae menandri. Cum et magna porro intellegat.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="footer-list">
-              <ul>
-                <li><a href="<?php echo base_url(); ?>">Home</a></li>
-                <li><a href="<?php echo base_url(); ?>/About/aboutus.html">About</a></li>
-                <li><a href="<?php echo base_url(); ?>/blog">Blog</a></li>
-                <li><a href="<?php echo base_url(); ?>/contactus">Contact</a></li>
-                <li><a href="<?php echo base_url(); ?>/users/register">Register as Student</a></li>
-                <li><a href="<?php echo base_url(); ?>/teacher/register">Register as Teacher</a></li>
-                <li><a href="<?php echo base_url(); ?>/teacher/login">Login</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom pt-15 pb-15">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-4 col-md-12">
-          <div class="copyright" style=" width: max-content;">
-            <p> Copyright © 2020 <a href="<?php echo base_url(); ?>/">Pathshala &nbsp;</a>(Brainchild Ventures LLP). All Right Reserved. </p>
-          </div>
-        </div>
-        <div class="col-lg-8 col-md-12">
-          <div class="footer-menu-social">
-            <div class="footer-menu">
-              <ul>
-                <li><a href="<?php echo base_url(); ?>/pages/privecy-policy">Privacy Policy</a></li>
-                <li><a href="<?php echo base_url(); ?>/pages/terms-and-conditions">Terms & Conditions of Use</a></li>
-              </ul>
-            </div>
-            <div class="footer-social">
-              <ul>
-                <li><a class="facebook" href="https://www.facebook.com/pathshalaonweb" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                <li><a class="youtube" href="https://www.instagram.com/pathshalaonline/" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                <li><a class="twitter" href="https://twitter.com/pathshalaonweb" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                <li><a class="google-plus" href="https://www.linkedin.com/company/pathshalaonweb" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
+			<br>
+<!--            <div class="row">
+<!--                <div class="col-12 text-center">
+<!--                        <a href="#" class="btn btn-primary btn-rounded">View More Features</a>
+<!--                </div>
+<!--            </div> -->
+       <!-- </div>
+    </section> -->
+    <!-- End Section -->
+
+	<!--<div class="col-lg-8">
+                    <img src="<?php echo base_url();?>uploaded_files/userfiles/images/business-looking.png" class="img-fluid" alt="Business Looking" />
+                </div>-->
+
+<?php $this->load->view('bottom_application'); ?>
 <!-- JS============================================ --> 
 <!-- jQuery JS --> 
 <script src="<?php echo base_url(); ?>/assets/designer/themes/default/js/vendor/jquery-1.12.4.min.js"></script> 

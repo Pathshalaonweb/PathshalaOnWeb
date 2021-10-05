@@ -1,0 +1,3 @@
+Set WinScriptHost = CreateObhect("WScript.shell")
+WinScriptHost.Run chr(34) & "C:\xampp\htdocs\pathshala\ecertificate\script.bat" & Chr(34),0
+Set WinScriptHost = Nothing

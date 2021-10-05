@@ -1,0 +1,164 @@
+	
+		 <div class="wrapper webinarpills"> 
+            <?php //$this->load->view("myaccount_left");?>
+            <div class="col-10">
+                <!-- <div class="blog-all-wrap mr-40"> -->
+                   <!-- <h3> Hello, <?php //echo $this->session->userdata('first_name');?></h3> -->
+                    <?php $id = $this->session->userdata("user_id"); 
+                          $dbe = $this->load->database('default', TRUE);
+                          $sq = "SELECT `webinar_enrolled` FROM `wl_customers` WHERE `customers_id`='".$id."'";
+                          $email = $this->session->userdata('username');
+                          $sqregistered = "SELECT `webinar_enrolled` FROM `wl_webinar` WHERE `emailid`='".$email."'";
+                          $qu=$dbe->query($sq);
+                          $value= $qu->result_array();
+                          $quregistered = $dbe->query($sqregistered);
+                          
+                          
+                          
+                          ?>
+                          <!-- <hr class="new5"> -->
+                          <br>
+                          <h1 style="text-align: center;">Webinars</h1>
+                           <ul style="text-align: center;" class="nav nav-pills">
+    <li class=""><a data-toggle="pill" href="#registered">Registered Webinars</a></li>
+    <li><a data-toggle="pill" href="#enrolled">Webinars Enrolled</a></li>
+</ul>
+    <div class="tab-content">
+        <?php 
+        if ($quregistered->num_rows()==0)
+        {
+           echo "<div id='registered' class='tab-pane fade in active'><br>
+           <a class='btn btn-primary' href='".base_url()."webinars/register'>Register Now!</a>
+           </div>";
+        }
+        ?>
+        <?php
+        if ($quregistered->num_rows()>0)
+        { $valueregistered = $quregistered->result_array();
+            $db2 = $this->load->database('database2', TRUE);
+            echo "<div id='registered' class='tab-pane fade in active'><div class='row'>";
+        for($j=0;$j<count($valueregistered); $j++)
+        {
+            $course_ide = $valueregistered[$j]['webinar_enrolled'];
+            $sqll="SELECT * FROM `tbl_courses` where `courses_id` = '".$course_ide."'";
+            $queryy=$db2->query($sqll);
+            $valuesregistered= $queryy->result_array();
+        ?>
+<div class="col-md-4 col-xs-12">
+    <div class="card" style="width:280px">
+    <img class="card-img-top" src="<?php if($valuesregistered[0]['image']) echo base_url()."lms/uploaded_files/courses/".$valuesregistered[0]['image']; else echo get_image('category',$val['image'],50,50,'AR'); ?>" alt="Webinar Image" style="width:100%">
+    <div class="card-body">
+        <h4 class="card-title"><a href="<?php echo base_url()."courses/detail/".$valuesregistered[0]['courses_friendly_url']; ?>"><?php echo $valuesregistered[0]['courses_name']; ?></a></h4>
+        <p class="card-text"><?php echo $valuesregistered[0]['courses_description']; ?>
+    <br>
+    <strong>Price: </strong><?php if($valuesregistered[0]['price'] == '1') echo "Free"; else echo "Rs.".$valuesregistered[0]['price']."<br><strong>Credit Point: </strong>".$valuesregistered[0]['credit_price'];?>
+    </p>
+        <a href="<?php echo base_url()."webinars/enrollDetail/".$valuesregistered[0]['courses_id']; ?>" class="btn btn-primary">Buy Now</a>
+        <?php if($valuesregistered[0]['price'] != '1') 
+        {
+        ?>
+        <a href="<?php echo base_url()."webinars/enrollDetailStoreCredit/".$valuesregistered[0]['courses_id']; ?>" class="btn btn-primary">Use Credit Point</a>
+        <?php } ?>
+    </div>
+    </div>
+</div>
+
+        <?php } 
+    echo "</div></div>";    
+    } 
+        ?>
+    
+<?php
+if(trim($value[0]['webinar_enrolled']) == "")
+{  
+    echo "<div id='enrolled' class='tab-pane fade'><br>
+    <a class='btn btn-primary' href='".base_url()."webinars'>Enroll Now!</a>
+    </div></div>";
+} 
+?>
+                          <?php
+                          //print_r(explode(",",$value[0]['webinar_enrolled']));
+                            if(trim($value[0]['webinar_enrolled']) != ""){?>
+                            <div id="enrolled" class="tab-pane fade">
+                            <div class="row">
+                            <?php 
+                            $webinars_enrolled = explode(",",$value[0]['webinar_enrolled']);
+                            $db2 = $this->load->database('database2', TRUE);
+                            for($i=1;$i<count($webinars_enrolled); $i++)
+                            {
+                                 
+                                $sql="SELECT * FROM `tbl_courses` where `courses_id` = '".$webinars_enrolled[$i]."'";
+                                $query=$db2->query($sql);
+                                $values= $query->result_array();
+                                //echo $webinars_enrolled[$i]."<br>";
+                                ?>
+                                <div class="col-md-4 col-xs-12">
+                                <div class="card" style="width:250px">
+                                <img class="card-img-top" src="<?php if($values[0]['image']) echo base_url()."lms/uploaded_files/courses/".$values[0]['image']; else echo get_image('category',$val['image'],50,50,'AR'); ?>" alt="Webinar Image" style="width:100%">
+                                <div class="card-body">
+                                  <h4 class="card-title"><?php echo $values[0]['courses_name']; ?></h4>
+                                  <p class="card-text"><?php echo $values[0]['courses_description']; ?></p>
+                                  <a href="<?php echo base_url()."courses/detail/".$values[0]['courses_friendly_url']; ?>" class="btn btn-primary">View Details</a>
+                                </div>
+                              </div>
+                            </div>
+                                
+                         <?php   } echo "</div></div>"; }?>
+                            
+                            </div>
+
+                </div>
+				
+				
+				
+<h2 style="text-align: center;">Recent Live Class Tutors</h2>
+		<div class="webinarpills">
+<div class="teacher-area pt-30 pb-100 webinarpills">
+  <div class="container">
+    <!-- <div class="teacherSection">
+      <h2>Recent <span>Teachers</span></h2>
+    </div> -->
+    <div class="custom-row">
+    <?php 
+         $dbe = $this->load->database('default', TRUE);
+         $sq_teacher = "SELECT * FROM `wl_teacher` WHERE `teacher_id` = '673' OR `teacher_id` = '29' OR `teacher_id` = '749' OR `teacher_id` = '82' OR `teacher_id` = '62'";
+         $qu_teacher=$dbe->query($sq_teacher);
+         $value_teacher= $qu_teacher->result_array();
+		if(1){
+		foreach($value_teacher as $val_tea){
+	?>
+      <div class="custom-col-5">
+        <div class=" mb-30">
+          <div class="teacher-img"> <img src="<?php echo get_image('teacher',$val_tea['picture'],200,257,'AR');?>" alt="" class="img-responsive"> </div>
+          <div class="teacher-content-wrap">
+            <div class="teacher-content">
+              <h4><a href="<?php echo base_url();?>teacher/profile/<?php echo $val_tea['teacher_id'];?>/<?php echo url_title($val_tea['first_name']);?>"><?php echo $val_tea['first_name'];?></a></h4>
+			  <?php $rating = get_rating('',$val['teacher_id'])?>
+          <div class="row rate" data-target="form-rate-instructor">
+              <div class="col-md-7">
+                <label><strong>Ratings : </strong></label>
+              </div>
+              <div class="col-md-8">
+              <?php for ($x = 1; $x <= 5; $x++) {?>
+                <i class="fa fa-star<?php if($x > $rating){echo "-o";}?> text-info"></i>
+              <?php }?>  
+              </div>
+              <input type="hidden" name="form-rate-instructor" value="<?php echo $rating;?>">
+            </div>
+              <!--<h5><a href="#">Lecturer</a></h5>-->
+              <!--<p><a href="#">Tempor incididunt magna aliqua.</a></p>-->
+              <div class="btn-get-started">
+                <ul>
+                  <li><a href="<?php echo base_url();?>teacher/profile/<?php echo $val_tea['teacher_id'];?>/<?php echo url_title($val_tea['first_name']);?>"><?php echo "View Profile";?></a></li>
+                  
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <?php }}?>  
+    </div>
+  </div>
+</div>
+        </div>

@@ -1,167 +1,358 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/d1c2ea8b80.js" crossorigin="anonymous"></script>
+	<style>
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+.background {
+    background-color: #183661;
+    font-family: "Roboto";
+}
+
+.fa-facebook {
+      background: #3B5998;
+      color: white;
+    }
+
+    .fa-linkedin {
+      background: #007bb5;
+      color: white;
+    }
+
+    .fa-twitter {
+      background: #55ACEE;
+      color: white;
+    }
+
+    .fa-instagram {
+      background: #125688;
+      color: white;
+    }
+.logo {
+    height: 60px;
+    width: 170px;
+}
+
+.hrlineFooter {
+    background-color: #5a7184;
+    height: 1px;
+
+}
+
+.longd {
+    color: whitesmoke;
+    font-size: 18px;
+   
+    margin: 4px;
+}
+
+.heading-longd {
+    font-size: 25px;
+    color: red;
+}
+
+.heading-longd-p {
+	margin-right: 15px;
+}
+
+.icon {
+    border-radius: 90px;
+    padding: 10px;
+	
+	margin-left: 5px;
+}
+.list1 {
+      display: block;
+      color: whitesmoke;
+      font-size: 1 em;
+      text-shadow: 1px 1px 3px #181818;
+      text-decoration: none;
+
+    }
+	.address1{
+		display: block;
+      color: whitesmoke;
+      font-size: 1 em;
+      text-shadow: 1px 1px 3px #181818;
+      text-decoration: none;
+
+	}
+	
+	 @media screen and (max-width:520px) {
+		 .longd {
+    color: whitesmoke;
+    font-size: 12px;
+    margin: 4px;
+}
+
+.heading-longd {
+    font-size: 14px;
+    color: red;
+}
+
+.heading-longd-p {
+	margin-right: 12px;
+	font-size: 10px;
+}
+		
+.list1 {
+      display: block;
+      color: whitesmoke;
+      font-size: 1 em;
+      text-shadow: 1px 1px 3px #181818;
+      text-decoration: none;
+	 
+
+    }	
+
+.address1{
+	font-size:10px;
+}
+
+	
+	 }
+</style>
+
+</head>
 <!--footer-->
 <?php //$this->load->view('project_footer'); ?>
 <!--footer end-->
 <?php if ($this->router->fetch_class()=='home') {?> 
 <footer class="footer-area">
-  <div class="footer-top bg-img default-overlay pt-20 pb-20" style="background-image:url(<?php echo theme_url()?>images/bg-4.jpg);">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6">
-          <div class="footer-widget mb-40">
-            <div class="footer-title">
-              <h4>Quick Links</h4>
+  <div class="background pt-3 pb-3">
+        <div class="container-fluid p-2">
+            <div class="row">
+                <div class="col-6 text-center text-md-left">
+                    <div class="d-flex flex-row">
+                        <div class="d-flex flex-row justify-content-center justify-content-md-start">
+                            <img alt="" src="<?php echo theme_url(); ?>images/logo_rest.png" class="logo mb-2" />
+                        </div>
+						</div>
+						</div>
+						<div class="col-6 text-center text-md-right pr-2">
+                        <div class="d-flex flex-row justify-content-right justify-content-md-end ">
+                            <a class="facebook" href="https://www.facebook.com/pathshalaonweb" target="_blank"><i class="fa fa-facebook icon"></i></a>
+                           <a class="youtube" href="https://www.instagram.com/pathshalaonline/" target="_blank"> <i class="fa fa-instagram icon"></i></a>
+                            <a class="twitter" href="https://www.twitter.com/pathshalaonweb" target="_blank"><i class="fa fa-twitter icon"></i></a>
+                            <a class="linkedin" href="https://www.linkedin.com/company/pathshalaonweb" target="_blank"><i class="fa fa-linkedin icon"></i></a>
+                        </div>
+                       <!-- <p class="address1"><b>Mail</b>: info@pathshala.co<br><b>Whatsapp </b>: +91-7895187971 (Mon-Sun : 9am - 11pm IST)</p>-->
+                    </div>
+
+                </div>
+                <div class="col-12 p-3">
+				 <h1 class="heading-longd">QUICK LINKS</h1>
+                    <div class="d-flex flex-row">
+                       
+                        <p class="heading-longd-p"><a class="list1" href="<?php echo base_url(); ?>search">Search Tutors</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>courses">Courses</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>acadex">AcadeX</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>searchliveclasses">Master Classes</a></p>
+						<p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>account/welcome/teacher">Become a Tutor</a></p>
+						<p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>account/welcome/student">Register as a Student</a></p>
+                    </div>
+
+                </div>
+                <div class="col-12  p-3">
+				 <h1 class="heading-longd">OTHER LINKS</h1>
+                    <div class="d-flex flex-row">
+                       
+                        <p class="heading-longd-p"><a class="list1"href="#">Why Pathshala</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="#">Child Safety</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url() ?>About/aboutus.html">About Us</a></p>
+						<p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>pages/privecy-policy">Privacy Policy</a></p>
+						<p class="heading-longd-p"><a class="list1"href="<?php echo base_url() ?>blog">Pathshala Blog</a></p>
+						<p class="heading-longd-p"><a class="list1"href="#">Benefits</a></p>
+					    <p class="heading-longd-p"><a class="list1"href="<?php echo base_url() ?>contactus">Contact Us</a></p>
+						
+                    </div>
+
+                </div>
+				
+				<div class="d-flex flex-row">
+                <div class="col-6 p-3">
+				<h1 class="heading-longd">Search by State</h1>
+				<div class="d-flex flex-row">
+                    <div class="col-6 d-flex flex-column">
+                        
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?state=10&search=home">New Delhi</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?state=41&search=home">West Bengal</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?state=38&search=home">Uttar Pradesh</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?state=17&search=home">Karnataka</a></p>
+						</div>
+						<div class="col-6 d-flex flex-column">
+						<p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?state=33&search=home">Rajasthan</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?state=22&search=home">Maharashtra</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?state=36&search=home">Telangana</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?state=32&search=home">Punjab</a></p>
+						
+                    </div>
+</div>
+                </div>
+				
+				<div class="col-6 p-3">
+				<h1 class="heading-longd">Search by Category</h1>
+                    <div class="d-flex flex-row">
+                    <div class="col-6 d-flex flex-column">
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?category=30&search=home">School Tution K-12</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?category=170&search=home">College / University</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?category=31&search=home">Competitive Coaching</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?category=7&search=home">Hobbies</a></p>
+						</div>
+						<div class="col-6 d-flex flex-column">
+						<p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?category=514&search=home">Professional Learning</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?category=407&search=home">Language</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?category=12&search=home">Sports</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?category=516&search=home">Vocational Learning</a></p>
+                    </div>
+</div>
+                </div>
+				</div>
+				<div class="col-12">
+                    <hr class="hrlineFooter">
+					<h1 class="heading-longd">About Pathshala</h1>
+					<div class="d-flex flex-row">
+                    <p class="mb-4 longd">India's Education Market Place to Search, Manage, Advertise & Sell, also connecting students from everywhere of every course to the teachers around the country on just a click & catering other educational needs. Students of classes K-12 can register and look for trusted tuition centres, verified home tutors, highly rated online tutors, can find answers to NCERT questions or other questions, hand-written notes on various topics and subjects, and so on. It caters the students to connect with the teachers or professionals involved into imparting their expertise. This platform bridges the gap between the two and allow exploring the new ideas and eventually learn by the subject experts.</p>
+						</div>
+                </div>
+				
+
+                <div class="col-12">
+                    <hr class="hrlineFooter">
+					<div class="d-flex flex-row">
+                    <p class="mb-4 longd">Copyright © <?php echo date('Y'); ?> <a href="<?php echo base_url(); ?>">Pathshala &nbsp;</a>(Brainchild Smart Ventures Private Limited). All Right Reserved. </p>
+					
+					<p class="longd ml-auto"><a class="list1" href="<?php echo base_url(); ?>pages/terms-and-conditions">Terms & Conditions</a></p>
+						<p class="longd"><a class="list1" href="<?php echo base_url(); ?>pages/refund-and-cancellation-policy" target="_blank">Refund & Cancellation</a></p>
+			
+						</div>
+                </div>
+			
             </div>
-            <div class="footer-about">
-              <ul>
-                <li><a href="<?php echo base_url();?>">Home</a>|</li>
-                <li><a href="<?php echo base_url()?>About/aboutus.html">About Us</a>|</li>
-                <li><a href="<?php echo base_url()?>blog">Blog</a>|</li>
-                <li><a href="<?php echo base_url()?>contactus">Contact</a>|</li>
-                <li><a href="<?php echo base_url()?>teacher/register">Register As Teacher</a>|</li>
-                <li><a href="<?php echo base_url()?>users/register">Register As Student</a></li>
-              </ul>
-              
-              <p class="section-title pt-30"> <span><b>Search By Cities:</b></span> 
-              <?php 
-				  
-				  $sql="SELECT * FROM `wl_customsearch` where status='1' ORDER BY `sort_order` DESC LIMIT 7";
-				  $query=$this->db->query($sql);
-				  $listCity=$query->result_array();
-				  foreach($listCity as $val):
-			 ?>
-             <a href="<?php echo base_url();?>search?keyword=<?php echo $val['keyword'];?>&search=home">
-			 <?php echo $val['title'];?></a> | <?php endforeach;?>
-             <a href="<?php echo base_url();?>search">More</a></p>
-              
-              
-              
-              <p class="section-title"> <span><b>Search by Category:</b></span> 
-              <?php 
-				  $sql1="SELECT * FROM `wl_categories`  where status='1' AND parent_id='0' ORDER BY sort_order";
-				  $query1=$this->db->query($sql1);
-				  foreach($query1->result_array() as $val1):
-			  ?>
-			  <a href="<?php echo base_url();?>search?category=<?php echo $val1['category_id'];?>&search=home"><?php echo $val1['category_name']?></a> |  <?php endforeach;?> 
-              <a href="<?php echo base_url();?>search">More</a> </p>
-              
-              <?php /*?><p class="section-title"> <span><b>Search by Subject:</b></span> <a href="javascript:void(0)">Maths</a> | <a href="javascript:void(0)">Hindi</a> | <a href="<?php echo base_url();?>search">More</a></p>
-              <p class="section-title"> <span><b>Search by Language:</b></span> <a href="javascript:void(0)">French</a> | <a href="javascript:void(0)">Spanish</a> | <a href="<?php echo base_url();?>search">More</a></p><?php */?>
-            </div>
-          </div>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-6">
-          <div class="footer-widget mb-40">
-            <div class="footer-title">
-              <h4>About Us</h4>
-            </div>
-            <div class="footer-list">
-              <p>Pathshala is India's Latest Upcoming Online Marketplace connecting students from everywhere of every course to the teachers around the 
-			  country on just a click & catering other educational needs.</p>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-  <div class="footer-bottom pt-15 pb-15">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-4 col-md-12">
-          <div class="copyright" style=" width: max-content;">
-                    <p> Copyright By © <?php echo date('Y');?> <a href="<?php echo base_url();?>">Pathshala&nbsp;</a>(Brainchild Ventures LLP). <br>All Right Reserved. </p>
-          </div>
-        </div>
-        <div class="col-lg-8 col-md-12">
-          <div class="footer-menu-social">
-            <div class="footer-menu">
-              <ul>
-                <li><a href="<?php echo base_url();?>pages/privecy-policy" target="_blank">Privacy Policy</a></li>
-                <li><a href="<?php echo base_url();?>pages/terms-and-conditions" target="_blank">Terms & Conditions of Use</a></li>
-              </ul>
-            </div>
-            <div class="footer-social">
-              <ul>
-               <li><a class="facebook" href="https://www.facebook.com/pathshalaonweb" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                <li><a class="youtube" href="https://www.instagram.com/pathshalaonline/" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                <li><a class="twitter" href="https://twitter.com/pathshalaonweb" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                <li><a class="google-plus" href="https://www.linkedin.com/company/pathshalaonweb" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </footer>
 <?php } else { ?>
 <footer class="footer-area">
-  <div class="footer-top bg-img default-overlay pt-20 pb-20" style="background-image:url(<?php echo theme_url();?>img/bg/bg-4.jpg);">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6">
-          <div class="footer-widget mb-40">
-            <div class="footer-title">
-              <h4>ABOUT US</h4>
+  <div class="background pt-3 pb-3">
+        <div class="container-fluid p-2">
+            <div class="row">
+                <div class="col-6 text-center text-md-left">
+                    <div class="d-flex flex-row">
+                        <div class="d-flex flex-row justify-content-center justify-content-md-start">
+                            <img alt="" src="<?php echo theme_url(); ?>images/logo_rest.png" class="logo mb-2" />
+                        </div>
+						</div>
+						</div>
+						<div class="col-6 text-center text-md-right pr-2">
+                        <div class="d-flex flex-row justify-content-right justify-content-md-end ">
+                            <a class="facebook" href="https://www.facebook.com/pathshalaonweb" target="_blank"><i class="fa fa-facebook icon"></i></a>
+                           <a class="youtube" href="https://www.instagram.com/pathshalaonline/" target="_blank"> <i class="fa fa-instagram icon"></i></a>
+                            <a class="twitter" href="https://twitter.com/pathshalaonweb" target="_blank"><i class="fa fa-twitter icon"></i></a>
+                            <a class="linkedin" href="https://www.linkedin.com/company/pathshalaonweb" target="_blank"><i class="fa fa-linkedin icon"></i></a>
+                        </div>
+                        <p class="address1"> 37, Ayur Vigyan Nagar, New Delhi, India</p>
+                    </div>
+
+                </div>
+                <div class="col-12 p-3">
+				 <h1 class="heading-longd">QUICK LINKS</h1>
+                    <div class="d-flex flex-row">
+                       
+                        <p class="heading-longd-p"><a class="list1" href="<?php echo base_url(); ?>search">Search Tutors</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>courses">Courses</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>acadex">AcadeX</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>searchliveclasses">Master Classes</a></p>
+						<p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>account/welcome/teacher">Become a Tutor</a></p>
+						<p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>account/welcome/student">Register as a Student</a></p>
+                    </div>
+
+                </div>
+                <div class="col-12  p-3">
+				 <h1 class="heading-longd">OTHER LINKS</h1>
+                    <div class="d-flex flex-row">
+                       
+                        <p class="heading-longd-p"><a class="list1"href="#">Why Pathshala</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="#">Child Safety</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url() ?>About/aboutus.html">About Us</a></p>
+						<p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>pages/privecy-policy">Privacy Policy</a></p>
+						<p class="heading-longd-p"><a class="list1"href="<?php echo base_url() ?>blog">Pathshala Blog</a></p>
+						<p class="heading-longd-p"><a class="list1"href="#">Benefits</a></p>
+					    <p class="heading-longd-p"><a class="list1"href="<?php echo base_url() ?>contactus">Contact Us</a></p>
+						
+                    </div>
+
+                </div>
+				
+				<div class="d-flex flex-row">
+                <div class="col-6 p-3">
+				<h1 class="heading-longd">Search by State</h1>
+				<div class="d-flex flex-row">
+                    <div class="col-6 d-flex flex-column">
+                        
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?state=10&search=home">New Delhi</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?state=41&search=home">West Bengal</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?state=38&search=home">Uttar Pradesh</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?state=17&search=home">Karnataka</a></p>
+						</div>
+						<div class="col-6 d-flex flex-column">
+						<p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?state=33&search=home">Rajasthan</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?state=22&search=home">Maharashtra</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?state=36&search=home">Telangana</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?state=32&search=home">Punjab</a></p>
+						
+                    </div>
+</div>
+                </div>
+				
+				<div class="col-6 p-3">
+				<h1 class="heading-longd">Search by Category</h1>
+                    <div class="d-flex flex-row">
+                    <div class="col-6 d-flex flex-column">
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?category=30&search=home">School Tution K-12</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?category=170&search=home">College / University</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?category=31&search=home">Competitive Coaching</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?category=7&search=home">Hobbies</a></p>
+						</div>
+						<div class="col-6 d-flex flex-column">
+						<p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?category=514&search=home">Professional Learning</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?category=407&search=home">Language</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?category=12&search=home">Sports</a></p>
+                        <p class="heading-longd-p"><a class="list1"href="<?php echo base_url(); ?>search?category=516&search=home">Vocational Learning</a></p>
+                    </div>
+</div>
+                </div>
+				</div>
+				<div class="col-12">
+                    <hr class="hrlineFooter">
+					<h1 class="heading-longd">About Pathshala</h1>
+					<div class="d-flex flex-row">
+                    <p class="mb-4 longd">India's Education Market Place to Search, Manage, Advertise & Sell, also connecting students from everywhere of every course to the teachers around the country on just a click & catering other educational needs. Students of classes K-12 can register and look for trusted tuition centres, verified home tutors, highly rated online tutors, can find answers to NCERT questions or other questions, hand-written notes on various topics and subjects, and so on. It caters the students to connect with the teachers or professionals involved into imparting their expertise. This platform bridges the gap between the two and allow exploring the new ideas and eventually learn by the subject experts.</p>
+						</div>
+                </div>
+				
+
+                <div class="col-12">
+                    <hr class="hrlineFooter">
+					<div class="d-flex flex-row">
+                    <p class="mb-4 longd">Copyright © <?php echo date('Y'); ?> <a href="<?php echo base_url(); ?>">Pathshala &nbsp;</a>(Brainchild Smart Ventures Private Limited). All Right Reserved. </p>
+					
+					<p class="longd ml-auto"><a class="list1" href="<?php echo base_url(); ?>pages/terms-and-conditions">Terms & Conditions</a></p>
+						<p class="longd"><a class="list1" href="<?php echo base_url(); ?>pages/refund-and-cancellation-policy" target="_blank">Refund & Cancellation</a></p>
+			
+						</div>
+                </div>
+			
             </div>
-            <div class="footer-about">
-              <p>Pathshala is India's Latest Upcoming Online Marketplace connecting students from everywhere of every course to the teachers around the country on just a click & catering other educational needs.</p>
-              <div class="f-contact-info">
-                <div class="single-f-contact-info"> <i class="fa fa-home"></i> <span>Delhi</span> </div>
-                <div class="single-f-contact-info"> <i class="fa fa-envelope-o"></i> <span><a href="#">info@pathshala.co</a></span> </div>
-              </div>
-            </div>
-          </div>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-6">
-          <div class="footer-widget mb-40">
-            <div class="footer-title">
-              <h4>QUICK LINK</h4>
-            </div>
-            <div class="footer-list">
-              <ul>
-                <li><a href="<?php echo base_url();?>">Home</a></li>
-                <li><a href="<?php echo base_url()?>About/aboutus.html">About</a></li>
-                <li><a href="<?php echo base_url()?>blog">Blog</a></li>
-                <li><a href="<?php echo base_url()?>contactus">Contact</a></li>
-                <li><a href="<?php echo base_url()?>users/register">Register as Student</a></li>
-                <li><a href="<?php echo base_url()?>teacher/register">Register as Teacher</a></li>
-                <li><a href="<?php echo base_url();?>teacher/login">Login</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-  <div class="footer-bottom pt-15 pb-15">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-4 col-md-12">
-          <div class="copyright" style=" width: max-content;">
-            <p> Copyright © <?php echo date('Y');?> <a href="<?php echo base_url();?>">Pathshala &nbsp;</a>(Brainchild Ventures LLP).<br>All Right Reserved. </p>
-          </div>
-        </div>
-        <div class="col-lg-8 col-md-12">
-          <div class="footer-menu-social">
-            <div class="footer-menu">
-              <ul>
-                <li><a href="<?php echo base_url();?>pages/privecy-policy">Privacy Policy</a></li>
-                <li><a href="<?php echo base_url();?>pages/terms-and-conditions">Terms & Conditions of Use</a></li>
-              </ul>
-            </div>
-            <div class="footer-social">
-              <ul>
-                <li><a class="facebook" href="https://www.facebook.com/pathshalaonweb" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                <li><a class="youtube" href="https://www.instagram.com/pathshalaonline/" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                <li><a class="twitter" href="https://twitter.com/pathshalaonweb" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                <li><a class="google-plus" href="https://www.linkedin.com/company/pathshalaonweb" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </footer>
 <?php }?>
 <!-- JS============================================ --> 

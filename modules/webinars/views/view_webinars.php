@@ -122,22 +122,23 @@
                             </ul>
                           </div>
                         </div> 
-                        <div class="blog-meta lms-meta">
+                        <div class="blog-meta button-box lms-meta">
                         
                       <?php if($this->session->userdata('user_id') > 0 ){?>
                      <ul> 
-                     <li> <a href="<?php echo base_url();?>/webinars/enrollDetail/<?php echo $val['courses_id']?>" class="lms_buy"><i class="fa fa-money"></i> Buy Now</a>&nbsp;</li>
+                     <li><a href="<?php echo base_url();?>/webinars/enrollDetail/<?php echo $val['courses_id']?>" class="lms_buy"><<button class="default-btn"></i> Buy Now</a>&nbsp;</li>
                      
                        <?php if($val['price']!=1){?>
                        
-                     <li> <a href="<?php echo base_url();?>/webinars/enrollDetailStoreCredit/<?php echo $val['courses_id']?>" class="lms_buy"><i class="fa fa-money"></i>Use credit Points</a></li>
+                     <li><a href="<?php echo base_url();?>/webinars/enrollDetailStoreCredit/<?php echo $val['courses_id']?>" class="lms_buy"><button class="default-btn"></i>Use credit Points</a></li>
                       <?php }?>
                       </ul>
                       <?php }else{?>
-                     <ul> <li>  <a href="<?php echo base_url();?>users/login" class="lms_buy"> <i class="fa fa-money"></i> Buy Now</a></li></ul>
-                      <?php }?>
-                      
+                     <ul> <li>  <a href="<?php echo base_url();?>users/login" class="lms_buy"><button class="default-btn"></i> Buy Now</a></li></ul>
+                      <?php }?>                      
                         </div>
+						
+						
                       </div>
                     </div>
                   </div>
@@ -308,7 +309,7 @@ div.pagination span.disabled {
 	font-size: 18px;
 }
 .lms_right .listAll {
-	margin-bottom: 8px;
+	margin-bottom: 12px;
 }
 .lms_right .lms_price {
 	background-color: #28407a;

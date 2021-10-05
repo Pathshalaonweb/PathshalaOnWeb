@@ -180,7 +180,7 @@ class Teacher extends Public_Controller
 		//echo $this->session->flashdata('success');
 		
 		//die;
-		redirect('teacher/login', '');
+		redirect('account/welcome/teacher', '');
 		}	 
 
 	public function thanks()
@@ -346,10 +346,11 @@ class Teacher extends Public_Controller
 	}	
 	
 	
-	public function profile(){
+	public function profile()
+	{
 		$id=$this->uri->segment('3');
 		$param = array('status'=>'1','teacher_id'=>$id);
-		$res   = $this->teacher_model->get_teacher(1,0,$param);
+		$res   = $this->teacher_model->get_teacher(1,0,$param);  //dhruv
 		$condtion               =  array('status'=>1,'teacher_id'=>$id);	
 		$res_array              =  $this->profile_model->get_profile(100,0,$condtion);	
 	if(is_array($res) && !empty($res)){
@@ -360,6 +361,34 @@ class Teacher extends Public_Controller
 		redirect(base_url(), '');		
 		}
 	}
+
+
+	public function book()
+	{
+		$this->teacher_model->book1($id);
+	}
+	
+	
+	
+
+
+
+	
+	
+	//public function bookaclass(){
+	//	$id=$this->uri->segment('3');
+	//	$param = array('status'=>'1','teacher_id'=>$id);
+	//	$res   = $this->teacher_model->get_teacher(1,0,$param);
+	//	$condtion               =  array('status'=>1,'teacher_id'=>$id);	
+	//	$res_array              =  $this->profile_model->get_profile(100,0,$condtion);	
+	//if(is_array($res) && !empty($res)){
+	//	$data['res_array']=$res_array ;	
+	//	$data['res']	  =$res;
+	//$this->load->view('teacher/view_teacher_detail',$data);	
+	//}else{
+	//	redirect(base_url(), '');		
+	//	}
+	//}
 	
 	public function notified(){
 		$id=$this->uri->segment('3');
@@ -388,6 +417,28 @@ class Teacher extends Public_Controller
 		}
 		}
 
+public function follow(){
+		$id=$this->uri->segment('3');
+		$param = array('id'=>$id);
+		$res_array              = $this->profile_model->get_profile(1,0,$param);
+		//print_r($res_array);
+		if(is_array($res_array) && !empty($res_array)){
+		$data_post=array(
+				'student_id' => $this->session->userdata('user_id'),
+				'teacher_id' => $res_array['teacher_id'],
+				'created_at' => $this->config->item('config.date.time')
+			);
+		$insert=$this->teacher_model->safe_insert('wl_teacher_follow_record',$data_post,FALSE);
+		$this->session->set_userdata(array('msg_type'=>'success'));
+		$this->session->set_flashdata('success',"<div class='alert alert-success'>
+				<strong>Success!</strong> Notification send .</div>");
+		redirect("teacher/profile/".$res_array['teacher_id'], '');	
+		}else{
+			$this->session->set_userdata(array('msg_type'=>'success'));
+		$this->session->set_flashdata('success',"<div class='alert alert-danger'>
+				<strong>Warning!</strong> Some thing Went to wrong .</div>");
+		}
+		}
 
 
 	// Update rating

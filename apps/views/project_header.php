@@ -1,3 +1,24 @@
+<head>
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+ fbq('init', '139740021453826'); 
+fbq('track', 'PageView');
+</script>
+<noscript>
+ <img height="1" width="1" 
+src="https://www.facebook.com/tr?id=139740021453826&ev=PageView
+&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
+</head>
 <header class="header-area">
   <?php if ($this->router->fetch_class()=='home') {?>
   <div class="header-top bg-img">
@@ -17,7 +38,7 @@
                 <li><a class="facebook" href="https://www.facebook.com/pathshalaonweb" target="_blank"><i class="fa fa-facebook"></i></a></li>
                 <li><a class="instagram" href="https://www.instagram.com/pathshalaonline/" target="_blank"><i class="fa fa-instagram"></i></a></li>
                 <li><a class="twitter" href="https://twitter.com/pathshalaonweb" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                <li><a class="google" href="https://www.linkedin.com/company/pathshalaonweb" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                <li><a class="linkedin" href="https://www.linkedin.com/company/pathshalaonweb" target="_blank"><i class="fa fa-linkedin"></i></a></li>
               </ul>
             </div>
           </div>
@@ -31,9 +52,9 @@
       <div class="row">
         <div class="col-lg-2 col-md-6 col-4">
           <?php if ($this->router->fetch_class()=='home') {?>
-          <div class="logo"> <a href="<?php echo base_url();?>"> <img alt="" src="<?php echo theme_url();?>images/logo_new.png"> </div>
+          <div class="logo"> <a href="<?php echo base_url();?>"> <img alt="" src="<?php echo theme_url();?>images/logo_home.png"> </div>
           <?php } else {?>
-          <div class="logo"> <a href="<?php echo base_url();?>"> <img alt="" src="<?php echo theme_url();?>images/logo_path.png"> </a> </div>
+          <div class="logo"> <a href="<?php echo base_url();?>"> <img alt="" src="<?php echo theme_url();?>images/logo_rest.png"> </a> </div>
           <?php } ?>
         </div>
         <div class="col-lg-10 col-md-6 col-8">
@@ -41,10 +62,10 @@
             <div class="main-menu">
               <nav>
                 <ul>
-                  <li><a href="<?php echo base_url()?>">HOME</a></li>
+                  <li><a href="<?php echo base_url()?>"style="color:#000000;">HOME</a></li>
                   <div class="dropdown">
                   <li>
-                  <a href="#" style="color:#ffffff;">SEARCH</a>
+                  <a href="#" style="color:#000000;">SEARCH</a>
                   </li>
                   <div class="dropdown-content" style="z-index:10;">
                   <a href="<?php echo base_url();?>search">Tutor</a>
@@ -54,7 +75,7 @@
                   </div>
                   <div class="dropdown">
                   <li>
-                  <a href="#" style="color:#ffffff;">PATHSHALA LIVE</a>
+                  <a href="#" style="color:#000000;">PATHSHALA LIVE</a>
                   </li>
                   <div class="dropdown-content" style="z-index:10;">
                   <a href="<?php echo base_url();?>acadex">AcadeX</a>
@@ -63,12 +84,23 @@
                   <a href="<?php echo base_url();?>virtualcamp">Virtual Camp</a>
                   </div>
                   </div>
-                  <div class="dropdown">
+                  <!--<div class="dropdown">
                   <li>
-                  <a href="#" style="color:#ffffff;">ONLINE COMPETITION</a>
+                  <a href="#" style="color:#000000;">ONLINE COMPETITION</a>
                   </li>
                   <div class="dropdown-content" style="z-index:10;">
                   <a href="<?php echo base_url();?>competition/register/parent">Parent's Competition</a>
+                  <a href="<?php echo base_url();?>competition/register/student">Student's Competition</a>
+                  <a href="<?php echo base_url();?>competition/register/teacher">Teacher's Competition</a>
+                  </div>
+                  </div>-->
+				  <li><a href="<?php echo base_url()?>freegift"style="color:#000000;">Pathshala Free Gift(New)</a></li>
+				  <div class="dropdown">
+                  <li>
+                  <a href="#" style="color:#000000;">Our Partners</a>
+                  </li>
+                  <div class="dropdown-content" style="z-index:10;">
+                  <a href="<?php echo base_url();?>competition/register/parent">Foreign Language Olympiad</a>
                   <a href="<?php echo base_url();?>competition/register/student">Student's Competition</a>
                   <a href="<?php echo base_url();?>competition/register/teacher">Teacher's Competition</a>
                   </div>
@@ -79,8 +111,8 @@
                   <?php }?>
                   <?php if($this->session->userdata('user_id') > 0 ){?>
                   <!-- <li><a href="<?php //echo base_url();?>liveclasses">Live Classes</a></li> -->
-                  <li><a href="<?php echo base_url();?>members/myaccount">My Account</a></li>
-                  <li>
+                  <li><a href="<?php echo base_url();?>members/myaccount" style="color:#000000;">My Account</a></li>
+                  <li><a>
                     <?php 
                     $idd = $this->session->userdata('user_id');
                     $dbe = $this->load->database('default', TRUE);
@@ -90,7 +122,7 @@
                     $credit_point = $value[0]['credit_point'];
                     ?>
                   <div class="dropdown">
-                        <a data-toggle="dropdown"><i class="fa fa-user-circle"  style="font-size:28px;"></i></a>
+                       <a data-toggle="dropdown"><i class="fa fa-user-circle"  style="font-size:28px;"></i></a>
                         <div class="dropdown-menu">
                           <p class="dropdown-item" style="font-size: 16px;">Hola, <?php echo $this->session->userdata('first_name');?></p>
                           <?php if($credit_point =='0' || $credit_point == ''){ ?>
@@ -106,9 +138,11 @@
                           <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>members/credit'">Buy Subscription</p>
                           <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>members/change_password'">Change Password</p>
                           
-                          <div class="dropdown-divider"></div>
-                          <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>users/logout'">Logout</p>
-                        </div>
+                          <div class="dropdown-divider"></div> 
+						  
+                          <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>users/logout'" style="color:#000000;">LOGOUT</p>
+                        </a>
+						</div>
                       </div>
                   </li>
                   <?php }else{?>
@@ -129,7 +163,7 @@
                   <?php  }else{?>
                   <div class="dropdown">
                   <li>
-                  <a href="#" style="color:#ffffff;">LOGIN</a>
+                  <a href="#" style="color:#000000;">LOGIN</a>
                   </li>
                   <div class="dropdown-content" style="z-index:10;">
                   <a href="<?php echo base_url();?>users/login">Student Login</a>
@@ -137,7 +171,7 @@
                   <?php }?>
                   <?php if($this->session->userdata('teacher_id') > 0 ){?>
                   <li><a href="<?php echo base_url();?>teacherdashboard/myaccount">My Account</a></li>
-                  <li>
+                  <li><a>
                   <?php 
                     $idd = $this->session->userdata('teacher_id');
                     $dbe = $this->load->database('default', TRUE);
@@ -149,7 +183,7 @@
                     $date = new DateTime('now');
                     $currentDate = $date->format('Y-m-d h:i:s');
                     ?>
-                  <div class="dropdown">
+                 <div class="dropdown">
                         <a data-toggle="dropdown"><i class="fa fa-user-circle"  style="font-size:28px;"></i></a>
                         <div class="dropdown-menu">
                           <p class="dropdown-item" style="font-size: 16px;">Hola, <?php echo $this->session->userdata('first_name');?></p>
@@ -169,8 +203,10 @@
                           <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>teacherdashboard/change_password'">Change Password</p>
                           
                           <div class="dropdown-divider"></div>
-                          <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>teacher/logout'">Logout</p>
-                        </div>
+						 
+                          <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>teacher/logout'" style="color:#000000;">Logout</p>
+                        </a>
+						 </div>
                       </div>
                   
                   </li>
@@ -194,8 +230,10 @@
               <li><a href="<?php echo base_url()?>">HOME</a></li>
               <li><a href="<?php echo base_url();?>search">Search Tutor</a></li>
               <li><a href="<?php echo base_url();?>courses">Search Courses</a></li>
-              <li><a href="<?php echo base_url();?>webinars">Webinars</a></li>
-              <li><a href="<?php echo base_url();?>virtualcamp">Virtual Camp</a></li>
+			  <li><a href="<?php echo base_url()?>freegift"style="color:#000000;">Pathshala Free Gift(New)</a></li>
+			  <li><a href="<?php echo base_url();?>acadex">AcadeX</a></li>
+              <!--<li><a href="<?php echo base_url();?>webinars">Webinars</a></li>
+              <li><a href="<?php echo base_url();?>virtualcamp">Virtual Camp</a></li>-->
               <?php if($this->session->userdata('user_id') > 0 ) {} 
                         elseif($this->session->userdata('teacher_id') > 0 ) {} else {?>
                   <li><a href="<?php echo base_url();?>liveclasses">Live Classes</a></li>

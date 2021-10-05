@@ -1,16 +1,39 @@
 <?php $this->load->view('top_application'); ?>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<?php //echo print_r($res);?>
-<div class="breadcrumb-area">
-  <div class="breadcrumb-bottom">
-    <div class="container">
-      <ul>
-        <li><a href="<?php echo base_url();?>">Home</a> <span><i class="fa fa-angle-double-right"></i>Profile Details</span></li>
-      </ul>
-    </div>
-  </div>
-</div>
+
+<!-- Trial Code -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="<?php echo base_url(); ?>mentor/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>mentor/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>mentor/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>mentor/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>mentor/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>mentor/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>mentor/assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="<?php echo base_url(); ?>mentor/assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Mentor - v2.2.0
+  * Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+</head>
+
+<body>
 <?php
 			$userid=$userid = $this->session->userdata('user_id');
 			$id=$res['teacher_id']; 
@@ -202,26 +225,165 @@
 			 $allratingAveragerating=$averagerating+$teachingaveragerating+$disciplineaveragerating+$studymaterialaveragerating+$locationsaveragerating+$infrastructureaveragerating;
 			 
 		 ?>
-<div class="course-details-area pt-20">
-  <div class="container">
+
+  <!-- ======= Hero Section ======= -->
+  <section  id="hero" class="d-flex justify-content-center align-items-center">
     <div class="row">
-      <div class="col-xl-12 col-lg-8"> <?php echo error_message(); ?>
-        <div class="row">
-          <div class="col-md-3 no-padding photobox">
+	<div class="container position-relative text-center" data-aos="zoom-in" data-aos-delay="100" >
+	<div class="col-md-3 no-padding photobox ">
             <div class="add-image"> <a href="JavaScript:Void(0);"><img
                                                         class="thumbnail no-margin" src="<?php echo get_image('teacher',$res['picture'],190,190,'AR');?>"
                                                         alt="img"></a></div>
-            <h5 class="add-title" style="font-size:22px;color:#1b68b5;font-weight: bold;"><a href="javascript:void(0)"></a> <?php echo $res['first_name']?></h5>
-            <div class="prop-info-box">
-              <div class="prop-info">
-                <p style="text-align:justify"><strong>About</strong> : <?php echo $res['description'];?></p>
-              </div>
-            </div>
+            <h5 class="add-title" style="font-size:22px;color:#FFFFFF;font-weight: bold;"><a href="javascript:void(0)"></a> <?php echo $res['first_name']?></h5>
+           
+                <h5 style="color:#FFFFFF;font-weight:bold; text-center">About : <?php echo $res['description'];?></h5>
+				<tr>                  
+				  <?php 
+				  
+            $dbe = $this->load->database('default', TRUE);
+            $idd = $this->session->userdata('user_id');
+            $sq = "SELECT `id` FROM `wl_teacher_follow_record` WHERE `student_id`='".$idd."'";
+            $qu=$dbe->query($sq);
+            $numrows = $qu->num_rows();
+            //echo $numrows;
+          ?>
+		  <?php if($this->session->userdata('user_id') > 0 ){?>
+                 <?php if($numrows == 0) { ?>
+                  <a class="btn btn-primary" href="<?php echo base_url();?>teacher/follow/<?php echo $val['id'];?>" onclick="return confirm('Are you sure, you want to follow <?= $res['first_name']?>')" class="btn ">Follow Me</a>
+                 
+                 <?php } elseif($numrows == 1) { ?>
+                  <a class="btn btn-success" href="" class="btn">Following</a>
+                 <?php } ?>
+				 <?php }else{?>
+                  <a class="btn btn-primary" href="<?php echo base_url();?>users/login" class="btn">Follow Me</a>
+				  <?php } ?>
+                  
+					</tr>
+              
           </div>
-          <!--/.photobox-->
-          <div class="col-md-9 add-desc-box">
+		  <div class="col-lg-4  text-center">
+            <div class="number asap-font">
+             <?php $con=mysqli_connect("localhost","root","Pathshala@1a","pathshal_pathshala");
+			$sql3="SELECT count(teacher_id) FROM `wl_teacher_profile` WHERE teacher_id='$res[teacher_id]'" ;
+			$result3=mysqli_query($con,$sql3);
+			$row3=mysqli_fetch_row($result3);
+			$str3 = implode($row3);  
+			 ?>
+              <b><span data-toggle="counter-up" style="color:#FFFFFF;font-weight:bold;font-size: 24px;">  <?php echo $str3?></b></span>
+            </div>
+            <p style="color:#FFFFFF;font-weight:bold;font-size: 24px;">Subjects Listed</p>
+          </div>
+		  <div class="col-lg-4  text-center">
+            <div class="number asap-font">
+             <?php $con=mysqli_connect("localhost","root","Pathshala@1a","pathshal_newlms");
+			$sql2="SELECT count(teacher_id) FROM `tbl_courses` WHERE teacher_id='$res[teacher_id]' && status='1'" ;
+			$result2=mysqli_query($con,$sql2);
+			$row2=mysqli_fetch_row($result2);
+			$str2 = implode($row2); 
+			 ?>
+              <b><span data-toggle="counter-up" style="color:#FFFFFF;font-weight:bold;font-size: 24px;">  <?php echo $str2?></b></span>
+            </div>
+            <p style="color:#FFFFFF;font-weight:bold;font-size: 24px;">Courses Listed</p>
+          </div>
+		  <div class="col-lg-4  text-center">
+            <div class="number asap-font">
+             <?php $con=mysqli_connect("localhost","root","Pathshala@1a","pathshal_pathshala");
+			$sql1="SELECT count(teacher_id) FROM `wl_addclass` WHERE teacher_id='$res[teacher_id]'" ;
+			$result1=mysqli_query($con,$sql1);
+			$row1=mysqli_fetch_row($result1);
+			$str1 = implode($row1); 
+			 ?>
+              <b><span data-toggle="counter-up" style="color:#FFFFFF;font-weight:bold;font-size: 24px;">  <?php echo $str1?></b></span>
+            </div>
+            <p style="color:#FFFFFF;font-weight:bold;font-size: 24px;">Classes Conducted & Scheduled</p>
+          </div>
+
+          <div class="col-lg-4 text-center">
+            <div class="number asap-font">
+             <?php $con=mysqli_connect("localhost","root","Pathshala@1a","pathshal_pathshala");
+			$sql4="SELECT count(teacher_id) FROM `wl_teacher_follow_record` WHERE teacher_id='$res[teacher_id]'" ;
+			$result4=mysqli_query($con,$sql4);
+			$row4=mysqli_fetch_row($result4);
+			$str4 = implode($row4); 
+			 ?>
+              <b><span data-toggle="counter-up" style="color:#FFFFFF;font-weight:bold;font-size: 24px;"> <?php echo $str4?></b></span>
+            </div>
+            <p style="color:#FFFFFF;font-weight:bold;font-size: 24px;">Followers</p>
+          </div>
+    </div>
+	</div>
+  </section><!-- End Hero -->
+<div class="container">
+
+</div>
+  
+
+    <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts section-bg">
+      <div class="container">
+
+        <div class="row counters">
+
+          <div class="col-lg-3 col-6 text-center">
+            <div class="number asap-font">
+             <?php $con=mysqli_connect("localhost","root","Pathshala@1a","pathshal_pathshala");
+			$sql3="SELECT count(teacher_id) FROM `wl_teacher_profile` WHERE teacher_id='$res[teacher_id]'" ;
+			$result3=mysqli_query($con,$sql3);
+			$row3=mysqli_fetch_row($result3);
+			$str3 = implode($row3);  
+			 ?>
+              <b><span data-toggle="counter-up">  <?php echo $str3?></b></span>
+            </div>
+            <p>Subjects Listed</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <div class="number asap-font">
+            <?php $con=mysqli_connect("localhost","root","Pathshala@1a","pathshal_newlms");
+			$sql2="SELECT count(teacher_id) FROM `tbl_courses` WHERE teacher_id='$res[teacher_id]' && status='1'" ;
+			$result2=mysqli_query($con,$sql2);
+			$row2=mysqli_fetch_row($result2);
+			$str2 = implode($row2); 
+			 ?>
+              <b><span data-toggle="counter-up">  <?php echo $str2?></b></span>
+            </div>
+            <p>Courses Listed</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <div class="number asap-font">
+             <?php $con=mysqli_connect("localhost","root","Pathshala@1a","pathshal_pathshala");
+			$sql1="SELECT count(teacher_id) FROM `wl_addclass` WHERE teacher_id='$res[teacher_id]'" ;
+			$result1=mysqli_query($con,$sql1);
+			$row1=mysqli_fetch_row($result1);
+			$str1 = implode($row1); 
+			 ?>
+              <b><span data-toggle="counter-up">  <?php echo $str1?></b></span>
+            </div>
+            <p>Classes Conducted & Scheduled</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <div class="number asap-font">
+             <?php $con=mysqli_connect("localhost","root","Pathshala@1a","pathshal_pathshala");
+			$sql4="SELECT count(teacher_id) FROM `wl_teacher_follow_record` WHERE teacher_id='$res[teacher_id]'" ;
+			$result4=mysqli_query($con,$sql4);
+			$row4=mysqli_fetch_row($result4);
+			$str4 = implode($row4); 
+			 ?>
+              <b><span data-toggle="counter-up"> <?php echo $str4?></b></span>
+            </div>
+            <p>Followers</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Counts Section --><br>
+	<div class="container">
+	<div class="col-md-12 add-desc-box">
             <div class="ads-details">
-              <div class="breadcrumb-area">
+			<div class="breadcrumb-area">
                 <div class="breadcrumb-bottom">
                   <ul>
                     <li style="padding:0 5px;"><a href="JavaScript:Void(0);"> Rating's</a> <span><i class="fa fa-angle-double-right"></i>Based on <span style="color:#F90;font-weight:bold;"><?php echo round($total/6);?> students</span> rating</span> <span><i class="fa fa-angle-double-right"></i><span style="color:#F90;font-size: 18px;">
@@ -230,7 +392,7 @@
                   </ul>
                 </div>
               </div>
-              <?php 
+			<?php 
 		 $accountType=$res['account_type'];
 		 if($accountType=='0'){
 			 $heading1="Conceptual Clarity";
@@ -396,8 +558,7 @@
                   </div>
                 </div>
               </div>
-              <!--<p class="Note"><strong>Note*</strong> You have to login before </p>-->
-              <p>&nbsp;</p>
+			<p>&nbsp;</p>
               <?php if(!empty($res['youtube'])){?>
               <div class="row">
                 <div class="col-md-12">
@@ -408,40 +569,37 @@
               <p>&nbsp;</p>
               <div class="row">
                 <?php if(!empty($res['image1'])){?>
-                <div class="col-md-6"> <img src="<?php echo get_image('gallery',$res['image1'],400,250,'AR');?>"/> </div>
+                <div class="col-md-6"> <img class="image-link" src="<?php echo get_image('gallery',$res['image1'],400,250,'AR');?>"/> </div><br>
                 <?php }?>
                 <?php if(!empty($res['image2'])){?>
-                <div class="col-md-6"> <img src="<?php echo get_image('gallery',$res['image2'],400,250,'AR');?>"/> </div>
+                <div class="col-md-6"> <img class="image-link" src="<?php echo get_image('gallery',$res['image2'],400,250,'AR');?>"/> </div><br>
                 <?php }?>
+				</div><br><div class="row">
                 <?php if(!empty($res['image3'])){?>
-                <div class="col-md-6"> <img src="<?php echo get_image('gallery',$res['image3'],400,250,'AR');?>"/> </div>
+                <div class="col-md-6"> <img class="image-link" src="<?php echo get_image('gallery',$res['image3'],400,250,'AR');?>"/> </div><br>
                 <?php }?>
                 <?php if(!empty($res['image4'])){?>
-                <div class="col-md-6"> <img src="<?php echo get_image('gallery',$res['image4'],400,250,'AR');?>"/> </div>
+                <div class="col-md-6"> <img class="image-link" src="<?php echo get_image('gallery',$res['image4'],400,250,'AR');?>"/> </div><br>
                 <?php }?>
               </div>
               <h3>Download PDF</h3>
               <?php if(!empty($res['pdf'])){?>
               <div class="row">
-                <div class="col-md-12"><span>File:</span> <a  href="<?php echo base_url();?>uploaded_files/teacher/<?php echo $res['pdf'];?>" target="_blank" download>download</a></div>
-              </div>
+                <div class="col-md-4"><span>File 1:</span> <a  href="<?php echo base_url();?>uploaded_files/teacher/<?php echo $res['pdf'];?>" target="_blank" download><img src="<?php echo theme_url(); ?>/tutor_img/pdficon.png"></a></div>
               <?php }?>
               <?php if(!empty($res['pdf1'])){?>
-              <div class="row">
-                <div class="col-md-12"><span>File:</span> <a  href="<?php echo base_url();?>uploaded_files/teacher/<?php echo $res['pdf1'];?>" target="_blank" download>download</a></div>
-              </div>
+                <div class="col-md-4"><span>File 2:</span> <a  href="<?php echo base_url();?>uploaded_files/teacher/<?php echo $res['pdf1'];?>" target="_blank" download><img src="<?php echo theme_url(); ?>/tutor_img/pdficon.png"></a></div>
               <?php }?>
               <?php if(!empty($res['pdf2'])){?>
-              <div class="row">
-                <div class="col-md-12"><span>File:</span> <a  href="<?php echo base_url();?>uploaded_files/teacher/<?php echo $res['pdf2'];?>" target="_blank" download>download</a></div>
-              </div>
+                <div class="col-md-4"><span>File 3:</span> <a  href="<?php echo base_url();?>uploaded_files/teacher/<?php echo $res['pdf2'];?>" target="_blank" download><img src="<?php echo theme_url(); ?>/tutor_img/pdficon.png"></a></div>
+              </div><br>
               <?php }?>
-            </div>
-          </div>
-          <p>&nbsp;</p>
-          
-          <!--/.add-desc-box-->
-          <div class="table-responsive">
+			</div>
+			</div>
+			</div>
+			 <!--/.add-desc-box-->
+<div class="container">         
+		 <div class="table-responsive">
             <?php 
     if(is_array($res_array) && !empty($res_array)) { 
    ?>
@@ -455,7 +613,7 @@
                   <th>City</th>
                   <th>Location</th>
                   <th>Fee</th>
-                  <th></th>
+                  <th>Send Connection Request</th>
                 </tr>
               </thead>
               <tbody>
@@ -472,23 +630,54 @@
                   <td><?php echo $val['location'];?></td>
                   <td><?php echo $val['fee'];?></td>
                   <td><?php if($this->session->userdata('user_id') > 0 ){?>
-                    <a href="<?= base_url();?>teacher/notified/<?= $val['id']?>" onclick="return confirm('Are you sure  notified <?= $res['first_name']?>')" class="btn-success btn-sm bold">Message</a>
+                    <a href="<?= base_url();?>teacher/notified/<?= $val['id']?>" onclick="return confirm('Are you sure  notified <?= $res['first_name']?>')" class="btn-success btn-sm bold">Send Request</a>
                     <?php }else{?>
-                    <a href="<?= base_url();?>users/login" class="btn-success btn-sm bold">Message</a>
+                    <a href="<?= base_url();?>users/login" class="btn-success btn-sm bold">Send Request</a>
                     <?php }?></td>
+				
                 </tr>
                 <?php } ?>
               </tbody>
             </table>
             <?php } ?>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
+		  </div>
+	
+
+	
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="<?php echo base_url(); ?>mentor/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="<?php echo base_url(); ?>mentor/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<?php echo base_url(); ?>mentor/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="<?php echo base_url(); ?>mentor/assets/vendor/php-email-form/validate.js"></script>
+  <script src="<?php echo base_url(); ?>mentor/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="<?php echo base_url(); ?>mentor/assets/vendor/counterup/counterup.min.js"></script>
+  <script src="<?php echo base_url(); ?>mentor/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="<?php echo base_url(); ?>mentor/assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="<?php echo base_url(); ?>mentor/assets/js/main.js"></script>
+  
+</body>
+
+</html>
+<!-- trial code end here -->
 <?php $this->load->view('bottom_application'); ?>
+<div id="wait" style="display:none;"><br>
+  Loading..</div>
+<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel ="stylesheet">
+<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script> 
+
+
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
 <link href='<?php echo theme_url();?>bootstrap-star-rating/css/star-rating.min.css' type='text/css' rel='stylesheet'>
 <script src='<?php echo theme_url();?>bootstrap-star-rating/js/star-rating.min.js' type='text/javascript'></script> 
 <script type="text/javascript">
@@ -650,6 +839,11 @@
 	$(document).ready(function(){
 		//$(".filled-stars").css('width',"100%");
 	});
+</script>
+<script>
+$(document).ready(function() {
+  $('.image-link').magnificPopup({type:'image'});
+});
 </script>
 <style>
     .rating-container .filled-stars {

@@ -517,7 +517,7 @@ class Acadex extends Public_Controller
 	 {
 		$this->load->view('acadex/view_acadex_register');
 	 }
-	 public function speakeregister()
+	 public function speakerregister()
 	 {
 		$this->load->view('acadex/view_acadex_register_teacher');
 	 }

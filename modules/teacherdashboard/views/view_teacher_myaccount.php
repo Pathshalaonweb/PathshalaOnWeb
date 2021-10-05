@@ -1,305 +1,489 @@
-<?php $this->load->view("top_application");?>
-<?php
-function textColor($i)
-{
-  if($i<=3)
-  {
-    echo "color:#ffffff";
-  }
-  else 
-    echo "color: #000000";
-}
-?>
-<div class="hero-image">
-  <div class="hero-text">
-    <h1 style="color: #ffffff; font-size:50px">Pathshala Welcome's You</h1>
-    <br><br>
-    <h3 style="color: #ffffff;">India's Education Market Place to Search, Manage, Advertise & Sell</h3>
-    <br>
-    <button class="btn btn-info" style="background: #1b68b5; color:#ffffff;" onclick="window.location.href='<?php echo base_url();?>teacherdashboard/plan'">Get Started</button>
-  </div>
-</div>
-<div class="hero-image">
-  <div class="hero-text">
-    <h1 style="color: #ffffff;font-size:50px">What you'll get</h1>
-    <!-- <h3 style="color: #ffffff;">What you'll get</h3> -->
-    <br><br>
-    <div class ="row">
-        <div class ="col-5 col-xs-12">
-            <div class="row">
-                <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%202.png" class="picons" style="width:54.86px; height:54.86px;">
-                    </div>
-                <div class="col-8 col-xs-6">
-                    <h4 style="color: #ffffff;">Get Rated on Predefined Parameters.</h4>
-                    </div>
-            </div>
-        </div>
-        <div class="col-2">
-</div>
-        <div class ="col-5 col-xs-12">
-            <div class="row">
-                <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%206.png" class="picons" style="width:54.86px; height:54.86px;">
-                    </div>
-                <div class="col-8 col-xs-6">
-                    <h4 style="color: #ffffff;">Get Digital Presence to Showcase Yourself.</h4>
-                    </div>
-            </div>
-        </div>
-    </div>
-    <br>
-    <div class ="row">
-        <div class ="col-5 col-xs-12">
-            <div class="row">
-                <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%203.png" class="picons" style="width:54.86px; height:54.86px;">
-                    </div>
-                <div class="col-8 col-xs-6">
-                    <h4 style="color: #ffffff;">Sell & Share Your Content Through LMS.</h4>
-                    </div>
-            </div>
-        </div>
-        <div class="col-2">
-</div>
-        <div class ="col-5 col-xs-12">
-            <div class="row">
-                <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%2012.png" class="picons" style="width:54.86px; height:54.86px;">
-                    </div>
-                <div class="col-8 col-xs-6">
-                    <h4 style="color: #ffffff;">Get Students Reach from Pan India.</h4>
-                    </div>
-            </div>
-        </div>
-    </div>
-    <br>
-    <div class ="row">
-        <div class ="col-5 col-xs-12">
-            <div class="row">
-                <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%207.png" class="picons" style="width:54.86px; height:54.86px;">
-                    </div>
-                <div class="col-8 col-xs-6">
-                    <h4 style="color: #ffffff;">More Students Engagement.</h4>
-                    </div>
-            </div>
-        </div>
-        <div class="col-2">
-</div>
-        <div class ="col-5 col-xs-12">
-            <div class="row">
-                <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%2013.png" class="picons" style="width:54.86px; height:54.86px;">
-                    </div>
-                <div class="col-8 col-xs-6">
-                    <h4 style="color: #ffffff;">Let us be Your Secondary Sales Channel.</h4>
-                    </div>
-            </div>
-        </div>
-    </div>
-  </div>
-</div>
-<div class="hero-image">
-  <div class="hero-text">
-    <h1 style="color: #ffffff;">Search Student Online - Students Request</h1>
-    <br><br>
-    <h3 style="color: #ffffff;">Students sending connection request, Accept the Request & Get the Deals
-<br>Complete Data of people connecting to them buy and show contact</h3>
-    <br>
-    <button class="btn btn-info" style="background: #1b68b5; color:#ffffff;" onclick="window.location.href='<?php echo base_url();?>teacherdashboard/student'">Students Request</button>
-  </div>
-</div>
-<div class="hero-image">
-  <div class="hero-text">
-    <h1 style="color: #ffffff; font-size:50px">List Yourself</h1>
-    <br><br>
-    <h3 style="color: #ffffff;">List the Classes & Subjects you wish to teach, mentioning the Fees, Area & other details to be showcased on Search Tutor Directory. Click on the button & Start Listing</h3>
-    <br>
-    <button class="btn btn-info" style="background: #1b68b5; color:#ffffff;" onclick="window.location.href='<?php echo base_url();?>teacherdashboard/profile'">List Yourself</button>
-  </div>
-</div>
-<div class="hero-image">
-  <div class="hero-text">
-    <h1 style="color: #ffffff;font-size:50px">Live Classes</h1>
-    <br><br>
-    <h3 style="color: #ffffff;">Enroll Now & Get Access to give LiveClasses, included with the Base Plan
-<br>Partnered with Scobotic</h3>
-        <br>
-        <div class ="row">
-        <div class ="col-5 col-xs-12">
-            <div class="row">
-                <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%2012.png" class="picons" style="width:54.86px; height:54.86px;">
-                    </div>
-                <div class="col-8 col-xs-6">
-                    <h4 style="color: #ffffff;"> Teach Students from Pan Inda.</h4>
-                    </div>
-            </div>
-        </div>
-        <div class="col-2">
-</div>
-        <div class ="col-5 col-xs-12">
-            <div class="row">
-                <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/icon1.png" class="picons" style="width:54.86px; height:54.86px;">
-                    </div>
-                <div class="col-8 col-xs-6">
-                    <h4 style="color: #ffffff;">Be Digital & Let Students Reach You.</h4>
-                    </div>
-            </div>
-        </div>
-    </div>
-    <br><br>
-    <div class ="row">
-        <div class ="col-5 col-xs-12">
-            <div class="row">
-                <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%208.png" class="picons" style="width:54.86px; height:54.86px;">
-                    </div>
-                <div class="col-8 col-xs-6">
-                    <h4 style="color: #ffffff;">Share Post Session Notes & Study Material.</h4>
-                    </div>
-            </div>
-        </div>
-        <div class="col-2">
-</div>
-        <div class ="col-5 col-xs-12">
-            <div class="row">
-                <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%2011.png" class="picons" style="width:54.86px; height:54.86px;">
-                    </div>
-                <div class="col-8 col-xs-6">
-                    <h4 style="color: #ffffff;">Share Recorded Video of Your Live Classes.</h4>
-                    </div>
-            </div>
-        </div>
-    </div>
-    <br>
-    <a class="btn btn-primary" href="<?php echo base_url();?>teacherdashboard/liveclass" target="_blank" style="background: #1b68b5; color:#ffffff; padding:10px 25px;">Live Classes</a>
-  </div>
-</div>
+<?php $mem_info=get_db_single_row('wl_teacher',$fields="first_name,is_verified,current_credit,referral_code,profile_edit,plan_expire,email_verify",$condition="WHERE 1 AND teacher_id='".$this->session->userdata('teacher_id')."'");?>
+<!--
+=========================================================
+Material Dashboard - v2.1.2
+=========================================================
 
-<div class="hero-image">
-  <div class="hero-text">
-    <h1 style="color: #ffffff;font-size:50px">Learning Management System</h1>
-    <br><br>
-    <h3 style="color: #ffffff;">Do You have Content to Share or Sell ? Earn additional by Selling Your Own Notes, Youtube Lectures, Quizzes</h3>
-        <br>
-        <div class ="row">
-        <div class ="col-5 col-xs-12">
-            <div class="row">
-                <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%209.png" class="picons" style="width:54.86px; height:54.86px;">
-                    </div>
-                <div class="col-8 col-xs-6">
-                    <h4 style="color: #ffffff;">Share or Sell Study Material.</h4>
-                    </div>
-            </div>
-        </div>
-        <div class="col-2">
-</div>
-        <div class ="col-5 col-xs-12">
-            <div class="row">
-                <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%208.png" class="picons" style="width:54.86px; height:54.86px;">
-                    </div>
-                <div class="col-8 col-xs-6">
-                    <h4 style="color: #ffffff;">Provide Online Quizzes, Test Series, MCQ.</h4>
-                    </div>
-            </div>
-        </div>
+Product Page: https://www.creative-tim.com/product/material-dashboard
+Copyright 2020 Creative Tim (https://www.creative-tim.com)
+Coded by Creative Tim
+
+=========================================================
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<link rel="shortcut icon" type="image/x-icon" href="<?php echo theme_url();?>img/favicon.png">
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url(); ?>matdashboard/assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="<?php echo base_url(); ?>matdashboard/assets/img/favicon.png">
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="<?php echo base_url(); ?>matdashboard/assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="<?php echo base_url(); ?>matdashboard/assets/demo/demo.css" rel="stylesheet" />
+</head>
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="<?php echo base_url(); ?>matdashboard/assets/img/sidebar-1.jpg">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+      
+      <div class="sidebar-wrapper">
+	  
+        <?php 
+		$date = new DateTime('now');
+		$currentDate = $date->format('Y-m-d h:i:s');
+		$expireDate =  $mem_info['plan_expire'];
+		if($expireDate > $currentDate && $mem_info['current_credit']!=0){
+		?>
+        <ul class="nav">
+          <li class="nav-item active  ">
+            <a class="nav-link" href="<?php echo base_url();?>teacherdashboard/myaccount">
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="<?php echo base_url();?>teacherdashboard/edit_account">
+              <i class="material-icons">person</i>
+              <p>User Profile</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="<?php echo base_url();?>teacherdashboard/profile">
+              <i class="material-icons">content_paste</i>
+              <p>List Yourself</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="<?php echo base_url();?>teacherdashboard/listclass">
+              <i class="material-icons">library_books</i>
+              <p>List Your Class</p>
+            </a>
+          </li>
+		<?php $idds = $this->session->userdata('teacher_id');
+		$dbes = $this->load->database('default', TRUE);
+		$sqs = "SELECT liveplan FROM `wl_teacher` WHERE teacher_id='".$idds."'";
+		$qus=$dbes->query($sqs);
+		$values= $qus->result_array();
+		$liveplans = $values[0]['liveplan'];
+		if($liveplans == 1){ ?>
+			<li class="nav-item ">
+            <a class="nav-link" href="<?php echo base_url(); ?>teacherdashboard/liveclass" target="_blank">
+              <i class="material-icons">bubble_chart</i>
+              <p>Live Classes</p>
+            </a>
+          </li>
+		<?php } else { ?>
+          <li class="nav-item ">
+            <a class="nav-link" href="<?php echo base_url(); ?>teacherdashboard/plan">
+              <i class="material-icons">bubble_chart</i>
+              <p>Live Classes</p>
+            </a>
+          </li>
+		<?php } ?>
+          <li class="nav-item ">
+            <a class="nav-link" href="<?php echo base_url();?>teacherdashboard/credit">
+              <i class="material-icons">money</i>
+              <p>Wallet/Credit History: <span style="color:#F00;">(<?php echo ($mem_info['current_credit']==0)?"0":$mem_info['current_credit'];?>)</span></p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="<?php echo base_url();?>teacherdashboard/courses/">
+              <i class="material-icons">content_copy</i>
+              <p>My Courses</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="<?php echo base_url();?>teacherdashboard/credit/history/">
+              <i class="material-icons">money</i>
+              <p>Payment History</p>
+            </a>
+          </li>
+          <li class="nav-item active-pro ">
+            <a class="nav-link" href="<?php echo base_url();?>teacherdashboard/plan">
+              <i class="material-icons">unarchive</i>
+              <p>Upgrade to PRO</p>
+            </a>
+          </li>
+        </ul>
+		<?php }else{ ?>
+		<li class="nav-item active  ">
+            <a class="nav-link" href="<?php echo base_url();?>teacherdashboard/myaccount">
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="<?php echo base_url();?>teacherdashboard/edit_account">
+              <i class="material-icons">person</i>
+              <p>User Profile</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="<?php echo base_url();?>teacherdashboard/profile">
+              <i class="material-icons">content_paste</i>
+              <p>List Yourself</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="<?php echo base_url();?>teacherdashboard/listclass">
+              <i class="material-icons">library_books</i>
+              <p>List Your Class</p>
+            </a>
+          </li>
+		<?php $idds = $this->session->userdata('teacher_id');
+		$dbes = $this->load->database('default', TRUE);
+		$sqs = "SELECT liveplan FROM `wl_teacher` WHERE teacher_id='".$idds."'";
+		$qus=$dbes->query($sqs);
+		$values= $qus->result_array();
+		$liveplans = $values[0]['liveplan'];
+		if($liveplans == 1){ ?>
+			<li class="nav-item ">
+            <a class="nav-link" href="<?php echo base_url(); ?>teacherdashboard/liveclass" target="_blank">
+              <i class="material-icons">bubble_chart</i>
+              <p>Live Classes</p>
+            </a>
+          </li>
+		
+		<?php } else { ?>
+		
+          <li class="nav-item ">
+            <a class="nav-link" href="<?php echo base_url(); ?>teacherdashboard/plan">
+              <i class="material-icons">bubble_chart</i>
+              <p>Live Classes</p>
+            </a>
+          </li>
+		<?php } ?>
+          <li class="nav-item ">
+            <a class="nav-link" href="<?php echo base_url();?>teacherdashboard/credit">
+              <i class="material-icons">money</i>
+              <p>Wallet/Credit History: <span style="color:#F00;">(<?php echo ($mem_info['current_credit']==0)?"0":$mem_info['current_credit'];?>)</span></p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="<?php echo base_url();?>teacherdashboard/courses/">
+              <i class="material-icons">content_copy</i>
+              <p>My Courses</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="<?php echo base_url();?>teacherdashboard/credit/history/">
+              <i class="material-icons">money</i>
+              <p>Payment History</p>
+            </a>
+          </li>
+          <li class="nav-item active-pro ">
+            <a class="nav-link" href="<?php echo base_url();?>teacherdashboard/plan">
+              <i class="material-icons">unarchive</i>
+              <p>Upgrade to PRO</p>
+            </a>
+          </li>
+        </ul>
+		<?php } ?>
+      </div>
     </div>
-    <br><br>
-    <div class ="row">
-        <div class ="col-5 col-xs-12">
-            <div class="row">
-                <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%203.png" class="picons" style="width:54.86px; height:54.86px;">
-                    </div>
-                <div class="col-8 col-xs-6">
-                    <h4 style="color: #ffffff;">Earn Extra By Selling Through LMS.</h4>
-                    </div>
-            </div>
+	<div class="main-panel">
+      <!-- Navbar -->
+	  <?php 
+                    $idds = $this->session->userdata('teacher_id');
+                    $dbe = $this->load->database('default', TRUE);
+                    $sq = "SELECT referral_code FROM `wl_teacher` WHERE teacher_id='".$idds."'";
+                    $qu=$dbe->query($sq);
+                    $value= $qu->result_array();
+                    $referral_code = $value[0]['referral_code'];
+                    ?>
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="javascript:;">Dashboard</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end">
+            <form class="navbar-form">
+              <!--<div class="input-group no-border">
+                <input type="text" value="" class="form-control" placeholder="Search...">
+                <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                  <i class="material-icons">search</i>
+                  <div class="ripple-container"></div>
+                </button>
+              </div>-->
+            </form>
+            <ul class="navbar-nav">
+			<li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url()?>">
+                  <i class="material-icons">home</i>
+                  <p class="d-lg-none d-md-block">
+                    Home
+                  </p>
+                </a>
+              </li>
+			 <li class="nav-item dropdown">
+                <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">share</i>
+			<p class="d-lg-none d-md-block">Share Referral</p></a>
+			<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+				  <a class="dropdown-item" href="#"><p>Earn More,<br>Share Referral Code:- <span style="color:#0f75bc;"><?php echo $referral_code;?></span></p></a>
+                </div>
+			</li>
+			
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">search</i>
+                 <!-- <span class="notification">5</span>-->
+                  <p class="d-lg-none d-md-block">
+                    Search
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+				  <a class="dropdown-item" href="<?php echo base_url();?>search">Search Tutor</a>
+                  <a class="dropdown-item" href="<?php echo base_url();?>courses">Search Courses</a>
+                  <a class="dropdown-item" href="<?php echo base_url();?>liveclasses">Search Live Tutor</a>
+                </div>
+              </li>
+			  <li class="nav-item dropdown">
+                <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">content_paste</i>
+                 <!-- <span class="notification">5</span>-->
+                  <p class="d-lg-none d-md-block">
+                    Pathshala Live
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+				  <a class="dropdown-item" href="<?php echo base_url();?>acadex">AcadeX</a>
+                  <a class="dropdown-item" href="<?php echo base_url();?>searchliveclasses">Master Classes</a>
+                  <a class="dropdown-item" href="<?php echo base_url();?>webinars">Webinars</a>
+                  <a class="dropdown-item" href="<?php echo base_url();?>virtualcamp">Virtual Camp</a>
+                </div>
+              </li>
+			  <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url()?>scholarship/register/student">
+                  <i class="material-icons">class</i>
+                  <p class="d-lg-none d-md-block">
+                    Pathshala Scholarship Test(NEW)
+                  </p>
+                </a>
+              </li>
+			  <li class="nav-item dropdown">
+                <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">bubble_chart</i>
+                 <!-- <span class="notification">5</span>-->
+                  <p class="d-lg-none d-md-block">
+                    Our Partners
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+				  <a class="dropdown-item" href="<?php echo base_url();?>competition/register/parent">Foreign Language Olympiad</a>
+                </div>
+              </li>
+                  
+				  <?php 
+                    $idd = $this->session->userdata('teacher_id');
+                    $dbe = $this->load->database('default', TRUE);
+                    $sq = "SELECT current_credit, plan_expire, liveplan  FROM `wl_teacher` WHERE teacher_id='".$idd."'";
+                    $qu=$dbe->query($sq);
+                    $value= $qu->result_array();
+                    $credit_point = $value[0]['current_credit'];
+                    $planExpire = $value[0]['plan_expire'];
+					$liveplan = $value[0]['liveplan'];
+                    $date = new DateTime('now');
+                    $currentDate = $date->format('Y-m-d h:i:s');
+                    ?>
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">person</i>
+                  <p class="d-lg-none d-md-block">
+                    Account
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                 <p class="dropdown-item" style="font-size: 16px;">Hola, <?php echo $this->session->userdata('first_name');?></p>
+                          <?php if($credit_point =='0' || $credit_point == '' || ($planExpire<$currentDate)){ ?>
+                          <p class="dropdown-item" style="font-size:11px; color:red;">Credit Exhausted. Buy Now. <?php //echo $credit_point; ?></p>
+                          <?php } else{ ?>
+                          <p class="dropdown-item" style="font-size:11px;">Remaining Credits: <?php echo $credit_point; ?><br>Plan Expires: <?php echo $planExpire; ?></p>
+                          <?php } ?>
+                          <div class="dropdown-divider"></div>
+                          <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>teacherdashboard/edit_account'">User Profile</p>
+						  <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>teacherdashboard/student'">Search Student Online</p>
+                          <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>teacherdashboard/liveclass'">Live Classes Portal</p>
+                          <!--<p class="dropdown-item" onclick="window.location.href='<?php //echo base_url(); ?>#'">Webinars/Workshops</p>-->
+                          <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>teacherdashboard/courses'">My Courses</p>
+                          <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>teacherdashboard/profile'">Your Subject Listing</p>
+                          <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>teacherdashboard/plan'">Upgrade to Pro</p>
+                          <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>teacherdashboard/change_password'">Change Password</p>
+                          
+                          <div class="dropdown-divider"></div>
+                          <p class="dropdown-item" onclick="window.location.href='<?php echo base_url(); ?>teacher/logout'">Logout</p>
+                        </div>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="col-2">
-</div>
-        <div class ="col-5 col-xs-12">
-            <div class="row">
-                <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%2011.png" class="picons" style="width:54.86px; height:54.86px;">
-                    </div>
-                <div class="col-8 col-xs-6">
-                    <h4 style="color: #ffffff;">Share Youtube Videos or Sell Recorded Lectures.</h4>
-                    </div>
+      </nav>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+              <div class="card card-stats">
+			   <?php $con=mysqli_connect("localhost","root","Pathshala@1a","pathshal_pathshala");
+			$sql3="SELECT count(teacher_id) FROM `wl_teacher_profile` WHERE teacher_id='".$idd."'" ;
+			$result3=mysqli_query($con,$sql3);
+			$row3=mysqli_fetch_row($result3);
+			$str3 = implode($row3); 
+			 ?>
+                <div class="card-header card-header-warning card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">content_paste</i>
+                  </div>
+                  <p class="card-category">Subject Listed</p>
+                  <h3 class="card-title"><?php echo $str3?></h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons text-danger">content_paste</i>
+                    <a href="<?php echo base_url();?>teacherdashboard/profile/add/">Add New Listing...</a>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
-    </div>
-        <br>
-    <a class="btn btn-primary" href="<?php echo base_url();?>teacherdashboard/courses" style="background: #1b68b5; color:#ffffff; padding:10px 25px;">Check Your Content</a>
-  </div>
-</div>
-<div class="hero-image">
-  <div class="hero-text">
-    <h1 style="color: #ffffff;font-size:50px">Webinars/Workshops</h1>
-    <h3 style="color: #ffffff;">Are you Looking to Conduct a Webinar/Workshop. Get the latest Update of webinars/workshops hosted by Other Registered Tutors</h3>
-    <br>
-    <div class ="row">
-        <div class ="col-5 col-xs-12">
-            <div class="row">
-                <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%209.png" class="picons" style="width:54.86px; height:54.86px;">
-                    </div>
-                <div class="col-8 col-xs-6">
-                    <h4 style="color: #ffffff;">Opportunity to Give Webinars or Workshops.</h4>
-                    </div>
+			<?php $con=mysqli_connect("localhost","root","Pathshala@1a","pathshal_pathshala");
+			$sql1="SELECT count(teacher_id) FROM `wl_addclass` WHERE teacher_id='".$idd."'" ;
+			$result1=mysqli_query($con,$sql1);
+			$row1=mysqli_fetch_row($result1);
+			$str1 = implode($row1); 
+			 ?>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-success card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">library_books</i>
+                  </div>
+                  <p class="card-category">Upcoming Live Classes</p>
+                  <h3 class="card-title"><?php echo $str1?></h3>
+                </div>
+				<div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons text-danger">library_books</i>
+                    <a href="<?php echo base_url();?>teacherdashboard/listclass/add/">Schedule New Class...</a>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
-        <div class="col-2">
-</div>
-        <div class ="col-5 col-xs-12">
-            <div class="row">
-                <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%208.png" class="picons" style="width:54.86px; height:54.86px;">
-                    </div>
-                <div class="col-8 col-xs-6">
-                    <h4 style="color: #ffffff;">Conduct a Structured, Well Defined Workshop.</h4>
-                    </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-danger card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">info_outline</i>
+                  </div>
+                  <p class="card-category">Credits Remaining</p>
+                  <h3 class="card-title"></p><?php echo ($mem_info['current_credit']==0)?"0":$mem_info['current_credit'];?></h3><p class="card-title"><?php if($credit_point =='0' || $credit_point == '' || ($planExpire<$currentDate)){ ?>
+                          <p class="dropdown-item" style="font-size:11px; color:red;">Plan Expired. Buy Now. <?php //echo $credit_point; ?></p>
+                          <?php } else{ ?>
+                         Plan Expires: <?php echo $planExpire; ?></p>
+                          <?php } ?></p>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons text-danger">unarchive</i> 
+					<a href="<?php echo base_url();?>teacherdashboard/plan">Buy More Credits Here...</a>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
-    </div>
-    <br><br>
-    <div class ="row">
-        <div class ="col-5 col-xs-12">
-            <div class="row">
-                <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%203.png" class="picons" style="width:54.86px; height:54.86px;">
-                    </div>
-                <div class="col-8 col-xs-6">
-                    <h4 style="color: #ffffff;">Share Post Session Notes Through LMS.</h4>
-                    </div>
+          </div>
+          </div>
+		  <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+              <div class="card card-stats">
+			  <?php $con=mysqli_connect("localhost","root","Pathshala@1a","pathshal_pathshala");
+			$sql3="SELECT count(customers_id) FROM `wl_order` WHERE customers_id='".$idd."' & payment_status='paid'" ;
+			$result3=mysqli_query($con,$sql3);
+			$row3=mysqli_fetch_row($result3);
+			$str3 = implode($row3); 
+			 ?>
+                <div class="card-header card-header-warning card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">store</i>
+                  </div>
+                  <p class="card-category">Content/Courses for Sale</p>
+                  <h3 class="card-title"><?php echo $str3?></h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons text-danger">store</i>
+                    <a href="<?php echo base_url();?>courses">Check Your Course Listing...</a>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
-        <div class="col-2">
-</div>
-        <div class ="col-5 col-xs-12">
-            <div class="row">
-                <div class="col-4 col-xs-6">
-                <img src="<?php echo base_url(); ?>lms/uploaded_files/pathshala-icons/Icon%2011.png" class="picons" style="width:54.86px; height:54.86px;">
-                    </div>
-                <div class="col-8 col-xs-6">
-                    <h4 style="color: #ffffff;">Share Recorded Video of Your Webinar/Workshop.</h4>
-                    </div>
+			<?php $con=mysqli_connect("localhost","root","Pathshala@1a","pathshal_pathshala");
+			$sql1="SELECT count(teacher_id) FROM `wl_addclass` WHERE teacher_id='".$idd."'" ;
+			$result1=mysqli_query($con,$sql1);
+			$row1=mysqli_fetch_row($result1);
+			$str1 = implode($row1); 
+			 ?>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-success card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">content_copy</i>
+                  </div>
+                  <p class="card-category">Live Classes Scheduled</p>
+                  <h3 class="card-title"><?php echo $str1?></h3>
+                </div>
+				<?php 
+				$date = new DateTime('now');
+				$currentDate = $date->format('Y-m-d');?>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons text-danger">date_range</i> Updated Till Date <?php echo $currentDate?>
+                  </div>
+                </div>
+              </div>
             </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">notifications</i>
+                  </div>
+                  <p class="card-category">Your Followers</p>
+                  <h5 class="card-title">coming soon</h5>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons text-danger">update</i> Updated Till Date <?php echo $currentDate?>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
         </div>
-    </div>
-    <br>
-    <a class="btn btn-primary" href="<?php echo base_url();?>teacherdashboard/liveclass" target="_blank" style="background: #1b68b5; color:#ffffff; padding:10px 25px;">Webinars</a>
-  </div>
-</div>
-  <div class="container">
-         <h1 style="color:#1b68b5;text-align: center;">Buy Subscription</h1>
-<h3 style="color:#1b68b5;text-align: center;">Enroll Now and Explore the Education Market Place</h3>
+		<div class="container">
+<div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Subscription Plan Dashboard</h4>
+                  <p class="card-category">Are you looking for more components? Please check our Premium Version of Subscription Plan Dashboard.</p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive table-upgrade">
 <br>
   <div class="row" style="margin-bottom:20px;">
          <?php
@@ -321,7 +505,7 @@ function textColor($i)
                 <h3><?php echo $pageVal['name']?></h3>
               </div>
               <div class="panel-body text-center">
-                <p class="lead"><strong>Rs .<?php echo $pageVal['price']?>  </strong></p>
+                <p class="lead"><strong>Rs. <?php echo $pageVal['price']?>/-  </strong></p>
                 <p class="lead"><?php echo $pageVal['validity']?> month</p>
                  <p class="lead"><?php echo $pageVal['credit_point']?> Credit Point</p>
               </div>
@@ -343,17 +527,446 @@ function textColor($i)
      
     </div>
     </div>
+	</div>
+	</div>
+	</div>
 <!-- </div> -->
 <!-- </div> -->
 
 
-<script type="text/javascript">var Page='inner';</script>
+
+      </div>
+    </div>
+  </div>
+     <script type="text/javascript">var Page='inner';</script>
 <link rel="stylesheet" href="https://pathshala007.s3.ap-south-1.amazonaws.com/customnav.css">
-<?php $this->load->view("bottom_application");?>
+  <!--   Core JS Files   -->
+  <script src="<?php echo base_url(); ?>matdashboard/assets/js/core/jquery.min.js"></script>
+  <script src="<?php echo base_url(); ?>matdashboard/assets/js/core/popper.min.js"></script>
+  <script src="<?php echo base_url(); ?>matdashboard/assets/js/core/bootstrap-material-design.min.js"></script>
+  <script src="<?php echo base_url(); ?>matdashboard/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!-- Plugin for the momentJs  -->
+  <script src="<?php echo base_url(); ?>matdashboard/assets/js/plugins/moment.min.js"></script>
+  <!--  Plugin for Sweet Alert -->
+  <script src="<?php echo base_url(); ?>matdashboard/assets/js/plugins/sweetalert2.js"></script>
+  <!-- Forms Validations Plugin -->
+  <script src="<?php echo base_url(); ?>matdashboard/assets/js/plugins/jquery.validate.min.js"></script>
+  <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
+  <script src="<?php echo base_url(); ?>matdashboard/assets/js/plugins/jquery.bootstrap-wizard.js"></script>
+  <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+  <script src="<?php echo base_url(); ?>matdashboard/assets/js/plugins/bootstrap-selectpicker.js"></script>
+  <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
+  <script src="<?php echo base_url(); ?>matdashboard/assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+  <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
+  <script src="<?php echo base_url(); ?>matdashboard/assets/js/plugins/jquery.dataTables.min.js"></script>
+  <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
+  <script src="<?php echo base_url(); ?>matdashboard/assets/js/plugins/bootstrap-tagsinput.js"></script>
+  <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+  <script src="<?php echo base_url(); ?>matdashboard/assets/js/plugins/jasny-bootstrap.min.js"></script>
+  <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
+  <script src="<?php echo base_url(); ?>matdashboard/assets/js/plugins/fullcalendar.min.js"></script>
+  <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
+  <script src="<?php echo base_url(); ?>matdashboard/assets/js/plugins/jquery-jvectormap.js"></script>
+  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+  <script src="<?php echo base_url(); ?>matdashboard/assets/js/plugins/nouislider.min.js"></script>
+  <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+  <!-- Library for adding dinamically elements -->
+  <script src="<?php echo base_url(); ?>matdashboard/assets/js/plugins/arrive.min.js"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chartist JS -->
+  <script src="<?php echo base_url(); ?>matdashboard/assets/js/plugins/chartist.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="<?php echo base_url(); ?>matdashboard/assets/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="<?php echo base_url(); ?>matdashboard/assets/js/material-dashboard.js?v=2.1.2" type="text/javascript"></script>
+  <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+  <script src="<?php echo base_url(); ?>matdashboard/assets/demo/demo.js"></script>
+  <script>
+    $(document).ready(function() {
+      $().ready(function() {
+        $sidebar = $('.sidebar');
+
+        $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+        $full_page = $('.full-page');
+
+        $sidebar_responsive = $('body > .navbar-collapse');
+
+        window_width = $(window).width();
+
+        fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+        if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
+          if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
+            $('.fixed-plugin .dropdown').addClass('open');
+          }
+
+        }
+
+        $('.fixed-plugin a').click(function(event) {
+          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+          if ($(this).hasClass('switch-trigger')) {
+            if (event.stopPropagation) {
+              event.stopPropagation();
+            } else if (window.event) {
+              window.event.cancelBubble = true;
+            }
+          }
+        });
+
+        $('.fixed-plugin .active-color span').click(function() {
+          $full_page_background = $('.full-page-background');
+
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-color', new_color);
+          }
+
+          if ($full_page.length != 0) {
+            $full_page.attr('filter-color', new_color);
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.attr('data-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .background-color .badge').click(function() {
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('background-color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-background-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .img-holder').click(function() {
+          $full_page_background = $('.full-page-background');
+
+          $(this).parent('li').siblings().removeClass('active');
+          $(this).parent('li').addClass('active');
+
+
+          var new_image = $(this).find("img").attr('src');
+
+          if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            $sidebar_img_container.fadeOut('fast', function() {
+              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+              $sidebar_img_container.fadeIn('fast');
+            });
+          }
+
+          if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $full_page_background.fadeOut('fast', function() {
+              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+              $full_page_background.fadeIn('fast');
+            });
+          }
+
+          if ($('.switch-sidebar-image input:checked').length == 0) {
+            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+          }
+        });
+
+        $('.switch-sidebar-image input').change(function() {
+          $full_page_background = $('.full-page-background');
+
+          $input = $(this);
+
+          if ($input.is(':checked')) {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar_img_container.fadeIn('fast');
+              $sidebar.attr('data-image', '#');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page_background.fadeIn('fast');
+              $full_page.attr('data-image', '#');
+            }
+
+            background_image = true;
+          } else {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar.removeAttr('data-image');
+              $sidebar_img_container.fadeOut('fast');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page.removeAttr('data-image', '#');
+              $full_page_background.fadeOut('fast');
+            }
+
+            background_image = false;
+          }
+        });
+
+        $('.switch-sidebar-mini input').change(function() {
+          $body = $('body');
+
+          $input = $(this);
+
+          if (md.misc.sidebar_mini_active == true) {
+            $('body').removeClass('sidebar-mini');
+            md.misc.sidebar_mini_active = false;
+
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+
+          } else {
+
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
+            setTimeout(function() {
+              $('body').addClass('sidebar-mini');
+
+              md.misc.sidebar_mini_active = true;
+            }, 300);
+          }
+
+          // we simulate the window Resize so the charts will get updated in realtime.
+          var simulateWindowResize = setInterval(function() {
+            window.dispatchEvent(new Event('resize'));
+          }, 180);
+
+          // we stop the simulation of Window Resize after the animations are completed
+          setTimeout(function() {
+            clearInterval(simulateWindowResize);
+          }, 1000);
+
+        });
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      md.initDashboardPageCharts();
+
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      $().ready(function() {
+        $sidebar = $('.sidebar');
+
+        $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+        $full_page = $('.full-page');
+
+        $sidebar_responsive = $('body > .navbar-collapse');
+
+        window_width = $(window).width();
+
+        fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+        if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
+          if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
+            $('.fixed-plugin .dropdown').addClass('open');
+          }
+
+        }
+
+        $('.fixed-plugin a').click(function(event) {
+          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+          if ($(this).hasClass('switch-trigger')) {
+            if (event.stopPropagation) {
+              event.stopPropagation();
+            } else if (window.event) {
+              window.event.cancelBubble = true;
+            }
+          }
+        });
+
+        $('.fixed-plugin .active-color span').click(function() {
+          $full_page_background = $('.full-page-background');
+
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-color', new_color);
+          }
+
+          if ($full_page.length != 0) {
+            $full_page.attr('filter-color', new_color);
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.attr('data-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .background-color .badge').click(function() {
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('background-color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-background-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .img-holder').click(function() {
+          $full_page_background = $('.full-page-background');
+
+          $(this).parent('li').siblings().removeClass('active');
+          $(this).parent('li').addClass('active');
+
+
+          var new_image = $(this).find("img").attr('src');
+
+          if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            $sidebar_img_container.fadeOut('fast', function() {
+              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+              $sidebar_img_container.fadeIn('fast');
+            });
+          }
+
+          if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $full_page_background.fadeOut('fast', function() {
+              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+              $full_page_background.fadeIn('fast');
+            });
+          }
+
+          if ($('.switch-sidebar-image input:checked').length == 0) {
+            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+          }
+        });
+
+        $('.switch-sidebar-image input').change(function() {
+          $full_page_background = $('.full-page-background');
+
+          $input = $(this);
+
+          if ($input.is(':checked')) {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar_img_container.fadeIn('fast');
+              $sidebar.attr('data-image', '#');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page_background.fadeIn('fast');
+              $full_page.attr('data-image', '#');
+            }
+
+            background_image = true;
+          } else {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar.removeAttr('data-image');
+              $sidebar_img_container.fadeOut('fast');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page.removeAttr('data-image', '#');
+              $full_page_background.fadeOut('fast');
+            }
+
+            background_image = false;
+          }
+        });
+
+        $('.switch-sidebar-mini input').change(function() {
+          $body = $('body');
+
+          $input = $(this);
+
+          if (md.misc.sidebar_mini_active == true) {
+            $('body').removeClass('sidebar-mini');
+            md.misc.sidebar_mini_active = false;
+
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+
+          } else {
+
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
+            setTimeout(function() {
+              $('body').addClass('sidebar-mini');
+
+              md.misc.sidebar_mini_active = true;
+            }, 300);
+          }
+
+          // we simulate the window Resize so the charts will get updated in realtime.
+          var simulateWindowResize = setInterval(function() {
+            window.dispatchEvent(new Event('resize'));
+          }, 180);
+
+          // we stop the simulation of Window Resize after the animations are completed
+          setTimeout(function() {
+            clearInterval(simulateWindowResize);
+          }, 1000);
+
+        });
+      });
+    });
+  </script>
+  <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5f71a438f0e7167d00145220/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      md.initDashboardPageCharts();
+
+    });
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151377731-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-151377731-1');
+</script>
+<script data-ad-client="ca-pub-9034141091044478" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script type="text/javascript">var Page='inner';</script>
 <style>
 .pagination {
   display: inline-block;
 }
+
 .pagination a {
   color: black;
   float: left;
@@ -362,10 +975,21 @@ function textColor($i)
   transition: background-color .3s;
   border: 1px solid #ddd;
 }
+
 .pagination a.current {
   background-color: #4CAF50;
   color: white;
   border: 1px solid #4CAF50;
 }
+
 .pagination a:hover:not(.current) {background-color: #ddd;}
+.buttons {
+    float: right;
+    margin-bottom: 0px;
+    margin-top: -40px;
+}
 </style>
+
+</body>
+
+</html>

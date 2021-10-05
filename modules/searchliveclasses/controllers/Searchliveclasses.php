@@ -7,7 +7,7 @@ class Searchliveclasses extends Public_Controller
 		$this->load->model(array('searchliveclasses/searchliveclasses_model','payment/payment_model','order/order_model'));
 	    $this->load->library('Ajax_pagination');
 		$this->load->helper(array('payment/paytm'));
-		$this->perPage = 30;
+		$this->perPage = 100;
 	}
 	
 	public function index()
@@ -87,7 +87,7 @@ class Searchliveclasses extends Public_Controller
         $data['res'] = $this->searchliveclasses_model->get_course_row($conditions);
         //echo_sql();
         //load the view
-        $this->load->view('searchliveclasses/view_search_liveclasses', $data, false);
+        $this->load->view('searchliveclasses/view_searchliveclasses', $data, false);
 		}
 		
 		// public function getcourses(){
